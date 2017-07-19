@@ -3,8 +3,11 @@ $(window).load(function(){
     toggleHelp();
     toggleSlider();
     hotspotSlider();
+    fastVid ();
+    loadScene();
     skipFade();
     toggleFullscreen();
+    closeOverlay();
     resetPointcloud();
 });
  /**************end of document ready function ************/
@@ -12,20 +15,23 @@ $(window).load(function(){
 
 /* Splash Video
 *****************************************************/
-window.getElementById("splash-video").playbackRate = 1.75;
-
-document.getElementById("splash-video").addEventListener("ended", loadLanding);
-function loadLanding(){
-    window.location.href="../pages/landing.html";
+function fastVid(){
+    window.getElementById("splash-video").playbackRate = 1.75;
+}
+function loadScene(){
+    document.getElementByClassName("landing-links").addEventListener("click", loadSplash);
+}
+function loadSplash(){
+    window.location.href="../pages/splash.html";
 };
 
 
-/* Fade in landing after skip
+/* Fade in Barge after skip
 *****************************************************/
 function skipFade (){
     $("#skip-button").on("click", function() {
         $("body").fadeOut("slow", function() {
-            $("body").load('../pages/landing.html #jquery-load-point').fadeIn("slow");
+            $("body").load('../examples/barge.html').fadeIn("slow");
         });
             return false;
     });
@@ -58,11 +64,13 @@ function toggleHelp(){
     $("#help").click(function() {
         $("#help-overlay").slideToggle();
     });
-    /* Close */
+};
+
+function closeOverlay(){
     $("#closebtn").click(function() {
         $("#help-overlay").hide();
-    });
-};
+    });    
+}
 
 /* HTML5 Fullscreen API
 *****************************************************/
