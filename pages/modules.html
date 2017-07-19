@@ -1,0 +1,113 @@
+<!-- Controlbar -->
+<div id="controlbar-container" class="navbar navbar-fixed-bottom">
+    <!-- Pending final location
+    <a href="/pages/landing.html" title=""><img class="logo" src="../assets/img/VizcayaLogo-color205.jpg" alt="Vizcaya Logo"></a>-->
+    <nav class="controlbar-nav text-center">  
+        <ul>
+            <li id="home"><a href="#"><span class="fa fa-home fa-2x nav-icon" title="Home"></span></a></li>
+            <li id="reset"><a href="#"><span class="fa fa-refresh fa-2x nav-icon" title="Reset Scene"></span></a></li>
+            <li id="back"><a href="#"><i class="fa fa-arrow-left fa-2x nav-icon" title="Last Hotspot"></i></a></li>
+            <li id="next"><a href="#"><i class="fa fa-arrow-right fa-2x nav-icon" title="Next Hotspot"></i></a></li>
+            <li id="fullscreen"><i class="fa fa-expand fa-2x nav-icon " title="Full Screen"></i></li>
+            <li id="help"><a href="#"><i class="fa fa-question-circle fa-2x nav-icon text-center" title="Help"></i></a></li>				
+            <li id="toggle" onclick="toggleSlider()"><a href="#"><i class="fa fa-bars fa-2x nav-icon" title="Scenes"></i></a></li>
+            <li id="flag"><a href="#"><i class="fa fa-flag-o fa-2x nav-icon" title="Change Language"></i></a></li>
+            <!-- Alternative for evaluation
+            <li id="toggle"><a href="#"><i class="fa fa-flag fa-2x nav-icon" title="Toggle Scenes"></i></a></li> -->
+        </ul>    
+    </nav>
+</div>
+
+
+<!-- Bootstrap thumbnail slider with swipe support:
+https://www.bootply.com/d1xV5UTiqv
+http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/
+https://www.codeply.com/go/PvFtEPZnpm/bootstrap-scrolling-parallax-+-responsive-carousel (parallax)
+Gorgeous: https://mobirise.com/bootstrap-carousel/
+ -->
+<div id= "hotspot-container"> 
+    <div class="well">
+        <div id="hotspotCarousel" class="carousel slide">
+            <ul class="hotspot-slides">
+                <li data-target="#hotspotCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#hotspotCarousel" data-slide-to="1" class="active"></li>
+                <li data-target="#hotspotCarousel" data-slide-to="2" class="active"></li>
+            </ul>
+
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row-fluid">
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                    </div>
+                </div>
+                 <!-- Will enable once more hotspot points/ scene views have been set up
+                <div class="item">
+                    <div class="row-fluid">
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                    </div>
+                </div>               
+                 <div class="item">
+                    <div class="row-fluid">
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
+                    </div>
+                </div>  -->
+            </div><!--/carousel-inner-->
+
+            <!-- Indicators -->
+            <a class="left carousel-control" href="#hotspotCarousel" data-slide= "prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></a>
+            <a class="right carousel-control" href="#hotspotCarousel" data-slide= "next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></a>
+
+        </div><!-- end of hotspotCarousel -->
+    </div><!-- end of well-->
+</div><!-- end of container-fluid -->
+
+
+<!-- Help Overlay -->
+<div id="help-overlay" class="overlay overlay-hugeinc">
+    <h2>Help</h2>
+    <a class="close-button"><i class="fa fa-times" aria-hidden="true"></i></a>
+    <div class="help-overlay overlay-content">
+        <h3>Sidebar</h3>
+        <ul>
+            <li>Press <i class="fa fa-home fa-1x"></i> to return to the landing page to view other rooms</li>
+            <li>Press <i class="fa fa-arrow-left fa-1x"></i> to exit annotation view</li>
+            <li>Press <i class="fa fa-list fa-1x"></i> on the sidebar to learn more about Vizcaya Museum and Gardens</li>
+            <li>Press <i class="fa fa-expand fa-1x"></i> to view the room in full screen mode</li> 
+            <li> Tap <i class="fa fa-expand fa-1x"></i> again or press “Esc” to exit </li>
+        </ul>
+        <h3>Navigation</h3>
+        <ul>
+            <li>Drag left or right to explore the room</li>
+            <li>Use two fingers to zoom in and out</li>
+            <li>Tap on a hotspot to view the scene</li>
+            <li>Tap <img class="help-overlay-icons" src="../build/potree/resources/icons/info.svg" alt= "the Info icon">  once to view the informational description</li>
+            <li>Tap the title while the text is open to view the room from that scene</li>
+            <li>Tap the <img class="help-overlay-icons" src="../resources/icons/goto.svg" alt="the arrow"> title text once to view the room from that scene</li>
+        </ul>
+</div>
+
+
+<!-- About Overlay -->
+<div id="about-overlay" class="overlay overlay-hugeinc">
+    <h2>About Vizcaya Museum and Gardens</h2>
+    <a class="close-button"><i class="fa fa-times" aria-hidden="true"></i></a>
+    <div class="overlay-content">
+        <img src="../assets/img/vizcaya-aerial-pool.jpg" alt="Vizcaya Museum">
+        <p>Vizcaya features an architecturally significant Main House with 34 decorated rooms, ten acres of formal gardens and diverse collections including European antiquities, American art commissioned in the 1900s and century-old plants.</p>
+        <img id="about-grotto" src="../assets/img/restored-grotto.jpg" alt="Vizcaya Museum">
+        <p>This winter residence of James Deering (1859–1925), was built between 1914 and 1922 in the Coconut Grove area of Miami. The estate was entirely surrounded by subtropical forest—the Main House and the formal gardens appeared as a dreamlike vision in the midst of the jungle on the shores of Biscayne Bay.</p>
+        <p>Drawing inspiration from nature and mixing in a good dose of fantasy was what Robert Winthrop Chanler (American painter) did best, as evidenced in this piece, the ceiling of the Swimming Pool grotto. The ceiling is a painted and sculptural mural completed in late 1916, just in time for Deering’s official arrival at the estate.</p>
+        <p><small><em>Credits: http://www.vizcaya.org/house-robert-winthrop-chanler.asp &amp; http://vizcaya.org/</em></small></p>
+
+    </div>
+</div>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+	<meta name="description" content="A Museum made digital. We are using the latest in 3D technology to scan and digitise a wide selection of Museum rooms and objects">
+	<meta name="author" content="">
+	<!--Need favicon symbol-->
+    <title>Daruma Tech | Vizcaya | Barge 2017</title>
+
+	<!-- Bootstrap and Scrollbar-->
+	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+	<!-- Font related -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">	
+	<link href="https://fonts.googleapis.com/css?family=Lato:400|Roboto:400" rel="stylesheet">
+	<!-- Potree styling -->
+	<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+ 	<script src="libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>	
+	<link rel="stylesheet" type="text/css" href="libs/perfect-scrollbar/css/perfect-scrollbar.css">
+	<!-- Font elements -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<!-- Potree styling -->
+	<link rel="stylesheet" href="../libs/openlayers3/ol.css" type="text/css">
+	<link rel="stylesheet" href="../build/potree/potree.css" type="text/css">
+	<!--Custom Elements -->
+	<link rel="stylesheet" href="../css/custom.css" type="text/css">
+	<script src="../js/main.js"></script>
+	<!-- Work arounds -->
+  <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->	
+  </head>
+
+  <body>
+	<!-- Potree dependencies -->
+	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+	<script src="libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../libs/three.js/build/three.min.js"></script>
+	<script src="../libs/other/stats.min.js"></script>
+	<script src="../libs/other/BinaryHeap.js"></script>
+	<script src="../libs/tween/tween.min.js"></script>
+	<script src="../libs/d3/d3.js"></script>
+	<script src="../libs/proj4/proj4.js"></script>
+	<script src="../libs/openlayers3/ol.js"></script>
+	<script src="../libs/i18next/i18next.js"></script>
+	<!-- The Viewer -->
+	<script src="../libs/plasio/js/laslaz.js"></script>
+	<script src="../libs/plasio/vendor/bluebird.js"></script>
+	<script src="../build/potree/potree.js"></script>
+
+
+	<!-- Potree Render Container -->
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+		<div id="potree_render_area">
+			</div>
+		<div id="potree_description" class="potree_info_text"></div>
+	</div>
+
+
+	<!-- Controlbar and overlays-->
+	<script> 
+		$(function(){
+			$("#includedContent").load("../pages/modules.html");
+		});
+	</script>
+	<div id="includedContent"></div>
+	
+	
+	<!-- Point cloud starts here -->
+	<script>	
+		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+		viewer.setPointSize(1);
+		viewer.setFOV(65);
+		viewer.setPointSizing("Adaptive"); // ["Fixed", "Attenuated", "Adaptive"]
+		viewer.setQuality("Squares"); // ["Squares", "Circles", "Interpolation"]
+		viewer.setPointBudget(5*1000*1000);
+		viewer.setIntensityRange(0, 300);
+		viewer.setEDLEnabled(false);
+		viewer.setBackground("skybox"); // ["skybox", "gradient", "black", "white"];
+		viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
+
+
+		//Setting default camera scene and annotations content, locations, and views
+		viewer.setDescription("");
+		viewer.loadSettingsFromURL();
+
+		let sceneVBG = new Potree.Scene();		
+		viewer.setScene(sceneVBG);		
+		Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
+			sceneVBG.addPointCloud(e.pointcloud);
+			sceneVBG.view.position.set(-0.16, 30.21, 18.83);
+			sceneVBG.view.lookAt(new THREE.Vector3(-0.10, -0.82, 2.34));
+
+
+		// Annotations (5 total)
+
+				//Middle of barge
+				sceneVBG.addAnnotation([0.65, -1.40, 0.50], {
+					"cameraPosition": [2.25, -1.40, 4.60],
+					"cameraTarget": [-0.65, -1.20, 4.10],
+					"title": "Center" 
+					// 	"actions": [{
+					// 	"onclick": function(){
+					// 		sceneVBG.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+					// 	}
+					// }]
+				});
+
+				//Long Barge view
+				sceneVBG.addAnnotation([24.34, -1.80,0.50], {
+					"cameraPosition": [25.26, -1.81,5.66],
+					"cameraTarget": [24.34, -1.80,5.67],
+					"title": "Long view"
+				});
+
+				//Left Hermes statue
+				sceneVBG.addAnnotation([4.74, 5.44, 1.50], {
+					"cameraPosition": [5.20, 7.43, 4.48],
+					"cameraTarget": [4.74, 5.44, 4.40],
+					"title": "Hermes"
+				});
+
+				//Right Hermes statue
+				sceneVBG.addAnnotation([-2.53, 5.37, 1.50], {
+					"cameraPosition": [-2.87, 7.50, 4.24],
+					"cameraTarget": [-2.53, 5.37, 4.12],
+					"title": "Hermes"
+				});
+
+				//Back Stairwell 
+				sceneVBG.addAnnotation([-15.41, -1.68, 0.50], {
+					"cameraPosition":[-11.91, -1.86, 4.16],
+					"cameraTarget": [-15.41, -1.68, 3.49],
+					"title": "Stairwell"
+				});				
+
+
+// Reserve for scene reset - map to reset button
+				// sceneVBG.addAnnotation([-5.47, 4.51, 0.13], {
+				// 	"cameraPosition": [-5.47, 4.51, 0.13],
+				// 	"cameraTarget": [-5.37, 4.50, 0.13],
+				// 	"title": "View", //hermes statue
+				// 		"actions": [{
+				// 		"icon": Potree.resourcePath + "/icons/goto.svg",
+				// 		"onclick": function(){
+				// 			sceneVZP.view.lookAt(new THREE.Vector3(-5.47, 4.51, 0.13));
+				// 		}
+				// 	}]
+				// });
+
+		});	
+
+	</script>
+	
+	
+  </body>
+</html>

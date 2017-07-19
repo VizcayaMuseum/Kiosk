@@ -1,0 +1,317 @@
+/*****************************************************
+Vizcaya colors
+
+Light: cornflowerblue #56b7fb rgb(86,183,251);
+Medium: cadetblue #6a91bc rgb(106,145,188);
+Dark: blue #104c92 rgb(16,76,146);
+
+*****************************************************/
+
+html {
+	position: relative;
+	min-height:100%;
+}
+body {
+	background-color: #000;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
+	padding: 	0;
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+}
+
+
+/* Annotations
+*****************************************************/
+div.annotation {
+	opacity: 0.80 !important;
+}
+div.annotation > div{
+	background-color: rgb(16,76,146) !important;
+	opacity: 1 !important;
+}
+
+
+/* Splash Page
+*****************************************************/
+video {
+	position: fixed;
+	top:0;
+	left: 0;
+	width: auto;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+#video-skip-icon {
+	color: rgb(86,183,251);
+	font-size: 1.8em;
+}
+#skip-button {
+	border-radius: 50%;
+	border: 2px solid white;
+	background: transparent;
+	position: fixed;
+	right: 5%;
+	bottom: 6%;
+	height: 75px;
+	width: 75px;
+	z-index: 10;
+}
+	#skip-button:hover,
+	#skip-button:active    {
+		background-color: #fff;
+		border-color: rgb(86,183,251);
+	}
+
+
+/* Landing 
+*****************************************************/
+.welcome {
+	background-image: url("../assets/img/villa_vizcaya_splash_1.jpg");
+	background-position: center;
+	background-size:cover;
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	padding: 0 20px;
+	margin: 0 auto;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	z-index: -1;
+	color: #fff;
+}
+.jumbotron {
+	width: 100%;
+	padding:3%;
+	background: transparent !important;
+	font-family: 'Lato', sans-serif;
+}
+.jumbotron h1 {
+	font-size: 125px !important;
+	margin-bottom: 3%;
+}
+.jumbotron p {
+	width: 50%;
+	margin-left: 25%;
+	font-size:25px;
+	font-weight: 300;
+}
+.jumbotron p:last-of-type {
+	margin-bottom: 5%;
+}
+.welcome .btn-lg {
+	background-color: transparent;
+	padding: 10px 20px;
+	font-weight: bold;
+	border: 0.125em solid #fff;
+	margin: 3%;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 40px;
+}
+.landing-links:hover,
+.landing-links:focus,
+.landing-links:active    {
+	background-color:rgba(20,20,20,0.6);
+	color: #fff;
+	border-color: #fff;
+}
+
+
+/* Control Bar
+*****************************************************/
+#controlbar-container {
+	background-color: rgb(106,145,188);
+	border-top: 8px solid rgb(16,76,146);
+	height: 60px;
+}
+#fullscreen {
+	cursor: pointer;
+}
+.fa {
+	margin-top:25%;
+}
+.text-center {
+	text-align: center;
+}
+.logo {
+margin: 0;
+width: 100px;
+text-align: left;
+}
+.nav-icon {
+	color: #fff;
+	display: flex;
+	flex-flow: column;
+	position: relative;
+	flex-flow: column;
+	-webkit-box-align: center;
+	justify-content: flex-start;
+}
+.controlbar-nav {
+	text-align: center;
+}
+.controlbar-nav ul {
+	display: inline-flex;
+	z-index:	100;
+	list-style: none;
+	padding: 0;
+	justify-content: center;
+	vertical-align: top;
+}
+.controlbar-nav li {
+	margin: 0 20%;
+}
+.controlbar-nav  a {
+	text-decoration: none;
+	margin-bottom: 5px;
+	color: #fff;
+	font-size: 17px;
+}
+	.controlbar-nav a:link,
+	.controlbar-nav a:visited 
+	.controlbar-nav a:hover, 
+	.controlbar-nav a:active {
+		text-decoration: none;
+		color: 	#ccccff;
+		text-decoration: 	none;
+	}
+
+/* Hotspot Carousel
+*****************************************************/
+#hotspot-container {
+	width: 100%;
+	height: 150px;
+	display: none;
+}
+#hotspotCarousel {
+	display: inline-block;
+	position: fixed;
+	left: 0;
+	bottom: 60px;
+	background-color: rgba(16,76,146,0.6);
+	width: 100%;
+	height: 130px;
+}
+.thumbnail {
+	padding: 0;
+	margin-bottom:0;
+}
+.span3 {
+	display: inline-block;
+	margin: 0 4%;
+}
+.carousel {
+	margin-bottom: 0;
+	padding: 0 40px 30px 40px;
+	list-style: none;
+}
+.carousel-control {
+	left: -12px;
+	width: 5%;
+}
+.carousel-control.right {
+	right: -12px;
+}
+.carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: 0px;
+	margin-right: -19px;
+}
+.carousel-indicators li {
+	background: #c0c0c0;
+}
+.carousel-indicators .active {
+background: #333333;
+}
+.active {
+	list-style: none;
+}
+
+/* Overlays
+*****************************************************/
+#about-grotto {
+	height: 230px;
+}
+.overlay .close-button {
+    position: absolute;
+    top: -3px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 40px;
+    color: #fff;
+}
+.overlay{
+	display: none;
+	position: fixed;
+	width: 33%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background: #555;
+	z-index: 1000;
+	padding: 0px;
+}
+.overlay h2 {
+    color: #eee;
+    height: 30px;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    padding-left: 30px;
+}
+.overlay img {
+	text-align: center;
+	width: 100%;
+	padding:0;
+}
+.overlay div {
+	position: relative;
+	font-size: 18px;
+	margin: 30px
+}
+.overlay p {
+	font-size: 0.65em;
+}
+.overlay li {
+	list-style: none;
+}
+.help-overlay {
+	text-align: left;
+	list-style: none;
+	padding-top: 3%;
+}
+.help-overlay ul {
+	line-height: 1.8;
+	padding-bottom: 10%;
+}
+.help-overlay i {
+	margin-top: 0 !important;
+}
+.help-overlay h3  {
+	text-align: center;
+	font-size: 2.1em;
+}
+.help-overlay-icons {
+	width: 18px !important;
+	height: 18px;
+	vertical-align: text-bottom;
+}
+
+
