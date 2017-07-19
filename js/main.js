@@ -1,4 +1,6 @@
-$(document).ready(function() {
+$(window).load(function(){
+// $(document).ready(function() {
+    toggleHelp();
     toggleSlider();
     hotspotSlider();
     skipFade();
@@ -50,6 +52,18 @@ function hotspotSlider (){
 };
 
 
+/* Help Overlay 
+*****************************************************/
+function toggleHelp(){
+    $("#help").click(function() {
+        $("#help-overlay").slideToggle();
+    });
+    /* Close */
+    $("#closebtn").click(function() {
+        $("#help-overlay").hide();
+    });
+};
+
 /* HTML5 Fullscreen API
 *****************************************************/
 document.getElementById('fullscreen').addEventListener('click', function(){
@@ -81,6 +95,9 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
     }
 }
 }
+
+
+
 
 // $(document).ready(function(){
 //     $("#toggle").click(function() {

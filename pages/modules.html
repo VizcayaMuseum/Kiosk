@@ -12,8 +12,6 @@
             <li id="help"><a href="#"><i class="fa fa-question-circle fa-2x nav-icon text-center" title="Help"></i></a></li>				
             <li id="toggle" onclick="toggleSlider()"><a href="#"><i class="fa fa-bars fa-2x nav-icon" title="Scenes"></i></a></li>
             <li id="flag"><a href="#"><i class="fa fa-flag-o fa-2x nav-icon" title="Change Language"></i></a></li>
-            <!-- Alternative for evaluation
-            <li id="toggle"><a href="#"><i class="fa fa-flag fa-2x nav-icon" title="Toggle Scenes"></i></a></li> -->
         </ul>    
     </nav>
 </div>
@@ -75,7 +73,7 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
 <!-- Help Overlay -->
 <div id="help-overlay" class="overlay overlay-hugeinc">
     <h2>Help</h2>
-    <a class="close-button"><i class="fa fa-times" aria-hidden="true"></i></a>
+    <a id="closebtn" onclick="closeNav()">&times;</a>
     <div class="help-overlay overlay-content">
         <h3>Sidebar</h3>
         <ul>

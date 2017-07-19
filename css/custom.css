@@ -246,7 +246,68 @@ background: #333333;
 
 /* Overlays
 *****************************************************/
-#about-grotto {
+#help-overlay {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: fixed;
+  left: 0x;
+  top: 100px;
+z-index: 100;
+  background-color: rgba(16,76,146, 0.6);
+  overflow: hidden;
+}
+
+.overlay-content {
+  position: relative;
+  text-decoration: none;
+  list-style: none;
+  top: 0;
+  width: 100%;
+  margin-top: 5px;
+  color: white;
+}
+
+#help-overlay a {
+  padding: 10px 0 0 10px;
+  text-decoration: none;
+  font-size: 26px;
+  color: #818181;
+  display: block;
+}
+
+#help-overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+#help-overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+}
+#help-overlay .fa {
+	width: 20px;
+	height: 20px;
+}
+
+.help-overlay-icons {
+	height: 20px;
+	width: 20px;
+}
+.help-overlay ul {
+	height: 200px;
+}
+.help-overlay .fa{
+	height: 10px;
+	width: 10px;
+}
+
+#about-overlay {
+	display: none;
+}
+/* #about-grotto {
 	height: 230px;
 }
 .overlay .close-button {
@@ -292,6 +353,7 @@ background: #333333;
 .overlay li {
 	list-style: none;
 }
+
 .help-overlay {
 	text-align: left;
 	list-style: none;
@@ -312,6 +374,6 @@ background: #333333;
 	width: 18px !important;
 	height: 18px;
 	vertical-align: text-bottom;
-}
+} */
 
 
