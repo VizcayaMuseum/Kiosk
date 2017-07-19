@@ -15,7 +15,7 @@
 * Touchscreen modification (pending)
 
 ## Prerequisites
-Make sure you have the following installed and working in order to view the project. You can view detailed installation guidelines within the following links:
+Make sure you have the following installed and working in order to reproduce the project. You can view detailed installation guidelines within the following links:
 * [Xampp / Apache server](https://www.apachefriends.org/index.html)
 * [PotreeConverter and binaries](https://github.com/potree/PotreeConverter/releases)
 
