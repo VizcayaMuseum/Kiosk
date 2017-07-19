@@ -83,7 +83,7 @@
 		viewer.setPointBudget(5*1000*1000);
 		viewer.setIntensityRange(0, 300);
 		viewer.setEDLEnabled(false);
-		viewer.setBackground("skybox"); // ["skybox", "gradient", "black", "white"];
+		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
 		viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
 
 
@@ -139,7 +139,14 @@
 					"cameraPosition":[-11.91, -1.86, 4.16],
 					"cameraTarget": [-15.41, -1.68, 3.49],
 					"title": "Stairwell"
-				});				
+				});	
+
+				//Reset Scene
+				sceneVBG.addAnnotation([-0.16, 30.21, 18.83], {
+					"cameraPosition":[-0.16, 30.21, 18.83],
+					"cameraTarget": [-0.10, -0.82, 2.34],
+					"title": "Scene Reset"
+				});	
 
 
 // Reserve for scene reset - map to reset button

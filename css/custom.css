@@ -212,6 +212,10 @@ text-align: left;
 	padding: 0;
 	margin-bottom:0;
 }
+.thumbnail img {
+	width: 300px;
+	height: 110px;
+}
 .span3 {
 	display: inline-block;
 	margin: 0 4%;
@@ -257,7 +261,7 @@ background: #333333;
   display: block;
   position: fixed;
   right: 0;
-  top: 6%;
+  top: 3%;
   z-index: 100;
   background-color: rgba(16,76,146, 0.6);
   overflow-y: auto;
