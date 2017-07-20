@@ -1,8 +1,8 @@
 <h1 align="center">Custom UI Potree Viewer</h1>
 
-![Sample screenshot](https://github.com/ceciliaconsta3/Potree-Custom-UI/blob/master/assets/img/readme-pic.PNG?raw=true "Screenshot")
+![Sample screenshot](https://github.com/ceciliaconsta3/kiosk/blob/master/assets/img/readme-pic.PNG?raw=true "Screenshot")
 
-<p align="center">Potree-Custom-UI is a simplified proof-of-concept UI for the Potree WebGL point cloud viewer.</p>
+<p align="center">This is a simplified proof-of-concept UI for the Potree WebGL point cloud viewer.</p>
 <p align="center">This project includes custom pointclouds converted with PotreeConverter.</p>
 
 ## Features
@@ -15,7 +15,7 @@
 * Touchscreen modification (pending)
 
 ## Prerequisites
-Make sure you have the following installed and working in order to view the project. You can view detailed installation guidelines within the following links:
+Make sure you have the following installed and working in order to reproduce the project. You can view detailed installation guidelines within the following links:
 * [Xampp / Apache server](https://www.apachefriends.org/index.html)
 * [PotreeConverter and binaries](https://github.com/potree/PotreeConverter/releases)
 
