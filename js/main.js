@@ -5,6 +5,7 @@ $(window).load(function(){
     hotspotSlider();
     fastVid ();
     loadScene();
+    loadSplash();
     skipFade();
     toggleFullscreen();
     closeOverlay();
@@ -62,8 +63,9 @@ function hotspotSlider (){
 *****************************************************/
 function toggleHelp(){
     $("#help").click(function() {
-        $("#help-overlay").slideToggle();
+        $("#help-overlay").slideToggle();      
     });
+  
 };
 
 function closeOverlay(){
