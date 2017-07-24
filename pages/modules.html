@@ -4,14 +4,14 @@
     <a href="/pages/landing.html" title=""><img class="logo" src="../assets/img/VizcayaLogo-color205.jpg" alt="Vizcaya Logo"></a>-->
     <nav class="controlbar-nav text-center">  
         <ul>
-            <li id="home"><a href="../pages/landing.html"><span class="fa fa-home fa-2x nav-icon" title="Home"></span></a></li>
-            <li id="reset"><a href="#"><span class="fa fa-refresh fa-2x nav-icon" title="Reset Scene"></span></a></li>
-            <li id="back"><a href="#"><i class="fa fa-arrow-left fa-2x nav-icon" title="Last Hotspot"></i></a></li>
-            <li id="next"><a href="#"><i class="fa fa-arrow-right fa-2x nav-icon" title="Next Hotspot"></i></a></li>
-            <li id="fullscreen"><i class="fa fa-expand fa-2x nav-icon " onclick="toggleFullscreen()" title="Full Screen"></i></li>		
-            <li id="toggle" ><a href="#"><i class="fa fa-bars fa-2x nav-icon" onclick="toggleSlider()" title="Scenes"></i></a></li>
-            <li id="help" ><a href="#"><i class="fa fa-question-circle fa-2x nav-icon text-center" onclick="toggleHelp()" title="Help"></i></a></li>            
-            <li id="flag"><a href="#"><i class="fa fa-flag-o fa-2x nav-icon" title="Change Language"></i></a></li>
+            <li id="home"><a href="../pages/landing.html"><span class="fa fa-home fa-2x nav-icon" title="Home" tabindex="1"></span></a></li>
+            <li id="reset"><a href="#"><span class="fa fa-refresh fa-2x nav-icon" title="Reset Scene" tabindex="2"></span></a></li>
+            <li id="back"><a href="#"><i class="fa fa-arrow-left fa-2x nav-icon" title="Last Hotspot" tabindex="3"></i></a></li>
+            <li id="next"><a href="#"><i class="fa fa-arrow-right fa-2x nav-icon" title="Next Hotspot" tabindex="4"></i></a></li>
+            <li id="fullscreen"><i class="fa fa-expand fa-2x nav-icon " onclick="toggleFullscreen()" title="Full Screen" tabindex="5"></i></li>		
+            <li id="toggle" ><a href="#"><i class="fa fa-bars fa-2x nav-icon" onclick="toggleSlider()" title="Scenes" tabindex="6"></i></a></li>
+            <li id="help" ><a href="#"><i class="fa fa-question-circle fa-2x nav-icon text-center" onclick="toggleHelp()" title="Help" tabindex="7"></i></a></li>            
+            <li id="flag"><a href="#"><i class="fa fa-flag-o fa-2x nav-icon" title="Change Language" tabindex="8"></i></a></li>
         </ul>    
     </nav>
 </div>
@@ -63,8 +63,8 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
             </div><!--/carousel-inner-->
 
             <!-- Indicators -->
-            <a class="left carousel-control" href="#hotspotCarousel" data-slide= "prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></a>
-            <a class="right carousel-control" href="#hotspotCarousel" data-slide= "next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></a>
+            <a class="left carousel-control" href="#hotspotCarousel" data-slide= "prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true" tabindex="10"></i></a>
+            <a class="right carousel-control" href="#hotspotCarousel" data-slide= "next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true" tabindex="11"></i></a>
 
         </div><!-- end of hotspotCarousel -->
     </div><!-- end of well-->
@@ -73,7 +73,7 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
 
 <!-- Help Overlay -->
 <div id="help-overlay" class="overlay overlay-hugeinc">
-    <a id="closebtn" onclick="closeOverlay()">&times;</a>
+    <a id="closebtn" onclick="closeOverlay()" tabindex="9">&times;</a>
     <div class="help-overlay overlay-content">
         <h3>Controls</h3>
         <ul>
@@ -95,7 +95,7 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
 
 
 <!-- About Overlay -->
-<div id="about-overlay" class="overlay overlay-hugeinc">
+<!-- <div id="about-overlay" class="overlay overlay-hugeinc">
     <h2>About Vizcaya Museum and Gardens</h2>
     <a class="close-button"><i class="fa fa-times" aria-hidden="true"></i></a>
     <div class="overlay-content">
@@ -107,4 +107,4 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
         <p><small><em>Credits: http://www.vizcaya.org/house-robert-winthrop-chanler.asp &amp; http://vizcaya.org/</em></small></p>
 
     </div>
-</div>
+</div> -->

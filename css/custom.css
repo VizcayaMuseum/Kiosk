@@ -1,6 +1,6 @@
 /*****************************************************
 Vizcaya colors
-
+Lightest:deepskyblue #28cefd rgb(40,206,253)
 Light: cornflowerblue #56b7fb rgb(86,183,251);
 Medium: cadetblue #6a91bc rgb(106,145,188);
 Dark: blue #104c92 rgb(16,76,146);
@@ -27,6 +27,10 @@ body {
 	font-size: 18px;
 }
 
+*:focu{
+	outline: 0;
+	outline: none;
+}
 
 /* Annotations
 *****************************************************/
@@ -163,6 +167,12 @@ text-align: left;
 	-webkit-box-align: center;
 	justify-content: flex-start;
 }
+	.nav-icon:focus,
+	.nav-icon:hover,
+	.nav-icon:active
+ {
+		color: #28cefd;
+	}
 .controlbar-nav {
 	text-align: center;
 }
@@ -175,7 +185,7 @@ text-align: left;
 	vertical-align: top;
 }
 .controlbar-nav li {
-	margin: 0 20%;
+	margin: 0 30%;
 }
 .controlbar-nav  a {
 	text-decoration: none;
@@ -183,14 +193,7 @@ text-align: left;
 	color: #fff;
 	font-size: 17px;
 }
-	.controlbar-nav a:link,
-	.controlbar-nav a:visited 
-	.controlbar-nav a:hover, 
-	.controlbar-nav a:active {
-		text-decoration: none;
-		color: 	#ccccff;
-		text-decoration: 	none;
-	}
+
 
 /* Hotspot Carousel
 *****************************************************/
@@ -231,6 +234,10 @@ text-align: left;
 }
 .carousel-control.right {
 	right: -12px;
+}
+.carousel-control:hover,
+.carousel-control-active {
+	color: #28cefd;
 }
 .carousel-indicators {
 	right: 50%;
