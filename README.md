@@ -29,26 +29,6 @@ Examples work best and are supported with Firefox 51, Chrome 56, and Chrome on A
 For continuity sake, this project carries the same license as the original Potree project
 
 ## Task List 
-- [x] When user lands on site displays 5-10s edited video 
-- [x] Video redirects to landing page on end 
-- [x] Increase video playback speed 
-- [x] Display functional "skip" button over video 
-- [x] Create scene view slider above controlbar 
-- [x] Add hotspot to barge: center looking to back + back looking to center  
-- [x] Update style of slider chevron icons 
-- [x] Solid thinner controlbar 
-- [x] Add language flag icon 
-- [x] Add home icon at start of ul 
-- [x] Change color of annotations to Vizcaya blue 
-- [x] Set annotations links to disappear if user is inside that annotation/ reappear once user cycles out 
-- [x] barge experience with nav  
-- [x] Center controlbar 
-- [x] Add favicon 
-- [x] Combine overlays and navigation bars into one html page, reference by IDs 
-- [x] Add images to slider that redirect to those scenes 
-- [x] Map 1 annotation per scene to reset button – needs to display differently depending on what scene you are in 
-- [x] Swap top scroll with actual exhibit images (dinosaur-prehistoric + powerful you - screen) 
-- [x] Clicking "help" displays right overlay - toggle close 
 - [ ] User must be able to Toggle scene view from controlbar - now  set to perform without page refresh 
 - [ ] When user clicks on hotspot image in scene view becomes active 
 - [ ] Add functionality to reset button – map to original annotation camera position 
