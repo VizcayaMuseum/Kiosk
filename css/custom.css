@@ -27,7 +27,7 @@ body {
 	font-size: 18px;
 }
 
-*:focu{
+*:focus {
 	outline: 0;
 	outline: none;
 }
@@ -74,6 +74,7 @@ video {
 	#skip-button:active    {
 		background-color: #fff;
 		border-color: rgb(86,183,251);
+		outline: none;
 	}
 
 
@@ -172,6 +173,7 @@ text-align: left;
 	.nav-icon:active
  {
 		color: #28cefd;
+		outline: none;
 	}
 .controlbar-nav {
 	text-align: center;
@@ -238,6 +240,7 @@ text-align: left;
 .carousel-control:hover,
 .carousel-control-active {
 	color: #28cefd;
+	outline: none;
 }
 .carousel-indicators {
 	right: 50%;
@@ -285,11 +288,14 @@ background: #333333;
 #help-overlay a {
   padding-left: 5%;
   font-size: 3.5em;
-  color: #818181;
+  color: white;
 }
+	#help-overlay a:focus,
 	#help-overlay a:hover,
-	.overlay a:focus {
-	color: #f1f1f1;
+	#help-overlay a:active {
+	color: #28cefd;
+	text-decoration: none;
+	outline: none;
 	}
 #help-overlay .closebtn {
   position: absolute;
