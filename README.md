@@ -21,7 +21,7 @@ Make sure you have the following installed and working in order to reproduce the
 * [PotreeConverter and binaries](https://github.com/potree/PotreeConverter/releases)
 
 ## Installation
-Coming soon - though it's a similar process outline by [Potree](http://potree.org/)
+View the project [live](https://ceciliaconsta3.github.io/Kiosk/) 
 
 ## Performance
 Examples work best and are supported with Firefox 51, Chrome 56, and Chrome on Android
