@@ -1,19 +1,33 @@
 <!-- Controlbar -->
-<div id="controlbar-container" class="navbar navbar-fixed-bottom">
+<div id="controlbar-container" class="navbar-fixed-bottom text-center">
     <!-- Pending final location
     <a href="/pages/index.html" title=""><img class="logo" src="../assets/img/VizcayaLogo-color205.jpg" alt="Vizcaya Logo"></a>-->
-    <nav class="controlbar-nav text-center">  
-        <ul>
-            <li id="home"><a href="../index.html"><span class="fa fa-home fa-2x nav-icon" title="Home" tabindex="1"></span></a></li>
-            <li id="reset"><a href="#"><span class="fa fa-refresh fa-2x nav-icon" onclick="resetScene()" title="Reset Scene" tabindex="2"></span></a></li>
-            <li id="back"><a href="#"><i class="fa fa-arrow-left fa-2x nav-icon" title="Last Hotspot" tabindex="3"></i></a></li>
-            <li id="next"><a href="#"><i class="fa fa-arrow-right fa-2x nav-icon" title="Next Hotspot" tabindex="4"></i></a></li>
-            <li id="fullscreen"><i class="fa fa-expand fa-2x nav-icon " onclick="toggleFullscreen()" title="Full Screen" tabindex="5"></i></li>		
-            <li id="toggle" ><a href="#"><i class="fa fa-bars fa-2x nav-icon" onclick="toggleSlider()" title="Scenes" tabindex="6"></i></a></li>
-            <li id="help" ><a href="#"><i class="fa fa-question-circle fa-2x nav-icon text-center" onclick="toggleHelp()" title="Help" tabindex="7"></i></a></li>            
-            <li id="flag"><a href="#"><i class="fa fa-flag-o fa-2x nav-icon" title="Change Language" tabindex="8"></i></a></li>
+    <!-- <nav class="controlbar-nav text-center">  
+         <ul>
+            <li id="home"><a href="../index.html"><span class="fa fa-home fa-2x nav-icon" aria-hidden="true" title="Home" tabindex="1"></span></a></li>
+            <li id="reset"><a href="#"><span class="fa fa-refresh fa-2x nav-icon" aria-hidden="true" onclick="resetScene()" title="Reset Scene" tabindex="2"></span></a></li>
+            <li id="back"><a href="#"><i class="fa fa-arrow-left fa-2x nav-icon" aria-hidden="true" title="Last Hotspot" tabindex="3"></i></a></li>
+            <li id="next"><a href="#"><i class="fa fa-arrow-right fa-2x nav-icon" aria-hidden="true" title="Next Hotspot" tabindex="4"></i></a></li>
+            <li id="fullscreen"><i class="fa fa-expand fa-2x nav-icon " onclick="toggleFullscreen()" aria-hidden="true" title="Full Screen" tabindex="5"></i></li>		
+            <li id="toggle" ><a href="#"><i class="fa fa-bars fa-2x nav-icon" onclick="toggleSlider()" aria-hidden="true" title="Scenes" tabindex="6"></i></a></li>
+            <li id="help" ><a href="#"><i class="fa fa-question-circle fa-2x nav-icon text-center" onclick="toggleHelp()" aria-hidden="true" title="Help" tabindex="7"></i></a></li>            
+            <li id="flag"><a href="#"><i class="fa fa-flag-o fa-2x nav-icon" aria-hidden="true" title="Change Language" tabindex="8"></i></a></li>
+            <li id="accessible"><a href="#"><i class="fa fa-universal-access fa-2x nav-icon" aria-hidden="true" title="Universal access" tabindex="9"></i></a></li>            
         </ul>    
-    </nav>
+    </nav>          -->
+    <div class = "btn-toolbar controlbar-nav" role="toolbar">
+        <button id="home" onclick="location.href='../index.html'"><i class="fa fa-home fa-2x nav-icon" aria-hidden="true" title="Home" tabindex="1"></i></button>
+        <button id="reset"><i class="fa fa-refresh fa-2x nav-icon" aria-hidden="true" onclick="resetScene()" title="Reset Scene" tabindex="2"></i></button>
+        <button id="back" ><i class="fa fa-arrow-left fa-2x nav-icon" aria-hidden="true" title="Last Hotspot" tabindex="3"></i></button>
+        <button id="next" ><i class="fa fa-arrow-right fa-2x nav-icon" aria-hidden="true" title="Next Hotspot" tabindex="4"></i></button>
+        <button id="fullscreen" ><i class="fa fa-expand fa-2x nav-icon " onclick="toggleFullscreen()" aria-hidden="true" title="Full Screen" tabindex="5"></i></button>
+        <button id="toggle" ><i class="fa fa-bars fa-2x nav-icon" onclick="toggleSlider()" aria-hidden="true" title="Scenes" tabindex="6"></i></button>
+        <button id="help" ><i class="fa fa-question-circle fa-2x nav-icon text-center" onclick="toggleHelp()" aria-hidden="true" title="Help" tabindex="7"></i></button>
+        <button id="flag" ><i class="fa fa-flag-o fa-2x nav-icon" aria-hidden="true" title="Change Language" tabindex="8"></i></button>
+        <button id="accessible" ><i class="fa fa-universal-access fa-2x nav-icon" aria-hidden="true" title="Universal access" tabindex="9"></i></button>
+    </div>
+
+
 </div>
 
 
@@ -63,8 +77,8 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
             </div><!--/carousel-inner-->
 
             <!-- Indicators -->
-            <a class="left carousel-control" href="#hotspotCarousel" data-slide= "prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true" tabindex="10"></i></a>
-            <a class="right carousel-control" href="#hotspotCarousel" data-slide= "next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true" tabindex="11"></i></a>
+            <a class="left carousel-control" href="#hotspotCarousel" data-slide= "prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true" tabindex="11"></i></a>
+            <a class="right carousel-control" href="#hotspotCarousel" data-slide= "next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true" tabindex="12"></i></a>
 
         </div><!-- end of hotspotCarousel -->
     </div><!-- end of well-->
@@ -73,7 +87,7 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
 
 <!-- Help Overlay -->
 <div id="help-overlay" class="overlay overlay-hugeinc">
-    <a id="closebtn" onclick="closeOverlay()" tabindex="9">&times;</a>
+    <a id="closebtn" onclick="closeOverlay()" tabindex="10">&times;</a>
     <div class="help-overlay overlay-content">
         <h3>Controls</h3>
         <ul>
