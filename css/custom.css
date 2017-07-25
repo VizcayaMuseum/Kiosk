@@ -154,19 +154,15 @@ video {
 .text-center {
 	text-align: center;
 }
+/* 
+****Not in use atm****
 .logo {
 margin: 0;
 width: 100px;
 text-align: left;
-}
+} */
 .nav-icon {
 	color: #fff;
-	display: flex;
-	flex-flow: column;
-	position: relative;
-	flex-flow: column;
-	-webkit-box-align: center;
-	justify-content: flex-start;
 }
 	.nav-icon:focus,
 	.nav-icon:hover,
@@ -177,25 +173,21 @@ text-align: left;
 	}
 .controlbar-nav {
 	text-align: center;
-}
-.controlbar-nav ul {
-	display: inline-flex;
-	z-index:	100;
-	list-style: none;
-	padding: 0;
-	justify-content: center;
-	vertical-align: top;
-}
-.controlbar-nav li {
-	margin: 0 30%;
-}
-.controlbar-nav  a {
 	text-decoration: none;
-	margin-bottom: 5px;
 	color: #fff;
 	font-size: 17px;
+	background: transparent;
 }
 
+.btn-toolbar button {
+	background: transparent;
+	border: none;
+	padding: 0 50px;
+}
+/* .btn-toolbar:nth-child(n+3){
+	float: right;
+	padding-left: 0;
+} */
 
 /* Hotspot Carousel
 *****************************************************/
