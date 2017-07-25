@@ -1,6 +1,6 @@
 /*****************************************************
 Vizcaya colors
-Lightest:deepskyblue #28cefd rgb(40,206,253)
+Lightest:deepskyblue #28cefd rgb(40,206,253);
 Light: cornflowerblue #56b7fb rgb(86,183,251);
 Medium: cadetblue #6a91bc rgb(106,145,188);
 Dark: blue #104c92 rgb(16,76,146);
@@ -56,7 +56,7 @@ video {
 	overflow: hidden;
 }
 #video-skip-icon {
-	color: rgb(86,183,251);
+	color: rgb(40,206,253);
 	font-size: 1.8em;
 }
 #skip-button {
@@ -73,7 +73,7 @@ video {
 	#skip-button:hover,
 	#skip-button:active    {
 		background-color: #fff;
-		border-color: rgb(86,183,251);
+		border-color: rgb(40,206,253);
 		outline: none;
 	}
 
@@ -225,8 +225,8 @@ text-align: left;
 	{
 		padding: 0;
 		margin-bottom:0;
-		background-color: rgb(86,183,251);
-		border: 1px solid rgb(86,183,251);
+		background-color: rgb(40,206,253);
+		border: 1px solid rgb(40,206,253);
 		text-align: center;
 		color: white;
 	}
@@ -281,7 +281,7 @@ background: #333333;
 #help-overlay {
   height: 75%;
   width: 30%;
-  display: block;
+  display: none;
   position: fixed;
   right: 0;
   top: 3%;
