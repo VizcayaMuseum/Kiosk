@@ -9,9 +9,12 @@ $(window).load(function(){
     skipFade();
     toggleFullscreen();
     closeOverlay();
-    resetPointcloud();
+    resetScene();
 });
  /**************end of document ready function ************/
+
+
+
 
 
 
@@ -45,49 +48,36 @@ function skipFade (){
 
 /* Reset Scene
 *****************************************************/
-// function resetScene (){
+function resetScene (){
 // var resetbutton = document.getElementById("reset");
 // var house = $(document).load("../examples/house.html");
-// var barge = $(document).load("../examples/barge.html");
-// var grotto = $(document).load("../examples/grotto.html");
 
-// if (the current page is house.html) {
-//     run this potree annotation function to reset the scene
-// }
+    if (document.URL.contains("grotto.html") ) {
+        // ("#reset").append(
+            console.log("resetscene code running");
+            // sceneVZP.view.position.set(-3.49, 8.39, -0.42);
+            // sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
+    // } else if (document.URL.contains("grotto.html") ) {
+    //         ("#reset").append(
+    //             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
+    //             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
+    //         );
+    // } else {
+    //         ("#reset").append(
+    //             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
+    //             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
+    //         );
+    //     }
+};
 
-// else if (the current page is barge.html) {
-//     run the barge reset potree annotation function
-// }
-//     else {
-//         run the grotto reset potree annotation function
-//     }
-
-// ExtensionScriptApis"onclick": function(){
-// sceneVZP.view.lookAt(new THREE.Vector3(1.733, 6.20, -0.46));
-// }
-// // Reset Scene practice
-// sceneVZP.addAnnotation([-3.49, 8.39, -0.42], {
-// 	"cameraPosition": [-3.49, 8.39, -0.42],
-// 	"cameraTarget": [-3.05, 7.79, -0.60],
-// 	"title": "Grotto Reset"
-// });
-				
-// <li id="reset"><a href="#"><span class="fa fa-refresh fa-2x nav-icon" title="Reset Scene" tabindex="2"></span></a></li>
-// }
-// $("#reset").click(function(){
-//     sceneVZP.view.lookAt(new THREE.Vector3(1.733, 6.20, -0.46));
-
-// });
-
-// };
 
 
 /* Hotspot Scene Toggle
 *****************************************************/
 function toggleSlider (){
-$("#toggle").click(function() {
+// $("#toggle").click(function() {
     $("#hotspot-container").slideToggle();
-    });
+    // });
 };
 
 
@@ -102,16 +92,12 @@ function hotspotSlider (){
 /* Help Overlay 
 *****************************************************/
 function toggleHelp(){
-    $("#help").click(function() {
-        $("#help-overlay").slideToggle();      
-    });
-  
+    $("#help-overlay").slideToggle();      
+ 
 };
 
 function closeOverlay(){
-    $("#closebtn").click(function() {
-        $("#help-overlay").hide();
-    });    
+    $("#help-overlay").hide();
 }
 
 /* HTML5 Fullscreen API
