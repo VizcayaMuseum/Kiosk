@@ -323,73 +323,25 @@ background: #333333;
 #about-overlay {
 	display: none;
 }
-/* #about-grotto {
-	height: 230px;
-}
-.overlay .close-button {
-    position: absolute;
-    top: -3px;
-    right: 20px;
-    cursor: pointer;
-    font-size: 40px;
-    color: #fff;
-}
-.overlay{
-	display: none;
-	position: fixed;
-	width: 33%;
-	height: 100%;
-	top: 0;
-	right: 0;
-	background: #555;
-	z-index: 1000;
-	padding: 0px;
-}
-.overlay h2 {
-    color: #eee;
-    height: 30px;
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-    padding-left: 30px;
-}
-.overlay img {
-	text-align: center;
-	width: 100%;
-	padding:0;
-}
-.overlay div {
-	position: relative;
-	font-size: 18px;
-	margin: 30px
-}
-.overlay p {
-	font-size: 0.65em;
-}
-.overlay li {
-	list-style: none;
+
+/* High Contrast Theme 
+*****************************************************/
+/* body,
+html,
+button{
+	background: black;
+	color: white;
 }
 
-.help-overlay {
-	text-align: left;
-	list-style: none;
-	padding-top: 3%;
+a {
+	color: yellow;
 }
-.help-overlay ul {
-	line-height: 1.8;
-	padding-bottom: 10%;
-}
-.help-overlay i {
-	margin-top: 0 !important;
-}
-.help-overlay h3  {
-	text-align: center;
-	font-size: 2.1em;
-}
-.help-overlay-icons {
-	width: 18px !important;
-	height: 18px;
-	vertical-align: text-bottom;
+button:focus,
+button:hover,
+button:active {
+	background: blue;
+	color: black;
 } */
+
 
 
