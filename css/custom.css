@@ -64,20 +64,27 @@ video {
 	border-radius: 50%;
 	border: 2px solid white;
 	background: transparent;
+	position: relative;
+	height: 75px;
+	width: 75px;
+	z-index: 10;
+}
+.skip {
+	display: flex;
 	position: fixed;
 	right: 5%;
 	bottom: 9%;
-	height: 75px;
-	width: 75px;
+	height: 120px;
+	width: 120px;
 	z-index: 10;
 }
 .skip-text {
 	color: white;
 	font-size: 1.2em;
-	position: fixed;
-	right: 6%;
-	bottom: 5%;
-	z-index: 10;
+	line-height: 1;
+	position: relative;
+	top: 80%;
+	right: 50%;
 }
 	#skip-button:hover,
 	#skip-button:active    {
