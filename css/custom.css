@@ -71,8 +71,9 @@ video {
 	width: 75px;
 	z-index: 10;
 }
-.skip-button p {
+.skip-text {
 	color: white;
+	font-size: 1.2em;
 	position: fixed;
 	right: 6%;
 	bottom: 5%;
@@ -81,7 +82,7 @@ video {
 	#skip-button:hover,
 	#skip-button:active    {
 		background-color: #fff;
-		color: rgb(40,206,253);
+		color: rgb(40,206,253) !important;
 		border: none;
 		outline: none;
 	}
