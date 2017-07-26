@@ -178,7 +178,6 @@ text-align: left;
 	font-size: 17px;
 	background: transparent;
 }
-
 .btn-toolbar button {
 	background: transparent;
 	border: none;
@@ -189,12 +188,13 @@ text-align: left;
 	padding-left: 0;
 } */
 
+
 /* Hotspot Carousel
 *****************************************************/
 #hotspot-container {
 	width: 100%;
 	height: 150px;
-	display: block;
+	display: none;
 }
 #hotspotCarousel {
 	display: inline-block;
