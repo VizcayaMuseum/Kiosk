@@ -86,6 +86,7 @@ video {
 	top: 80%;
 	right: 50%;
 }
+	#skip-button:focus,
 	#skip-button:hover,
 	#skip-button:active    {
 		background-color: #fff;
