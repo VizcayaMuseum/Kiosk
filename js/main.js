@@ -24,7 +24,8 @@ function loadVideo(){
 };
 
 function fastVid(){
-    $("#splash-video").playbackRate = 1.75;
+    document.querySelector("video".playbackRate= 1.75);
+    // $("#splash-video").playbackRate = 1.75;
 };
 
 function loadBarge(){
