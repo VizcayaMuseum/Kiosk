@@ -1,9 +1,7 @@
 $("#includedContent").load(function(){
     //jQuery(window).load
-    fastVid();
-    loadVideo();
-    loadBarge();
-    skipFade();
+    // loadVideo();
+    // loadBarge();
     toggleFullscreen();
     toggleSlider();
     toggleHelp();
@@ -16,23 +14,20 @@ $("#includedContent").load(function(){
 
 /* Splash Video
 *****************************************************/
-function loadVideo(){
-    $("#controlbar-container").hide();
-    // $("#splash-video").trigger("play");
-    document.getElementByClassId("barge").addEventListener("click", loadVideo);
-      console.log('Video should start here!');
-};
+// function loadVideo(){
+//     $("#controlbar-container").append().css("display", "none");
+//     $("#splash-video").trigger("play");
+//     document.querySelector("video").playbackRate= 1.95;
+//       alert('Video should start here!');
+// };
 
-function fastVid(){
-    document.querySelector("video".playbackRate= 1.75);
-    // $("#splash-video").playbackRate = 1.75;
-};
 
-function loadBarge(){
-    $('#splash-video').on('ended',function(){
-        $("../examples/grotto.html").load();
-      console.log('Video has ended!');
-    });
+// function loadBarge(){
+//       $("#splash-video").on("ended", function() {
+//        window.location.href = '../examples/grotto.html"';
+//        $("#splash-video").css("display", "none");
+//     });
+// };
 
 
 /* Kiosk Time out

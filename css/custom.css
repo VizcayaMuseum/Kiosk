@@ -92,7 +92,7 @@ video {
 		background-color: #fff;
 		color: rgb(40,206,253) !important;
 		border: none;
-		outline: none;
+		outline: none; 
 	}
 
 
@@ -201,10 +201,9 @@ text-align: left;
 	border: none;
 	padding: 0 50px;
 }
-/* .btn-toolbar:nth-child(n+3){
+ .btn-toolbar > button:nth-child(n+7){
 	float: right;
-	padding-left: 0;
-} */
+} 
 
 
 /* Hotspot Carousel
