@@ -1,7 +1,9 @@
 $("#includedContent").load(function(){
+    //jQuery(window).load
     fastVid();
-    loadScene();
-    loadSplash();
+    // loadScene();
+    loadVideo();
+    loadBarge();
     skipFade();
     toggleFullscreen();
     toggleSlider();
@@ -15,27 +17,30 @@ $("#includedContent").load(function(){
 
 /* Splash Video
 *****************************************************/
+function loadVideo(){
+    $(".welcome").hide();
+    $('#splash-video').play();
+      console.log('Video should start here!');
+};
+
 function fastVid(){
-    window.getElementById("splash-video").playbackRate = 1.75;
-}
-function loadScene(){
-    document.getElementByClassName("landing-links").addEventListener("click", loadSplash);
-}
-function loadSplash(){
-    window.location.href="../pages/splash.html";
+    $("#splash-video").load().playbackRate = 1.75;
 };
 
-
-/* Fade in Barge after skip
-*****************************************************/
-function skipFade (){
-    $("#skip-button").on("click", function() {
-        $("body").fadeOut("slow", function() {
-            $("body").load('../examples/barge.html').fadeIn("slow");
-        });
-            return false;
+function loadBarge(){
+    $('#splash-video').on('ended',function(){
+        $("../examples/grotto.html").load();
+      console.log('Video has ended!');
     });
-};
+
+
+/* Kiosk Time out
+*****************************************************/
+
+
+// function loadScene(){
+//     document.getElementByClassName("landing-links").addEventListener("onended", loadVideo);
+// };
 
 
 /* Reset Scene
@@ -64,12 +69,10 @@ function skipFade (){
 
 
 
-/* Hotspot Scene Toggle
+/* Hotspot Scene Toggle - does not work in firefox
 *****************************************************/
 function toggleSlider(){
-    $(body).on("click", "#controlbar #slider-toggle", function(){
-        $("#hotspot-container").toggle();
-    })
+    $("#hotspot-container").slideToggle();
 }
 
 
@@ -85,12 +88,12 @@ function hotspotSlider (){
 *****************************************************/
 function toggleHelp(){
     $("#help-overlay").slideToggle();      
- 
 };
 
 function closeOverlay(){
     $("#help-overlay").hide();
 }
+
 
 /* HTML5 Fullscreen API
 *****************************************************/

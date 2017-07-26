@@ -54,6 +54,7 @@ video {
 	min-width: 100%;
 	min-height: 100%;
 	overflow: hidden;
+	z-index: 1000;
 }
 #video-skip-icon {
 	color: rgb(40,206,253);
@@ -73,7 +74,7 @@ video {
 	#skip-button:hover,
 	#skip-button:active    {
 		background-color: #fff;
-		border-color: rgb(40,206,253);
+		border: none;
 		outline: none;
 	}
 
