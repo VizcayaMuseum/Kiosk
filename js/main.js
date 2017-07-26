@@ -8,6 +8,7 @@ $("#includedContent").load(function(){
     hotspotSlider();    
     closeOverlay();
     resetScene();
+    toggleContrast();
 });
  /**************end of document ready function ************/
 
@@ -77,11 +78,24 @@ function hotspotSlider (){
 };
 
 
+/* High Contrast
+*****************************************************/
+function toggleContrast (){
+$("#accessible").click(function(){
+    $(this).toggleClass("hiContrast");
+});
+};
+
+
 /* Help Overlay 
 *****************************************************/
 function toggleHelp(){
-    $("#help-overlay").slideToggle();      
+$("#help-overlay").click(function(){
+    $(this).slideToggle();
+});
 };
+//     $("#help-overlay").slideToggle();      
+// };
 
 function closeOverlay(){
     $("#help-overlay").hide();

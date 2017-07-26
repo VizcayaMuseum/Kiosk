@@ -356,22 +356,20 @@ background: #333333;
 
 /* High Contrast Theme 
 *****************************************************/
-/* body,
-html,
-button{
+ .hiContrast
+{
 	background: black;
 	color: white;
 }
-
-a {
+.hiContrast a {
 	color: yellow;
 }
-button:focus,
-button:hover,
-button:active {
+.hiContrast button:focus,
+.hiContrast button:hover,
+.hiContrast button:active {
 	background: blue;
 	color: black;
-} */
+} 
 
 
 
