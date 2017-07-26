@@ -1,24 +1,16 @@
-$(window).load(function(){
-// $(document).ready(function() {
-    toggleHelp();
-    toggleSlider();
-    hotspotSlider();
-    fastVid ();
+$("#includedContent").load(function(){
+    fastVid();
     loadScene();
     loadSplash();
     skipFade();
     toggleFullscreen();
+    toggleSlider();
+    toggleHelp();
+    hotspotSlider();    
     closeOverlay();
     resetScene();
 });
  /**************end of document ready function ************/
-
-
-
-
-
-
-
 
 
 /* Splash Video
@@ -48,37 +40,37 @@ function skipFade (){
 
 /* Reset Scene
 *****************************************************/
-function resetScene (){
+// function resetScene (){
 // var resetbutton = document.getElementById("reset");
 // var house = $(document).load("../examples/house.html");
 
-    if (document.URL.contains("grotto.html") ) {
-        // ("#reset").append(
-            console.log("resetscene code running");
-            // sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-            // sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-    // } else if (document.URL.contains("grotto.html") ) {
-    //         ("#reset").append(
-    //             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-    //             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-    //         );
-    // } else {
-    //         ("#reset").append(
-    //             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-    //             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-    //         );
-    //     }
-};
+//     if (document.URL.contains("grotto.html") ) {
+//         ("#reset").append(
+//             console.log("resetscene code running");
+//             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
+//             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
+//     } else if (document.URL.contains("grotto.html") ) {
+//             ("#reset").append(
+//                 sceneVZP.view.position.set(-3.49, 8.39, -0.42);
+//                 sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
+//             );
+//     } else {
+//             ("#reset").append(
+//                 sceneVZP.view.position.set(-3.49, 8.39, -0.42);
+//                 sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
+//             );
+//         }
+// };
 
 
 
 /* Hotspot Scene Toggle
 *****************************************************/
-function toggleSlider (){
-// $("#toggle").click(function() {
-    $("#hotspot-container").slideToggle();
-    // });
-};
+function toggleSlider(){
+    $(body).on("click", "#controlbar #slider-toggle", function(){
+        $("#hotspot-container").toggle();
+    })
+}
 
 
 /* Carousel Slider
