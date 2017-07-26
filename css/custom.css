@@ -54,7 +54,7 @@ video {
 	min-width: 100%;
 	min-height: 100%;
 	overflow: hidden;
-	z-index: 1000;
+	z-index: 1;
 }
 #video-skip-icon {
 	color: rgb(40,206,253);

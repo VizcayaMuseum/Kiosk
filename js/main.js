@@ -17,8 +17,9 @@ $("#includedContent").load(function(){
 /* Splash Video
 *****************************************************/
 function loadVideo(){
-    $(".welcome").hide();
-    $("#splash-video").trigger("play");
+    $("#controlbar-container").hide();
+    // $("#splash-video").trigger("play");
+    document.getElementByClassId("barge").addEventListener("click", loadVideo);
       console.log('Video should start here!');
 };
 
@@ -37,9 +38,6 @@ function loadBarge(){
 *****************************************************/
 
 
-// function loadScene(){
-//     document.getElementByClassName("landing-links").addEventListener("onended", loadVideo);
-// };
 
 
 /* Reset Scene
@@ -123,7 +121,6 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
     } else if (document.webkitExitFullscreen) {
     document.webkitExitFullscreen();
     }
-}
 }
 
 

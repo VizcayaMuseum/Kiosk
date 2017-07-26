@@ -29,25 +29,10 @@
                 <p>Welcome to Daruma Tech’s Museum Tour Kiosk prototype. This web application presents 3D models and scenes from the National Historic Landmark that is Miami’s Vizcaya Museum.</p></br>
                 <p>Which would you like to see first?</p>
                 <a href="#" class="btn-lg btn-default button landing-links" role="button">House</a>
-                <a href="examples/barge.html" class="btn-lg btn-default button landing-links" role="button" onclick="loadVideo()">Barge</a>
-                <a href="examples/grotto.html" class="btn-lg btn-default button landing-links" role="button">Grotto</a>
+                <a href="examples/barge.html" class="btn-lg btn-default button landing-links" target="_self" role="button" onclick="loadVideo()">Barge</a>
+                <a href="examples/grotto.html" class="btn-lg btn-default button landing-links" target="_self" role="button">Grotto</a>
             </div>
         </div>
-
-        <!-- Video -->
-        <video id="splash-video" autoplay onended="loadBarge()">
-        <source src="/assets/video/bargeIntroShort.mp4" type="video/mp4"/>
-        <source src="/assets/video/bargeIntroShort.ogv" type="video/ogg"/>
-        <source src="/assets/video/bargeIntroShort.webm" type="video/webm"/>
-        Sorry, your browser does not support this video. 
-        </video>
-
-        <!-- Skip button -->
-        <a id="skip-link" href="examples/barge.html" target="_self">
-        <button id="skip-button" class="skip-button btn-lg btn-default button">
-            <span id="video-skip-icon" class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-        </button>
-        </a>
 </div><!-- end of load point -->
 		
   </body>
