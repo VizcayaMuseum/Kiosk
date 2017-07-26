@@ -1,7 +1,6 @@
 $("#includedContent").load(function(){
     //jQuery(window).load
     fastVid();
-    // loadScene();
     loadVideo();
     loadBarge();
     skipFade();
@@ -19,12 +18,12 @@ $("#includedContent").load(function(){
 *****************************************************/
 function loadVideo(){
     $(".welcome").hide();
-    $('#splash-video').play();
+    $("#splash-video").trigger("play");
       console.log('Video should start here!');
 };
 
 function fastVid(){
-    $("#splash-video").load().playbackRate = 1.75;
+    $("#splash-video").playbackRate = 1.75;
 };
 
 function loadBarge(){
