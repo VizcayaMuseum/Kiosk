@@ -147,9 +147,9 @@ video {
 	color: #fff;
 	padding: 10px 40px;
 }
-.landing-links:hover,
-.landing-links:focus,
-.landing-links:active    {
+a .landing-links:hover,
+a .landing-links:focus,
+a .landing-links:active    {
 	background-color:rgba(20,20,20,0.6);
 	color: #fff;
 	border-color: #fff;
@@ -356,22 +356,20 @@ background: #333333;
 
 /* High Contrast Theme 
 *****************************************************/
-/* body,
-html,
-button{
+ .hiContrast
+{
 	background: black;
 	color: white;
 }
-
-a {
+.hiContrast a {
 	color: yellow;
 }
-button:focus,
-button:hover,
-button:active {
+.hiContrast button:focus,
+.hiContrast button:hover,
+.hiContrast button:active {
 	background: blue;
 	color: black;
-} */
+} 
 
 
 
