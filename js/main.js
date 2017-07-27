@@ -1,11 +1,13 @@
-$("#includedContent").load(function(){
+jQuery(window).load(function(){
+// $("#includedContent").load(function(){
+    "use strict";
     //jQuery(window).load
     // loadVideo();
     // loadBarge();
     toggleFullscreen();
     toggleSlider();
     toggleHelp();
-    hotspotSlider();    
+    hotspotSlider();
     closeOverlay();
     resetScene();
     toggleContrast();
@@ -73,28 +75,28 @@ function toggleSlider(){
 /* Carousel Slider
 *****************************************************/
 function hotspotSlider (){
-    $('#hotspotCarousel').carousel("slow",{
-	interval: 10000 })
-};
+    $("#hotspotCarousel").carousel("slow",{
+        interval: 10000 });
+}
 
 
 /* High Contrast
 *****************************************************/
 function toggleContrast (){
 $("#accessible").click(function(){
-    $(this).toggleClass("hiContrast");
+    $("#accessible").toggleClass("hiContrast");
 });
-};
+}
 
 
-/* Help Overlay 
+/* Help Overlay
 *****************************************************/
 function toggleHelp(){
 $("#help-overlay").click(function(){
-    $(this).slideToggle();
+    $("#help-overlay").slideToggle();
 });
-};
-//     $("#help-overlay").slideToggle();      
+}
+//     $("#help-overlay").slideToggle();
 // };
 
 function closeOverlay(){
@@ -104,7 +106,7 @@ function closeOverlay(){
 
 /* HTML5 Fullscreen API
 *****************************************************/
-document.getElementById('fullscreen').addEventListener('click', function(){
+document.getElementById("fullscreen").addEventListener("click", function(){
 toggleFullscreen();
 });
 
@@ -133,6 +135,7 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
     }
 }
 
+}
 
 
 
@@ -143,11 +146,11 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
 // });
 
 
-/* Sidebar/Controlbar Actions 
+/* Sidebar/Controlbar Actions
 *****************************************************/
 //Comment out until controlbar functinality has been decided
 // $('#back').hide();
-// $('.potree_container').on("click", 'div.annotation', function () { 
+// $('.potree_container').on("click", 'div.annotation', function () {
 // 	$('#back').show();
 // 	$('#about').hide();  
 // });
@@ -185,8 +188,3 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
         //         $('#potree_render_area').css('right', '0');
         //     });           
         // }));
-
-
-
-
-

@@ -147,9 +147,9 @@ video {
 	color: #fff;
 	padding: 10px 40px;
 }
-a .landing-links:hover,
-a .landing-links:focus,
-a .landing-links:active    {
+.welcome .btn-lg .btn-default:focus,
+.welcome .btn-lg .btn-default:hover,
+.welcome .btn-lg .btn-default:active {
 	background-color:rgba(20,20,20,0.6);
 	color: #fff;
 	border-color: #fff;
