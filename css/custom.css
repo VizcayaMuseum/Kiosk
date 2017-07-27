@@ -141,7 +141,6 @@ video {
 	color: #fff;
 	padding: 10px 40px;
 }
-@-moz-document url-prefix() {
 	.welcome .landing-links:focus,
 	.welcome .landing-links:hover,
 	.welcome .landing-links:active {
@@ -149,7 +148,6 @@ video {
 		color: #fff;
 		border-color: #fff;
 	}
-}
 
 
 /* Control Bar
