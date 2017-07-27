@@ -13,11 +13,8 @@ html {
 }
 body {
 	background-color: #000;
-	display: -webkit-flex;
 	display: flex;
-	-webkit-align-items: center;
 	align-items: center;
-	-webkit-justify-content: center;
 	justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-family: 'Lato', sans-serif;
@@ -109,11 +106,8 @@ video {
 	height:100%;
 	padding: 0 20px;
 	margin: 0 auto;
-	display: -webkit-flex;
 	display: flex;
-	-webkit-align-items: center;
 	align-items: center;
-	-webkit-justify-content: center;
 	justify-content: center;
 	z-index: -1;
 	color: #fff;
@@ -147,12 +141,14 @@ video {
 	color: #fff;
 	padding: 10px 40px;
 }
-.welcome .btn-lg .btn-default:focus,
-.welcome .btn-lg .btn-default:hover,
-.welcome .btn-lg .btn-default:active {
-	background-color:rgba(20,20,20,0.6);
-	color: #fff;
-	border-color: #fff;
+@-moz-document url-prefix() {
+	.welcome .landing-links:focus,
+	.welcome .landing-links:hover,
+	.welcome .landing-links:active {
+		background-color:rgba(20,20,20,0.6);
+		color: #fff;
+		border-color: #fff;
+	}
 }
 
 
