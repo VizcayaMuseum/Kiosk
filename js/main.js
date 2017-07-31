@@ -2,8 +2,8 @@ jQuery(window).load(function(){
 // $("#includedContent").load(function(){
     "use strict";
     //jQuery(window).load
-    loadVideo();
-    loadBarge();
+    // loadVideo();
+    // loadBarge();
     // toggleFullscreen();
     // toggleSlider();
     // toggleHelp();
@@ -41,27 +41,31 @@ jQuery(window).load(function(){
 
 /* Reset Scene
 *****************************************************/
-// function resetScene (){
-// var resetbutton = document.getElementById("reset");
-// var house = $(document).load("../examples/house.html");
+function resetScene (){
 
-//     if (document.URL.contains("grotto.html") ) {
-//         ("#reset").append(
-//             console.log("resetscene code running");
-//             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-//             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-//     } else if (document.URL.contains("grotto.html") ) {
-//             ("#reset").append(
-//                 sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-//                 sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-//             );
-//     } else {
-//             ("#reset").append(
-//                 sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-//                 sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-//             );
-//         }
-// };
+var resetbtn = document.getElementById("reset");
+
+    if (window.location.href.indexOf("barge.html") > -1) {
+        alert("you are on the barge page");
+        $(resetbtn).append(function(){
+				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
+                    "actions": [{
+                    "onclick": function(){
+                        sceneVZP.view.lookAt(new THREE.Vector3(1.74, 6.21, -0.46));
+                    }
+                    }] 
+				});                  
+            });
+    } else if (window.location.href.indexOf("grotto.html") ) {
+        //reset 
+        alert("you are on the grotto page");
+    } else {
+        //reset
+        alert("you are on some other kind of page");
+        }
+
+
+};
 
 
 /* Hotspot Scene Toggle - does not work in firefox
