@@ -198,6 +198,9 @@ text-align: left;
 	float: right;
 } 
 
+.btn-toolbar > button:nth-child(1){
+	float: left;
+}
 
 /* Hotspot Carousel
 *****************************************************/

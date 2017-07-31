@@ -2,15 +2,15 @@ jQuery(window).load(function(){
 // $("#includedContent").load(function(){
     "use strict";
     //jQuery(window).load
-    // loadVideo();
-    // loadBarge();
-    toggleFullscreen();
-    toggleSlider();
-    toggleHelp();
-    hotspotSlider();
-    closeOverlay();
-    resetScene();
-    toggleContrast();
+    loadVideo();
+    loadBarge();
+    // toggleFullscreen();
+    // toggleSlider();
+    // toggleHelp();
+    // hotspotSlider();
+    // closeOverlay();
+    // resetScene();
+    // toggleContrast();
 });
  /**************end of document ready function ************/
 
@@ -64,7 +64,6 @@ jQuery(window).load(function(){
 // };
 
 
-
 /* Hotspot Scene Toggle - does not work in firefox
 *****************************************************/
 function toggleSlider(){
@@ -80,24 +79,18 @@ function hotspotSlider (){
 }
 
 
-/* High Contrast
+/* High Contrast - CSS under construction
 *****************************************************/
 function toggleContrast (){
-$("#accessible").click(function(){
     $("#accessible").toggleClass("hiContrast");
-});
 }
 
 
 /* Help Overlay
 *****************************************************/
 function toggleHelp(){
-$("#help-overlay").click(function(){
     $("#help-overlay").slideToggle();
-});
 }
-//     $("#help-overlay").slideToggle();
-// };
 
 function closeOverlay(){
     $("#help-overlay").hide();
