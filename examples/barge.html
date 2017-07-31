@@ -91,77 +91,62 @@
 		viewer.setDescription("");
 		viewer.loadSettingsFromURL();
 
-		let sceneVBG = new Potree.Scene();		
-		viewer.setScene(sceneVBG);		
+		let sceneVZP = new Potree.Scene();		
+		viewer.setScene(sceneVZP);		
 		Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
-			sceneVBG.addPointCloud(e.pointcloud);
-			sceneVBG.view.position.set(-0.16, 30.21, 18.83);
-			sceneVBG.view.lookAt(new THREE.Vector3(-0.10, -0.82, 2.34));
+			sceneVZP.addPointCloud(e.pointcloud);
+			sceneVZP.view.position.set(-0.16, 30.21, 18.83);
+			sceneVZP.view.lookAt(new THREE.Vector3(-0.10, -0.82, 2.34));
 
 
 		// Annotations (5 total)
-
+		
 				//Middle of barge
-				sceneVBG.addAnnotation([0.65, -1.40, 0.50], {
+				sceneVZP.addAnnotation([0.65, -1.40, 0.50], {
 					"cameraPosition": [2.25, -1.40, 4.60],
 					"cameraTarget": [-0.65, -1.20, 4.10],
 					"title": "Center" 
 					// 	"actions": [{
 					// 	"onclick": function(){
-					// 		sceneVBG.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+					// 		sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
 					// 	}
 					// }]
 				});
 
 				//Long Barge view
-				sceneVBG.addAnnotation([24.34, -1.80,0.50], {
+				sceneVZP.addAnnotation([24.34, -1.80,0.50], {
 					"cameraPosition": [25.26, -1.81,5.66],
 					"cameraTarget": [24.34, -1.80,5.67],
 					"title": "Long view"
 				});
 
 				//Left Hermes statue
-				sceneVBG.addAnnotation([4.74, 5.44, 1.50], {
+				sceneVZP.addAnnotation([4.74, 5.44, 1.50], {
 					"cameraPosition": [5.20, 7.43, 4.48],
 					"cameraTarget": [4.74, 5.44, 4.40],
 					"title": "Hermes"
 				});
 
 				//Right Hermes statue
-				sceneVBG.addAnnotation([-2.53, 5.37, 1.50], {
+				sceneVZP.addAnnotation([-2.53, 5.37, 1.50], {
 					"cameraPosition": [-2.87, 7.50, 4.24],
 					"cameraTarget": [-2.53, 5.37, 4.12],
 					"title": "Hermes"
 				});
 
 				//Back Stairwell 
-				sceneVBG.addAnnotation([-15.41, -1.68, 0.50], {
+				sceneVZP.addAnnotation([-15.41, -1.68, 0.50], {
 					"cameraPosition":[-11.91, -1.86, 4.16],
 					"cameraTarget": [-15.41, -1.68, 3.49],
 					"title": "Stairwell"
 				});	
 
 				//Reset Scene
-				sceneVBG.addAnnotation([-0.16, 30.21, 18.83], {
+				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
 					"cameraPosition":[-0.16, 30.21, 18.83],
 					"cameraTarget": [-0.10, -0.82, 2.34],
 					"title": "Scene Reset"
 				});	
-
-
-// Reserve for scene reset - map to reset button
-				// sceneVBG.addAnnotation([-5.47, 4.51, 0.13], {
-				// 	"cameraPosition": [-5.47, 4.51, 0.13],
-				// 	"cameraTarget": [-5.37, 4.50, 0.13],
-				// 	"title": "View", //hermes statue
-				// 		"actions": [{
-				// 		"icon": Potree.resourcePath + "/icons/goto.svg",
-				// 		"onclick": function(){
-				// 			sceneVZP.view.lookAt(new THREE.Vector3(-5.47, 4.51, 0.13));
-				// 		}
-				// 	}]
-				// });
-
 		});	
 	</script>
 	
