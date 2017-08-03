@@ -315,6 +315,7 @@ background: #333333;
   padding-left: 5%;
   font-size: 3.5em;
   color: white;
+  float: left;
 }
 	#help-overlay a:focus,
 	#help-overlay a:hover,
