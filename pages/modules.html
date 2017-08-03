@@ -24,14 +24,14 @@ Sorry, your browser does not support this video.
     <div class = "btn-toolbar controlbar-nav" role="toolbar">
         <button id="home" onclick="location.href='../index.html'" class=
         "nav-icon"><i class="fa fa-home fa-2x" aria-hidden="true" title="Home" tabindex="1"></i></button>
-        <button id="reset" class=" nav-icon"><i class="fa fa-refresh fa-2x" aria-hidden="true" onclick="resetScene()" title="Reset Scene" tabindex="2"></i></button>
+        <button id="reset" class=" nav-icon" onclick="resetScene()"><i class="fa fa-refresh fa-2x" aria-hidden="true" title="Reset Scene" tabindex="2"></i></button>
         <button id="back" class=" nav-icon"><i class="fa fa-arrow-left fa-2x" aria-hidden="true" title="Last Hotspot" tabindex="3"></i></button>
         <button id="next" class=" nav-icon"><i class="fa fa-arrow-right fa-2x" aria-hidden="true" title="Next Hotspot" tabindex="4"></i></button>
         <button id="fullscreen" onclick="toggleFullscreen()" class=" nav-icon"><i class="fa fa-expand fa-2x" aria-hidden="true" title="Full Screen" tabindex="5"></i></button>
-        <button id="slider-toggle" class=" nav-icon"><i class="fa fa-bars fa-2x" onclick="toggleSlider()" aria-hidden="true" title="Scenes" tabindex="6"></i></button>
-        <button id="help" class=" nav-icon"><i class="fa fa-question-circle fa-2x text-center" onclick="toggleHelp()" aria-hidden="true" title="Help" tabindex="7"></i></button>
+        <button id="slider-toggle" onclick="toggleSlider()" class=" nav-icon"><i class="fa fa-bars fa-2x" aria-hidden="true" title="Scenes" tabindex="6"></i></button>
+        <button id="help" class=" nav-icon" onclick="toggleHelp()"><i class="fa fa-question-circle fa-2x text-center" aria-hidden="true" title="Help" tabindex="7"></i></button>
         <button id="flag" class=" nav-icon"><i class="fa fa-flag-o fa-2x" aria-hidden="true" title="Change Language" tabindex="8"></i></button>
-        <button id="accessible" class=" nav-icon"><i class="fa fa-universal-access fa-2x" onclick="toggleContrast()" aria-hidden="true" title="Universal access" tabindex="9"></i></button>
+        <button id="accessible" class=" nav-icon" onclick="toggleContrast()" ><i class="fa fa-universal-access fa-2x" aria-hidden="true" title="Universal access" tabindex="9"></i></button>
     </div>
 </div>
 
@@ -62,7 +62,7 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
                         <div class="span3"><a href="../examples/grotto.html" class="thumbnail"><img src="../assets/img/Vizcaya_Grotto_300px.png" alt="Grotto" style="max-width:100%;">Grotto</a></div>
                     </div>
                 </div>
-                 <!-- Will enable once more hotspot points/ scene views have been set up
+                <!-- Will enable once more hotspot points/ scene views have been set up
                 <div class="item">
                     <div class="row-fluid">
                         <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/300x110" alt="Image" style="max-width:100%;"></a></div>
