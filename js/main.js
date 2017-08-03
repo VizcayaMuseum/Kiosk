@@ -1,17 +1,14 @@
-jQuery(window).load(function(){
-// $("#includedContent").load(function(){
+$(window).on( "load", ( function() {
     "use strict";
-    //jQuery(window).load
-    loadVideo();
-    loadBarge();
-    // toggleFullscreen();
-    // toggleSlider();
-    // toggleHelp();
-    // hotspotSlider();
-    // closeOverlay();
+    // loadVideo();
+    // loadBarge();
+    toggleSlider();
+    toggleHelp();
+    hotspotSlider();
+    closeOverlay();
     // resetScene();
-    // toggleContrast();
-});
+    toggleContrast();
+}));
  /**************end of document ready function ************/
 
 
@@ -99,10 +96,6 @@ function closeOverlay(){
 
 /* HTML5 Fullscreen API
 *****************************************************/
-document.getElementById("fullscreen").addEventListener("click", function(){
-toggleFullscreen();
-});
-
 function toggleFullscreen(elem) {
 elem = elem || document.documentElement;
 if (!document.fullscreenElement && !document.mozFullScreenElement &&
@@ -129,7 +122,6 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
 }
 
 }
-
 
 
 // $(document).ready(function(){
