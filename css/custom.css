@@ -289,6 +289,7 @@ background: #333333;
 .overlay-content {
   position: relative;
   top: 0;
+  clear: left;
   color: white;
 }
 #help-overlay {
