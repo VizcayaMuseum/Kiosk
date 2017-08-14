@@ -317,7 +317,7 @@ background: #333333;
 	font-size: 40px;
 }
 #help-overlay a {
-  padding-left: 0 5%;
+  padding: 0 5%;
   font-size: 3.5em;
   color: white;
 }
