@@ -36,7 +36,8 @@ jQuery(window).load(function(){
 /* Kiosk Time out
 *****************************************************/
 
-
+viewer.scene.view.position
+viewer.scene.view.getPivot()
 
 
 /* Reset Scene
@@ -46,12 +47,16 @@ function resetScene (){
 var resetbtn = document.getElementById("reset");
 
     if (window.location.href.indexOf("barge.html") > -1) {
-        alert("you are on the barge page");
+
         $(resetbtn).append(function(){
 				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
                     "actions": [{
                     "onclick": function(){
                         sceneVZP.view.lookAt(new THREE.Vector3(1.74, 6.21, -0.46));
+                        // From original potree annotation example
+                        //viewer.scene.view.position(-0.16, 30.21, 18.83);
+                        //viewer.scene.view.getPivot(1.74, 6.21, -0.46);
+                        alert("you are on the barge page");
                     }
                     }] 
 				});                  
@@ -135,53 +140,3 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
 }
 
 
-
-// $(document).ready(function(){
-//     $("#toggle").click(function() {
-//     $("#hotspot-container").css("display", "inline-block");
-// });
-// });
-
-
-/* Sidebar/Controlbar Actions
-*****************************************************/
-//Comment out until controlbar functinality has been decided
-// $('#back').hide();
-// $('.potree_container').on("click", 'div.annotation', function () {
-// 	$('#back').show();
-// 	$('#about').hide();  
-// });
-
-
-    // // About Us
-    // $("#about a").click(function() {
-    //     // Reset overlays
-    //     $(".open").toggle().removeClass("open");
-    //     // load overlay html
-    //     $("#potree_render_area").append($('<div>').load("../pages/about-us.html", function() {
-    //         // set css
-    //         $("#about-overlay").addClass("open").toggle();
-    //         $('#potree_render_area').css('right', '33%');
-    //         // Handle Overlay - Close button
-    //         $(".overlay .close-button").click(function() {
-    //             $(".open").toggle().removeClass("open");
-    //             $('#potree_render_area').css('right', '0');
-    //         }); 
-    //     }));
-    // });
-
-
-
-        // // Reset overlays
-        // $(".open").toggle().removeClass("open");
-        // // load overlay html and set css
-        // $("#potree_render_area").append($('<div>').load("../pages/help.html", function() {
-        //     // set css
-        //     $("#help-overlay").addClass("open").toggle();
-        //     $('#potree_render_area').css('right', '33%');
-        //     // Handle Overlay - Close button
-        //     $(".overlay .close-button").click(function() {
-        //         $(".open").toggle().removeClass("open");
-        //         $('#potree_render_area').css('right', '0');
-        //     });           
-        // }));
