@@ -124,52 +124,25 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
 }
 
 
-// $(document).ready(function(){
-//     $("#toggle").click(function() {
-//     $("#hotspot-container").css("display", "inline-block");
-// });
-// });
 
-
-/* Sidebar/Controlbar Actions
+/* Language Changer
 *****************************************************/
-//Comment out until controlbar functinality has been decided
-// $('#back').hide();
-// $('.potree_container').on("click", 'div.annotation', function () {
-// 	$('#back').show();
-// 	$('#about').hide();  
+// function findLanguage({ 
+//     lng: 'en',
+//     resGetPath: Potree.resourcePath + '/lang/__lng__/__ns__.json',
+//     preload: ['en', 'fr', 'de', 'jp'],
+//     getAsync: true,
+//     debug: false
+//     }, function(t) { 
+//     // Start translation once everything is loaded
+//     $("#hotspotCarousel").findLanguage();
 // });
-
-
-    // // About Us
-    // $("#about a").click(function() {
-    //     // Reset overlays
-    //     $(".open").toggle().removeClass("open");
-    //     // load overlay html
-    //     $("#potree_render_area").append($('<div>').load("../pages/about-us.html", function() {
-    //         // set css
-    //         $("#about-overlay").addClass("open").toggle();
-    //         $('#potree_render_area').css('right', '33%');
-    //         // Handle Overlay - Close button
-    //         $(".overlay .close-button").click(function() {
-    //             $(".open").toggle().removeClass("open");
-    //             $('#potree_render_area').css('right', '0');
-    //         }); 
-    //     }));
-    // });
+			
+			
+// setLanguage(lang){
+//     findLanguage.setLng(lang);
+//     $("#hotspotCarousel").findLanguage();
+// }	
 
 
 
-        // // Reset overlays
-        // $(".open").toggle().removeClass("open");
-        // // load overlay html and set css
-        // $("#potree_render_area").append($('<div>').load("../pages/help.html", function() {
-        //     // set css
-        //     $("#help-overlay").addClass("open").toggle();
-        //     $('#potree_render_area').css('right', '33%');
-        //     // Handle Overlay - Close button
-        //     $(".overlay .close-button").click(function() {
-        //         $(".open").toggle().removeClass("open");
-        //         $('#potree_render_area').css('right', '0');
-        //     });           
-        // }));
