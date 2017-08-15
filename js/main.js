@@ -1,14 +1,7 @@
-$(window).on( "load", ( function() {
-    "use strict";
-    // loadVideo();
-    // loadBarge();
-    toggleSlider();
-    toggleHelp();
-    hotspotSlider();
-    closeOverlay();
-    // resetScene();
-    toggleContrast();
-}));
+// jQuery(window).load(function(){
+//     "use strict";
+//     toggleContrast();
+// });
  /**************end of document ready function ************/
 
 
@@ -32,34 +25,67 @@ $(window).on( "load", ( function() {
 
 /* Kiosk Time out
 *****************************************************/
-
-
+// viewer.scene.view.position
+// viewer.scene.view.getPivot()
 
 
 /* Reset Scene
 *****************************************************/
-// function resetScene (){
-// var resetbutton = document.getElementById("reset");
-// var house = $(document).load("../examples/house.html");
+// var bargeAnnotation = document.getElementById("reset");
 
-//     if (document.URL.contains("grotto.html") ) {
-//         ("#reset").append(
-//             console.log("resetscene code running");
-//             sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-//             sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-//     } else if (document.URL.contains("grotto.html") ) {
-//             ("#reset").append(
-//                 sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-//                 sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-//             );
+//     bargeAnnotation.addEventListener('click', event => {
+//         alert('reached grotto, do something here');
+//         bargeAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
+//         });
+
+// var resetbtn = document.getElementById("reset");
+// var grottoAnnotation = new Potree.Annotation({})
+// var bargeAnnotation = new Potree.Annotation({})
+
+// function resetScene (){
+//     if (window.location.href.indexOf("barge.html") ) {
+//         $(resetbtn).append(function(){
+//             bargeAnnotation.addEventListener('click', event => {
+//             console.log('reached grotto, do something here');
+//             })
+//             bargeAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
+//             });
+//     } else if (window.location.href.indexOf("grotto.html") ) {
+//         $(resetbtn).append(function(){
+//             grottoAnnotation.addEventListener('click', event => {
+//             console.log('reached grotto, do something here');
+//             })
+//             grottoAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
+//             });
+//         alert("you are on the grotto page");
 //     } else {
-//             ("#reset").append(
-//                 sceneVZP.view.position.set(-3.49, 8.39, -0.42);
-//                 sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
-//             );
+//         //reset
+//         alert("you are on some other kind of page");
 //         }
+
 // };
 
+
+
+
+// Original  
+function resetScene (){
+
+    var resetbtn = document.getElementById("reset");
+
+        if (window.location.href.indexOf("barge.html") > -1) {
+            $(resetbtn).append(function(){
+            alert("you are on the barge page");
+            // set annotation behavior to button here                
+                });
+        } else if (window.location.href.indexOf("grotto.html") ) {
+            alert("you are on the grotto page");
+            // set a different annotation behavior to button here 
+        } else {
+            alert("you are on some other kind of page");
+            // set last annotation behavior to button here 
+            }
+};
 
 /* Hotspot Scene Toggle - does not work in firefox
 *****************************************************/
@@ -76,11 +102,12 @@ function hotspotSlider (){
 }
 
 
-/* High Contrast - CSS under construction
+/* High Contrast - Under construction
 *****************************************************/
-function toggleContrast (){
-    $("#accessible").toggleClass("hiContrast");
-}
+function toggleTheme (){
+    $("#theme").attr("href", "../css/hiContrast.css");
+};
+
 
 
 /* Help Overlay
@@ -127,22 +154,4 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
 
 /* Language Changer
 *****************************************************/
-// function findLanguage({ 
-//     lng: 'en',
-//     resGetPath: Potree.resourcePath + '/lang/__lng__/__ns__.json',
-//     preload: ['en', 'fr', 'de', 'jp'],
-//     getAsync: true,
-//     debug: false
-//     }, function(t) { 
-//     // Start translation once everything is loaded
-//     $("#hotspotCarousel").findLanguage();
-// });
-			
-			
-// setLanguage(lang){
-//     findLanguage.setLng(lang);
-//     $("#hotspotCarousel").findLanguage();
-// }	
-
-
 
