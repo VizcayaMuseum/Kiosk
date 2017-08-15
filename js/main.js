@@ -1,17 +1,7 @@
-jQuery(window).load(function(){
-// $("#includedContent").load(function(){
-    "use strict";
-    //jQuery(window).load
-    // loadVideo();
-    // loadBarge();
-    // toggleFullscreen();
-    // toggleSlider();
-    // toggleHelp();
-    // hotspotSlider();
-    // closeOverlay();
-    // resetScene();
-    // toggleContrast();
-});
+// jQuery(window).load(function(){
+//     "use strict";
+//     toggleContrast();
+// });
  /**************end of document ready function ************/
 
 
@@ -35,43 +25,67 @@ jQuery(window).load(function(){
 
 /* Kiosk Time out
 *****************************************************/
-
-viewer.scene.view.position
-viewer.scene.view.getPivot()
+// viewer.scene.view.position
+// viewer.scene.view.getPivot()
 
 
 /* Reset Scene
 *****************************************************/
+// var bargeAnnotation = document.getElementById("reset");
+
+//     bargeAnnotation.addEventListener('click', event => {
+//         alert('reached grotto, do something here');
+//         bargeAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
+//         });
+
+// var resetbtn = document.getElementById("reset");
+// var grottoAnnotation = new Potree.Annotation({})
+// var bargeAnnotation = new Potree.Annotation({})
+
+// function resetScene (){
+//     if (window.location.href.indexOf("barge.html") ) {
+//         $(resetbtn).append(function(){
+//             bargeAnnotation.addEventListener('click', event => {
+//             console.log('reached grotto, do something here');
+//             })
+//             bargeAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
+//             });
+//     } else if (window.location.href.indexOf("grotto.html") ) {
+//         $(resetbtn).append(function(){
+//             grottoAnnotation.addEventListener('click', event => {
+//             console.log('reached grotto, do something here');
+//             })
+//             grottoAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
+//             });
+//         alert("you are on the grotto page");
+//     } else {
+//         //reset
+//         alert("you are on some other kind of page");
+//         }
+
+// };
+
+
+
+
+// Original  
 function resetScene (){
 
-var resetbtn = document.getElementById("reset");
+    var resetbtn = document.getElementById("reset");
 
-    if (window.location.href.indexOf("barge.html") > -1) {
-
-        $(resetbtn).append(function(){
-				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
-                    "actions": [{
-                    "onclick": function(){
-                        sceneVZP.view.lookAt(new THREE.Vector3(1.74, 6.21, -0.46));
-                        // From original potree annotation example
-                        //viewer.scene.view.position(-0.16, 30.21, 18.83);
-                        //viewer.scene.view.getPivot(1.74, 6.21, -0.46);
-                        alert("you are on the barge page");
-                    }
-                    }] 
-				});                  
-            });
-    } else if (window.location.href.indexOf("grotto.html") ) {
-        //reset 
-        alert("you are on the grotto page");
-    } else {
-        //reset
-        alert("you are on some other kind of page");
-        }
-
-
+        if (window.location.href.indexOf("barge.html") > -1) {
+            $(resetbtn).append(function(){
+            alert("you are on the barge page");
+            // set annotation behavior to button here                
+                });
+        } else if (window.location.href.indexOf("grotto.html") ) {
+            alert("you are on the grotto page");
+            // set a different annotation behavior to button here 
+        } else {
+            alert("you are on some other kind of page");
+            // set last annotation behavior to button here 
+            }
 };
-
 
 /* Hotspot Scene Toggle - does not work in firefox
 *****************************************************/
@@ -88,11 +102,12 @@ function hotspotSlider (){
 }
 
 
-/* High Contrast - CSS under construction
+/* High Contrast - Under construction
 *****************************************************/
-function toggleContrast (){
-    $("#accessible").toggleClass("hiContrast");
-}
+function toggleTheme (){
+    $("#theme").attr("href", "../css/hiContrast.css");
+};
+
 
 
 /* Help Overlay
