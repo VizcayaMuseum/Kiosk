@@ -289,17 +289,19 @@ background: #333333;
 .overlay-content {
   position: relative;
   top: 0;
+  clear: left;
   color: white;
+  margin: 0 8%;
 }
 #help-overlay {
-  height: 75%;
-  width: 30%;
+  height: 700px;
+  width: 400px;
   display: none;
   position: fixed;
   right: 0;
   top: 3%;
   z-index: 100;
-  background-color: rgba(16,76,146, 0.6);
+  background-color: rgba(16,76,146, 0.8);
   overflow-y: auto;
 }
 #help-overlay h2{
@@ -312,9 +314,10 @@ background: #333333;
 	font-size: 40px;
 }
 #help-overlay a {
-  padding-left: 5%;
+  padding: 0 5%;
   font-size: 3.5em;
   color: white;
+  float: left;
 }
 	#help-overlay a:focus,
 	#help-overlay a:hover,

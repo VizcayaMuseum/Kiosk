@@ -123,10 +123,6 @@ function closeOverlay(){
 
 /* HTML5 Fullscreen API
 *****************************************************/
-document.getElementById("fullscreen").addEventListener("click", function(){
-toggleFullscreen();
-});
-
 function toggleFullscreen(elem) {
 elem = elem || document.documentElement;
 if (!document.fullscreenElement && !document.mozFullScreenElement &&
@@ -154,4 +150,8 @@ if (!document.fullscreenElement && !document.mozFullScreenElement &&
 
 }
 
+
+
+/* Language Changer
+*****************************************************/
 
