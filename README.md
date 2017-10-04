@@ -1,4 +1,4 @@
-<h1 align="center">Custom UI Potree Viewer</h1>
+<h1 align="center">Point Cloud Web Kiosk</h1>
 
 ![Sample screenshot](https://github.com/ceciliaconsta3/kiosk/blob/master/assets/img/readme-pic.PNG?raw=true "Screenshot")
 
