@@ -26,6 +26,9 @@ Live viewing coming soon
 ## Performance
 Examples work best and are supported with Firefox 51, Chrome 56, and Chrome on Android
 
+## Contributions
+Very much welcome at this time. Check out [Contributing.](CONTRIBUTING.md)
+
 ## License
 For continuity sake, this project carries the same license as the original Potree project
 
