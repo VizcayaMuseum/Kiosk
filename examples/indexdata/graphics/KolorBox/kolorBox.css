@@ -1,0 +1,379 @@
+div.kolorBoxContainer
+{
+	position: relative;
+}
+
+div.kolorBox
+{
+	position: absolute;
+	z-index: 1;
+	background-color: #1c94c4;
+	background-clip: padding-box;
+	min-width: 100px;
+	cursor: auto;
+}
+
+div.kolorBoxHeader
+{
+	height: 75px;
+	overflow: hidden;
+	min-width: 100px;
+}
+
+div.kolorBoxBody
+{
+	min-width: 100px;
+}
+
+div.kolorBoxBodyLeft
+{
+    float: left;
+    width: 200px;
+    text-align: justify;
+    overflow: hidden;
+}
+
+div.kolorBoxBodyCenter
+{
+	position: relative;
+	float: left;
+	text-align: center;
+	overflow: hidden;
+}
+
+div.kolorBoxBodyCenter.loading
+{
+	background: url(images/sablier.gif) no-repeat center center;
+}
+
+div.kolorBoxBodyCenter p.kolorBoxBodyCenterLeftArrow
+{
+	position: absolute;
+	left: 0;
+	display: none;
+	background: url(images/btn_previous.png) no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+div.kolorBoxBodyCenter p.kolorBoxBodyCenterRightArrow
+{
+	position: absolute;
+	right: 0;
+	display: none;
+	background: url(images/btn_next.png) no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+div.kolorBoxBodyRight
+{
+	float: left;
+	width: 200px;
+	text-align: justify;
+	overflow: hidden;
+}
+
+div.kolorBoxFooter
+{
+	clear: both;
+	height: 75px;
+	overflow: hidden;
+	min-width: 100px;
+}
+
+p.kolorBoxTitle
+{
+	margin: auto;
+	padding: 0;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+p.kolorBoxCaption
+{
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	height: 100%;
+}
+
+/* ----------------------------------
+	Overlay
+----------------------------------- */
+
+div.kolorBoxOverlay
+{
+	position: absolute;
+	z-index: 0;
+	opacity: 1;
+	background-color: #000;
+	width: 0px;
+	height: 0px;
+}
+
+/* ----------------------------------
+	Navigation
+----------------------------------- */
+
+div.kolorBoxTopUIBar,
+div.kolorBoxBottomUIBar
+{
+	position: relative;
+	clear: both;
+	width: 100%;
+	height: 32px;
+	overflow: hidden;
+	min-width: 100px;
+	vertical-align: top;
+}
+
+div.leftUIPlaceHolder
+{
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+	overflow: hidden;
+	height: 32px;
+	vertical-align: top;
+}
+
+div.centerUIPlaceHolder
+{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	height: 32px;
+	vertical-align: top;
+}
+
+div.rightUIPlaceHolder
+{
+	display: inline-block;
+	text-align: right;
+	width: 100%;
+	overflow: hidden;
+	float: right;
+	height: 32px;
+	vertical-align: top;
+}
+
+div.kolorBoxNavigation
+{
+	height: 32px;
+	width: 124px;
+	display: inline-block;
+}
+
+span.counterSpan
+{
+	display: inline-block;
+	width: 60px;
+	height: 32px;
+	line-height: 32px;
+	color: #666;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+	vertical-align: top;
+}
+
+a.playPauseBtn,
+a.previousBtn,
+a.nextBtn,
+a.closeBtn,
+a.fullscreenBtn
+{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+	text-indent: -9999px;
+	cursor: pointer;
+	background-position: top;
+}
+
+a.playPauseBtn:hover,
+a.previousBtn:hover,
+a.nextBtn:hover,
+a.closeBtn:hover,
+a.fullscreenBtn:hover
+{
+	background-position: bottom;
+}
+
+a.previousBtn
+{
+	background: url(images/btn_previous.png) no-repeat;
+}
+
+a.nextBtn
+{
+	background: url(images/btn_next.png) no-repeat;
+}
+
+a.playBtn
+{
+	background: url(images/btn_play.png) no-repeat;
+}
+
+a.pauseBtn
+{
+	background: url(images/btn_pause.png) no-repeat;
+}
+
+a.closeBtn
+{
+	background: url(images/btn_close.png) no-repeat;
+}
+
+a.enterFullscreenBtn
+{
+	background: url(images/btn_fullscreen.png) no-repeat;
+}
+
+a.exitFullscreenBtn
+{
+	background: url(images/btn_fullscreen_exit.png) no-repeat;
+}
+
+/* ----------------------------------
+	Social buttons
+----------------------------------- */
+
+a.socialButton
+{
+	display:block;
+	float:left;
+	text-indent: -99999px;
+	width:64px;
+	height:64px;
+	overflow: hidden;
+	margin:5px;
+	cursor: pointer;
+}
+
+a.socialButton:hover
+{
+	background-position: bottom;
+}
+
+a.socialFacebook
+{
+	background: url("images/social_facebook.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialTwitter
+{
+	background: url("images/social_twitter.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialGoogle
+{
+	background: url("images/social_google.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialLinkedin
+{
+	background: url("images/social_linkedin.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialDigg
+{
+	background: url("images/social_digg.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialTumblr
+{
+	background: url("images/social_tumblr.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialReddit
+{
+	background: url("images/social_reddit.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialStumbleUpon
+{
+	background: url("images/social_stumbleupon.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialDelicious
+{
+	background: url("images/social_delicious.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialPinterest
+{
+	background: url("images/social_pinterest.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialVkontakte
+{
+	background: url("images/social_vkontakte.png") top;
+	background-size: 100% 200%;
+}
+
+a.socialMail
+{
+	background: url("images/social_mail.png") top;
+	background-size: 100% 200%;
+}
+
+div.socialEmbed
+{
+	display: inline-block;
+	text-align: left;
+}
+
+div.socialEmbed .socialEmbedText
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 0 5px;
+}
+
+div.socialEmbed input
+{
+	display: inline-block;
+	vertical-align: middle;
+	appearance: none;
+	border-radius: none;
+	border: solid 1px #dcdcdc;
+}
+
+div.socialEmbed input.socialEmbedInput
+{
+	margin: 0 0 5px;
+	padding: 4px;
+	font-family: sans-serif;
+	font-size: 13px;
+}
+
+div.socialEmbed input.socialEmbedInputWidth, div.socialEmbed input.socialEmbedInputHeight
+{
+	margin: 0 5px 0 0;
+	width: 25px;
+	padding: 2px;
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+div.socialEmbed label
+{
+	margin: 0 5px 0 0;
+}

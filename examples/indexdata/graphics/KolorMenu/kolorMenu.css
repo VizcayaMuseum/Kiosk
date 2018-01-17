@@ -1,0 +1,80 @@
+div.kolorMenuContainer {
+	position: fixed;
+	cursor: auto;
+}
+
+div.kolorMenuContainer * {
+	margin:0;
+	padding:0;
+}
+
+ul.kolorMenu,
+ul.kolorMenu ul {
+	list-style:none;
+}
+
+ul.kolorMenu ul {
+	display:none;
+	position:absolute;
+}
+
+/* for desktop devices
+ul.kolorMenu li:hover>* {
+	display:block;
+}
+*/
+
+/* for touch devices */
+ul.kolorMenu li:hover ul.kolorMenuGroup.forceDisplayBlock {
+	display:block;
+}
+ul.kolorMenu li:not(:hover) ul.kolorMenuGroup.forceDisplayBlock {
+	display:none;
+}
+ul.kolorMenu li:hover ul.kolorMenuGroup.forceDisplayNone {
+	display:none;
+}
+ul.kolorMenu li:not(:hover) ul.kolorMenuGroup.forceDisplayNone {
+	display:none;
+}
+
+ul.kolorMenu li {
+	position:relative;
+	white-space:nowrap;
+}
+
+ul.kolorMenu { 
+	position:relative;
+}
+
+ul.kolorMenu p:active, 
+ul.kolorMenu p:focus {
+	outline-style:none;
+}
+
+ul.kolorMenu p {
+	vertical-align:middle;
+	text-align:left;
+	cursor:pointer;
+	padding:10px;
+}
+
+/*
+ul.kolorMenu li:hover>p,
+ul.kolorMenu li p.pressed {
+
+}
+*/
+
+ul.kolorMenu img {
+	border:none;
+	vertical-align:middle;
+}
+
+ul.kolorMenu span {
+	overflow:visible;
+}
+
+ul.kolorMenu li.kolorMenuItem>p { border-width:0; }
+
+ul.kolorMenu ul.kolorMenuGroup { font-size:0; }
