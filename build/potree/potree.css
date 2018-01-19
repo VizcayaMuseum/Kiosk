@@ -32,23 +32,21 @@
 	top: 0;
 	left: 0;
 	padding: 0;
-	max-width: 100px;
 	height: 100%;
 	z-index:	0;
 	overflow-y:	auto;
 	overflow: 	hidden;
-	text-align: center;
-
 }
 
 #potree_sidebar_container a{
 	color: #fff;
 	font-size: 17px;
 }
-	a:hover, a:visited, a:link, a:active{
-		color: 	#ccccff;
-		text-decoration: 	none;
-	}
+
+a:hover, a:visited, a:link, a:active{
+	color: 	#ccccff;
+	text-decoration: 	none;
+}
 
 #potree_render_area{
 	position: 	absolute;
@@ -208,7 +206,7 @@ svg text {
 
 
 /*******************GENERAL*******************/
-/*:root{
+:root{
 	
 	--color-0: 			rgba( 25, 40, 44, 1);
 	--color-1: 			rgba(122,129,132, 1);
@@ -228,11 +226,11 @@ svg text {
 	--measurement-detail-node-bg-dark:		var(--color-2);
 	--measurement-detail-area-bg-color:		#eee;
 	
-}*/
+}
 
 /*******************UNUSED POTREE ELEMENTS: MEASUREMENTS-PV-ACCORDION*******************/
 
-/*.potree_container{
+.potree_container{
 	font-size:	75%;
 }
 
@@ -554,4 +552,4 @@ svg text {
 	background-color: var(--color-2) !important;
 	border-color: var(--color-2) !important;
 }
-*/
+

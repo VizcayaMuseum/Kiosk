@@ -13763,11 +13763,11 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 
 	loadGUI(callback){
 		var sidebarContainer = $('#potree_sidebar_container');
-		sidebarContainer.load(new URL(Potree.scriptPath + "/sidebar.html").href, () => {
+		sidebarContainer.load(new URL(Potree.scriptPath + "/potree-sidebar.html").href, () => {
 			
-			sidebarContainer.css("width", "100%");
+			sidebarContainer.css("width", "300px");
 			sidebarContainer.css("height", "100%");
-//MAP and Menu not used
+			//MAP and Menu not used
 			// var imgMenuToggle = document.createElement("img");
 			// imgMenuToggle.src = new URL(Potree.resourcePath + "/icons/menu_button.svg").href;
 			// imgMenuToggle.onclick = this.toggleSidebar;
@@ -13779,8 +13779,8 @@ Potree.Viewer = class PotreeViewer extends THREE.EventDispatcher{
 			// imgMapToggle.onclick = this.toggleMap;
 			// imgMapToggle.id = "potree_map_toggle";
 			
-			viewer.renderArea.insertBefore(imgMapToggle, viewer.renderArea.children[0]);
-			viewer.renderArea.insertBefore(imgMenuToggle, viewer.renderArea.children[0]);
+			// viewer.renderArea.insertBefore(imgMapToggle, viewer.renderArea.children[0]);
+			// viewer.renderArea.insertBefore(imgMenuToggle, viewer.renderArea.children[0]);
 			
 			this.mapView = new Potree.MapView(this);
 			this.mapView.init();
