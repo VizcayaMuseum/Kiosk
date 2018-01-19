@@ -9,16 +9,16 @@
     <title>Daruma Tech | Vizcaya | Barge 2017</title>
 
 	<!-- Bootstrap and Scrollbar-->
+	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
 	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
-	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="../libs/bootstrap/js/bootstrap.min.js"></script>	
+	
 	<!-- Font related -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">	
 	<link href="https://fonts.googleapis.com/css?family=Lato:400|Roboto:400" rel="stylesheet">
-	<!-- Potree styling -->
-	<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>	
 	<!-- Font elements -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">	
 	<link href="https://fonts.googleapis.com/css?family=Lato:400|Roboto:400" rel="stylesheet">
@@ -57,8 +57,9 @@
 	<!-- Potree Render Container -->
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		<div id="potree_render_area">
-			</div>
-		<div id="potree_description" class="potree_info_text"></div>
+			<div id="potree_description" class="potree_info_text"></div>
+		</div>
+		<div id="potree_sidebar_container"> </div>
 	</div>
 
 
@@ -74,19 +75,33 @@
 	<!-- Point cloud starts here -->
 	<script>	
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-		viewer.setPointSize(1);
-		viewer.setFOV(65);
-		viewer.setPointSizing("Adaptive"); // ["Fixed", "Attenuated", "Adaptive"]
-		viewer.setQuality("Squares"); // ["Squares", "Circles", "Interpolation"]
-		viewer.setPointBudget(5*1000*1000);
-		viewer.setIntensityRange(0, 300);
-		viewer.setEDLEnabled(false);
-		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
+		// viewer.setPointSize(1);
+		// viewer.setFOV(65);
+		// viewer.setPointSizing("Adaptive"); // ["Fixed", "Attenuated", "Adaptive"]
+		// viewer.setQuality("Squares"); // ["Squares", "Circles", "Interpolation"]
+		// viewer.setPointBudget(5*1000*1000);
+		// viewer.setIntensityRange(0, 300);
+		// viewer.setEDLEnabled(false);
+		// viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+		// viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX
+		// viewer.setMinNodeSize(100);
 
+		viewer.setPointSize(1);
+		viewer.setFOV(100);
+		viewer.setPointSizing("Fixed"); // ["Fixed", "Attenuated", "Adaptive"]
+		viewer.setQuality("Interpolation"); // ["Squares", "Circles", "Interpolation"]
+		viewer.setPointBudget(2*1000*1000);
+		viewer.setEDLEnabled(false);
+		viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
+		viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
+		viewer.setMinNodeSize(0);
 
 		//Setting default camera scene and annotations content, locations, and views
 		viewer.setDescription("");
+		// viewer.loadGUI(() => {
+		// 	viewer.setLanguage('en');
+		// 	$("#menu_appearance").next().show();
+		// });
 		viewer.loadSettingsFromURL();
 
 		let sceneVZP = new Potree.Scene();		
