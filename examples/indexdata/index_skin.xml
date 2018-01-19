@@ -3185,6 +3185,37 @@ showTourControls();
   </action>
 
 <!-- ********** -->
+<!-- Simple Button11 -->
+<!-- id : button11 -->
+<!-- ********** -->
+
+  <layer name="button11"
+         keep="true"
+         url="%FIRSTXML%/graphics/button11/home-icon.png"
+         align="leftbottom"
+		 x="10"
+		 y="8"
+         zorder="23"
+         visible="false"
+         onclick="button11OnClick"
+         tooltip="button11tooltip"
+         onhover="showTooltip('plugin');"
+         onout="hideTooltip();"
+         height="36"
+         width="36"
+         />
+  <action name="button11OnClick">home();
+
+
+  </action>
+
+  <events name="button11events" 
+    onTourStart="showbutton11();"
+    keep="true" />
+  <action name="hidebutton11">set(layer[button11].visible, false);</action>
+  <action name="showbutton11">set(layer[button11].visible, true);</action>
+
+<!-- ********** -->
 <!-- Simple Button12 -->
 <!-- id : button12 -->
 <!-- ********** -->
@@ -3695,7 +3726,9 @@ showDescription_description();
 <action name="viewControlMoveVertStop">
 	set(vlookat_moveforce, 0);
 </action>
-
+<action name="home">
+	openurl('../index.html');
+</action>
 <action name="viewControlZoomIn">
 	if(%1,
 		if(%2,
