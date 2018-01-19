@@ -3727,7 +3727,7 @@ showDescription_description();
 	set(vlookat_moveforce, 0);
 </action>
 <action name="home">
-	openurl('../index.html');
+	openurl('../index.html',_self);
 </action>
 <action name="viewControlZoomIn">
 	if(%1,
