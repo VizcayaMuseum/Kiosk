@@ -327,7 +327,7 @@
          enabled="false"
          capture="true"
          visible="false"
-         height="50"
+         height="60"
          width="100%"
          accuracy="1"
          />
@@ -360,7 +360,7 @@
 		accuracy="1"
 	
 	x="0"
-	y="50"
+	y="60"
 	
 	bgcolor="0x015289"
 	bgalpha="0.90000762951094837"
@@ -1883,18 +1883,18 @@
 
   <layer name="togglebutton3"
          keep="true"
-         url="%FIRSTXML%/graphics/togglebutton3/main_btn_on.png" 
+         url="%FIRSTXML%/graphics/togglebutton3/menu_on_2.png" 
          align="bottom"
-         x="280"
-         y="2"
+         x="246"
+         y="13"
          zorder="11"
          tooltip=""
          onhover="togglebutton3OnHover"
          state="true"
          onclick="togglebutton3OnClick"
          onout="hideTooltip();"
-         height="46"
-         width="46"
+         height="34"
+         width="34"
          visible="false"
          />
 
@@ -1912,13 +1912,13 @@
 hideTourControls();
 
 
-      set(url,%FIRSTXML%/graphics/togglebutton3/main_btn_off.png);
+      set(url,%FIRSTXML%/graphics/togglebutton3/menu_off_2.png);
      ,
       set(state, true);showTourThumbnails();
 showTourControls();
 
 
-      set(url,%FIRSTXML%/graphics/togglebutton3/main_btn_on.png);
+      set(url,%FIRSTXML%/graphics/togglebutton3/menu_on_2.png);
     );
   </action>
 
@@ -3191,18 +3191,18 @@ showTourControls();
 
   <layer name="button11"
          keep="true"
-         url="%FIRSTXML%/graphics/button11/home-icon.png"
+         url="%FIRSTXML%/graphics/button11/home-icon_2.png"
          align="leftbottom"
-		 x="10"
-		 y="8"
+		 x="12"
+		 y="13"
          zorder="23"
          visible="false"
          onclick="button11OnClick"
          tooltip="button11tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="36"
-         width="36"
+         height="34"
+         width="34"
          />
   <action name="button11OnClick">home();
 
@@ -3222,18 +3222,18 @@ showTourControls();
 
   <layer name="button12"
          keep="true"
-         url="%FIRSTXML%/graphics/button12/zoom_out.png" 
+         url="%FIRSTXML%/graphics/button12/zoom-out_2.png" 
          align="bottom"
-         x="-140"
-         y="2"
+         x="-174"
+         y="13"
          zorder="23"
          visible="false"
          onclick="button12OnClick"
          tooltip="button12tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="46"
-         width="46"
+         height="34"
+         width="34"
          />
   <action name="button12OnClick">viewControlZoomOut(true);
 
@@ -3254,18 +3254,18 @@ showTourControls();
 
   <layer name="button13"
          keep="true"
-         url="%FIRSTXML%/graphics/button13/zoom_in.png" 
+         url="%FIRSTXML%/graphics/button13/zoom-in_2.png" 
          align="bottom"
-         x="-210"
-         y="2"
+         x="-244"
+         y="13"
          zorder="24"
          visible="false"
          onclick="button13OnClick"
          tooltip="button13tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="46"
-         width="46"
+         height="34"
+         width="34"
          />
   <action name="button13OnClick">viewControlZoomIn(true);
 
@@ -3301,18 +3301,18 @@ showTourControls();
 
   <layer name="button14"
          keep="true"
-         url="%FIRSTXML%/graphics/button14/forward2.png" 
+         url="%FIRSTXML%/graphics/button14/arrow-up_2.png" 
          align="bottom"
-         x="-70"
-         y="1"
+         x="-104"
+         y="13"
          zorder="26"
          visible="false"
          onclick="button14OnClick"
          tooltip="button14tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="48"
-         width="48"
+         height="34"
+         width="34"
          />
   <action name="button14OnClick">viewControlMoveUp(true);
 
@@ -3335,18 +3335,18 @@ showTourControls();
 
   <layer name="togglebutton4"
          keep="true"
-         url="%FIRSTXML%/graphics/togglebutton4/audio_on.png" 
+         url="%FIRSTXML%/graphics/togglebutton4/info_on_2.png" 
          align="bottom"
-         x="210"
-         y="1"
+         x="176"
+         y="13"
          zorder="27"
          tooltip=""
          onhover="togglebutton4OnHover"
          state="true"
          onclick="togglebutton4OnClick"
          onout="hideTooltip();"
-         height="48"
-         width="48"
+         height="34"
+         width="34"
          visible="false"
          />
 
@@ -3365,14 +3365,14 @@ closeDescription_description(false);
 
 
 
-      set(url,%FIRSTXML%/graphics/togglebutton4/audio_off.png);
+      set(url,%FIRSTXML%/graphics/togglebutton4/info_off_2.png);
      ,
       set(state, true);
 showDescription_description();
 
 
 
-      set(url,%FIRSTXML%/graphics/togglebutton4/audio_on.png);
+      set(url,%FIRSTXML%/graphics/togglebutton4/info_on_2.png);
     );
   </action>
 
@@ -3486,18 +3486,18 @@ showDescription_description();
 
   <layer name="button15"
          keep="true"
-         url="%FIRSTXML%/graphics/button15/down.png" 
+         url="%FIRSTXML%/graphics/button15/arrow-down_2.png" 
          align="bottom"
-         x="0"
-         y="1"
+         x="-34"
+         y="13"
          zorder="29"
          visible="false"
          onclick="button15OnClick"
          tooltip="button15tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="48"
-         width="48"
+         height="34"
+         width="34"
          />
   <action name="button15OnClick">viewControlMoveDown(true);
 
@@ -3525,18 +3525,18 @@ showDescription_description();
 
   <layer name="button17"
          keep="true"
-         url="%FIRSTXML%/graphics/button17/left.png" 
+         url="%FIRSTXML%/graphics/button17/arrow-left_2.png" 
          align="bottom"
-         x="70"
-         y="1"
+         x="36"
+         y="13"
          zorder="32"
          visible="false"
          onclick="button17OnClick"
          tooltip="button17tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="48"
-         width="48"
+         height="34"
+         width="34"
          />
   <action name="button17OnClick">viewControlMoveLeft(true);
 
@@ -3557,18 +3557,18 @@ showDescription_description();
 
   <layer name="button18"
          keep="true"
-         url="%FIRSTXML%/graphics/button18/right.png" 
+         url="%FIRSTXML%/graphics/button18/arrow-right_2.png" 
          align="bottom"
-         x="140"
-         y="1"
+         x="106"
+         y="13"
          zorder="33"
          visible="false"
          onclick="button18OnClick"
          tooltip="button18tooltip"
          onhover="showTooltip('plugin');"
          onout="hideTooltip();"
-         height="48"
-         width="48"
+         height="34"
+         width="34"
          />
   <action name="button18OnClick">viewControlMoveRight(true);
 
