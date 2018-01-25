@@ -87,6 +87,46 @@ function resetScene (){
             }
 };
 
+/* Nav Bar Functionality
+*****************************************************/
+/* Zoom In
+*****************************************************/
+function zoomIn(){
+    var currentFOV = viewer.getFOV();
+    viewer.setFOV(currentFOV - 5);
+}
+
+/* Zoom Out
+*****************************************************/
+function zoomOut(){
+    var currentFOV = viewer.getFOV();
+    viewer.setFOV(currentFOV + 5);
+}
+
+/* Move Up
+*****************************************************/
+function moveUp(){
+    viewer.scene.view.pitch += .2;
+}
+
+/* Move Down
+*****************************************************/
+function moveDown(){
+    viewer.scene.view.pitch -= .2;
+}
+
+/* Move Left
+*****************************************************/
+function moveLeft(){
+    viewer.scene.view.yaw += .2;
+}
+
+/* Move Right
+*****************************************************/
+function moveRight(){
+    viewer.scene.view.yaw -= .2;
+}
+
 /* Hotspot Scene Toggle - does not work in firefox
 *****************************************************/
 function toggleSlider(){
