@@ -87,30 +87,31 @@
 		// viewer.setMinNodeSize(100);
 
 		viewer.setPointSize(1);
-		viewer.setFOV(100);
+		viewer.setFOV(75);
 		viewer.setPointSizing("Fixed"); // ["Fixed", "Attenuated", "Adaptive"]
 		viewer.setQuality("Interpolation"); // ["Squares", "Circles", "Interpolation"]
-		viewer.setPointBudget(2*1000*1000);
+		viewer.setPointBudget(5*1000*1000);
 		viewer.setEDLEnabled(false);
 		viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
 		viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
 		viewer.setMinNodeSize(0);
-
-		//Setting default camera scene and annotations content, locations, and views
+		
 		viewer.setDescription("");
+		viewer.loadSettingsFromURL();
+		// Uncomment this section to show sidebar settings
 		// viewer.loadGUI(() => {
 		// 	viewer.setLanguage('en');
 		// 	$("#menu_appearance").next().show();
 		// });
-		viewer.loadSettingsFromURL();
 
 		let sceneVZP = new Potree.Scene();		
-		viewer.setScene(sceneVZP);		
+		viewer.setScene(sceneVZP);
+		viewer.fpControls.enabled = true;
+		viewer.fpControls.setScene(sceneVZP);
 		Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
 			sceneVZP.addPointCloud(e.pointcloud);
 			sceneVZP.view.position.set(-0.16, 30.21, 18.83);
 			sceneVZP.view.lookAt(new THREE.Vector3(-0.10, -0.82, 2.34));
-
 
 		// Annotations (5 total)
 		
@@ -160,7 +161,79 @@
 					"cameraTarget": [-0.10, -0.82, 2.34],
 					"title": "Scene Reset"			
 				});	
-		});	
+		});
+
+		/* Menu Bar Functions
+		*****************************************************/
+		// Arrow buttons - amount to move camera by
+		var targetMoveFactor = 3;
+
+		/* Zoom In
+		*****************************************************/
+		function zoomIn(){
+			var currentFOV = viewer.getFOV();
+			viewer.setFOV(currentFOV - 5);
+		}
+
+		/* Zoom Out
+		*****************************************************/
+		function zoomOut(){
+			var currentFOV = viewer.getFOV();
+			viewer.setFOV(currentFOV + 5);
+		}
+
+		/* Move Up
+		*****************************************************/
+		function moveCameraUp(){
+			// pitch2 is the target pitch
+			var pitch2 = viewer.scene.view.pitch + 0.2;
+			var tween = new TWEEN.Tween(viewer.scene.view.pitch).to(pitch2, 2000);
+
+			tween.onUpdate(function(){
+				console.log(viewer.scene.view.pitch);
+			});
+
+			tween.start();
+		}
+
+		/* Move Down
+		*****************************************************/
+		function moveDown(){
+			// current position coordinates - x, y, z
+			// var currentTarget = viewer.scene.view.getPivot();
+
+			// // set new camera target
+			// viewer.scene.view.getPivot();
+			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x, currentTarget.y + targetMoveFactor, currentTarget.z));
+			// console.log(viewer.scene.view.getPivot());
+			viewer.scene.view.pitch -= .2;
+		}
+
+		/* Move Left
+		*****************************************************/
+		function moveLeft(){
+			// current position coordinates - x, y, z
+			// var currentTarget = viewer.scene.view.getPivot();
+
+			// // set new camera target
+			// viewer.scene.view.getPivot();
+			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x + targetMoveFactor, currentTarget.y, currentTarget.z));
+			// console.log(viewer.scene.view.getPivot());
+			viewer.scene.view.yaw += .2;
+		}
+
+		/* Move Right
+		*****************************************************/
+		function moveRight(){
+			// current position coordinates - x, y, z
+			// var currentTarget = viewer.scene.view.getPivot();
+
+			// // set new camera target
+			// viewer.scene.view.getPivot();
+			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x - targetMoveFactor, currentTarget.y, currentTarget.z));
+			// console.log(viewer.scene.view.getPivot());
+			viewer.scene.view.yaw -= .2;
+		}
 	</script>
 	
 
