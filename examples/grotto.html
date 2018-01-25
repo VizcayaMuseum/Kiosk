@@ -153,11 +153,8 @@
 
 			});
 
-			/* Menu Bar Functions
+		/* Nav Bar Functionality
 		*****************************************************/
-		// Arrow buttons - amount to move camera by
-		var targetMoveFactor = 3;
-
 		/* Zoom In
 		*****************************************************/
 		function zoomIn(){
@@ -175,58 +172,26 @@
 		/* Move Up
 		*****************************************************/
 		function moveUp(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x, currentTarget.y - targetMoveFactor, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.pitch += .2;
 		}
 
 		/* Move Down
 		*****************************************************/
 		function moveDown(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// // set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x, currentTarget.y + targetMoveFactor, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.pitch -= .2;
 		}
 
 		/* Move Left
 		*****************************************************/
 		function moveLeft(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// // set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x + targetMoveFactor, currentTarget.y, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.yaw += .2;
 		}
 
 		/* Move Right
 		*****************************************************/
 		function moveRight(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// // set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x - targetMoveFactor, currentTarget.y, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.yaw -= .2;
 		}
-
-		// console.log(viewer);
-		console.log(viewer.scene.camera);
-
 	</script>
 		
   </body>

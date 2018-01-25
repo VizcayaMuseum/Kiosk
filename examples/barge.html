@@ -163,11 +163,8 @@
 				});	
 		});
 
-		/* Menu Bar Functions
+		/* Nav Bar Functionality
 		*****************************************************/
-		// Arrow buttons - amount to move camera by
-		var targetMoveFactor = 3;
-
 		/* Zoom In
 		*****************************************************/
 		function zoomIn(){
@@ -184,54 +181,25 @@
 
 		/* Move Up
 		*****************************************************/
-		function moveCameraUp(){
-			// pitch2 is the target pitch
-			var pitch2 = viewer.scene.view.pitch + 0.2;
-			var tween = new TWEEN.Tween(viewer.scene.view.pitch).to(pitch2, 2000);
-
-			tween.onUpdate(function(){
-				console.log(viewer.scene.view.pitch);
-			});
-
-			tween.start();
+		function moveUp(){
+			viewer.scene.view.pitch += .2;
 		}
 
 		/* Move Down
 		*****************************************************/
 		function moveDown(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// // set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x, currentTarget.y + targetMoveFactor, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.pitch -= .2;
 		}
 
 		/* Move Left
 		*****************************************************/
 		function moveLeft(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// // set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x + targetMoveFactor, currentTarget.y, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.yaw += .2;
 		}
 
 		/* Move Right
 		*****************************************************/
 		function moveRight(){
-			// current position coordinates - x, y, z
-			// var currentTarget = viewer.scene.view.getPivot();
-
-			// // set new camera target
-			// viewer.scene.view.getPivot();
-			// viewer.scene.view.lookAt(new THREE.Vector3(currentTarget.x - targetMoveFactor, currentTarget.y, currentTarget.z));
-			// console.log(viewer.scene.view.getPivot());
 			viewer.scene.view.yaw -= .2;
 		}
 	</script>
