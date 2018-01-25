@@ -17,11 +17,11 @@ Sorry, your browser does not support this video.
 </div> -->
 
 
-<!-- Controlbar -->
-<div id="controlbar-container" class="navbar-fixed-bottom text-center">
-    <!-- Pending final location
-    <a href="/pages/index.html" title=""><img class="logo" src="../assets/img/VizcayaLogo-color205.jpg" alt="Vizcaya Logo"></a>-->
-    <div class = "btn-toolbar controlbar-nav" role="toolbar">
+<!-- Controlbar (ORIGINAL)  -->
+<!-- <div id="controlbar-container" class="navbar-fixed-bottom text-center"> -->
+    <!-- Pending final location -->
+    <!-- <a href="/pages/index.html" title=""><img class="logo" src="../assets/img/VizcayaLogo-color205.jpg" alt="Vizcaya Logo"></a>-->
+    <!-- <div class = "btn-toolbar controlbar-nav" role="toolbar">
         <button id="home" onclick="location.href='../index.html'"><i class="fa fa-home fa-2x nav-icon" aria-hidden="true" title="Home" tabindex="1"></i></button>
         <button id="reset"><i class="fa fa-refresh fa-2x nav-icon" aria-hidden="true" onclick="resetScene()" title="Reset Scene" tabindex="2"></i></button>
         <button id="back" ><i class="fa fa-arrow-left fa-2x nav-icon" aria-hidden="true" title="Last Hotspot" tabindex="3"></i></button>
@@ -32,7 +32,24 @@ Sorry, your browser does not support this video.
         <button id="flag" ><i class="fa fa-flag-o fa-2x nav-icon" aria-hidden="true" title="Change Language" tabindex="8"></i></button>
         <button id="accessible" data-theme="../css/hiContrast.css"><i class="fa fa-universal-access fa-2x nav-icon" onclick="toggleTheme()" aria-hidden="true" title="Universal access" tabindex="9"></i></button>
     </div>
-</div>
+</div> -->
+
+<!-- Controlbar -->
+<div id="controlbar-container" class="navbar-fixed-bottom text-center">
+        <!-- Pending final location -->
+        <!-- <a href="/pages/index.html" title=""><img class="logo" src="../assets/img/VizcayaLogo-color205.jpg" alt="Vizcaya Logo"></a>-->
+        <div class="btn-toolbar controlbar-nav" role="toolbar">
+            <button id="home" onclick="location.href='../index.html'"><i class="fa fa-home fa-2x nav-icon" aria-hidden="true" title="Home" tabindex="1"></i></button>
+            <button id="zoom-out"><i class="fa fa-search-minus fa-2x nav-icon" onclick="zoomOut()" aria-hidden="true" title="Zoom Out" tabindex="6"></i></button>
+            <button id="zoom-in"><i class="fa fa-search-plus fa-2x nav-icon" onclick="zoomIn()" aria-hidden="true" title="Zoom In" tabindex="6"></i></button>
+            <button id="move-up"><i class="fa fa-arrow-circle-up fa-2x nav-icon" onclick="moveUp()" aria-hidden="true" title="Move Up" tabindex="6"></i></button>
+            <button id="move-down"><i class="fa fa-arrow-circle-down fa-2x nav-icon" onclick="moveDown()" aria-hidden="true" title="Move Down" tabindex="6"></i></button>
+            <button id="move-left"><i class="fa fa-arrow-circle-left fa-2x nav-icon" onclick="moveLeft()" aria-hidden="true" title="Move Left" tabindex="6"></i></button>
+            <button id="move-right"><i class="fa fa-arrow-circle-right fa-2x nav-icon" onclick="moveRight()" aria-hidden="true" title="Move Right" tabindex="6"></i></button>
+            <button id="info-toggle"><i class="fa fa-info-circle fa-2x nav-icon" onclick="toggleInfo()" aria-hidden="true" title="Toggle Information Panel" tabindex="6"></i></button>
+            <button id="slider-toggle"><i class="fa fa-bars fa-2x nav-icon" onclick="toggleSlider()" aria-hidden="true" title="Toggle Scene Selector" tabindex="6"></i></button>
+        </div>
+    </div>
 
 
 <!-- Bootstrap thumbnail slider with swipe support:
@@ -55,10 +72,9 @@ Gorgeous: https://mobirise.com/bootstrap-carousel/
                 <div class="item active">
                     <div class="row-fluid">
                         <div class="span3"><a href="../examples/house.html" class="thumbnail"><img src="../assets/img/Vizcaya_House_300px.png" alt="House" style="max-width:100%;">House</a></div>
-                        <div class="span3"><a href="../examples/barge.html" class="thumbnail"><img src="../assets/img/Vizcaya_Barge_300px.png" alt="Barge" style="max-width:100%;">Barge 1917</a></div>
-                        <div class="span3"><a href="#x" class="thumbnail"><img src="../assets/img/Stone_Mermaid_300px.png"
-                             alt="Hermes" style="max-width:100%;">Hermes</a></div>
+                        <div class="span3"><a href="../examples/barge.html" class="thumbnail"><img src="../assets/img/Vizcaya_Barge_300px.png" alt="Barge" style="max-width:100%;">Barge 2017</a></div>
                         <div class="span3"><a href="../examples/grotto.html" class="thumbnail"><img src="../assets/img/Vizcaya_Grotto_300px.png" alt="Grotto" style="max-width:100%;">Grotto</a></div>
+                        <div class="span3"><a href="#x" class="thumbnail"><img src="../assets/img/Stone_Mermaid_300px.png" alt="Hermes" style="max-width:100%;">Hermes</a></div>
                     </div>
                 </div>
                 <!-- Will enable once more hotspot points/ scene views have been set up

@@ -152,8 +152,7 @@ video {
 /* Control Bar
 *****************************************************/
 #controlbar-container {
-	background-color: rgb(106,145,188);
-	border-top: 8px solid rgb(16,76,146);
+	background-color: #6A91BC;
 	height: 60px;
 }
 #fullscreen {
@@ -188,16 +187,13 @@ text-align: left;
 	color: #fff;
 	font-size: 17px;
 	background: transparent;
+	padding-top: 4px;
 }
 .btn-toolbar button {
 	background: transparent;
 	border: none;
-	padding: 0 50px;
+	padding: 0 20px;
 }
- .btn-toolbar > button:nth-child(n+7){
-	float: right;
-} 
-
 .btn-toolbar > button:nth-child(1){
 	float: left;
 }
