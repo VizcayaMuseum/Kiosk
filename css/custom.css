@@ -20,7 +20,7 @@ body {
 	padding: 	0;
 	height: 100%;
 	width: 100%;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 *:focus {
@@ -41,7 +41,7 @@ div.annotation > div{
 
 /* Splash Page
 *****************************************************/
-video {
+/* video {
 	position: fixed;
 	top:0;
 	left: 0;
@@ -55,7 +55,7 @@ video {
 #video-skip-icon {
 	color: white;
 	font-size: 1.8em;
-}
+} */
 #skip-button {
 	border-radius: 50%;
 	border: 2px solid white;
@@ -196,6 +196,19 @@ text-align: left;
 }
 .btn-toolbar > button:nth-child(1){
 	float: left;
+}
+a.switch-view-btn {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	color: #fff;
+	background: rgb(16,76,146);
+	border-color: rgb(16,76,146);
+}
+a.switch-view-btn:hover,
+a.switch-view-btn:active {
+	background: rgb(16,76,146);
+	box-shadow: rgb(255, 255, 255) 0 0 5px;
 }
 
 /* Hotspot Carousel
@@ -349,6 +362,29 @@ background: #333333;
 	display: none;
 }
 
-
-
-
+/* Info Box
+*****************************************************/
+#infoBox #images {
+	margin-top: 20px;
+}
+#infoBox .nav-item a{
+	color: 	#fff;
+	text-decoration: none;
+}
+#infoBox .nav-item.active a {
+	color: 	#6A91BC;
+	text-decoration: none;
+}
+#infoBox .nav-item a:hover {
+	color: 	#6A91BC;
+	text-decoration: none;
+}
+#infoBox .grid-image {
+	margin-bottom: 20px;
+	max-width: 100px;
+	max-height: 100px;
+}
+#infoBox video {
+	margin-top: 20px;
+	width: 100%;
+}
