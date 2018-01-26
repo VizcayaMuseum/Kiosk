@@ -66,7 +66,14 @@
 	<!-- Controlbar and overlays-->
 	<script> 
 		$(function(){
-			$("#includedContent").load("../pages/modules.html");
+			$("#includedContent").load("../pages/modules.html", function(response, status, xhr) {
+				if(status == "success") {
+					console.log("Success: loaded modules.html");
+				} else if(status == "error") {
+					console.log("Error: could not modules.html");
+				}
+				$("#includedContent").append('<a class="btn btn-primary btn-lg switch-view-btn" href="#">View 1917 Barge</a>');
+			});
 		});
 	</script>
 	<div id="includedContent"></div>
@@ -106,8 +113,6 @@
 
 		let sceneVZP = new Potree.Scene();		
 		viewer.setScene(sceneVZP);
-		viewer.fpControls.enabled = true;
-		viewer.fpControls.setScene(sceneVZP);
 		Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
 			sceneVZP.addPointCloud(e.pointcloud);
 			sceneVZP.view.position.set(-0.16, 30.21, 18.83);
@@ -119,50 +124,115 @@
 				sceneVZP.addAnnotation([0.65, -1.40, 0.50], {
 					"cameraPosition": [2.25, -1.40, 4.60],
 					"cameraTarget": [-0.65, -1.20, 4.10],
-					"title": "Center" 
-					// 	"actions": [{
-					// 	"onclick": function(){
-					// 		sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
-					// 	}
-					// }]
+					"title": "Center",
+					"description": "Center - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"images": [{
+						"name": "Placeholder image",
+						"description": "Image description",
+						"src": "../assets/img/100x100.png"
+					}, {
+						"name": "Placeholder image 2",
+						"description": "Image description",
+						"src": "../assets/img/100x100.png"
+					}, {
+						"name": "Placeholder image 3",
+						"description": "Image description",
+						"src": "../assets/img/100x100.png"
+					}, {
+						"name": "Placeholder image 4",
+						"description": "Image description",
+						"src": "../assets/img/100x100.png"
+					}, {
+						"name": "Placeholder image 5",
+						"description": "Image description",
+						"src": "../assets/img/100x100.png"
+					}, {
+						"name": "Placeholder image 6",
+						"description": "Image description",
+						"src": "../assets/img/100x100.png"
+					}],
+					"videos": [{
+						"src": "../assets/video/bargeIntroShort.mp4"
+					}],
+					"actions": [{
+						"icon": Potree.resourcePath + "/icons/info.svg",
+						"onclick": function(){
+							// sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+						}
+					}]
+					
 				});
 
 				//Long Barge view
 				sceneVZP.addAnnotation([24.34, -1.80,0.50], {
 					"cameraPosition": [25.26, -1.81,5.66],
 					"cameraTarget": [24.34, -1.80,5.67],
-					"title": "Long view"
+					"title": "Long view",
+					"description": "Long view - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"actions": [{
+						"icon": Potree.resourcePath + "/icons/info.svg",
+						"onclick": function(){
+							// sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+						}
+					}]
 				});
 
 				//Left Hermes statue
 				sceneVZP.addAnnotation([4.74, 5.44, 1.50], {
 					"cameraPosition": [5.20, 7.43, 4.48],
 					"cameraTarget": [4.74, 5.44, 4.40],
-					"title": "Hermes"
+					"title": "Hermes",
+					"description": "Hermes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"actions": [{
+						"icon": Potree.resourcePath + "/icons/info.svg",
+						"onclick": function(){
+							// sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+						}
+					}]
 				});
 
 				//Right Hermes statue
 				sceneVZP.addAnnotation([-2.53, 5.37, 1.50], {
 					"cameraPosition": [-2.87, 7.50, 4.24],
 					"cameraTarget": [-2.53, 5.37, 4.12],
-					"title": "Hermes"
+					"title": "Hermes",
+					"description": "Hermes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"actions": [{
+						"icon": Potree.resourcePath + "/icons/info.svg",
+						"onclick": function(){
+							// sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+						}
+					}]
 				});
 
 				//Back Stairwell 
 				sceneVZP.addAnnotation([-15.41, -1.68, 0.50], {
 					"cameraPosition":[-11.91, -1.86, 4.16],
 					"cameraTarget": [-15.41, -1.68, 3.49],
-					"title": "Stairwell"
+					"title": "Stairwell",
+					"description": "Stairwell - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"actions": [{
+						"icon": Potree.resourcePath + "/icons/info.svg",
+						"onclick": function(){
+							// sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+						}
+					}]
 				});	
 
 				//Reset Scene
 				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
 					"cameraPosition":[-0.16, 30.21, 18.83],
 					"cameraTarget": [-0.10, -0.82, 2.34],
-					"title": "Scene Reset"			
+					"title": "Scene Reset",
+					"description": "Scene Reset - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."			,
+					"actions": [{
+						"icon": Potree.resourcePath + "/icons/info.svg",
+						"onclick": function(){
+							// sceneVZP.view.lookAt(new THREE.Vector3(-0.65, -1.20, 4.10));
+						}
+					}]
 				});	
 		});
-
 	</script>
 	
 
