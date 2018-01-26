@@ -1189,12 +1189,12 @@ Potree.Shaders["pointcloud.vs"] = [
 
 Potree.Shaders["pointcloud.fs"] = [
  "",
- "precision mediump float;",
- "precision mediump int;",
- "",
  "#if defined use_interpolation",
  "	#extension GL_EXT_frag_depth : enable",
  "#endif",
+ "",
+ "precision mediump float;",
+ "precision mediump int;",
  "",
  "uniform mat4 viewMatrix;",
  "uniform vec3 cameraPosition;",
@@ -6002,6 +6002,8 @@ Potree.Annotation = function(scene, args = {}){
 	this.scene = scene;
 	this.ordinal = args.title || Potree.Annotation.counter;
 	this.title = args.title || "No Title";
+	this.images = args.images || [];
+	this.videos = args.videos || [];
 	this.description = args.description || "";
 	this.position = args.position || new THREE.Vector3(0,0,0);
 	this.cameraPosition = (args.cameraPosition instanceof Array) ? 
@@ -6062,6 +6064,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.elOrdinalText.onclick = () => {
 			if(this.hasView()){
 				this.moveHere(this.scene.camera);
+				this.displayInfoBox();
 			}
 			this.dispatchEvent({type: "click", target: this});
 		};
@@ -6222,6 +6225,118 @@ Potree.Annotation = function(scene, args = {}){
 		tween.start();
 	};
 	
+	// Display information box on top-right corner
+	// Should display same description as onHover tooltip
+	this.displayInfoBox = function(){
+		// remove previous InfoBox if it exists
+		var previousInfoBox = document.getElementById('infoBox');
+		if(previousInfoBox) {
+			console.log("info box removed");
+			previousInfoBox.remove();
+		}
+
+		this.domInfoBox = document.createElement("div");
+		this.domInfoBox.id = "infoBox";
+		this.domInfoBox.style.position = "absolute";
+		this.domInfoBox.style.display = "block";
+		this.domInfoBox.style.width = "400px";
+		this.domInfoBox.style.height = "50%";
+		this.domInfoBox.style.right = "20px";
+		this.domInfoBox.style.top = "20px";
+		this.domInfoBox.style.zIndex = "100";
+		this.domInfoBox.style.padding = "20px";
+		this.domInfoBox.style.color = "#fff";
+		this.domInfoBox.style.backgroundColor = "rgba(16,76,146, 0.8)";
+		this.domInfoBox.style.overflowY = "auto";
+
+		// Tabs
+		this.domInfoBoxTabs = document.createElement("ul");
+		this.domInfoBoxTabs.setAttribute("class", "nav nav-tabs");
+		this.domInfoBoxTabs.setAttribute("role", "tablist");
+		this.domInfoBoxTabs.innerHTML = `
+			<li class="nav-item active">
+				<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="true">Videos</a>
+			</li>`;
+		this.domInfoBox.appendChild(this.domInfoBoxTabs);
+
+		//Tab Content
+		this.domInfoBoxTabContent = document.createElement("div");
+		this.domInfoBoxTabContent.setAttribute("class", "tab-content");
+		
+		// Description Tab
+		this.domInfoBoxDescriptionTab = document.createElement("div");
+		this.domInfoBoxDescriptionTab.id = "description";
+		this.domInfoBoxDescriptionTab.setAttribute("class", "tab-pane fade active in");
+		this.domInfoBoxDescriptionTab.setAttribute("role", "tabpanel");
+		this.domInfoBoxDescriptionTab.setAttribute("aria-labelledby", "description-tab");
+		// Title
+		this.domInfoBoxDescriptionTitle = document.createElement("h1");
+		this.domInfoBoxDescriptionTitle.innerText = this.title;
+		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle);
+		// Description
+		this.domInfoBoxDescription = document.createElement("p");
+		this.domInfoBoxDescription.innerText = this.description;
+		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription);
+		// Append to Info Box
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxDescriptionTab);
+		
+		// Images Tab
+		this.domInfoBoxImagesTab = document.createElement("div");
+		this.domInfoBoxImagesTab.id = "images";
+		this.domInfoBoxImagesTab.setAttribute("class", "tab-pane fade");
+		this.domInfoBoxImagesTab.setAttribute("role", "tabpanel");
+		this.domInfoBoxImagesTab.setAttribute("aria-labelledby", "images-tab");
+		// Title
+		// this.domInfoBoxImagesTitle = document.createElement("h1");
+		// this.domInfoBoxImagesTitle.innerText = "Images";
+		// this.domInfoBoxImagesTab.appendChild(this.domInfoBoxImagesTitle);
+		// Images Grid
+		this.domInfoBoxImagesRow = document.createElement("div");
+		this.domInfoBoxImagesRow.setAttribute("class", "row")
+		this.images.forEach(function(img) {
+			this.domInfoBoxImagesCol = document.createElement("div");
+			this.domInfoBoxImagesCol.setAttribute("class", "col-sm-4");
+			this.domInfoBoxImage = document.createElement("img");
+			this.domInfoBoxImage.setAttribute("class", "grid-image")
+			this.domInfoBoxImage.src = img.src;
+			this.domInfoBoxImagesCol.appendChild(this.domInfoBoxImage);
+			this.domInfoBoxImagesRow.appendChild(this.domInfoBoxImagesCol);
+		}, this);
+		this.domInfoBoxImagesTab.appendChild(this.domInfoBoxImagesRow);
+
+		// Append to Info Box
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTab);
+
+		// Video Tab
+		this.domInfoBoxVideoTab = document.createElement("div");
+		this.domInfoBoxVideoTab.id = "videos";
+		this.domInfoBoxVideoTab.setAttribute("class", "tab-pane fade");
+		this.domInfoBoxVideoTab.setAttribute("role", "tabpanel");
+		this.domInfoBoxVideoTab.setAttribute("aria-labelledby", "videos-tab");
+		// Video
+		this.videos.forEach(function(video) {
+			this.domInfoBoxVideo = document.createElement("video");
+			this.domInfoBoxVideo.setAttribute("controls", "");
+			this.domInfoBoxVideo.src = video.src;
+			this.domInfoBoxVideoTab.appendChild(this.domInfoBoxVideo);
+		}, this);
+		
+		// Append to Info Box
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxVideoTab);
+
+		// Append Tab Content to Info Box
+		this.domInfoBox.appendChild(this.domInfoBoxTabContent);
+
+		// Display InfoBox on window
+		window.document.body.appendChild(this.domInfoBox);
+	};
+
 	this.dispose = function(){
 
 		
@@ -8231,7 +8346,8 @@ Potree.utils = class{
 		var materialArray = [];
 		for (var i = 0; i < 6; i++){
 			materialArray.push( new THREE.MeshBasicMaterial({
-				map: THREE.ImageUtils.loadTexture( urls[i] ),
+				// map: THREE.ImageUtils.loadTexture( urls[i] ),
+				map: new THREE.TextureLoader().load( urls[i] ),
 				side: THREE.BackSide,
 				depthTest: false,
 				depthWrite: false
