@@ -388,3 +388,6 @@ background: #333333;
 	margin-top: 20px;
 	width: 100%;
 }
+#transition-video {
+	display: none;
+}

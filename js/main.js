@@ -1,27 +1,37 @@
-// jQuery(window).load(function(){
-//     "use strict";
-//     toggleContrast();
-// });
- /**************end of document ready function ************/
+ // Document Ready
+$(document).ready(function() {
+    // prevent landing page buttons from redirecting to page
+    // display transition video first
+    $("a.landing-links").click(function(event) {
+        event.preventDefault();
+        displayTransitionVideo(this.href);
+    });
+});
 
-
-/* Splash Video
+/* Transition Video
 *****************************************************/
-// function loadVideo(){
-//     $("#controlbar-container").append().css("display", "none");
-//     $("#splash-video").trigger("play");
-//     document.querySelector("video").playbackRate= 1.95;
-//       alert('Video should start here!');
-// };
+function displayTransitionVideo(redirectPage){
+    var video = document.getElementById("transition-video");
+    
+    // set source of video based on redirectPage
+    if(redirectPage.includes("house")) {
+        video.src = "assets/video/vizcayaFlyThrough_HiRes.mp4";
+    } else if(redirectPage.includes("barge")) {
+        video.src = "assets/video/bargeIntroShort.mp4";
+    } else if(redirectPage.includes("grotto")) {
+        video.src = "assets/video/poolCutScene.mp4";
+    }
+    
+    // display video in full screen
+    toggleFullscreen(video);
+    $("#transition-video").show();
+    $("#transition-video").trigger("play");
 
-
-// function loadBarge(){
-//       $("#splash-video").on("ended", function() {
-//        window.location.href = '../examples/grotto.html"';
-//        $("#splash-video").css("display", "none");
-//     });
-// };
-
+    // redirect to page after video is done playing
+    $("#transition-video").on("ended", function() {
+        window.location.href = redirectPage;
+    });
+};
 
 /* Kiosk Time out
 *****************************************************/
@@ -76,8 +86,8 @@ function resetScene (){
         if (window.location.href.indexOf("barge.html") > -1) {
             $(resetbtn).append(function(){
             alert("you are on the barge page");
-            // set annotation behavior to button here                
-                });
+                // set annotation behavior to button here
+            });
         } else if (window.location.href.indexOf("grotto.html") ) {
             alert("you are on the grotto page");
             // set a different annotation behavior to button here 
