@@ -1,4 +1,6 @@
- // Document Ready
+var video = document.getElementById("transition-video");
+
+// Document Ready
 $(document).ready(function() {
     // prevent landing page buttons from redirecting to page
     // display transition video first
@@ -8,11 +10,23 @@ $(document).ready(function() {
     });
 });
 
+// Handle event - Exiting fullscreen mode on splash page
+// TODO - switch to using "on()", "bind" is deprecated
+$(document, '#transition-video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+    var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+    var fullscreen = state ? 'FullscreenOn' : 'FullscreenOff';
+
+    // when exiting full screen, pause and hide the video
+    if (fullscreen == 'FullscreenOff') {
+        video.pause();
+        $("#transition-video").hide();
+    }
+});
+
 /* Transition Video
 *****************************************************/
 function displayTransitionVideo(redirectPage){
-    var video = document.getElementById("transition-video");
-    
+        
     // set source of video based on redirectPage
     if(redirectPage.includes("house")) {
         video.src = "assets/video/vizcayaFlyThrough_HiRes.mp4";
@@ -174,30 +188,29 @@ function closeOverlay(){
 /* HTML5 Fullscreen API
 *****************************************************/
 function toggleFullscreen(elem) {
-elem = elem || document.documentElement;
-if (!document.fullscreenElement && !document.mozFullScreenElement &&
-    !document.webkitFullscreenElement && !document.msFullscreenElement) {
-    if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-    elem.msRequestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-    elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-    elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    elem = elem || document.documentElement;
+    if (!document.fullscreenElement && !document.mozFullScreenElement &&
+        !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+    } else {
+        if (document.exitFullscreen) {
+        document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+        }
     }
-} else {
-    if (document.exitFullscreen) {
-    document.exitFullscreen();
-    } else if (document.msExitFullscreen) {
-    document.msExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-    document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
-    }
-}
-
 }
 
 
