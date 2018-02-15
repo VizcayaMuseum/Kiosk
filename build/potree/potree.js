@@ -6004,6 +6004,7 @@ Potree.Annotation = function(scene, args = {}){
 	this.title = args.title || "No Title";
 	this.images = args.images || [];
 	this.videos = args.videos || [];
+	this.model = args.model;
 	this.description = args.description || "";
 	this.position = args.position || new THREE.Vector3(0,0,0);
 	this.cameraPosition = (args.cameraPosition instanceof Array) ? 
@@ -6017,6 +6018,13 @@ Potree.Annotation = function(scene, args = {}){
 	this.actions = args.actions || [];
 	this.appearance = args.appearance || null;
 	this.isHighlighted = false;
+
+	// variables used for loading model
+	var container;
+	var camera, scene, renderer;
+	var mouseX = 0, mouseY = 0;
+	var windowHalfX = window.innerWidth / 2;
+	var windowHalfY = window.innerHeight / 2;
 	
 	this.domElement = document.createElement("div");
 	this.domElement.style.position = "absolute";
@@ -6240,7 +6248,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.style.position = "absolute";
 		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = "400px";
-		this.domInfoBox.style.height = "50%";
+		this.domInfoBox.style.height = "90%";
 		this.domInfoBox.style.right = "20px";
 		this.domInfoBox.style.top = "20px";
 		this.domInfoBox.style.zIndex = "100";
@@ -6259,10 +6267,13 @@ Potree.Annotation = function(scene, args = {}){
 			</li>
 			<li class="nav-item">
 				<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="true">Videos</a>
 			</li>`;
+		if (this.model) {
+			this.domInfoBoxTabs.innerHTML += `			
+			<li class="nav-item">
+				<a class="nav-link active" id="model-tab" data-toggle="tab" href="#model-render-area" role="tab" aria-controls="model" aria-selected="true">Model</a>
+			</li>`;
+		}
 		this.domInfoBox.appendChild(this.domInfoBoxTabs);
 
 		//Tab Content
@@ -6292,10 +6303,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBoxImagesTab.setAttribute("class", "tab-pane fade");
 		this.domInfoBoxImagesTab.setAttribute("role", "tabpanel");
 		this.domInfoBoxImagesTab.setAttribute("aria-labelledby", "images-tab");
-		// Title
-		// this.domInfoBoxImagesTitle = document.createElement("h1");
-		// this.domInfoBoxImagesTitle.innerText = "Images";
-		// this.domInfoBoxImagesTab.appendChild(this.domInfoBoxImagesTitle);
+
 		// Images Grid
 		this.domInfoBoxImagesRow = document.createElement("div");
 		this.domInfoBoxImagesRow.setAttribute("class", "row")
@@ -6314,27 +6322,142 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTab);
 
 		// Video Tab
-		this.domInfoBoxVideoTab = document.createElement("div");
-		this.domInfoBoxVideoTab.id = "videos";
-		this.domInfoBoxVideoTab.setAttribute("class", "tab-pane fade");
-		this.domInfoBoxVideoTab.setAttribute("role", "tabpanel");
-		this.domInfoBoxVideoTab.setAttribute("aria-labelledby", "videos-tab");
-		// Video
-		this.videos.forEach(function(video) {
-			this.domInfoBoxVideo = document.createElement("video");
-			this.domInfoBoxVideo.setAttribute("controls", "");
-			this.domInfoBoxVideo.src = video.src;
-			this.domInfoBoxVideoTab.appendChild(this.domInfoBoxVideo);
-		}, this);
+		// this.domInfoBoxVideoTab = document.createElement("div");
+		// this.domInfoBoxVideoTab.id = "videos";
+		// this.domInfoBoxVideoTab.setAttribute("class", "tab-pane fade");
+		// this.domInfoBoxVideoTab.setAttribute("role", "tabpanel");
+		// this.domInfoBoxVideoTab.setAttribute("aria-labelledby", "videos-tab");
+		// // Video
+		// this.videos.forEach(function(video) {
+		// 	this.domInfoBoxVideo = document.createElement("video");
+		// 	this.domInfoBoxVideo.src = video.src;
+		// 	this.domInfoBoxVideoTab.appendChild(this.domInfoBoxVideo);
+		// }, this);
 		
 		// Append to Info Box
-		this.domInfoBoxTabContent.appendChild(this.domInfoBoxVideoTab);
+		// this.domInfoBoxTabContent.appendChild(this.domInfoBoxVideoTab);
+		
+		// Model Tab
+		if (this.model) {
+			this.domInfoBoxModelTab = document.createElement("div");
+			this.domInfoBoxModelTab.style.zIndex = 1;
+			this.domInfoBoxModelTab.id = "model-render-area";
+			this.domInfoBoxModelTab.setAttribute("class", "tab-pane fade");
+			this.domInfoBoxModelTab.setAttribute("role", "tabpanel");
+			this.domInfoBoxModelTab.setAttribute("aria-labelledby", "model-tab");
+
+			// Append to Info Box
+			this.domInfoBoxTabContent.appendChild(this.domInfoBoxModelTab);
+		}
 
 		// Append Tab Content to Info Box
 		this.domInfoBox.appendChild(this.domInfoBoxTabContent);
 
 		// Display InfoBox on window
 		window.document.body.appendChild(this.domInfoBox);
+
+		// call these functions after infobox is in the DOM
+		if (this.model) {
+			init(this.model);
+			animate();
+		}
+
+		function init(model) {
+			var domInfoBoxModelTab = document.getElementById("model-render-area");
+
+			container = document.createElement( 'div' );
+			domInfoBoxModelTab.appendChild( container );
+
+			camera = new THREE.PerspectiveCamera( 25, 360 / 600, 1, 2000 );
+			camera.position.z = 250;
+
+			// controls
+			controls = new THREE.OrbitControls( camera, domInfoBoxModelTab );
+			controls.target.set( 0, 0, 0 );
+
+			// scene
+			scene = new THREE.Scene();
+
+			var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+			scene.add( ambientLight );
+
+			var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+			camera.add( pointLight );
+			scene.add( camera );
+
+			// texture
+
+			var manager = new THREE.LoadingManager();
+			manager.onProgress = function ( item, loaded, total ) {
+
+				console.log( item, loaded, total );
+
+			};
+
+			var textureLoader = new THREE.TextureLoader( manager );
+			var texture = textureLoader.load( '../assets/img/100x100.png' );
+
+			// model
+
+			var onProgress = function ( xhr ) {
+				if ( xhr.lengthComputable ) {
+					var percentComplete = xhr.loaded / xhr.total * 100;
+					console.log( Math.round(percentComplete, 2) + '% downloaded' );
+				}
+			};
+
+			var onError = function ( xhr ) {
+			};
+
+			var loader = new THREE.OBJLoader( manager );
+			loader.load( '../models/obj/' + model.src, function ( object ) {
+
+				object.traverse( function ( child ) {
+
+					if ( child instanceof THREE.Mesh ) {
+
+						child.material.map = texture;
+
+					}
+
+				} );
+
+				object.position.y = 0;
+				scene.add( object );
+
+			}, onProgress, onError );
+
+			//
+
+			renderer = new THREE.WebGLRenderer();
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( 360, 600 );
+			container.appendChild( renderer.domElement );
+
+			window.addEventListener( 'resize', onWindowResize, false );
+		}
+
+		function onWindowResize() {
+			windowHalfX = window.innerWidth / 2;
+			windowHalfY = window.innerHeight / 2;
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize( window.innerWidth, window.innerHeight );
+		}
+
+		function animate() {
+			requestAnimationFrame( animate );
+			controls.update();
+			render();
+		}
+
+		function render() {
+			camera.lookAt( scene.position );
+			renderer.render( scene, camera );
+		}
+
 	};
 
 	this.dispose = function(){
