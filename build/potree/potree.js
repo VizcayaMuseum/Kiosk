@@ -5325,6 +5325,11 @@ Potree.OrbitControls = class OrbitControls extends THREE.EventDispatcher{
 	}
 	
 	zoomToLocation(mouse){
+		// fix for "webgl: location not for current program" errors
+		// prevents the error that would stop the application if pointcloud was not sufficiently loaded
+		this.renderer = viewer.renderer;
+		this.renderer.resetGLState();
+
 		let camera = this.scene.camera;
 		
 		let I = Potree.utils.getMousePointCloudIntersection(
@@ -12833,8 +12838,8 @@ Potree.Scene = class extends THREE.EventDispatcher{
 		var light = new THREE.AmbientLight( 0x555555 ); // soft white light
 		this.scenePointCloud.add( light );
 		
-		let grid = Potree.utils.createGrid(5, 5, 2);
-		this.scene.add(grid);
+		// let grid = Potree.utils.createGrid(5, 5, 2);
+		// this.scene.add(grid);
 		
 		{// background
 		// var texture = THREE.ImageUtils.loadTexture( Potree.resourcePath + '/textures/background.gif' );
