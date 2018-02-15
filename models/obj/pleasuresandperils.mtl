@@ -1,0 +1,12 @@
+# 
+# Wavefront material file
+# Created in RealityCapture v1.0.2
+# www.capturingreality.com
+# 
+
+newmtl model_Material
+Ka 1 1 1
+Kd 1 1 1
+d 1
+Ns 0
+illum 1
