@@ -82,16 +82,23 @@ div.annotation > div{
 	top: 80%;
 	right: 50%;
 }
-	#skip-button:focus,
-	#skip-button:hover,
-	#skip-button:active    {
-		background-color: #fff;
-		color: rgb(40,206,253) !important;
-		border: none;
-		outline: none; 
-	}
-
-
+#skip-button:focus,
+#skip-button:hover,
+#skip-button:active    {
+	background-color: #fff;
+	color: rgb(40,206,253) !important;
+	border: none;
+	outline: none; 
+}
+#transition-video {
+	display: none;
+}
+video::-media-controls,
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-overlay-enclosure {
+	display: none !important;
+}
 /* Landing 
 *****************************************************/
 .welcome {
@@ -368,7 +375,7 @@ background: #333333;
 	margin-top: 20px;
 }
 #infoBox .nav-item a{
-	color: 	#fff;
+	color: 	#6A91BC;
 	text-decoration: none;
 }
 #infoBox .nav-item.active a {
@@ -379,6 +386,9 @@ background: #333333;
 	color: 	#6A91BC;
 	text-decoration: none;
 }
+#infoBox #description {
+	padding: 10px 15px;
+}
 #infoBox .grid-image {
 	margin-bottom: 20px;
 	max-width: 100px;
@@ -387,7 +397,4 @@ background: #333333;
 #infoBox video {
 	margin-top: 20px;
 	width: 100%;
-}
-#transition-video {
-	display: none;
 }

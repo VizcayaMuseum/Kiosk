@@ -6252,15 +6252,20 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.id = "infoBox";
 		this.domInfoBox.style.position = "absolute";
 		this.domInfoBox.style.display = "block";
-		this.domInfoBox.style.width = "400px";
-		this.domInfoBox.style.height = "90%";
-		this.domInfoBox.style.right = "20px";
-		this.domInfoBox.style.top = "20px";
+		this.domInfoBox.style.width = "380px";
+		this.domInfoBox.style.height = "94%";
+		this.domInfoBox.style.right = "0";
+		this.domInfoBox.style.top = "0";
 		this.domInfoBox.style.zIndex = "100";
-		this.domInfoBox.style.padding = "20px";
-		this.domInfoBox.style.color = "#fff";
-		this.domInfoBox.style.backgroundColor = "rgba(16,76,146, 0.8)";
+		this.domInfoBox.style.padding = "13px";
+		this.domInfoBox.style.color = "#000";
+		this.domInfoBox.style.backgroundColor = "#fff";
+		this.domInfoBox.style.borderRadius = "2px";
+		this.domInfoBox.style.borderWidth = "4px";
+		this.domInfoBox.style.borderColor = "#fff";
+		this.domInfoBox.style.borderStyle = "solid";
 		this.domInfoBox.style.overflowY = "auto";
+		this.domInfoBox.style.overflowX = "hidden";
 
 		// Tabs
 		this.domInfoBoxTabs = document.createElement("ul");
@@ -6292,7 +6297,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBoxDescriptionTab.setAttribute("role", "tabpanel");
 		this.domInfoBoxDescriptionTab.setAttribute("aria-labelledby", "description-tab");
 		// Title
-		this.domInfoBoxDescriptionTitle = document.createElement("h1");
+		this.domInfoBoxDescriptionTitle = document.createElement("strong");
 		this.domInfoBoxDescriptionTitle.innerText = this.title;
 		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle);
 		// Description
