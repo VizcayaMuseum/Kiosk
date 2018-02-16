@@ -6253,7 +6253,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.style.position = "absolute";
 		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = "380px";
-		this.domInfoBox.style.height = "94%";
+		this.domInfoBox.style.height = "95%";
 		this.domInfoBox.style.right = "0";
 		this.domInfoBox.style.top = "0";
 		this.domInfoBox.style.zIndex = "100";
