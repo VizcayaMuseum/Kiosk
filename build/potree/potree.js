@@ -6241,6 +6241,8 @@ Potree.Annotation = function(scene, args = {}){
 	// Display information box on top-right corner
 	// Should display same description as onHover tooltip
 	this.displayInfoBox = function(){
+		var infoBoxWidth = 380;
+
 		// remove previous InfoBox if it exists
 		var previousInfoBox = document.getElementById('infoBox');
 		if(previousInfoBox) {
@@ -6252,9 +6254,9 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.id = "infoBox";
 		this.domInfoBox.style.position = "absolute";
 		this.domInfoBox.style.display = "block";
-		this.domInfoBox.style.width = "380px";
+		this.domInfoBox.style.width = infoBoxWidth  + "px";
 		this.domInfoBox.style.height = "95%";
-		this.domInfoBox.style.right = "0";
+		this.domInfoBox.style.right = "-" + infoBoxWidth + "px";
 		this.domInfoBox.style.top = "0";
 		this.domInfoBox.style.zIndex = "100";
 		this.domInfoBox.style.padding = "13px";
@@ -6365,6 +6367,24 @@ Potree.Annotation = function(scene, args = {}){
 
 		// Display InfoBox on window
 		window.document.body.appendChild(this.domInfoBox);
+
+		// adjust render area width
+		var renderArea = $('#potree_render_area');
+		var infoBox = $('#infoBox');
+		var isVisible = renderArea.css("right") !== "0px";
+		console.log(isVisible);
+
+		if (isVisible){
+			renderArea.css("transition", "right 2s");
+			renderArea.css("right", "0px");
+			infoBox.css("transition", "right 2s");
+			infoBox.css("right", "0px");
+		} else {
+			renderArea.css("transition", "right 2s");
+			renderArea.css("right", "380px");
+			infoBox.css("transition", "right 2s");
+			infoBox.css("right", "0px");
+		}
 
 		// call these functions after infobox is in the DOM
 		if (this.model) {

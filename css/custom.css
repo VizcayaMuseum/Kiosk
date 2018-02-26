@@ -21,11 +21,18 @@ body {
 	height: 100%;
 	width: 100%;
 	font-size: 20px;
+	overflow-x: hidden;
 }
 
 *:focus {
 	outline: 0;
 	outline: none;
+}
+
+/* Potree
+*****************************************************/
+#potree_render_area {
+	animation-duration: 2s;
 }
 
 /* Annotations
@@ -371,6 +378,9 @@ background: #333333;
 
 /* Info Box
 *****************************************************/
+#infoBox {
+	animation-duration: 2s;
+}
 #infoBox #images {
 	margin-top: 20px;
 }
