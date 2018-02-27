@@ -6057,6 +6057,10 @@ Potree.Annotation = function(scene, args = {}){
 		this.elOrdinal.style.margin = "auto";
 		this.elOrdinal.style.zIndex = "100";
 		this.elOrdinal.style.width = "fit-content";
+		// Hide reset scene annotation
+		if(this.title == "Reset Scene") {
+			this.elOrdinal.style.display = "none";
+		}
 		this.domElement.appendChild(this.elOrdinal);
 		
 		this.elOrdinalText = document.createElement("span");
@@ -6246,7 +6250,6 @@ Potree.Annotation = function(scene, args = {}){
 		// remove previous InfoBox if it exists
 		var previousInfoBox = document.getElementById('infoBox');
 		if(previousInfoBox) {
-			console.log("info box removed");
 			previousInfoBox.remove();
 		}
 
@@ -6488,6 +6491,27 @@ Potree.Annotation = function(scene, args = {}){
 			renderer.render( scene, camera );
 		}
 
+	};
+
+	// Hide info box
+	this.hideInfoBox = function(){
+		// remove previous InfoBox if it exists
+		var previousInfoBox = document.getElementById('infoBox');
+		if(previousInfoBox) {
+			previousInfoBox.remove();
+		}
+
+		// adjust render area width
+		var renderArea = $('#potree_render_area');
+		var infoBox = $('#infoBox');
+		var isVisible = renderArea.css("right") !== "0px";
+		console.log(isVisible);
+
+		// hide infoBox with smooth transition
+		renderArea.css("transition", "right 2s");
+		renderArea.css("right", "0px");
+		infoBox.css("transition", "right 2s");
+		infoBox.css("right", "0px");
 	};
 
 	this.dispose = function(){

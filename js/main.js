@@ -55,61 +55,23 @@ function displayTransitionVideo(redirectPage){
 
 /* Reset Scene
 *****************************************************/
-// var bargeAnnotation = document.getElementById("reset");
-
-//     bargeAnnotation.addEventListener('click', event => {
-//         alert('reached grotto, do something here');
-//         bargeAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
-//         });
-
-// var resetbtn = document.getElementById("reset");
-// var grottoAnnotation = new Potree.Annotation({})
-// var bargeAnnotation = new Potree.Annotation({})
-
-// function resetScene (){
-//     if (window.location.href.indexOf("barge.html") ) {
-//         $(resetbtn).append(function(){
-//             bargeAnnotation.addEventListener('click', event => {
-//             console.log('reached grotto, do something here');
-//             })
-//             bargeAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
-//             });
-//     } else if (window.location.href.indexOf("grotto.html") ) {
-//         $(resetbtn).append(function(){
-//             grottoAnnotation.addEventListener('click', event => {
-//             console.log('reached grotto, do something here');
-//             })
-//             grottoAnnotation.position = new THREE.Vector3(1.74, 6.21, -0.46);                
-//             });
-//         alert("you are on the grotto page");
-//     } else {
-//         //reset
-//         alert("you are on some other kind of page");
-//         }
-
-// };
-
-
-
-
-// Original  
-function resetScene (){
-
-    var resetbtn = document.getElementById("reset");
-
-        if (window.location.href.indexOf("barge.html") > -1) {
-            $(resetbtn).append(function(){
-            alert("you are on the barge page");
-                // set annotation behavior to button here
-            });
-        } else if (window.location.href.indexOf("grotto.html") ) {
-            alert("you are on the grotto page");
-            // set a different annotation behavior to button here 
-        } else {
-            alert("you are on some other kind of page");
-            // set last annotation behavior to button here 
-            }
+// Reset the scene to the original camera position and target
+function resetScene () {
+    var resetbtn = document.getElementById("reset-scene");
+    var annotationsArr = viewer.scene.annotations;
+    var resetSceneAnnotation = annotationsArr.find(findSceneResetAnnotation);
+    
+    // call resetScene function
+    // set camera back to original position and target
+    resetSceneAnnotation.moveHere(viewer.scene.camera);
+    // removes infoBox if it's set
+    resetSceneAnnotation.hideInfoBox();
 };
+
+// find Annotation with title "Scene Reset"
+function findSceneResetAnnotation(annotation, index, array) {
+    return annotation.title == "Reset Scene";
+}
 
 /* Nav Bar Functionality
 *****************************************************/
