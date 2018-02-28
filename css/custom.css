@@ -245,34 +245,36 @@ a.switch-view-btn:active {
 	padding: 0;
 	margin: 0;
 }
-/* .hotspot-slides {
-	margin-top: 3px;
-} */
-.thumbnail {
+.carousel-inner .row-fluid {
+    margin-left: 60px;
+}
+.carousel-inner .thumbnail {
 	padding: 0;
 	margin-bottom:0;
 	background-color: rgb(16,76,146);
+	color: #fff;
 	border: 1px solid rgb(16,76,146);
 	text-align: center;
+	line-height: 1.15em;
 }
-	.thumbnail:focus,
-	.thumbnail:hover,
-	.thumbnail:active
-	{
-		padding: 0;
-		margin-bottom:0;
-		background-color: rgb(40,206,253);
-		border: 1px solid rgb(40,206,253);
-		text-align: center;
-		color: white;
-	}
+.thumbnail:focus,
+.thumbnail:hover,
+.thumbnail:active
+{
+	padding: 0;
+	margin-bottom:0;
+	background-color: rgb(40,206,253);
+	border: 1px solid rgb(40,206,253);
+	text-align: center;
+	color: white;
+}
 .thumbnail img {
-	width: 300px;
-	height: 110px;
+	width: auto;
+    height: 82px;
 }
 .span3 {
 	display: inline-block;
-	margin: 0 4%;
+	margin: 0 5px;
 }
 .carousel {
 	margin-bottom: 0;
@@ -282,6 +284,9 @@ a.switch-view-btn:active {
 .carousel-control {
 	left: -12px;
 	width: 5%;
+}
+.carousel-control [class*="fa-chevron-"] {
+    margin-top: 50%;
 }
 .carousel-control.right {
 	right: -12px;
