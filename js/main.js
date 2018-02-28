@@ -70,7 +70,7 @@ function resetScene () {
 
 // find Annotation with title "Scene Reset"
 function findSceneResetAnnotation(annotation, index, array) {
-    return annotation.title == "Reset Scene";
+    return annotation.title_en == "Reset Scene";
 }
 
 /* Nav Bar Functionality

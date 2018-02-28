@@ -6005,12 +6005,14 @@ Potree.Annotation = function(scene, args = {}){
 	Potree.Annotation.counter++;
 	
 	this.scene = scene;
-	this.ordinal = args.title || Potree.Annotation.counter;
-	this.title = args.title || "No Title";
+	this.ordinal = args.title_en || Potree.Annotation.counter;
+	this.title_en = args.title_en || "No Title";
+	this.title_es = args.title_es || "No Hay Titulo";
 	this.images = args.images || [];
 	this.videos = args.videos || [];
 	this.model = args.model;
-	this.description = args.description || "";
+	this.description_en = args.description_en || "";
+	this.description_es = args.description_es || "";
 	this.position = args.position || new THREE.Vector3(0,0,0);
 	this.cameraPosition = (args.cameraPosition instanceof Array) ? 
 		new THREE.Vector3().fromArray(args.cameraPosition) : args.cameraPosition;
@@ -6058,7 +6060,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.elOrdinal.style.zIndex = "100";
 		this.elOrdinal.style.width = "fit-content";
 		// Hide reset scene annotation
-		if(this.title == "Reset Scene") {
+		if(this.title_en == "Reset Scene") {
 			this.elOrdinal.style.display = "none";
 		}
 		this.domElement.appendChild(this.elOrdinal);
@@ -6301,14 +6303,22 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBoxDescriptionTab.setAttribute("class", "tab-pane fade active in");
 		this.domInfoBoxDescriptionTab.setAttribute("role", "tabpanel");
 		this.domInfoBoxDescriptionTab.setAttribute("aria-labelledby", "description-tab");
-		// Title
-		this.domInfoBoxDescriptionTitle = document.createElement("strong");
-		this.domInfoBoxDescriptionTitle.innerText = this.title;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle);
-		// Description
-		this.domInfoBoxDescription = document.createElement("p");
-		this.domInfoBoxDescription.innerText = this.description;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription);
+		// Title - English
+		this.domInfoBoxDescriptionTitle_en = document.createElement("strong");
+		this.domInfoBoxDescriptionTitle_en.innerText = this.title_en;
+		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle_en);
+		// Description - English
+		this.domInfoBoxDescription_en = document.createElement("p");
+		this.domInfoBoxDescription_en.innerText = this.description_en;
+		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription_en);
+		// Title - Spanish
+		this.domInfoBoxDescriptionTitle_es = document.createElement("strong");
+		this.domInfoBoxDescriptionTitle_es.innerText = this.title_es;
+		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle_es);
+		// Description - Spanish
+		this.domInfoBoxDescription_es = document.createElement("p");
+		this.domInfoBoxDescription_es.innerText = this.description_es;
+		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription_es);
 		// Append to Info Box
 		this.domInfoBoxTabContent.appendChild(this.domInfoBoxDescriptionTab);
 		
