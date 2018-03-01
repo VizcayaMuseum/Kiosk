@@ -1,4 +1,9 @@
 var video = document.getElementById("transition-video");
+var annotationsArr;
+var annotationsCount;
+var currentAnnotationIndex;
+var currentAnnotation;
+
 
 // Document Ready
 $(document).ready(function() {
@@ -11,6 +16,12 @@ $(document).ready(function() {
 
     // toggle initial infobox when page loads
     resetScene();
+
+    // initialize these variables
+    annotationsArr = viewer.scene.annotations;
+    annotationsCount = annotationsArr.length;
+    currentAnnotationIndex = 0;
+    currentAnnotation = annotationsArr[currentAnnotationIndex];
 });
 
 // Handle event - Exiting fullscreen mode on splash page
@@ -197,8 +208,26 @@ function toggleFullscreen(elem) {
     }
 }
 
-
-
-/* Language Changer
+/* Autoplay Annotations
 *****************************************************/
 
+// autoplay annotations
+function autoplayAnnotations() {
+    // increase index within annotationsCount
+    if (currentAnnotationIndex <= annotationsCount) {
+        currentAnnotationIndex++;
+    } else { // restart at 0
+        currentAnnotationIndex = 0;
+    }
+    
+    // actions for moving to next annotation
+    console.log(currentAnnotation);
+    currentAnnotation.moveHere(viewer.scene.camera);
+    currentAnnotation.displayInfoBox();
+
+    // update current annotation
+    currentAnnotation = annotationsArr[currentAnnotationIndex];
+}
+
+// autoplay annotations with setTimeout
+// setInterval(autoplayAnnotations, 6000);
