@@ -27,7 +27,6 @@
 	<!--Custom Elements -->
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" id="theme"> 
 	<link rel="alternate stylesheet" href="../css/hiContrast.css" type="text/css" id="contrast-theme">
-	<script src="../js/main.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -121,13 +120,13 @@
 				sceneVZP.view.lookAt(new THREE.Vector3(-29.28, 3.11, -4.03));
 				
 				// Add annotations
-				sceneVZP.addAnnotation([-29.28, 3.11, -4.03], {
-					"cameraPosition": [-17.06, 11.77, 3.86],
+				sceneVZP.addAnnotation([-15.28, 20.11, 4.03], {
+					"cameraPosition": [-15.28, 20.11, 4.03],
 					"cameraTarget": [-29.28, 3.11, -4.03],
-					"title_en": "Reset Scene",
-					"description_en": "Reset Scene - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Reiniciar la Escena",
-					"description_es": "Reiniciar la Escena - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+					"title_en": "Grotto",
+					"description_en": "Grotto - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"title_es": "Gruta",
+					"description_es": "Gruta - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				});
 				sceneVZP.addAnnotation([-32.44, -0.21, -3.37], {
 					"cameraPosition": [-31.68, 0.57, -1.11],
@@ -187,12 +186,17 @@
 				// });
 
 			});
-
+			
+			// add event listener for when point cloud is done loading
+			viewer.addEventListener("pointcloud_loaded", function(event){
+				// toggle initial infobox when page loads
+				resetScene();
+			});
 		}
 
 	</script>
 	
-
+	<script src="../js/main.js"></script>
 	
   </body>
 </html>

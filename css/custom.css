@@ -33,6 +33,7 @@ body {
 *****************************************************/
 #potree_render_area {
 	animation-duration: 2s;
+	right: 380px;
 }
 
 /* Annotations

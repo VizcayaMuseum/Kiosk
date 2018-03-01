@@ -8,6 +8,9 @@ $(document).ready(function() {
         event.preventDefault();
         displayTransitionVideo(this.href);
     });
+
+    // toggle initial infobox when page loads
+    resetScene();
 });
 
 // Handle event - Exiting fullscreen mode on splash page
@@ -64,15 +67,34 @@ function resetScene () {
     // call resetScene function
     // set camera back to original position and target
     resetSceneAnnotation.moveHere(viewer.scene.camera);
-    // removes infoBox if it's set
-    resetSceneAnnotation.hideInfoBox();
-};
-
-// find Annotation with title "Scene Reset"
-function findSceneResetAnnotation(annotation, index, array) {
-    return annotation.title_en == "Reset Scene";
+    resetSceneAnnotation.displayInfoBox();
 }
 
+// find first Annotation - should match initial viewpoint
+function findSceneResetAnnotation(annotation, index, array) {
+    return index == 0;
+}
+
+// Toggle info box display
+function toggleInfoBox() {
+    // adjust render area width
+    var renderArea = $('#potree_render_area');
+    var infoBox = $('#infoBox');
+    var infoBoxIsVisible = renderArea.css("right") !== "0px";
+
+    if (infoBoxIsVisible){ // then hide infoBox and extend renderArea
+        renderArea.css("transition", "right 2s");
+        renderArea.css("right", "0px");
+        infoBox.css("transition", "right 2s");
+        infoBox.css("right", "-380px");
+    } else { // show infoBox and reduce renderArea
+        renderArea.css("transition", "right 2s");
+        renderArea.css("right", "380px");
+        infoBox.css("transition", "right 2s");
+        infoBox.css("right", "0px");
+    }
+}
+    
 /* Nav Bar Functionality
 *****************************************************/
 /* Zoom In

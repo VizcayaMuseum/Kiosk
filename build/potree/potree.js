@@ -6059,10 +6059,6 @@ Potree.Annotation = function(scene, args = {}){
 		this.elOrdinal.style.margin = "auto";
 		this.elOrdinal.style.zIndex = "100";
 		this.elOrdinal.style.width = "fit-content";
-		// Hide reset scene annotation
-		if(this.title_en == "Reset Scene") {
-			this.elOrdinal.style.display = "none";
-		}
 		this.domElement.appendChild(this.elOrdinal);
 		
 		this.elOrdinalText = document.createElement("span");
@@ -6261,7 +6257,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = infoBoxWidth  + "px";
 		this.domInfoBox.style.height = "95%";
-		this.domInfoBox.style.right = "-" + infoBoxWidth + "px";
+		this.domInfoBox.style.right = "0px";
 		this.domInfoBox.style.top = "0";
 		this.domInfoBox.style.zIndex = "100";
 		this.domInfoBox.style.padding = "13px";
@@ -6381,18 +6377,11 @@ Potree.Annotation = function(scene, args = {}){
 		// Display InfoBox on window
 		window.document.body.appendChild(this.domInfoBox);
 
-		// adjust render area width
+		// show infobox if it's not visible
 		var renderArea = $('#potree_render_area');
 		var infoBox = $('#infoBox');
-		var isVisible = renderArea.css("right") !== "0px";
-		console.log(isVisible);
-
-		if (isVisible){
-			renderArea.css("transition", "right 2s");
-			renderArea.css("right", "0px");
-			infoBox.css("transition", "right 2s");
-			infoBox.css("right", "0px");
-		} else {
+		var infoBoxIsVisible = renderArea.css("right") !== "0px";
+		if (!infoBoxIsVisible){ // show infoBox and reduce renderArea
 			renderArea.css("transition", "right 2s");
 			renderArea.css("right", "380px");
 			infoBox.css("transition", "right 2s");
@@ -6501,27 +6490,6 @@ Potree.Annotation = function(scene, args = {}){
 			renderer.render( scene, camera );
 		}
 
-	};
-
-	// Hide info box
-	this.hideInfoBox = function(){
-		// remove previous InfoBox if it exists
-		var previousInfoBox = document.getElementById('infoBox');
-		if(previousInfoBox) {
-			previousInfoBox.remove();
-		}
-
-		// adjust render area width
-		var renderArea = $('#potree_render_area');
-		var infoBox = $('#infoBox');
-		var isVisible = renderArea.css("right") !== "0px";
-		console.log(isVisible);
-
-		// hide infoBox with smooth transition
-		renderArea.css("transition", "right 2s");
-		renderArea.css("right", "0px");
-		infoBox.css("transition", "right 2s");
-		infoBox.css("right", "0px");
 	};
 
 	this.dispose = function(){
