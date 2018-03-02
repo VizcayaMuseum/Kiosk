@@ -24,16 +24,18 @@ $(document).ready(function() {
 
 // Handle event - Exiting fullscreen mode on splash page
 // TODO - switch to using "on()", "bind" is deprecated
-$(document, '#transition-video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
-    var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
-    var fullscreen = state ? 'FullscreenOn' : 'FullscreenOff';
+// $(document, '#transition-video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+//     var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+//     var fullscreen = state ? 'FullscreenOn' : 'FullscreenOff';
 
-    // when exiting full screen, pause and hide the video
-    if (fullscreen == 'FullscreenOff') {
-        video.pause();
-        $("#transition-video").hide();
-    }
-});
+//     // when exiting full screen, pause and hide the video
+//     if (fullscreen == 'FullscreenOff') {
+//         video.pause();
+//         $("#transition-video").hide();
+//         $('.skip').hide();
+//         $(".welcome").show();
+//     }
+// });
 
 /* Transition Video
 *****************************************************/
@@ -46,9 +48,11 @@ function displayTransitionVideo(redirectPage){
     } else if(redirectPage.includes("grotto")) {
         video.src = "assets/video/poolCutScene.mp4";
     }
-    
-    // display video in full screen
-    toggleFullscreen(video);
+
+    // hide .welcome div
+    $(".welcome").hide();
+
+    // display and trigger play video
     $("#transition-video").show();
     $("#transition-video").trigger("play");
 
@@ -56,7 +60,13 @@ function displayTransitionVideo(redirectPage){
     $("#transition-video").on("ended", function() {
         window.location.href = redirectPage;
     });
-};
+
+    // display skip button and bind click event
+    $('.skip').show();
+    $('.skip').click(function() { 
+        window.location.href = redirectPage;
+    });
+}
 
 /* Reset Scene
 *****************************************************/
@@ -84,7 +94,7 @@ function toggleInfoBox() {
     var infoBox = $('#infoBox');
     var infoBoxIsVisible = renderArea.css("right") !== "0px";
 
-    if (infoBoxIsVisible){ // then hide infoBox and extend renderArea
+    if (infoBoxIsVisible) { // then hide infoBox and extend renderArea
         renderArea.css("transition", "right 2s");
         renderArea.css("right", "0px");
         infoBox.css("transition", "right 2s");
