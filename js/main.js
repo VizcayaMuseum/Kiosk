@@ -4,11 +4,9 @@ var annotationsCount;
 var currentAnnotationIndex;
 var currentAnnotation;
 
-
 // Document Ready
 $(document).ready(function() {
-    // prevent landing page buttons from redirecting to page
-    // display transition video first
+    // display transition video before redirecting to page
     $("a.landing-links").click(function(event) {
         event.preventDefault();
         displayTransitionVideo(this.href);
@@ -40,7 +38,6 @@ $(document, '#transition-video').bind('webkitfullscreenchange mozfullscreenchang
 /* Transition Video
 *****************************************************/
 function displayTransitionVideo(redirectPage){
-        
     // set source of video based on redirectPage
     if(redirectPage.includes("house")) {
         video.src = "assets/video/vizcayaFlyThrough_HiRes.mp4";
@@ -60,12 +57,6 @@ function displayTransitionVideo(redirectPage){
         window.location.href = redirectPage;
     });
 };
-
-/* Kiosk Time out
-*****************************************************/
-// viewer.scene.view.position
-// viewer.scene.view.getPivot()
-
 
 /* Reset Scene
 *****************************************************/
@@ -152,7 +143,6 @@ function toggleSlider(){
     $("#hotspot-container").slideToggle();
 }
 
-
 /* Carousel Slider
 *****************************************************/
 function hotspotSlider (){
@@ -160,14 +150,11 @@ function hotspotSlider (){
         interval: 10000 });
 }
 
-
 /* High Contrast - Under construction
 *****************************************************/
 function toggleTheme (){
     $("#theme").attr("href", "../css/hiContrast.css");
 };
-
-
 
 /* Help Overlay
 *****************************************************/
@@ -178,7 +165,6 @@ function toggleHelp(){
 function closeOverlay(){
     $("#help-overlay").hide();
 }
-
 
 /* HTML5 Fullscreen API
 *****************************************************/
@@ -210,7 +196,6 @@ function toggleFullscreen(elem) {
 
 /* Autoplay Annotations
 *****************************************************/
-
 // autoplay annotations
 function autoplayAnnotations() {
     // increase index within annotationsCount

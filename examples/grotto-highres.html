@@ -71,7 +71,7 @@
 		init();
 	
 		function init() {
-			// controlbar and overlays
+			// load controlbar and overlays
 			$("#includedContent").load("../pages/modules.html", function(response, status, xhr) {
 				if(status == "success") {
 					console.log("Success: loaded modules.html");
@@ -82,16 +82,6 @@
 
 			// Potree
 			window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-			// viewer.setPointSize(1);
-			// viewer.setFOV(65);
-			// viewer.setPointSizing("Adaptive"); // ["Fixed", "Attenuated", "Adaptive"]
-			// viewer.setQuality("Squares"); // ["Squares", "Circles", "Interpolation"]
-			// viewer.setPointBudget(5*1000*1000);
-			// viewer.setIntensityRange(0, 300);
-			// viewer.setEDLEnabled(false);
-			// viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-			// viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX
-			// viewer.setMinNodeSize(100);
 
 			viewer.setPointSize(1.7);
 			viewer.setFOV(100);
@@ -119,7 +109,7 @@
 				sceneVZP.view.position.set(-17.06, 11.77, 3.86);
 				sceneVZP.view.lookAt(new THREE.Vector3(-29.28, 3.11, -4.03));
 				
-				// Add annotations
+				// add annotations to the scene
 				sceneVZP.addAnnotation([-15.28, 20.11, 4.03], {
 					"cameraPosition": [-15.28, 20.11, 4.03],
 					"cameraTarget": [-29.28, 3.11, -4.03],
@@ -160,31 +150,6 @@
 					"title_es": "Pescado",
 					"description_es": "Pescado - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				});
-				// sceneVZP.addAnnotation([-22.55, 1.39, -1.83], {
-				// 	"cameraPosition": [-25.68, 1.46, -0.76],
-				// 	"cameraTarget": [-22.73, 1.39, 1.43],
-				// 	"title": "Corner 1",
-				// 	"description": "Corner 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				// });
-				// sceneVZP.addAnnotation([-28.03, -12.75, -1.13], {
-				// 	"cameraPosition": [-29.76, -2.18, -0.53],
-				// 	"cameraTarget": [-28.03, -12.75, 1.87],
-				// 	"title": "Corner 2",
-				// 	"description": "Corner 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				// });
-				// sceneVZP.addAnnotation([-43.78, 2.48, -0.26], {
-				// 	"cameraPosition": [-34.56, 3.03, -0.75],
-				// 	"cameraTarget": [-43.78, 2.48, 2.74],
-				// 	"title": "Corner 3",
-				// 	"description": "Corner 3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				// });
-				// sceneVZP.addAnnotation([-33.40, 16.30, 0.24], {
-				// 	"cameraPosition": [-31.20, 6.31, -0.74],
-				// 	"cameraTarget": [-33.40, 16.30, 3.24],
-				// 	"title": "Corner 4",
-				// 	"description": "Corner 4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				// });
-
 			});
 			
 			// add event listener for when point cloud is done loading

@@ -49,17 +49,7 @@ div.annotation > div{
 
 /* Splash Page
 *****************************************************/
-/* video {
-	position: fixed;
-	top:0;
-	left: 0;
-	width: auto;
-	height: auto;
-	min-width: 100%;
-	min-height: 100%;
-	overflow: hidden;
-	z-index: 9;
-}
+/*
 #video-skip-icon {
 	color: white;
 	font-size: 1.8em;
@@ -179,13 +169,6 @@ video::-webkit-media-controls-overlay-enclosure {
 .text-center {
 	text-align: center;
 }
-/* 
-****Not in use atm****
-.logo {
-margin: 0;
-width: 100px;
-text-align: left;
-} */
 .nav-icon {
 	color: #fff;
 }

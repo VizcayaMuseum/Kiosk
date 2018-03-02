@@ -28,7 +28,6 @@
 	<!--Custom Elements -->
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" id="theme"> 
 	<link rel="alternate stylesheet" href="../css/hiContrast.css" type="text/css" id="contrast-theme">
-	<script src="../js/main.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -66,7 +65,6 @@
 		<div id="potree_sidebar_container"> </div>
 	</div>
 
-
 	<!-- Controlbar and overlays -->
 	<script> 
 		$(function(){
@@ -75,21 +73,9 @@
 	</script>
 	<div id="includedContent"></div>
 
-
 	<!-- Point cloud starts here -->
 	<script>
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-		// viewer.setPointSize(1);
-		// viewer.setFOV(65);
-		// viewer.setPointSizing("Adaptive"); // ["Fixed", "Attenuated", "Adaptive"]
-		// viewer.setQuality("Squares"); // ["Squares", "Circles", "Interpolation"]
-		// viewer.setPointBudget(5*1000*1000);
-		// viewer.setIntensityRange(0, 300);
-		// viewer.setEDLEnabled(false);
-		// viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		// viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
-		// viewer.setDescription('');
-		// viewer.loadSettingsFromURL();	
 
 		viewer.setPointSize(1);
 		viewer.setFOV(65);
@@ -113,50 +99,37 @@
 		viewer.setScene(sceneVZP);		
 		Potree.loadPointCloud("../pointclouds/vizcaya1/cloud.js", "vizcaya1", e => {// starts here
 			sceneVZP.addPointCloud(e.pointcloud);
-			// sceneVZP.view.position.set(1.74, 6.21, -0.76);
-			// sceneVZP.view.lookAt(new THREE.Vector3(1.733, 6.20, -0.76));
 			sceneVZP.view.position.set(-3.49, 8.39, -0.42); 
 			sceneVZP.view.lookAt(new THREE.Vector3(-3.05, 7.79, -0.60));
 
-		// Annotations
-
-			//Ceiling
-				sceneVZP.addAnnotation([1.74, 6.21, -0.46], {
-					"cameraPosition": [1.74, 6.21, -0.46],
-					"cameraTarget": [1.733, 6.20, -0.46],	
-					"title": "Ceiling Mosaic",
-					"actions": [{
-						"icon":  Potree.resourcePath + "/icons/info.svg",
-						"onclick": function(){
-							sceneVZP.view.lookAt(new THREE.Vector3(1.733, 6.20, -0.46));
-						}
-					}]
-				});
-				
-				//Left doorway
-				sceneVZP.addAnnotation([1.80, -1.51, 0.02], {
-					"cameraPosition": [1.80, -1.51, 0.02],
-					"cameraTarget": [1.79, -1.50, 0.02],
-					"title": "View"
-				});
-
-				// Right doorway
-				sceneVZP.addAnnotation([-5.47, 4.51, 0.13], {
-					"cameraPosition": [-5.47, 4.51, 0.13],
-					"cameraTarget": [-5.37, 4.50, 0.13],
-					"title": "View"
-				});
-
-				// Reset Scene
-				sceneVZP.addAnnotation([-3.49, 8.39, -0.42], { 
-					"cameraPosition": [-3.49, 8.39, -0.42],
-					"cameraTarget": [-3.05, 7.79, -0.60],
-					"title": "Grotto Reset"
-				});
-
+			sceneVZP.addAnnotation([1.74, 6.21, -0.46], {
+				"cameraPosition": [1.74, 6.21, -0.46],
+				"cameraTarget": [1.733, 6.20, -0.46],	
+				"title": "Ceiling Mosaic",
+				"actions": [{
+					"icon":  Potree.resourcePath + "/icons/info.svg",
+					"onclick": function(){
+						sceneVZP.view.lookAt(new THREE.Vector3(1.733, 6.20, -0.46));
+					}
+				}]
 			});
-
+			sceneVZP.addAnnotation([1.80, -1.51, 0.02], {
+				"cameraPosition": [1.80, -1.51, 0.02],
+				"cameraTarget": [1.79, -1.50, 0.02],
+				"title": "View"
+			});
+			sceneVZP.addAnnotation([-5.47, 4.51, 0.13], {
+				"cameraPosition": [-5.47, 4.51, 0.13],
+				"cameraTarget": [-5.37, 4.50, 0.13],
+				"title": "View"
+			});
+			sceneVZP.addAnnotation([-3.49, 8.39, -0.42], { 
+				"cameraPosition": [-3.49, 8.39, -0.42],
+				"cameraTarget": [-3.05, 7.79, -0.60],
+				"title": "Grotto Reset"
+			});
+		});
 	</script>
-		
+	<script src="../js/main.js"></script>
   </body>
 </html>

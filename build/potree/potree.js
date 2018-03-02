@@ -6037,7 +6037,6 @@ Potree.Annotation = function(scene, args = {}){
 	this.domElement.style.position = "absolute";
 	this.domElement.style.opacity = "0.5";
 	this.domElement.style.padding = "10px";
-	//this.domElement.style.whiteSpace = "nowrap";
 	this.domElement.className = "annotation";
 	
 	if(this.appearance !== null){
@@ -6094,7 +6093,6 @@ Potree.Annotation = function(scene, args = {}){
 	this.domDescription.style.borderRadius = "4px";
 	this.domDescription.style.display = "none";
 	this.domDescription.style.maxWidth = "500px";
-	//this.domDescription.className = "annotation";
 	this.domElement.appendChild(this.domDescription);
 	
 	if(this.actions.length > 0){
@@ -6159,16 +6157,6 @@ Potree.Annotation = function(scene, args = {}){
 	this.domElement.onmouseleave = () => {
 		this.setHighlighted(false);
 	};
-	
-	//$(this.domElement).click(e => {
-	//	this.showDescription = !this.showDescription;
-	//	
-	//	if(this.showDescription){
-	//		$(this.domElement).append($(this.domDescription));
-	//	}else{
-	//		$(this.domDescription).remove(); 
-	//	}
-	//});
 	
 	this.setHighlighted = function(highlighted){
 		if(highlighted){
@@ -6240,8 +6228,7 @@ Potree.Annotation = function(scene, args = {}){
 		tween.start();
 	};
 	
-	// Display information box on top-right corner
-	// Should display same description as onHover tooltip
+	// Display information box on right side
 	this.displayInfoBox = function(){
 		var infoBoxWidth = 380;
 
@@ -6341,22 +6328,6 @@ Potree.Annotation = function(scene, args = {}){
 
 		// Append to Info Box
 		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTab);
-
-		// Video Tab
-		// this.domInfoBoxVideoTab = document.createElement("div");
-		// this.domInfoBoxVideoTab.id = "videos";
-		// this.domInfoBoxVideoTab.setAttribute("class", "tab-pane fade");
-		// this.domInfoBoxVideoTab.setAttribute("role", "tabpanel");
-		// this.domInfoBoxVideoTab.setAttribute("aria-labelledby", "videos-tab");
-		// // Video
-		// this.videos.forEach(function(video) {
-		// 	this.domInfoBoxVideo = document.createElement("video");
-		// 	this.domInfoBoxVideo.src = video.src;
-		// 	this.domInfoBoxVideoTab.appendChild(this.domInfoBoxVideo);
-		// }, this);
-		
-		// Append to Info Box
-		// this.domInfoBoxTabContent.appendChild(this.domInfoBoxVideoTab);
 		
 		// Model Tab
 		if (this.model) {
@@ -6418,19 +6389,15 @@ Potree.Annotation = function(scene, args = {}){
 			scene.add( camera );
 
 			// texture
-
 			var manager = new THREE.LoadingManager();
 			manager.onProgress = function ( item, loaded, total ) {
-
 				console.log( item, loaded, total );
-
 			};
 
 			var textureLoader = new THREE.TextureLoader( manager );
 			var texture = textureLoader.load( '../assets/img/100x100.png' );
 
 			// model
-
 			var onProgress = function ( xhr ) {
 				if ( xhr.lengthComputable ) {
 					var percentComplete = xhr.loaded / xhr.total * 100;
@@ -6443,23 +6410,14 @@ Potree.Annotation = function(scene, args = {}){
 
 			var loader = new THREE.OBJLoader( manager );
 			loader.load( '../models/obj/' + model.src, function ( object ) {
-
 				object.traverse( function ( child ) {
-
 					if ( child instanceof THREE.Mesh ) {
-
 						child.material.map = texture;
-
 					}
-
 				} );
-
 				object.position.y = 0;
 				scene.add( object );
-
 			}, onProgress, onError );
-
-			//
 
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
