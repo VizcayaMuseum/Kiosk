@@ -12,8 +12,8 @@ $(document).ready(function() {
         displayTransitionVideo(this.href);
     });
 
-    // toggle initial infobox when pointcloud_added event is triggered
-    document.addEventListener("pointcloud_added", resetScene());
+    // toggle initial infobox from first annotation when page loads
+    viewer.scene.annotations[0].displayInfoBox();
     
     // initialize these variables
     annotationsArr = viewer.scene.annotations;
@@ -95,14 +95,14 @@ function toggleInfoBox() {
     var infoBoxIsVisible = renderArea.css("right") !== "0px";
 
     if (infoBoxIsVisible) { // then hide infoBox and extend renderArea
-        renderArea.css("transition", "right 2s");
+        renderArea.css("transition", "right 3s");
         renderArea.css("right", "0px");
-        infoBox.css("transition", "right 2s");
+        infoBox.css("transition", "right 3s");
         infoBox.css("right", "-380px");
     } else { // show infoBox and reduce renderArea
-        renderArea.css("transition", "right 2s");
+        renderArea.css("transition", "right 3s");
         renderArea.css("right", "380px");
-        infoBox.css("transition", "right 2s");
+        infoBox.css("transition", "right 3s");
         infoBox.css("right", "0px");
     }
 }
@@ -123,28 +123,112 @@ function zoomOut(){
     viewer.setFOV(currentFOV + 5);
 }
 
+/* Tween function used with camera movement - arrow buttons
+*****************************************************/
+function tweenFunction(direction, target, currentAmountObject, newAmountObject) {
+    // Setup the animation loop.
+    function animate(time) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
+
+    // declare and initalize tween
+    var tween = new TWEEN.Tween(currentAmountObject)
+        .to(newAmountObject, 1000)
+        .easing(TWEEN.Easing.Quintic.Out)
+        .onUpdate(function() {
+            if(direction == 'up' || direction == 'down') {
+                viewer.scene.view.pitch = currentAmountObject.amount;
+            } else if (direction == 'left' || direction == 'right') {
+                viewer.scene.view.yaw = currentAmountObject.amount;
+            }
+        })
+        .start(); // Start the tween immediately.
+}
+
 /* Move Up
 *****************************************************/
 function moveUp(){
-    viewer.scene.view.pitch += .2;
+    // movement direction
+    var direction = 'up';
+
+    // set target element
+    var targetElement = viewer.scene.view.pitch;
+
+    // NOTE: we need values as a property in an object for tween to work
+    var currentPitchObject = {
+        'amount': viewer.scene.view.pitch
+    };
+    var newPitchObject = {
+        'amount': viewer.scene.view.pitch + .25
+    };
+
+    // call tween function
+    tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
 }
 
 /* Move Down
 *****************************************************/
 function moveDown(){
-    viewer.scene.view.pitch -= .2;
+    // movement direction
+    var direction = 'down';
+
+    // set target element
+    var targetElement = viewer.scene.view.pitch;
+
+    // NOTE: we need values as a property in an object for tween to work
+    var currentPitchObject = {
+        'amount': viewer.scene.view.pitch
+    };
+    var newPitchObject = {
+        'amount': viewer.scene.view.pitch - .25
+    };
+
+    // call tween function
+    tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
 }
 
 /* Move Left
 *****************************************************/
 function moveLeft(){
-    viewer.scene.view.yaw += .2;
+    // movement direction
+    var direction = 'left';
+
+    // set target element
+    var targetElement = viewer.scene.view.yaw;
+
+    // NOTE: we need values as a property in an object for tween to work
+    var currentPitchObject = {
+        'amount': viewer.scene.view.yaw
+    };
+    var newPitchObject = {
+        'amount': viewer.scene.view.yaw + .25
+    };
+
+    // call tween function
+    tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
 }
 
 /* Move Right
 *****************************************************/
 function moveRight(){
-    viewer.scene.view.yaw -= .2;
+    // movement direction
+    var direction = 'right';
+
+    // set target element
+    var targetElement = viewer.scene.view.yaw;
+
+    // NOTE: we need values as a property in an object for tween to work
+    var currentPitchObject = {
+        'amount': viewer.scene.view.yaw
+    };
+    var newPitchObject = {
+        'amount': viewer.scene.view.yaw - .25
+    };
+
+    // call tween function
+    tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
 }
 
 /* Hotspot Scene Toggle - does not work in firefox

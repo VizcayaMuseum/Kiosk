@@ -6244,8 +6244,13 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = infoBoxWidth  + "px";
 		this.domInfoBox.style.height = "95%";
-		this.domInfoBox.style.right = "0px";
-		this.domInfoBox.style.top = "0";
+		// if there is a previous infoBox, then keep in the same position
+		if(previousInfoBox) {
+			this.domInfoBox.style.right = previousInfoBox.style.right;
+		} else {
+			this.domInfoBox.style.right = "-380px";
+		}
+		this.domInfoBox.style.top = "0px";
 		this.domInfoBox.style.zIndex = "100";
 		this.domInfoBox.style.padding = "13px";
 		this.domInfoBox.style.color = "#000";
@@ -6351,11 +6356,11 @@ Potree.Annotation = function(scene, args = {}){
 		// show infobox if it's not visible
 		var renderArea = $('#potree_render_area');
 		var infoBox = $('#infoBox');
-		var infoBoxIsVisible = renderArea.css("right") !== "0px";
+		var infoBoxIsVisible = renderArea.css("right") !== "0px" && infoBox.css("right") !== "-380px";
 		if (!infoBoxIsVisible){ // show infoBox and reduce renderArea
-			renderArea.css("transition", "right 2s");
+			renderArea.css("transition", "right 3s");
 			renderArea.css("right", "380px");
-			infoBox.css("transition", "right 2s");
+			infoBox.css("transition", "right 3s");
 			infoBox.css("right", "0px");
 		}
 

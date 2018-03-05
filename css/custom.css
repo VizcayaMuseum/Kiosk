@@ -33,7 +33,7 @@ body {
 *****************************************************/
 #potree_render_area {
 	animation-duration: 2s;
-	right: 380px;
+	right: 0px;
 }
 
 /* Annotations
@@ -370,7 +370,7 @@ background: #333333;
 /* Info Box
 *****************************************************/
 #infoBox {
-	animation-duration: 2s;
+	animation-duration: 3s;
 }
 #infoBox #images {
 	margin-top: 20px;
