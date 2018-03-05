@@ -12,9 +12,9 @@ $(document).ready(function() {
         displayTransitionVideo(this.href);
     });
 
-    // toggle initial infobox when page loads
-    resetScene();
-
+    // toggle initial infobox when pointcloud_added event is triggered
+    document.addEventListener("pointcloud_added", resetScene());
+    
     // initialize these variables
     annotationsArr = viewer.scene.annotations;
     annotationsCount = annotationsArr.length;
