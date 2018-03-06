@@ -12,15 +12,14 @@ html {
 }
 body {
 	background-color: #000;
+	color: #444;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Lato', sans-serif;
-	padding: 	0;
+    font: normal normal 400 normal 13px/18px verdana, sans-serif;
+	padding: 0;
 	height: 100%;
 	width: 100%;
-	font-size: 20px;
 	overflow-x: hidden;
 }
 
@@ -63,6 +62,7 @@ div.annotation > div{
 	position: relative;
 	height: 75px;
 	width: 75px;
+	margin-bottom: 10px;
 	z-index: 10;
 }
 .skip {
@@ -83,9 +83,15 @@ div.annotation > div{
 }
 #skip-button:focus,
 #skip-button:hover,
-#skip-button:active    {
-	color: rgb(40,206,253) !important;
-	outline: none; 
+#skip-button:active {
+	border-color: #28cefd;
+	color: #28cefd;
+	outline: none;
+}
+#skip-button:focus + .skip-text,
+#skip-button:hover + .skip-text,
+#skip-button:active + .skip-text {
+	color: #28cefd;
 }
 #transition-video {
 	display: none;
@@ -117,6 +123,7 @@ video::-webkit-media-controls-overlay-enclosure {
 	align-items: center;
 	justify-content: center;
 	color: #fff;
+	line-height: 1.42857143;
 }
 .jumbotron {
 	width: 100%;
@@ -174,13 +181,12 @@ video::-webkit-media-controls-overlay-enclosure {
 .nav-icon {
 	color: #fff;
 }
-	.nav-icon:focus,
-	.nav-icon:hover,
-	.nav-icon:active
- {
-		color: #28cefd;
-		outline: none;
-	}
+.nav-icon:focus,
+.nav-icon:hover,
+.nav-icon:active {
+	color: #28cefd;
+	outline: none;
+}
 .controlbar-nav {
 	text-align: center;
 	text-decoration: none;
@@ -215,7 +221,6 @@ a.switch-view-btn:active {
 *****************************************************/
 #hotspot-container {
 	width: 100%;
-	height: 150px;
 	display: none;
 }
 #hotspotCarousel {
@@ -223,44 +228,59 @@ a.switch-view-btn:active {
 	position: fixed;
 	left: 0;
 	bottom: 60px;
-	background-color: rgba(16,76,146,0.6);
+	background-color: rgba(1, 82, 137, 0.9);
 	width: 100%;
-	height: 150px;
+	height: 124px;
 }
 .well {
 	padding: 0;
 	margin: 0;
 }
+.carousel-inner {
+	margin-top: 6px;
+}
 .carousel-inner .row-fluid {
-    margin-left: 60px;
+    margin-left: 2px;
 }
 .carousel-inner .thumbnail {
 	padding: 0;
 	margin-bottom:0;
-	background-color: rgb(16,76,146);
+	background-color: #6A91BC;
 	color: #fff;
-	border: 1px solid rgb(16,76,146);
+	border: 4px solid rgb(1, 82, 137);
+	border-radius: 0px;
 	text-align: center;
 	line-height: 1.15em;
+	width: 228px;
+	height: 112px;
+    box-sizing: border-box;
 }
-.thumbnail:focus,
-.thumbnail:hover,
-.thumbnail:active
+.carousel-inner .thumbnail span {
+	font-weight: bold;
+	font-size: 12px;
+	height: 17px;
+    line-height: 17px;
+}
+a.thumbnail:focus,
+a.thumbnail:hover,
+a.thumbnail:active
 {
 	padding: 0;
 	margin-bottom:0;
-	background-color: rgb(40,206,253);
-	border: 1px solid rgb(40,206,253);
+	border: 4px solid #fff;
 	text-align: center;
 	color: white;
 }
 .thumbnail img {
 	width: auto;
-    height: 82px;
+    height: 70px;
 }
 .span3 {
 	display: inline-block;
 	margin: 0 5px;
+}
+ul.hotspot-slides {
+	margin-bottom: 0;
 }
 .carousel {
 	margin-bottom: 0;
@@ -292,7 +312,7 @@ a.switch-view-btn:active {
 	background: #c0c0c0;
 }
 .carousel-indicators .active {
-background: #333333;
+	background: #333333;
 }
 .active {
 	list-style: none;
@@ -376,19 +396,30 @@ background: #333333;
 	margin-top: 20px;
 }
 #infoBox .nav-item a{
-	color: 	#6A91BC;
+	font-size: 14px;
+	font-weight: bold;
+	color: #015289;
 	text-decoration: none;
 }
 #infoBox .nav-item.active a {
-	color: 	#6A91BC;
+	color: #015289;
 	text-decoration: none;
 }
 #infoBox .nav-item a:hover {
 	color: 	#6A91BC;
 	text-decoration: none;
 }
+#infoBox .nav-tabs > li > a {
+	border-radius: 0px;
+}
 #infoBox #description {
-	padding: 10px 15px;
+	padding-top: 10px;
+}
+#infoBox #description strong {
+	font-size: 13px;
+}
+#infoBox #description strong + p {
+    margin-bottom: 18px;
 }
 #infoBox .grid-image {
 	margin-bottom: 20px;

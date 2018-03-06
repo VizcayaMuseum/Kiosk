@@ -6053,7 +6053,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.elOrdinal.style.color = "white";
 		this.elOrdinal.style.backgroundColor = "black";
 		this.elOrdinal.style.borderRadius = "1.5em";
-		this.elOrdinal.style.fontSize = "1em";
+		this.elOrdinal.style.fontSize = "1.5em";
 		this.elOrdinal.style.opacity = "1";
 		this.elOrdinal.style.margin = "auto";
 		this.elOrdinal.style.zIndex = "100";
@@ -6230,7 +6230,7 @@ Potree.Annotation = function(scene, args = {}){
 	
 	// Display information box on right side
 	this.displayInfoBox = function(){
-		var infoBoxWidth = 380;
+		var infoBoxWidth = 288;
 
 		// remove previous InfoBox if it exists
 		var previousInfoBox = document.getElementById('infoBox');
@@ -6243,17 +6243,17 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBox.style.position = "absolute";
 		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = infoBoxWidth  + "px";
-		this.domInfoBox.style.height = "95%";
+		this.domInfoBox.style.height = "100%";
 		// if there is a previous infoBox, then keep in the same position
 		if(previousInfoBox) {
 			this.domInfoBox.style.right = previousInfoBox.style.right;
 		} else {
-			this.domInfoBox.style.right = "-380px";
+			this.domInfoBox.style.right = "-" + infoBoxWidth + "px";
 		}
 		this.domInfoBox.style.top = "0px";
-		this.domInfoBox.style.zIndex = "100";
+		this.domInfoBox.style.zIndex = "1031";
 		this.domInfoBox.style.padding = "13px";
-		this.domInfoBox.style.color = "#000";
+		this.domInfoBox.style.color = "#444";
 		this.domInfoBox.style.backgroundColor = "#fff";
 		this.domInfoBox.style.borderRadius = "2px";
 		this.domInfoBox.style.borderWidth = "4px";
@@ -6356,10 +6356,10 @@ Potree.Annotation = function(scene, args = {}){
 		// show infobox if it's not visible
 		var renderArea = $('#potree_render_area');
 		var infoBox = $('#infoBox');
-		var infoBoxIsVisible = renderArea.css("right") !== "0px" && infoBox.css("right") !== "-380px";
+		var infoBoxIsVisible = renderArea.css("right") !== "0px" && infoBox.css("right") !== "-" + infoBoxWidth + "px";
 		if (!infoBoxIsVisible){ // show infoBox and reduce renderArea
 			renderArea.css("transition", "right 3s");
-			renderArea.css("right", "380px");
+			renderArea.css("right", infoBoxWidth + "px");
 			infoBox.css("transition", "right 3s");
 			infoBox.css("right", "0px");
 		}

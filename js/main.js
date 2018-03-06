@@ -1,4 +1,5 @@
 var video = document.getElementById("transition-video");
+var infoBoxWidth = 288;
 var annotationsArr;
 var annotationsCount;
 var currentAnnotationIndex;
@@ -98,10 +99,10 @@ function toggleInfoBox() {
         renderArea.css("transition", "right 3s");
         renderArea.css("right", "0px");
         infoBox.css("transition", "right 3s");
-        infoBox.css("right", "-380px");
+        infoBox.css("right", "-" + infoBoxWidth + "px");
     } else { // show infoBox and reduce renderArea
         renderArea.css("transition", "right 3s");
-        renderArea.css("right", "380px");
+        renderArea.css("right", infoBoxWidth + "px");
         infoBox.css("transition", "right 3s");
         infoBox.css("right", "0px");
     }
