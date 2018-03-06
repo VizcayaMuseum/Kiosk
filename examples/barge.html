@@ -72,14 +72,26 @@
 		init();
 	
 		function init() {
-			// load controlbar and overlays
-			$("#includedContent").load("../pages/modules.html", function(response, status, xhr) {
-				if(status == "success") {
-					console.log("Success: loaded modules.html");
-				} else if(status == "error") {
-					console.log("Error: could not modules.html");
-				}
-			});
+			// load controlbar
+			$("#includedContent")
+				.load("../pages/controlbar.html", function(response, status, xhr) {
+					if(status == "success") {
+						console.log("Success: loaded controlbar.html");
+						// now load and append menu image carousel
+						$("#includedContent")
+							.append($('<div>')
+							.load("../pages/barge/menu-image-carousel.html", function(response, status, xhr) {
+								if(status == "success") {
+									console.log("Success: loaded menu-image-carousel.html");
+								} else if(status == "error") {
+									console.log("Error: could not menu-image-carousel.html");
+								}
+							})
+						);
+					} else if(status == "error") {
+						console.log("Error: could not controlbar.html");
+					}
+				});
 
 			// Potree
 			window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));

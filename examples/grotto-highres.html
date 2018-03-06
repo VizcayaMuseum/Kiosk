@@ -71,14 +71,26 @@
 		init();
 	
 		function init() {
-			// load controlbar and overlays
-			$("#includedContent").load("../pages/modules.html", function(response, status, xhr) {
-				if(status == "success") {
-					console.log("Success: loaded modules.html");
-				} else if(status == "error") {
-					console.log("Error: could not modules.html");
-				}
-			});
+			// load controlbar
+			$("#includedContent")
+				.load("../pages/controlbar.html", function(response, status, xhr) {
+					if(status == "success") {
+						console.log("Success: loaded controlbar.html");
+						// now load and append menu image carousel
+						$("#includedContent")
+							.append($('<div>')
+							.load("../pages/grotto/menu-image-carousel.html", function(response, status, xhr) {
+								if(status == "success") {
+									console.log("Success: loaded menu-image-carousel.html");
+								} else if(status == "error") {
+									console.log("Error: could not menu-image-carousel.html");
+								}
+							})
+						);
+					} else if(status == "error") {
+						console.log("Error: could not controlbar.html");
+					}
+				});
 
 			// Potree
 			window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
@@ -121,10 +133,10 @@
 				sceneVZP.addAnnotation([-32.44, -0.21, -3.37], {
 					"cameraPosition": [-31.68, 0.57, -1.11],
 					"cameraTarget": [-32.44, -0.21, -0.37],
-					"title_en": "Alligators",
-					"description_en": "Alligators - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Cocodrilos",
-					"description_es": "Cocodrilos - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+					"title_en": "Alligator",
+					"description_en": "Alligator - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"title_es": "Cocodrilo",
+					"description_es": "Cocodrilo - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				});
 				sceneVZP.addAnnotation([-26.33, -1.04, -2.23], {
 					"cameraPosition": [-27.79, -0.40, -0.61],
