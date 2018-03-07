@@ -6363,9 +6363,12 @@ Potree.Annotation = function(scene, args = {}){
 			displayModelInModal(this.model);
 		}
 
+		// adds a button in the infoBox which triggers a modal displaying the model
 		function displayModelInModal(modelInfo) {
 			var domBody = document.body;
 			var domInfoBoxDescription = document.getElementById("description");
+
+			// modal
 			var modal = document.createElement('div');
 			modal.setAttribute('id', 'modelModal');
 			modal.setAttribute('class', 'modal fade bd-example-modal-lg');
@@ -6388,12 +6391,14 @@ Potree.Annotation = function(scene, args = {}){
 			var modalBody = document.createElement('div');
 			modalBody.setAttribute('class', 'modal-body');
 
+			// modal button
 			var modalButton = document.createElement('button');
 			modalButton.setAttribute('class', 'btn btn-primary');
 			modalButton.setAttribute('data-toggle', 'modal');
 			modalButton.setAttribute('data-target', '.bd-example-modal-lg');
 			modalButton.innerText = "View Model";
 			
+			// iframe
 			var iframe = document.createElement( 'iframe' );
 			iframe.src = modelInfo.url;
 
