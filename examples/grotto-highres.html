@@ -75,15 +75,14 @@
 			$("#includedContent")
 				.load("../pages/controlbar.html", function(response, status, xhr) {
 					if(status == "success") {
-						console.log("Success: loaded controlbar.html");
 						// now load and append menu image carousel
 						$("#includedContent")
 							.append($('<div>')
 							.load("../pages/grotto/menu-image-carousel.html", function(response, status, xhr) {
 								if(status == "success") {
-									console.log("Success: loaded menu-image-carousel.html");
+									handleBottomMenuImageClicks();
 								} else if(status == "error") {
-									console.log("Error: could not menu-image-carousel.html");
+									
 								}
 							})
 						);
@@ -162,6 +161,9 @@
 					"title_es": "Pescado",
 					"description_es": "Pescado - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				});
+
+				// toggle initial infobox after all annotations are added
+				viewer.scene.annotations[0].displayInfoBox();
 			});
 		}
 

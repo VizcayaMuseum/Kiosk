@@ -76,15 +76,14 @@
 			$("#includedContent")
 				.load("../pages/controlbar.html", function(response, status, xhr) {
 					if(status == "success") {
-						console.log("Success: loaded controlbar.html");
 						// now load and append menu image carousel
 						$("#includedContent")
 							.append($('<div>')
 							.load("../pages/barge/menu-image-carousel.html", function(response, status, xhr) {
 								if(status == "success") {
-									console.log("Success: loaded menu-image-carousel.html");
+									handleBottomMenuImageClicks();
 								} else if(status == "error") {
-									console.log("Error: could not menu-image-carousel.html");
+
 								}
 							})
 						);
@@ -206,9 +205,12 @@
 					"model": {
 						"name": "Pleasures and Perils",
 						"type": "iframe",
-						"url": "/kiosk/examples/pleasuresandperils.html"
+						"url": "../models/pleasuresandperils.html"
 					}
 				});
+
+				// toggle initial infobox after all annotations are added
+				viewer.scene.annotations[0].displayInfoBox();
 			});
 		}
 	</script>
