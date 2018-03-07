@@ -6273,12 +6273,6 @@ Potree.Annotation = function(scene, args = {}){
 			<li class="nav-item">
 				<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>
 			</li>`;
-		if (this.model) {
-			this.domInfoBoxTabs.innerHTML += `			
-			<li class="nav-item">
-				<a class="nav-link active" id="model-tab" data-toggle="tab" href="#model-render-area" role="tab" aria-controls="model" aria-selected="true">Model</a>
-			</li>`;
-		}
 		this.domInfoBox.appendChild(this.domInfoBoxTabs);
 
 		//Tab Content
@@ -6365,93 +6359,142 @@ Potree.Annotation = function(scene, args = {}){
 		}
 
 		// call these functions after infobox is in the DOM
-		if (this.model) {
-			init(this.model);
-			animate();
+		if (this.model && this.model.type == 'iframe') {
+			displayModelInModal(this.model);
 		}
 
-		function init(model) {
-			var domInfoBoxModelTab = document.getElementById("model-render-area");
+		function displayModelInModal(modelInfo) {
+			var domBody = document.body;
+			var domInfoBoxDescription = document.getElementById("description");
+			var modal = document.createElement('div');
+			modal.setAttribute('id', 'modelModal');
+			modal.setAttribute('class', 'modal fade bd-example-modal-lg');
+			modal.setAttribute('tabindex', '-1');
+			modal.setAttribute('role', 'dialog');
+			modal.setAttribute('aria-labelledby', modelInfo.name);
+			modal.setAttribute('aria-hidden', 'true');
+			var modalDialog = document.createElement('div');
+			modalDialog.setAttribute('class', 'modal-dialog modal-lg');
+			var modalContent = document.createElement('div');
+			modalContent.setAttribute('class', 'modal-content');
+			var modalHeader = document.createElement('div');
+			modalHeader.setAttribute('class', 'modal-header');
+			$(modalHeader).html(`
+				<h4 class="modal-title" id="myLargeModalLabel">` + modelInfo.name + `</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">X</span>
+				</button>
+			`);
+			var modalBody = document.createElement('div');
+			modalBody.setAttribute('class', 'modal-body');
 
-			container = document.createElement( 'div' );
-			domInfoBoxModelTab.appendChild( container );
+			var modalButton = document.createElement('button');
+			modalButton.setAttribute('class', 'btn btn-primary');
+			modalButton.setAttribute('data-toggle', 'modal');
+			modalButton.setAttribute('data-target', '.bd-example-modal-lg');
+			modalButton.innerText = "View Model";
+			
+			var iframe = document.createElement( 'iframe' );
+			iframe.src = modelInfo.url;
 
-			camera = new THREE.PerspectiveCamera( 25, 360 / 600, 1, 2000 );
-			camera.position.z = 250;
-
-			// controls
-			controls = new THREE.OrbitControls( camera, domInfoBoxModelTab );
-			controls.target.set( 0, 0, 0 );
-
-			// scene
-			scene = new THREE.Scene();
-
-			var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
-			scene.add( ambientLight );
-
-			var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
-			camera.add( pointLight );
-			scene.add( camera );
-
-			// texture
-			var manager = new THREE.LoadingManager();
-			manager.onProgress = function ( item, loaded, total ) {
-				console.log( item, loaded, total );
-			};
-
-			var textureLoader = new THREE.TextureLoader( manager );
-			var texture = textureLoader.load( '../assets/img/100x100.png' );
-
-			// model
-			var onProgress = function ( xhr ) {
-				if ( xhr.lengthComputable ) {
-					var percentComplete = xhr.loaded / xhr.total * 100;
-					console.log( Math.round(percentComplete, 2) + '% downloaded' );
-				}
-			};
-
-			var onError = function ( xhr ) {
-			};
-
-			var loader = new THREE.OBJLoader( manager );
-			loader.load( '../models/obj/' + model.src, function ( object ) {
-				object.traverse( function ( child ) {
-					if ( child instanceof THREE.Mesh ) {
-						child.material.map = texture;
-					}
-				} );
-				object.position.y = 0;
-				scene.add( object );
-			}, onProgress, onError );
-
-			renderer = new THREE.WebGLRenderer();
-			renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( 360, 600 );
-			container.appendChild( renderer.domElement );
-
-			window.addEventListener( 'resize', onWindowResize, false );
+			// add elements into page
+			modalBody.appendChild(iframe);
+			modalContent.appendChild(modalHeader);
+			modalContent.appendChild(modalBody);
+			modalDialog.appendChild(modalContent);
+			modal.appendChild(modalDialog);
+			domBody.appendChild(modal);
+			domInfoBoxDescription.prepend(modalButton);
 		}
 
-		function onWindowResize() {
-			windowHalfX = window.innerWidth / 2;
-			windowHalfY = window.innerHeight / 2;
+		// call these functions after infobox is in the DOM
+		// if (this.model) {
+		// 	init(this.model);
+		// 	animate();
+		// }
 
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
+		// function init(model) {
+		// 	var domInfoBoxModelTab = document.getElementById("model-render-area");
 
-			renderer.setSize( window.innerWidth, window.innerHeight );
-		}
+		// 	container = document.createElement( 'div' );
+		// 	domInfoBoxModelTab.appendChild( container );
 
-		function animate() {
-			requestAnimationFrame( animate );
-			controls.update();
-			render();
-		}
+		// 	camera = new THREE.PerspectiveCamera( 25, 360 / 600, 1, 2000 );
+		// 	camera.position.z = 250;
 
-		function render() {
-			camera.lookAt( scene.position );
-			renderer.render( scene, camera );
-		}
+		// 	// controls
+		// 	controls = new THREE.OrbitControls( camera, domInfoBoxModelTab );
+		// 	controls.target.set( 0, 0, 0 );
+
+		// 	// scene
+		// 	scene = new THREE.Scene();
+
+		// 	var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+		// 	scene.add( ambientLight );
+
+		// 	var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
+		// 	camera.add( pointLight );
+		// 	scene.add( camera );
+
+		// 	// texture
+		// 	var manager = new THREE.LoadingManager();
+		// 	manager.onProgress = function ( item, loaded, total ) {
+		// 		console.log( item, loaded, total );
+		// 	};
+
+		// 	var textureLoader = new THREE.TextureLoader( manager );
+		// 	var texture = textureLoader.load( '../assets/img/100x100.png' );
+
+		// 	// model
+		// 	var onProgress = function ( xhr ) {
+		// 		if ( xhr.lengthComputable ) {
+		// 			var percentComplete = xhr.loaded / xhr.total * 100;
+		// 			console.log( Math.round(percentComplete, 2) + '% downloaded' );
+		// 		}
+		// 	};
+
+		// 	var onError = function ( xhr ) {
+		// 	};
+
+		// 	var loader = new THREE.OBJLoader( manager );
+		// 	loader.load( '../models/obj/' + model.src, function ( object ) {
+		// 		object.traverse( function ( child ) {
+		// 			if ( child instanceof THREE.Mesh ) {
+		// 				child.material.map = texture;
+		// 			}
+		// 		} );
+		// 		object.position.y = 0;
+		// 		scene.add( object );
+		// 	}, onProgress, onError );
+
+		// 	renderer = new THREE.WebGLRenderer();
+		// 	renderer.setPixelRatio( window.devicePixelRatio );
+		// 	renderer.setSize( 360, 600 );
+		// 	container.appendChild( renderer.domElement );
+
+		// 	window.addEventListener( 'resize', onWindowResize, false );
+		// }
+
+		// function onWindowResize() {
+		// 	windowHalfX = window.innerWidth / 2;
+		// 	windowHalfY = window.innerHeight / 2;
+
+		// 	camera.aspect = window.innerWidth / window.innerHeight;
+		// 	camera.updateProjectionMatrix();
+
+		// 	renderer.setSize( window.innerWidth, window.innerHeight );
+		// }
+
+		// function animate() {
+		// 	requestAnimationFrame( animate );
+		// 	controls.update();
+		// 	render();
+		// }
+
+		// function render() {
+		// 	camera.lookAt( scene.position );
+		// 	renderer.render( scene, camera );
+		// }
 
 	};
 

@@ -417,9 +417,13 @@ ul.hotspot-slides {
 }
 #infoBox #description strong {
 	font-size: 13px;
+	display: block;
 }
 #infoBox #description strong + p {
     margin-bottom: 18px;
+}
+#infoBox .btn {
+	margin-bottom: 18px;
 }
 #infoBox .grid-image {
 	margin-bottom: 20px;
@@ -430,3 +434,34 @@ ul.hotspot-slides {
 	margin-top: 20px;
 	width: 100%;
 }
+
+/* Modal
+*****************************************************/
+.modal-title {
+    display: inline;
+}
+.modal-header .close {
+    margin-top: 0;
+}
+.modal iframe {
+	width: 100%;
+    height: 700px;
+}
+/* START - Vertically align modal */
+.modal {
+	text-align: center;
+}
+@media screen and (min-width: 768px) { 
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	}
+}
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+/* END - Vertically align modal */
