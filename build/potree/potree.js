@@ -6374,10 +6374,11 @@ Potree.Annotation = function(scene, args = {}){
 			modal.setAttribute('class', 'modal fade bd-example-modal-lg');
 			modal.setAttribute('tabindex', '-1');
 			modal.setAttribute('role', 'dialog');
-			modal.setAttribute('aria-labelledby', modelInfo.name);
+			modal.setAttribute('aria-labelledby', 'myLargeModalLabel');
 			modal.setAttribute('aria-hidden', 'true');
 			var modalDialog = document.createElement('div');
 			modalDialog.setAttribute('class', 'modal-dialog modal-lg');
+			modalDialog.setAttribute('role', 'document');
 			var modalContent = document.createElement('div');
 			modalContent.setAttribute('class', 'modal-content');
 			var modalHeader = document.createElement('div');
