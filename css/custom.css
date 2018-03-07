@@ -424,6 +424,7 @@ ul.hotspot-slides {
 }
 #infoBox .btn {
 	margin-bottom: 18px;
+	width: 100%;
 }
 #infoBox .grid-image {
 	margin-bottom: 20px;
