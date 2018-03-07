@@ -7,14 +7,12 @@ var currentAnnotation;
 
 // Document Ready
 $(document).ready(function() {
+    
     // display transition video before redirecting to page
     $("a.landing-links").click(function(event) {
         event.preventDefault();
         displayTransitionVideo(this.href);
     });
-
-    // toggle initial infobox from first annotation when page loads
-    viewer.scene.annotations[0].displayInfoBox();
     
     // initialize these variables
     annotationsArr = viewer.scene.annotations;
@@ -81,6 +79,7 @@ function resetScene () {
     // set camera back to original position and target
     resetSceneAnnotation.moveHere(viewer.scene.camera);
     resetSceneAnnotation.displayInfoBox();
+    viewer.scene.camera.zoom = 1;
 }
 
 // find first Annotation - should match initial viewpoint
@@ -113,15 +112,13 @@ function toggleInfoBox() {
 /* Zoom In
 *****************************************************/
 function zoomIn(){
-    var currentFOV = viewer.getFOV();
-    viewer.setFOV(currentFOV - 5);
+    viewer.scene.camera.zoom += 0.1;
 }
 
 /* Zoom Out
 *****************************************************/
 function zoomOut(){
-    var currentFOV = viewer.getFOV();
-    viewer.setFOV(currentFOV + 5);
+    viewer.scene.camera.zoom -= 0.1;
 }
 
 /* Tween function used with camera movement - arrow buttons
@@ -289,6 +286,66 @@ function toggleFullscreen(elem) {
     }
 }
 
+/* add event listeners for bottom menu image carousel
+*****************************************************/
+function handleBottomMenuImageClicks() {
+    $(".carousel-inner .thumbnail").click(function(event) {
+        var iframeUrl = $(this).data('iframe-url');
+        var modelName = $(this).find(".image-text-en").text();
+
+        // prevent default click action and display model in modal
+        displayModelInModal(iframeUrl, modelName);
+    });
+}
+
+/* Display 3D Model in iframe inside a Modal
+*****************************************************/
+function displayModelInModal(iframeUrl, modelName) {
+    var domBody = document.body;
+
+    // modal
+    var modal = document.createElement('div');
+    modal.setAttribute('id', 'modelModal');
+    modal.setAttribute('class', 'modal fade bd-example-modal-lg');
+    modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-labelledby', 'myLargeModalLabel');
+    modal.setAttribute('aria-hidden', 'true');
+    var modalDialog = document.createElement('div');
+    modalDialog.setAttribute('class', 'modal-dialog modal-lg');
+    modalDialog.setAttribute('role', 'document');
+    var modalContent = document.createElement('div');
+    modalContent.setAttribute('class', 'modal-content');
+    var modalHeader = document.createElement('div');
+    modalHeader.setAttribute('class', 'modal-header');
+    $(modalHeader).html(`
+        <h4 class="modal-title" id="myLargeModalLabel">` + modelName + `</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+    `);
+    var modalBody = document.createElement('div');
+    modalBody.setAttribute('class', 'modal-body');
+    
+    // iframe
+    var iframe = document.createElement( 'iframe' );
+    iframe.src = iframeUrl;
+
+    // add elements into page
+    modalBody.appendChild(iframe);
+    modalContent.appendChild(modalHeader);
+    modalContent.appendChild(modalBody);
+    modalDialog.appendChild(modalContent);
+    modal.appendChild(modalDialog);
+    domBody.appendChild(modal);
+
+    // toggle the modal and then add event handler for 
+    // removing the modal from the DOM when it's closed
+    $('#modelModal').modal('show').on('hide.bs.modal', function (event) {
+        $(this).remove();
+    });
+}
+        
 /* Autoplay Annotations
 *****************************************************/
 // autoplay annotations

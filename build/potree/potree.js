@@ -6360,13 +6360,29 @@ Potree.Annotation = function(scene, args = {}){
 
 		// call these functions after infobox is in the DOM
 		if (this.model && this.model.type == 'iframe') {
-			displayModelInModal(this.model);
+			// model info
+			var modelInfo = this.model;
+
+			// infoBox Description section
+			var domInfoBoxDescription = document.getElementById("description");
+			
+			// modal button
+			var modalButton = document.createElement('button');
+			modalButton.setAttribute('class', 'btn btn-primary');
+			modalButton.setAttribute('data-toggle', 'modal');
+			modalButton.setAttribute('data-target', '.bd-example-modal-lg');
+			modalButton.innerText = "View Model";
+			domInfoBoxDescription.prepend(modalButton);
+			
+			// generate modal when button is clicked
+			$(modalButton).click(function() {
+				displayModelInModal(modelInfo);
+			});
 		}
 
 		// adds a button in the infoBox which triggers a modal displaying the model
 		function displayModelInModal(modelInfo) {
 			var domBody = document.body;
-			var domInfoBoxDescription = document.getElementById("description");
 
 			// modal
 			var modal = document.createElement('div');
@@ -6391,13 +6407,6 @@ Potree.Annotation = function(scene, args = {}){
 			`);
 			var modalBody = document.createElement('div');
 			modalBody.setAttribute('class', 'modal-body');
-
-			// modal button
-			var modalButton = document.createElement('button');
-			modalButton.setAttribute('class', 'btn btn-primary');
-			modalButton.setAttribute('data-toggle', 'modal');
-			modalButton.setAttribute('data-target', '.bd-example-modal-lg');
-			modalButton.innerText = "View Model";
 			
 			// iframe
 			var iframe = document.createElement( 'iframe' );
@@ -6410,7 +6419,11 @@ Potree.Annotation = function(scene, args = {}){
 			modalDialog.appendChild(modalContent);
 			modal.appendChild(modalDialog);
 			domBody.appendChild(modal);
-			domInfoBoxDescription.prepend(modalButton);
+
+			// remove the modal from the DOM when the modal is closed
+			$('#modelModal').on('hide.bs.modal', function (event) {
+				$(this).remove();
+			});
 		}
 
 		// call these functions after infobox is in the DOM
