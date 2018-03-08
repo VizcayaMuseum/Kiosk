@@ -303,9 +303,9 @@ function handleBottomMenuImageClicks() {
     });
 }
 
-/* Display iframe inside a Modal
+/* Create Modal
 *****************************************************/
-function displayIframeInModal(iframeUrl, modalTitle) {
+function createModal(modalTitle) {
     var domBody = document.body;
 
     // modal
@@ -331,22 +331,33 @@ function displayIframeInModal(iframeUrl, modalTitle) {
     `);
     var modalBody = document.createElement('div');
     modalBody.setAttribute('class', 'modal-body');
-    
-    // iframe
-    var iframe = document.createElement( 'iframe' );
-    iframe.src = iframeUrl;
 
     // add elements into page
-    modalBody.appendChild(iframe);
     modalContent.appendChild(modalHeader);
     modalContent.appendChild(modalBody);
     modalDialog.appendChild(modalContent);
     modal.appendChild(modalDialog);
     domBody.appendChild(modal);
 
+    return modal;
+}
+
+/* Display iframe inside a Modal
+*****************************************************/
+function displayIframeInModal(iframeUrl, modalTitle) {
+    // modal
+    var modal = createModal(modalTitle);
+    
+    // iframe
+    var iframe = document.createElement( 'iframe' );
+    iframe.src = iframeUrl;
+
+    // add iframe into modal
+    $(modal).find('.modal-body').append(iframe);
+
     // toggle the modal and then add event handler for 
     // removing the modal from the DOM when it's closed
-    $('#modelModal').modal('show').on('hide.bs.modal', function (event) {
+    $(modal).modal('show').on('hide.bs.modal', function (event) {
         $(this).remove();
     });
 }
@@ -354,56 +365,27 @@ function displayIframeInModal(iframeUrl, modalTitle) {
 /* Display video inside a Modal
 *****************************************************/
 function displayVideoInModal(videoUrl, modalTitle) {
-    var domBody = document.body;
-
     // modal
-    var modal = document.createElement('div');
-    modal.setAttribute('id', 'modelModal');
-    modal.setAttribute('class', 'modal fade bd-example-modal-lg');
-    modal.setAttribute('tabindex', '-1');
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-labelledby', 'myLargeModalLabel');
-    modal.setAttribute('aria-hidden', 'true');
-    var modalDialog = document.createElement('div');
-    modalDialog.setAttribute('class', 'modal-dialog modal-lg');
-    modalDialog.setAttribute('role', 'document');
-    var modalContent = document.createElement('div');
-    modalContent.setAttribute('class', 'modal-content');
-    var modalHeader = document.createElement('div');
-    modalHeader.setAttribute('class', 'modal-header');
-    $(modalHeader).html(`
-        <h4 class="modal-title" id="myLargeModalLabel">` + modalTitle + `</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">X</span>
-        </button>
-    `);
-    var modalBody = document.createElement('div');
-    modalBody.setAttribute('class', 'modal-body');
-    
-    // iframe
+    var modal = createModal(modalTitle);
+
+    // video
     var video = document.createElement( 'video' );
     video.src = videoUrl;
     video.controls = true;
     video.autoplay = true;
 
-    // add elements into page
-    modalBody.appendChild(video);
-    modalContent.appendChild(modalHeader);
-    modalContent.appendChild(modalBody);
-    modalDialog.appendChild(modalContent);
-    modal.appendChild(modalDialog);
-    domBody.appendChild(modal);
+    // add iframe into modal
+    $(modal).find('.modal-body').append(video);
 
     // toggle the modal and then add event handler for 
     // removing the modal from the DOM when it's closed
-    $('#modelModal').modal('show').on('hide.bs.modal', function (event) {
+    $(modal).modal('show').on('hide.bs.modal', function (event) {
         $(this).remove();
     });
 }
         
 /* Autoplay Annotations
 *****************************************************/
-// autoplay annotations
 function autoplayAnnotations() {
     // increase index within annotationsCount
     if (currentAnnotationIndex <= annotationsCount) {
