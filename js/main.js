@@ -7,7 +7,6 @@ var currentAnnotation;
 
 // Document Ready
 $(document).ready(function() {
-    
     // display transition video before redirecting to page
     $("a.landing-links").click(function(event) {
         event.preventDefault();
@@ -237,9 +236,8 @@ function toggleSlider(){
 
 /* Carousel Slider
 *****************************************************/
-function hotspotSlider (){
-    $("#hotspotCarousel").carousel("slow",{
-        interval: 10000 });
+function hotspotSlider() {
+    // TODO - Add swipe support for carousel
 }
 
 /* High Contrast - Under construction
@@ -290,17 +288,24 @@ function toggleFullscreen(elem) {
 *****************************************************/
 function handleBottomMenuImageClicks() {
     $(".carousel-inner .thumbnail").click(function(event) {
-        var iframeUrl = $(this).data('iframe-url');
-        var modelName = $(this).find(".image-text-en").text();
+        var type = $(this).data('modal-type');
+        var modalTitle = $(this).find(".image-text-en").text();
 
-        // prevent default click action and display model in modal
-        displayModelInModal(iframeUrl, modelName);
+        // display video in modal
+        if(type == "video") {
+            var videoUrl = $(this).data('video-url');
+            console.log($(this).data());
+            displayVideoInModal(videoUrl, modalTitle);
+        } else if(type == "iframe") { // else display iframe in modal
+            var iframeUrl = $(this).data('iframe-url');
+            displayIframeInModal(iframeUrl, modalTitle);
+        }
     });
 }
 
-/* Display 3D Model in iframe inside a Modal
+/* Create Modal
 *****************************************************/
-function displayModelInModal(iframeUrl, modelName) {
+function createModal(modalTitle) {
     var domBody = document.body;
 
     // modal
@@ -319,36 +324,68 @@ function displayModelInModal(iframeUrl, modelName) {
     var modalHeader = document.createElement('div');
     modalHeader.setAttribute('class', 'modal-header');
     $(modalHeader).html(`
-        <h4 class="modal-title" id="myLargeModalLabel">` + modelName + `</h4>
+        <h4 class="modal-title" id="myLargeModalLabel">` + modalTitle + `</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">X</span>
         </button>
     `);
     var modalBody = document.createElement('div');
     modalBody.setAttribute('class', 'modal-body');
-    
-    // iframe
-    var iframe = document.createElement( 'iframe' );
-    iframe.src = iframeUrl;
 
     // add elements into page
-    modalBody.appendChild(iframe);
     modalContent.appendChild(modalHeader);
     modalContent.appendChild(modalBody);
     modalDialog.appendChild(modalContent);
     modal.appendChild(modalDialog);
     domBody.appendChild(modal);
 
+    return modal;
+}
+
+/* Display iframe inside a Modal
+*****************************************************/
+function displayIframeInModal(iframeUrl, modalTitle) {
+    // modal
+    var modal = createModal(modalTitle);
+    
+    // iframe
+    var iframe = document.createElement( 'iframe' );
+    iframe.src = iframeUrl;
+
+    // add iframe into modal
+    $(modal).find('.modal-body').append(iframe);
+
     // toggle the modal and then add event handler for 
     // removing the modal from the DOM when it's closed
-    $('#modelModal').modal('show').on('hide.bs.modal', function (event) {
+    $(modal).modal('show').on('hide.bs.modal', function (event) {
+        $(this).remove();
+    });
+}
+
+/* Display video inside a Modal
+*****************************************************/
+function displayVideoInModal(videoUrl, modalTitle) {
+    // modal
+    var modal = createModal(modalTitle);
+
+    // video
+    var video = document.createElement( 'video' );
+    video.src = videoUrl;
+    video.controls = true;
+    video.autoplay = true;
+
+    // add iframe into modal
+    $(modal).find('.modal-body').append(video);
+
+    // toggle the modal and then add event handler for 
+    // removing the modal from the DOM when it's closed
+    $(modal).modal('show').on('hide.bs.modal', function (event) {
         $(this).remove();
     });
 }
         
 /* Autoplay Annotations
 *****************************************************/
-// autoplay annotations
 function autoplayAnnotations() {
     // increase index within annotationsCount
     if (currentAnnotationIndex <= annotationsCount) {
