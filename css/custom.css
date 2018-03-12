@@ -279,8 +279,12 @@ a.switch-view-btn:active {
 }
 #bottom-menu-image-carousel a.thumbnail:focus,
 #bottom-menu-image-carousel a.thumbnail:hover,
+<<<<<<< HEAD
 #bottom-menu-image-carousel a.thumbnail:active,
 #bottom-menu-image-carousel a.active
+=======
+#bottom-menu-image-carousel a.thumbnail:active
+>>>>>>> 2040c7860... Adding new format for bottom-menu-image-carousel in order to support touch controls. Related css changes. Add new dependencies for smooth touch control.
 {
 	padding: 0;
 	margin-bottom:0;
@@ -308,7 +312,10 @@ div.scrollWrapper
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+<<<<<<< HEAD
 	cursor: default !important;
+=======
+>>>>>>> 2040c7860... Adding new format for bottom-menu-image-carousel in order to support touch controls. Related css changes. Add new dependencies for smooth touch control.
 }
 
 div.scrollableArea
