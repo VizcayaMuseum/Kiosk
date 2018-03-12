@@ -237,7 +237,8 @@ function toggleSlider(){
 /* Carousel Slider
 *****************************************************/
 function hotspotSlider() {
-    // TODO - Add swipe support for carousel
+    // Add swipe support for carousel
+    $('#bottom-menu-image-carousel').smoothTouchScroll();
 }
 
 /* High Contrast - Under construction
@@ -287,7 +288,7 @@ function toggleFullscreen(elem) {
 /* add event listeners for bottom menu image carousel
 *****************************************************/
 function handleBottomMenuImageClicks() {
-    $(".carousel-inner .thumbnail").click(function(event) {
+    $("#bottom-menu-image-carousel .thumbnail").click(function(event) {
         var type = $(this).data('modal-type');
         var modalTitle = $(this).find(".image-text-en").text();
 

@@ -219,11 +219,12 @@ a.switch-view-btn:active {
 
 /* Hotspot Carousel
 *****************************************************/
-#hotspot-container {
-	width: 100%;
-	display: none;
+.well {
+	padding: 0;
+	margin: 0;
 }
-#hotspotCarousel {
+#bottom-menu-image-carousel {
+	width: 100%;
 	display: inline-block;
 	position: fixed;
 	left: 0;
@@ -231,20 +232,35 @@ a.switch-view-btn:active {
 	background-color: rgba(1, 82, 137, 0.9);
 	width: 100%;
 	height: 124px;
-}
-.well {
-	padding: 0;
-	margin: 0;
-}
-.carousel-inner {
 	margin-top: 5px;
 }
-.carousel-inner .row-fluid {
-    margin-left: 2px;
+#bottom-menu-image-carousel
+{
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	z-index: 1031;
 }
-.carousel-inner .thumbnail {
+#bottom-menu-image-carousel div.scrollableArea a
+{
+	position: relative;
+	float: left;
+	/* If you don't want the images in the scroller to be selectable, try the following
+	   block of code. It's just a nice feature that prevent the images from
+	   accidentally becoming selected/inverted when the user interacts with the scroller. */
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+#bottom-menu-image-carousel div.scrollableArea a:first-child {
+    margin-left: 6px;
+}
+#bottom-menu-image-carousel .thumbnail {
+	display: inline-block;
 	padding: 0;
-	margin-bottom:0;
+	margin: 5px 6px 0 0;
 	background-color: #6A91BC;
 	color: #fff;
 	border: 4px solid rgb(1, 82, 137);
@@ -255,15 +271,15 @@ a.switch-view-btn:active {
 	height: 112px;
     box-sizing: border-box;
 }
-.carousel-inner .thumbnail span {
+#bottom-menu-image-carousel .thumbnail span {
 	font-weight: bold;
 	font-size: 12px;
 	height: 17px;
     line-height: 17px;
 }
-a.thumbnail:focus,
-a.thumbnail:hover,
-a.thumbnail:active
+#bottom-menu-image-carousel a.thumbnail:focus,
+#bottom-menu-image-carousel a.thumbnail:hover,
+#bottom-menu-image-carousel a.thumbnail:active
 {
 	padding: 0;
 	margin-bottom:0;
@@ -271,52 +287,33 @@ a.thumbnail:active
 	text-align: center;
 	color: white;
 }
-.thumbnail img {
+#bottom-menu-image-carousel .thumbnail img {
 	width: auto;
     height: 70px;
 }
-.span3 {
+#bottom-menu-image-carousel .span3 {
 	display: inline-block;
 	margin: 0 5px;
 }
-ul.hotspot-slides {
-	margin-bottom: 0;
+/* Smooth Scroll - Bottom Menu image carousel
+*****************************************************/
+/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
+/* The scroll wrapper is always the same width and height as the containing element (div).
+   Overflow is hidden because you don't want to show all of the scrollable area.
+*/
+div.scrollWrapper
+{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
 }
-.carousel {
-	margin-bottom: 0;
-	padding: 0;
-	list-style: none;
-}
-.carousel-control {
-	display: none;
-	left: -12px;
-	width: 5%;
-}
-.carousel-control [class*="fa-chevron-"] {
-    margin-top: 50%;
-}
-.carousel-control.right {
-	right: -12px;
-}
-.carousel-control:hover,
-.carousel-control-active {
-	color: #28cefd;
-	outline: none;
-}
-.carousel-indicators {
-	right: 50%;
-	top: auto;
-	bottom: 0px;
-	margin-right: -19px;
-}
-.carousel-indicators li {
-	background: #c0c0c0;
-}
-.carousel-indicators .active {
-	background: #333333;
-}
-.active {
-	list-style: none;
+
+div.scrollableArea
+{
+	position: relative;
+	width: auto;
+	height: 100%;
 }
 
 /* Overlays

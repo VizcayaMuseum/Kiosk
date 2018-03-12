@@ -11,7 +11,8 @@
 	<!-- Bootstrap and Scrollbar-->
 	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
 	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../libs/jquery-kinetic/jquery.kinetic.min.js"></script>
+	<script src="../libs/jquery-smooth-touch-scroll/jquery.smoothTouchScroll.min.js"></script>
 	<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
 	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
@@ -73,7 +74,7 @@
 					if(status == "success") {
 						// now load and append menu image carousel
 						$("#includedContent")
-							.append($('<div>')
+							.append($('<div id="bottom-menu-image-carousel">')
 							.load("../pages/grotto/menu-image-carousel.html", function(response, status, xhr) {
 								if(status == "success") {
 									// inital actions when bottom menu loads
@@ -81,7 +82,7 @@
 									toggleSlider();
 									hotspotSlider();
 								} else if(status == "error") {
-									
+
 								}
 							})
 						);
