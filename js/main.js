@@ -239,6 +239,14 @@ function toggleSlider(){
 function hotspotSlider() {
     // Add swipe support for carousel
     $('#bottom-menu-image-carousel').smoothTouchScroll();
+    
+    // add click handler for saving last clicked image state
+    $('#bottom-menu-image-carousel a').on('click', function() {
+        // remove class active on all
+        $('#bottom-menu-image-carousel a').removeClass('active');
+        // add only on selected item
+        $(this).addClass('active');
+    });
 }
 
 /* High Contrast - Under construction

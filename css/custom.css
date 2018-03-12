@@ -279,7 +279,8 @@ a.switch-view-btn:active {
 }
 #bottom-menu-image-carousel a.thumbnail:focus,
 #bottom-menu-image-carousel a.thumbnail:hover,
-#bottom-menu-image-carousel a.thumbnail:active
+#bottom-menu-image-carousel a.thumbnail:active,
+#bottom-menu-image-carousel a.active
 {
 	padding: 0;
 	margin-bottom:0;
