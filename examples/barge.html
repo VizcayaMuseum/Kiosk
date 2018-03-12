@@ -118,8 +118,8 @@
 			viewer.setScene(sceneVZP);
 			Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
 				sceneVZP.addPointCloud(e.pointcloud);
-				sceneVZP.view.position.set(-0.16, 30.21, 18.83);
-				sceneVZP.view.lookAt(new THREE.Vector3(-0.10, -0.82, 2.34));
+				sceneVZP.view.position.set(-33.21, -8.46, 2.46);
+				sceneVZP.view.lookAt(new THREE.Vector3(-2.83, 4.93, 2.53));
 
 				// add annotations to the scene
 				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
@@ -210,7 +210,12 @@
 				});
 
 				// toggle initial infobox after all annotations are added
-				viewer.scene.annotations[0].displayInfoBox();
+				// added delay of 1 second to add effect
+				setTimeout(function() {
+					viewer.scene.annotations[0].moveHere(viewer.scene.camera);
+					viewer.scene.annotations[0].displayInfoBox();
+				}, 1000);
+				
 			});
 		}
 	</script>
