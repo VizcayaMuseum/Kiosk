@@ -6240,27 +6240,13 @@ Potree.Annotation = function(scene, args = {}){
 
 		this.domInfoBox = document.createElement("div");
 		this.domInfoBox.id = "infoBox";
-		this.domInfoBox.style.position = "absolute";
-		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = infoBoxWidth  + "px";
-		this.domInfoBox.style.height = "100%";
 		// if there is a previous infoBox, then keep in the same position
 		if(previousInfoBox) {
 			this.domInfoBox.style.right = previousInfoBox.style.right;
 		} else {
 			this.domInfoBox.style.right = "-" + infoBoxWidth + "px";
 		}
-		this.domInfoBox.style.top = "0px";
-		this.domInfoBox.style.zIndex = "1031";
-		this.domInfoBox.style.padding = "13px";
-		this.domInfoBox.style.color = "#444";
-		this.domInfoBox.style.backgroundColor = "#fff";
-		this.domInfoBox.style.borderRadius = "2px";
-		this.domInfoBox.style.borderWidth = "4px";
-		this.domInfoBox.style.borderColor = "#fff";
-		this.domInfoBox.style.borderStyle = "solid";
-		this.domInfoBox.style.overflowY = "auto";
-		this.domInfoBox.style.overflowX = "hidden";
 
 		// Tabs
 		this.domInfoBoxTabs = document.createElement("ul");
@@ -6327,19 +6313,6 @@ Potree.Annotation = function(scene, args = {}){
 
 		// Append to Info Box
 		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTab);
-		
-		// Model Tab
-		if (this.model) {
-			this.domInfoBoxModelTab = document.createElement("div");
-			this.domInfoBoxModelTab.style.zIndex = 1;
-			this.domInfoBoxModelTab.id = "model-render-area";
-			this.domInfoBoxModelTab.setAttribute("class", "tab-pane fade");
-			this.domInfoBoxModelTab.setAttribute("role", "tabpanel");
-			this.domInfoBoxModelTab.setAttribute("aria-labelledby", "model-tab");
-
-			// Append to Info Box
-			this.domInfoBoxTabContent.appendChild(this.domInfoBoxModelTab);
-		}
 
 		// Append Tab Content to Info Box
 		this.domInfoBox.appendChild(this.domInfoBoxTabContent);
@@ -6425,95 +6398,6 @@ Potree.Annotation = function(scene, args = {}){
 				$(this).remove();
 			});
 		}
-
-		// call these functions after infobox is in the DOM
-		// if (this.model) {
-		// 	init(this.model);
-		// 	animate();
-		// }
-
-		// function init(model) {
-		// 	var domInfoBoxModelTab = document.getElementById("model-render-area");
-
-		// 	container = document.createElement( 'div' );
-		// 	domInfoBoxModelTab.appendChild( container );
-
-		// 	camera = new THREE.PerspectiveCamera( 25, 360 / 600, 1, 2000 );
-		// 	camera.position.z = 250;
-
-		// 	// controls
-		// 	controls = new THREE.OrbitControls( camera, domInfoBoxModelTab );
-		// 	controls.target.set( 0, 0, 0 );
-
-		// 	// scene
-		// 	scene = new THREE.Scene();
-
-		// 	var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
-		// 	scene.add( ambientLight );
-
-		// 	var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
-		// 	camera.add( pointLight );
-		// 	scene.add( camera );
-
-		// 	// texture
-		// 	var manager = new THREE.LoadingManager();
-		// 	manager.onProgress = function ( item, loaded, total ) {
-		// 		console.log( item, loaded, total );
-		// 	};
-
-		// 	var textureLoader = new THREE.TextureLoader( manager );
-		// 	var texture = textureLoader.load( '../assets/img/100x100.png' );
-
-		// 	// model
-		// 	var onProgress = function ( xhr ) {
-		// 		if ( xhr.lengthComputable ) {
-		// 			var percentComplete = xhr.loaded / xhr.total * 100;
-		// 			console.log( Math.round(percentComplete, 2) + '% downloaded' );
-		// 		}
-		// 	};
-
-		// 	var onError = function ( xhr ) {
-		// 	};
-
-		// 	var loader = new THREE.OBJLoader( manager );
-		// 	loader.load( '../models/obj/' + model.src, function ( object ) {
-		// 		object.traverse( function ( child ) {
-		// 			if ( child instanceof THREE.Mesh ) {
-		// 				child.material.map = texture;
-		// 			}
-		// 		} );
-		// 		object.position.y = 0;
-		// 		scene.add( object );
-		// 	}, onProgress, onError );
-
-		// 	renderer = new THREE.WebGLRenderer();
-		// 	renderer.setPixelRatio( window.devicePixelRatio );
-		// 	renderer.setSize( 360, 600 );
-		// 	container.appendChild( renderer.domElement );
-
-		// 	window.addEventListener( 'resize', onWindowResize, false );
-		// }
-
-		// function onWindowResize() {
-		// 	windowHalfX = window.innerWidth / 2;
-		// 	windowHalfY = window.innerHeight / 2;
-
-		// 	camera.aspect = window.innerWidth / window.innerHeight;
-		// 	camera.updateProjectionMatrix();
-
-		// 	renderer.setSize( window.innerWidth, window.innerHeight );
-		// }
-
-		// function animate() {
-		// 	requestAnimationFrame( animate );
-		// 	controls.update();
-		// 	render();
-		// }
-
-		// function render() {
-		// 	camera.lookAt( scene.position );
-		// 	renderer.render( scene, camera );
-		// }
 
 	};
 
