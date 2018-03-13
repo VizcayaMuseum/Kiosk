@@ -239,7 +239,6 @@ function toggleSlider(){
 function hotspotSlider() {
     // Add swipe support for carousel
     $('#bottom-menu-image-carousel').smoothTouchScroll();
-<<<<<<< HEAD
     
     // add click handler for saving last clicked image state
     $('#bottom-menu-image-carousel a').on('click', function() {
@@ -248,8 +247,6 @@ function hotspotSlider() {
         // add only on selected item
         $(this).addClass('active');
     });
-=======
->>>>>>> 2040c7860... Adding new format for bottom-menu-image-carousel in order to support touch controls. Related css changes. Add new dependencies for smooth touch control.
 }
 
 /* High Contrast - Under construction
