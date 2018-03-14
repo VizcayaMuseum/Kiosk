@@ -6252,50 +6252,53 @@ Potree.Annotation = function(scene, args = {}){
 		this.domInfoBoxTabs = document.createElement("ul");
 		this.domInfoBoxTabs.setAttribute("class", "nav nav-tabs");
 		this.domInfoBoxTabs.setAttribute("role", "tablist");
-		this.domInfoBoxTabs.innerHTML = `
-			<li class="nav-item active">
-				<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>
-			</li>`;
+
+		// Description Tab
+		this.domInfoBoxDescriptionTab = document.createElement("li");
+		this.domInfoBoxDescriptionTab.setAttribute('class', 'nav-item active');
+		this.domInfoBoxDescriptionTab.innerHTML = '<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>';
+		this.domInfoBoxImagesTab = document.createElement("li");
+		this.domInfoBoxImagesTab.setAttribute('class', 'nav-item');
+		this.domInfoBoxImagesTab.innerHTML = '<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>';
+		this.domInfoBoxTabs.appendChild(this.domInfoBoxDescriptionTab);
+		this.domInfoBoxTabs.appendChild(this.domInfoBoxImagesTab);
 		this.domInfoBox.appendChild(this.domInfoBoxTabs);
 
 		//Tab Content
 		this.domInfoBoxTabContent = document.createElement("div");
 		this.domInfoBoxTabContent.setAttribute("class", "tab-content");
 		
-		// Description Tab
-		this.domInfoBoxDescriptionTab = document.createElement("div");
-		this.domInfoBoxDescriptionTab.id = "description";
-		this.domInfoBoxDescriptionTab.setAttribute("class", "tab-pane fade active in");
-		this.domInfoBoxDescriptionTab.setAttribute("role", "tabpanel");
-		this.domInfoBoxDescriptionTab.setAttribute("aria-labelledby", "description-tab");
+		// Description Tab Content
+		this.domInfoBoxDescriptionTabContent = document.createElement("div");
+		this.domInfoBoxDescriptionTabContent.id = "description";
+		this.domInfoBoxDescriptionTabContent.setAttribute("class", "tab-pane fade active in");
+		this.domInfoBoxDescriptionTabContent.setAttribute("role", "tabpanel");
+		this.domInfoBoxDescriptionTabContent.setAttribute("aria-labelledby", "description-tab");
 		// Title - English
 		this.domInfoBoxDescriptionTitle_en = document.createElement("strong");
 		this.domInfoBoxDescriptionTitle_en.innerText = this.title_en;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle_en);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescriptionTitle_en);
 		// Description - English
 		this.domInfoBoxDescription_en = document.createElement("p");
 		this.domInfoBoxDescription_en.innerText = this.description_en;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription_en);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescription_en);
 		// Title - Spanish
 		this.domInfoBoxDescriptionTitle_es = document.createElement("strong");
 		this.domInfoBoxDescriptionTitle_es.innerText = this.title_es;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle_es);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescriptionTitle_es);
 		// Description - Spanish
 		this.domInfoBoxDescription_es = document.createElement("p");
 		this.domInfoBoxDescription_es.innerText = this.description_es;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription_es);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescription_es);
 		// Append to Info Box
-		this.domInfoBoxTabContent.appendChild(this.domInfoBoxDescriptionTab);
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxDescriptionTabContent);
 		
-		// Images Tab
-		this.domInfoBoxImagesTab = document.createElement("div");
-		this.domInfoBoxImagesTab.id = "images";
-		this.domInfoBoxImagesTab.setAttribute("class", "tab-pane fade");
-		this.domInfoBoxImagesTab.setAttribute("role", "tabpanel");
-		this.domInfoBoxImagesTab.setAttribute("aria-labelledby", "images-tab");
+		// Images Tab Content
+		this.domInfoBoxImagesTabContent = document.createElement("div");
+		this.domInfoBoxImagesTabContent.id = "images";
+		this.domInfoBoxImagesTabContent.setAttribute("class", "tab-pane fade");
+		this.domInfoBoxImagesTabContent.setAttribute("role", "tabpanel");
+		this.domInfoBoxImagesTabContent.setAttribute("aria-labelledby", "images-tab");
 
 		// Images Grid
 		this.domInfoBoxImagesRow = document.createElement("div");
@@ -6309,10 +6312,10 @@ Potree.Annotation = function(scene, args = {}){
 			this.domInfoBoxImagesCol.appendChild(this.domInfoBoxImage);
 			this.domInfoBoxImagesRow.appendChild(this.domInfoBoxImagesCol);
 		}, this);
-		this.domInfoBoxImagesTab.appendChild(this.domInfoBoxImagesRow);
+		this.domInfoBoxImagesTabContent.appendChild(this.domInfoBoxImagesRow);
 
 		// Append to Info Box
-		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTab);
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTabContent);
 
 		// Append Tab Content to Info Box
 		this.domInfoBox.appendChild(this.domInfoBoxTabContent);
@@ -6370,14 +6373,28 @@ Potree.Annotation = function(scene, args = {}){
 			modalDialog.setAttribute('role', 'document');
 			var modalContent = document.createElement('div');
 			modalContent.setAttribute('class', 'modal-content');
+
+			// modal header
 			var modalHeader = document.createElement('div');
 			modalHeader.setAttribute('class', 'modal-header');
-			$(modalHeader).html(`
-				<h4 class="modal-title" id="myLargeModalLabel">` + modelInfo.name + `</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">X</span>
-				</button>
-			`);
+
+			// modal title
+			var modalTitle = document.createElement('h4');
+			modalTitle.setAttribute('class', 'modal-title');
+			modalTitle.setAttribute('id', 'myLargeModalLabel');
+			modalTitle.innerText = modelInfo.name;
+
+			// modal close button
+			var modalCloseButton = document.createElement('button');
+			modalCloseButton.setAttribute('type', 'button');
+			modalCloseButton.setAttribute('class', 'close');
+			modalCloseButton.setAttribute('data-dismiss', 'modal');
+			modalCloseButton.setAttribute('aria-label', 'Close');
+			var modalInnerCloseButton = document.createElement('span');
+			modalInnerCloseButton.setAttribute('aria-hidden', 'true');
+			modalInnerCloseButton.innerText('X');
+
+			// modal body
 			var modalBody = document.createElement('div');
 			modalBody.setAttribute('class', 'modal-body');
 			
@@ -6387,6 +6404,8 @@ Potree.Annotation = function(scene, args = {}){
 
 			// add elements into page
 			modalBody.appendChild(iframe);
+			modalCloseButton.appendChild(modalInnerCloseButton);
+			modalHeader.appendChild(modalCloseButton);
 			modalContent.appendChild(modalHeader);
 			modalContent.appendChild(modalBody);
 			modalDialog.appendChild(modalContent);
