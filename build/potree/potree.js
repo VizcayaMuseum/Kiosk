@@ -6334,7 +6334,7 @@ Potree.Annotation = function(scene, args = {}){
 			infoBox.css("right", "0px");
 		}
 
-		// call these functions after infobox is in the DOM
+		// open the model in an iframe inside a modal
 		if (this.model && this.model.type == 'iframe') {
 			// model info
 			var modelInfo = this.model;
@@ -6353,6 +6353,28 @@ Potree.Annotation = function(scene, args = {}){
 			// generate modal when button is clicked
 			$(modalButton).click(function() {
 				displayModelInModal(modelInfo);
+			});
+		}
+
+		// open the model in a new page
+		if (this.model && this.model.type == 'pointcloud') {
+			// model info
+			var modelInfo = this.model;
+
+			// infoBox Description section
+			var domInfoBoxDescription = document.getElementById("description");
+			
+			// modal button
+			var modalButton = document.createElement('button');
+			modalButton.setAttribute('class', 'btn btn-primary');
+			modalButton.setAttribute('data-toggle', 'modal');
+			modalButton.setAttribute('data-target', '.bd-example-modal-lg');
+			modalButton.innerText = "View Pointcloud";
+			domInfoBoxDescription.prepend(modalButton);
+
+			// open model in a new page
+			$(modalButton).click(function() {
+				document.location.href = modelInfo.url;
 			});
 		}
 
