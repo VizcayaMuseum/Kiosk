@@ -6134,7 +6134,7 @@ Potree.Annotation = function(scene, args = {}){
 		},e => {
 			close.css("opacity", "0.5");
 		});
-		close.click(e => {
+		close.on('touchstart click', e => {
 			this.setHighlighted(false);
 		});
 		$(this.domDescription).append(close);
@@ -6351,7 +6351,7 @@ Potree.Annotation = function(scene, args = {}){
 			domInfoBoxDescription.prepend(modalButton);
 			
 			// generate modal when button is clicked
-			$(modalButton).click(function() {
+			$(modalButton).on('touch click', function() {
 				displayModelInModal(modelInfo);
 			});
 		}
@@ -6373,7 +6373,7 @@ Potree.Annotation = function(scene, args = {}){
 			domInfoBoxDescription.prepend(modalButton);
 
 			// open model in a new page
-			$(modalButton).click(function() {
+			$(modalButton).on('touch click', function() {
 				document.location.href = modelInfo.url;
 			});
 		}

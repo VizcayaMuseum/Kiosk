@@ -1,43 +1,28 @@
-var video = document.getElementById("transition-video");
-var infoBoxWidth = 288;
-var annotationsArr;
-var annotationsCount;
-var currentAnnotationIndex;
-var currentAnnotation;
+// initialize these variables
+const annotationsArr = viewer.scene.annotations;
+let annotationsCount,
+    currentAnnotationIndex,
+    currentAnnotation;
 
 // Document Ready
 $(document).ready(function() {
     // display transition video before redirecting to page
-    $("a.landing-links").click(function(event) {
+    $("a.landing-links").on('touchstart click', function(event) {
         event.preventDefault();
         displayTransitionVideo(this.href);
     });
-    
+
     // initialize these variables
-    annotationsArr = viewer.scene.annotations;
     annotationsCount = annotationsArr.length;
     currentAnnotationIndex = 0;
-    currentAnnotation = annotationsArr[currentAnnotationIndex];
+    currentAnnotation = annotationsArr[currentAnnotationIndex]
 });
-
-// Handle event - Exiting fullscreen mode on splash page
-// TODO - switch to using "on()", "bind" is deprecated
-// $(document, '#transition-video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
-//     var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
-//     var fullscreen = state ? 'FullscreenOn' : 'FullscreenOff';
-
-//     // when exiting full screen, pause and hide the video
-//     if (fullscreen == 'FullscreenOff') {
-//         video.pause();
-//         $("#transition-video").hide();
-//         $('.skip').hide();
-//         $(".welcome").show();
-//     }
-// });
 
 /* Transition Video
 *****************************************************/
 function displayTransitionVideo(redirectPage){
+    const video = document.getElementById("transition-video");
+
     // set source of video based on redirectPage
     if(redirectPage.includes("house")) {
         video.src = "assets/video/vizcayaFlyThrough_HiRes.mp4";
@@ -59,9 +44,9 @@ function displayTransitionVideo(redirectPage){
         window.location.href = redirectPage;
     });
 
-    // display skip button and bind click event
+    // display skip button and bind touch and click event
     $('.skip').show();
-    $('.skip').click(function() { 
+    $('.skip').on('touchstart click', function() { 
         window.location.href = redirectPage;
     });
 }
@@ -71,7 +56,6 @@ function displayTransitionVideo(redirectPage){
 // Reset the scene to the original camera position and target
 function resetScene () {
     var resetbtn = document.getElementById("reset-scene");
-    var annotationsArr = viewer.scene.annotations;
     var resetSceneAnnotation = annotationsArr.find(findSceneResetAnnotation);
     
     // call resetScene function
@@ -88,6 +72,8 @@ function findSceneResetAnnotation(annotation, index, array) {
 
 // Toggle info box display
 function toggleInfoBox() {
+    const infoBoxWidth = 288;
+
     // adjust render area width
     var renderArea = $('#potree_render_area');
     var infoBox = $('#infoBox');
@@ -231,7 +217,7 @@ function moveRight(){
 /* Hotspot Scene Toggle - does not work in firefox
 *****************************************************/
 function toggleSlider(){
-    $("#hotspot-container").slideToggle();
+    $("#bottom-menu-image-carousel").toggle();
 }
 
 /* Carousel Slider
@@ -241,7 +227,7 @@ function hotspotSlider() {
     $('#bottom-menu-image-carousel').smoothTouchScroll();
     
     // add click handler for saving last clicked image state
-    $('#bottom-menu-image-carousel a').on('click', function() {
+    $('#bottom-menu-image-carousel a').on('touchstart click', function() {
         // remove class active on all
         $('#bottom-menu-image-carousel a').removeClass('active');
         // add only on selected item
@@ -296,7 +282,7 @@ function toggleFullscreen(elem) {
 /* add event listeners for bottom menu image carousel
 *****************************************************/
 function handleBottomMenuImageClicks() {
-    $("#bottom-menu-image-carousel .thumbnail").click(function(event) {
+    $("#bottom-menu-image-carousel a").on('touchstart click', function(event) {
         var type = $(this).data('modal-type');
         var modalTitle = $(this).find(".image-text-en").text();
 
@@ -308,6 +294,8 @@ function handleBottomMenuImageClicks() {
         } else if(type == "iframe") { // else display iframe in modal
             var iframeUrl = $(this).data('iframe-url');
             displayIframeInModal(iframeUrl, modalTitle);
+        } else { // just use href from a tag
+            document.location.href = $(this).attr('href');
         }
     });
 }
@@ -404,7 +392,6 @@ function autoplayAnnotations() {
     }
     
     // actions for moving to next annotation
-    console.log(currentAnnotation);
     currentAnnotation.moveHere(viewer.scene.camera);
     currentAnnotation.displayInfoBox();
 
