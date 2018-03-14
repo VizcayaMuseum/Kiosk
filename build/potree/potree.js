@@ -6392,7 +6392,7 @@ Potree.Annotation = function(scene, args = {}){
 			modalCloseButton.setAttribute('aria-label', 'Close');
 			var modalInnerCloseButton = document.createElement('span');
 			modalInnerCloseButton.setAttribute('aria-hidden', 'true');
-			modalInnerCloseButton.innerText('X');
+			modalInnerCloseButton.innerText = 'X';
 
 			// modal body
 			var modalBody = document.createElement('div');
@@ -6405,6 +6405,7 @@ Potree.Annotation = function(scene, args = {}){
 			// add elements into page
 			modalBody.appendChild(iframe);
 			modalCloseButton.appendChild(modalInnerCloseButton);
+			modalHeader.appendChild(modalTitle);
 			modalHeader.appendChild(modalCloseButton);
 			modalContent.appendChild(modalHeader);
 			modalContent.appendChild(modalBody);
