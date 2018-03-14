@@ -391,6 +391,20 @@ div.scrollableArea
 *****************************************************/
 #infoBox {
 	animation-duration: 3s;
+	position: absolute;
+	display: block;
+	height: 100%;
+	top: 0px;
+	z-index: 1031;
+	padding: 13px;
+	color: #444;
+	background-color: #fff;
+	border-radius: 2px;
+	border-width: 4px;
+	border-color: #fff;
+	border-style: solid;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 #infoBox #images {
 	margin-top: 20px;

@@ -6240,76 +6240,65 @@ Potree.Annotation = function(scene, args = {}){
 
 		this.domInfoBox = document.createElement("div");
 		this.domInfoBox.id = "infoBox";
-		this.domInfoBox.style.position = "absolute";
-		this.domInfoBox.style.display = "block";
 		this.domInfoBox.style.width = infoBoxWidth  + "px";
-		this.domInfoBox.style.height = "100%";
 		// if there is a previous infoBox, then keep in the same position
 		if(previousInfoBox) {
 			this.domInfoBox.style.right = previousInfoBox.style.right;
 		} else {
 			this.domInfoBox.style.right = "-" + infoBoxWidth + "px";
 		}
-		this.domInfoBox.style.top = "0px";
-		this.domInfoBox.style.zIndex = "1031";
-		this.domInfoBox.style.padding = "13px";
-		this.domInfoBox.style.color = "#444";
-		this.domInfoBox.style.backgroundColor = "#fff";
-		this.domInfoBox.style.borderRadius = "2px";
-		this.domInfoBox.style.borderWidth = "4px";
-		this.domInfoBox.style.borderColor = "#fff";
-		this.domInfoBox.style.borderStyle = "solid";
-		this.domInfoBox.style.overflowY = "auto";
-		this.domInfoBox.style.overflowX = "hidden";
 
 		// Tabs
 		this.domInfoBoxTabs = document.createElement("ul");
 		this.domInfoBoxTabs.setAttribute("class", "nav nav-tabs");
 		this.domInfoBoxTabs.setAttribute("role", "tablist");
-		this.domInfoBoxTabs.innerHTML = `
-			<li class="nav-item active">
-				<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>
-			</li>`;
+
+		// Description Tab
+		this.domInfoBoxDescriptionTab = document.createElement("li");
+		this.domInfoBoxDescriptionTab.setAttribute('class', 'nav-item active');
+		this.domInfoBoxDescriptionTab.innerHTML = '<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>';
+		this.domInfoBoxImagesTab = document.createElement("li");
+		this.domInfoBoxImagesTab.setAttribute('class', 'nav-item');
+		this.domInfoBoxImagesTab.innerHTML = '<a class="nav-link active" id="images-tab" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="true">Images</a>';
+		this.domInfoBoxTabs.appendChild(this.domInfoBoxDescriptionTab);
+		this.domInfoBoxTabs.appendChild(this.domInfoBoxImagesTab);
 		this.domInfoBox.appendChild(this.domInfoBoxTabs);
 
 		//Tab Content
 		this.domInfoBoxTabContent = document.createElement("div");
 		this.domInfoBoxTabContent.setAttribute("class", "tab-content");
 		
-		// Description Tab
-		this.domInfoBoxDescriptionTab = document.createElement("div");
-		this.domInfoBoxDescriptionTab.id = "description";
-		this.domInfoBoxDescriptionTab.setAttribute("class", "tab-pane fade active in");
-		this.domInfoBoxDescriptionTab.setAttribute("role", "tabpanel");
-		this.domInfoBoxDescriptionTab.setAttribute("aria-labelledby", "description-tab");
+		// Description Tab Content
+		this.domInfoBoxDescriptionTabContent = document.createElement("div");
+		this.domInfoBoxDescriptionTabContent.id = "description";
+		this.domInfoBoxDescriptionTabContent.setAttribute("class", "tab-pane fade active in");
+		this.domInfoBoxDescriptionTabContent.setAttribute("role", "tabpanel");
+		this.domInfoBoxDescriptionTabContent.setAttribute("aria-labelledby", "description-tab");
 		// Title - English
 		this.domInfoBoxDescriptionTitle_en = document.createElement("strong");
 		this.domInfoBoxDescriptionTitle_en.innerText = this.title_en;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle_en);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescriptionTitle_en);
 		// Description - English
 		this.domInfoBoxDescription_en = document.createElement("p");
 		this.domInfoBoxDescription_en.innerText = this.description_en;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription_en);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescription_en);
 		// Title - Spanish
 		this.domInfoBoxDescriptionTitle_es = document.createElement("strong");
 		this.domInfoBoxDescriptionTitle_es.innerText = this.title_es;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescriptionTitle_es);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescriptionTitle_es);
 		// Description - Spanish
 		this.domInfoBoxDescription_es = document.createElement("p");
 		this.domInfoBoxDescription_es.innerText = this.description_es;
-		this.domInfoBoxDescriptionTab.appendChild(this.domInfoBoxDescription_es);
+		this.domInfoBoxDescriptionTabContent.appendChild(this.domInfoBoxDescription_es);
 		// Append to Info Box
-		this.domInfoBoxTabContent.appendChild(this.domInfoBoxDescriptionTab);
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxDescriptionTabContent);
 		
-		// Images Tab
-		this.domInfoBoxImagesTab = document.createElement("div");
-		this.domInfoBoxImagesTab.id = "images";
-		this.domInfoBoxImagesTab.setAttribute("class", "tab-pane fade");
-		this.domInfoBoxImagesTab.setAttribute("role", "tabpanel");
-		this.domInfoBoxImagesTab.setAttribute("aria-labelledby", "images-tab");
+		// Images Tab Content
+		this.domInfoBoxImagesTabContent = document.createElement("div");
+		this.domInfoBoxImagesTabContent.id = "images";
+		this.domInfoBoxImagesTabContent.setAttribute("class", "tab-pane fade");
+		this.domInfoBoxImagesTabContent.setAttribute("role", "tabpanel");
+		this.domInfoBoxImagesTabContent.setAttribute("aria-labelledby", "images-tab");
 
 		// Images Grid
 		this.domInfoBoxImagesRow = document.createElement("div");
@@ -6323,23 +6312,10 @@ Potree.Annotation = function(scene, args = {}){
 			this.domInfoBoxImagesCol.appendChild(this.domInfoBoxImage);
 			this.domInfoBoxImagesRow.appendChild(this.domInfoBoxImagesCol);
 		}, this);
-		this.domInfoBoxImagesTab.appendChild(this.domInfoBoxImagesRow);
+		this.domInfoBoxImagesTabContent.appendChild(this.domInfoBoxImagesRow);
 
 		// Append to Info Box
-		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTab);
-		
-		// Model Tab
-		if (this.model) {
-			this.domInfoBoxModelTab = document.createElement("div");
-			this.domInfoBoxModelTab.style.zIndex = 1;
-			this.domInfoBoxModelTab.id = "model-render-area";
-			this.domInfoBoxModelTab.setAttribute("class", "tab-pane fade");
-			this.domInfoBoxModelTab.setAttribute("role", "tabpanel");
-			this.domInfoBoxModelTab.setAttribute("aria-labelledby", "model-tab");
-
-			// Append to Info Box
-			this.domInfoBoxTabContent.appendChild(this.domInfoBoxModelTab);
-		}
+		this.domInfoBoxTabContent.appendChild(this.domInfoBoxImagesTabContent);
 
 		// Append Tab Content to Info Box
 		this.domInfoBox.appendChild(this.domInfoBoxTabContent);
@@ -6397,14 +6373,28 @@ Potree.Annotation = function(scene, args = {}){
 			modalDialog.setAttribute('role', 'document');
 			var modalContent = document.createElement('div');
 			modalContent.setAttribute('class', 'modal-content');
+
+			// modal header
 			var modalHeader = document.createElement('div');
 			modalHeader.setAttribute('class', 'modal-header');
-			$(modalHeader).html(`
-				<h4 class="modal-title" id="myLargeModalLabel">` + modelInfo.name + `</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">X</span>
-				</button>
-			`);
+
+			// modal title
+			var modalTitle = document.createElement('h4');
+			modalTitle.setAttribute('class', 'modal-title');
+			modalTitle.setAttribute('id', 'myLargeModalLabel');
+			modalTitle.innerText = modelInfo.name;
+
+			// modal close button
+			var modalCloseButton = document.createElement('button');
+			modalCloseButton.setAttribute('type', 'button');
+			modalCloseButton.setAttribute('class', 'close');
+			modalCloseButton.setAttribute('data-dismiss', 'modal');
+			modalCloseButton.setAttribute('aria-label', 'Close');
+			var modalInnerCloseButton = document.createElement('span');
+			modalInnerCloseButton.setAttribute('aria-hidden', 'true');
+			modalInnerCloseButton.innerText('X');
+
+			// modal body
 			var modalBody = document.createElement('div');
 			modalBody.setAttribute('class', 'modal-body');
 			
@@ -6414,6 +6404,8 @@ Potree.Annotation = function(scene, args = {}){
 
 			// add elements into page
 			modalBody.appendChild(iframe);
+			modalCloseButton.appendChild(modalInnerCloseButton);
+			modalHeader.appendChild(modalCloseButton);
 			modalContent.appendChild(modalHeader);
 			modalContent.appendChild(modalBody);
 			modalDialog.appendChild(modalContent);
@@ -6425,95 +6417,6 @@ Potree.Annotation = function(scene, args = {}){
 				$(this).remove();
 			});
 		}
-
-		// call these functions after infobox is in the DOM
-		// if (this.model) {
-		// 	init(this.model);
-		// 	animate();
-		// }
-
-		// function init(model) {
-		// 	var domInfoBoxModelTab = document.getElementById("model-render-area");
-
-		// 	container = document.createElement( 'div' );
-		// 	domInfoBoxModelTab.appendChild( container );
-
-		// 	camera = new THREE.PerspectiveCamera( 25, 360 / 600, 1, 2000 );
-		// 	camera.position.z = 250;
-
-		// 	// controls
-		// 	controls = new THREE.OrbitControls( camera, domInfoBoxModelTab );
-		// 	controls.target.set( 0, 0, 0 );
-
-		// 	// scene
-		// 	scene = new THREE.Scene();
-
-		// 	var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
-		// 	scene.add( ambientLight );
-
-		// 	var pointLight = new THREE.PointLight( 0xffffff, 0.8 );
-		// 	camera.add( pointLight );
-		// 	scene.add( camera );
-
-		// 	// texture
-		// 	var manager = new THREE.LoadingManager();
-		// 	manager.onProgress = function ( item, loaded, total ) {
-		// 		console.log( item, loaded, total );
-		// 	};
-
-		// 	var textureLoader = new THREE.TextureLoader( manager );
-		// 	var texture = textureLoader.load( '../assets/img/100x100.png' );
-
-		// 	// model
-		// 	var onProgress = function ( xhr ) {
-		// 		if ( xhr.lengthComputable ) {
-		// 			var percentComplete = xhr.loaded / xhr.total * 100;
-		// 			console.log( Math.round(percentComplete, 2) + '% downloaded' );
-		// 		}
-		// 	};
-
-		// 	var onError = function ( xhr ) {
-		// 	};
-
-		// 	var loader = new THREE.OBJLoader( manager );
-		// 	loader.load( '../models/obj/' + model.src, function ( object ) {
-		// 		object.traverse( function ( child ) {
-		// 			if ( child instanceof THREE.Mesh ) {
-		// 				child.material.map = texture;
-		// 			}
-		// 		} );
-		// 		object.position.y = 0;
-		// 		scene.add( object );
-		// 	}, onProgress, onError );
-
-		// 	renderer = new THREE.WebGLRenderer();
-		// 	renderer.setPixelRatio( window.devicePixelRatio );
-		// 	renderer.setSize( 360, 600 );
-		// 	container.appendChild( renderer.domElement );
-
-		// 	window.addEventListener( 'resize', onWindowResize, false );
-		// }
-
-		// function onWindowResize() {
-		// 	windowHalfX = window.innerWidth / 2;
-		// 	windowHalfY = window.innerHeight / 2;
-
-		// 	camera.aspect = window.innerWidth / window.innerHeight;
-		// 	camera.updateProjectionMatrix();
-
-		// 	renderer.setSize( window.innerWidth, window.innerHeight );
-		// }
-
-		// function animate() {
-		// 	requestAnimationFrame( animate );
-		// 	controls.update();
-		// 	render();
-		// }
-
-		// function render() {
-		// 	camera.lookAt( scene.position );
-		// 	renderer.render( scene, camera );
-		// }
 
 	};
 
