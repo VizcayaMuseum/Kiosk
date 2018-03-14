@@ -1,5 +1,9 @@
 // initialize these variables
-const annotationsArr = viewer.scene.annotations;
+try {
+    const annotationsArr = viewer.scene.annotations;
+} catch(e) {
+    const annotationsArr = '';
+}
 let annotationsCount,
     currentAnnotationIndex,
     currentAnnotation;
