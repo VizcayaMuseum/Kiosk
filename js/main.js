@@ -15,8 +15,7 @@ $(document).ready(function() {
 *****************************************************/
 // Reset the scene to the original camera position and target
 function resetScene () {
-    var resetbtn = document.getElementById("reset-scene");
-    var resetSceneAnnotation = annotationsArr.find(findSceneResetAnnotation);
+    let resetSceneAnnotation = annotationsArr.find(findSceneResetAnnotation);
     
     // call resetScene function
     // set camera back to original position and target
@@ -35,9 +34,9 @@ function toggleInfoBox() {
     const infoBoxWidth = 288;
 
     // adjust render area width
-    var renderArea = $('#potree_render_area');
-    var infoBox = $('#infoBox');
-    var infoBoxIsVisible = renderArea.css("right") !== "0px";
+    const renderArea = $('#potree_render_area');
+    const infoBox = $('#infoBox');
+    const infoBoxIsVisible = renderArea.css("right") !== "0px";
 
     if (infoBoxIsVisible) { // then hide infoBox and extend renderArea
         renderArea.css("transition", "right 3s");
@@ -77,7 +76,7 @@ function tweenFunction(direction, target, currentAmountObject, newAmountObject) 
     requestAnimationFrame(animate);
 
     // declare and initalize tween
-    var tween = new TWEEN.Tween(currentAmountObject)
+    const tween = new TWEEN.Tween(currentAmountObject)
         .to(newAmountObject, 1000)
         .easing(TWEEN.Easing.Quintic.Out)
         .onUpdate(function() {
@@ -94,16 +93,16 @@ function tweenFunction(direction, target, currentAmountObject, newAmountObject) 
 *****************************************************/
 function moveUp(){
     // movement direction
-    var direction = 'up';
+    const direction = 'up';
 
     // set target element
-    var targetElement = viewer.scene.view.pitch;
+    const targetElement = viewer.scene.view.pitch;
 
     // NOTE: we need values as a property in an object for tween to work
-    var currentPitchObject = {
+    const currentPitchObject = {
         'amount': viewer.scene.view.pitch
     };
-    var newPitchObject = {
+    const newPitchObject = {
         'amount': viewer.scene.view.pitch + .25
     };
 
@@ -115,16 +114,16 @@ function moveUp(){
 *****************************************************/
 function moveDown(){
     // movement direction
-    var direction = 'down';
+    const direction = 'down';
 
     // set target element
-    var targetElement = viewer.scene.view.pitch;
+    const targetElement = viewer.scene.view.pitch;
 
     // NOTE: we need values as a property in an object for tween to work
-    var currentPitchObject = {
+    const currentPitchObject = {
         'amount': viewer.scene.view.pitch
     };
-    var newPitchObject = {
+    const newPitchObject = {
         'amount': viewer.scene.view.pitch - .25
     };
 
@@ -136,16 +135,16 @@ function moveDown(){
 *****************************************************/
 function moveLeft(){
     // movement direction
-    var direction = 'left';
+    const direction = 'left';
 
     // set target element
-    var targetElement = viewer.scene.view.yaw;
+    const targetElement = viewer.scene.view.yaw;
 
     // NOTE: we need values as a property in an object for tween to work
-    var currentPitchObject = {
+    const currentPitchObject = {
         'amount': viewer.scene.view.yaw
     };
-    var newPitchObject = {
+    const newPitchObject = {
         'amount': viewer.scene.view.yaw + .25
     };
 
@@ -157,16 +156,16 @@ function moveLeft(){
 *****************************************************/
 function moveRight(){
     // movement direction
-    var direction = 'right';
+    const direction = 'right';
 
     // set target element
-    var targetElement = viewer.scene.view.yaw;
+    const targetElement = viewer.scene.view.yaw;
 
     // NOTE: we need values as a property in an object for tween to work
-    var currentPitchObject = {
+    const currentPitchObject = {
         'amount': viewer.scene.view.yaw
     };
-    var newPitchObject = {
+    const newPitchObject = {
         'amount': viewer.scene.view.yaw - .25
     };
 
@@ -242,17 +241,16 @@ function toggleFullscreen(elem) {
 /* add event listeners for bottom menu image carousel
 *****************************************************/
 function handleBottomMenuImageClicks() {
-    $("#bottom-menu-image-carousel a").on('touchstart click', function(event) {
-        var type = $(this).data('modal-type');
-        var modalTitle = $(this).find(".image-text-en").text();
+    $("#bottom-menu-image-carousel a").on('touchend click', function(event) {
+        const type = $(this).data('modal-type');
+        const modalTitle = $(this).find(".image-text-en").text();
 
         // display video in modal
         if(type == "video") {
-            var videoUrl = $(this).data('video-url');
-            console.log($(this).data());
+            const videoUrl = $(this).data('video-url');
             displayVideoInModal(videoUrl, modalTitle);
         } else if(type == "iframe") { // else display iframe in modal
-            var iframeUrl = $(this).data('iframe-url');
+            const iframeUrl = $(this).data('iframe-url');
             displayIframeInModal(iframeUrl, modalTitle);
         } else { // just use href from a tag
             document.location.href = $(this).attr('href');
@@ -263,22 +261,22 @@ function handleBottomMenuImageClicks() {
 /* Create Modal
 *****************************************************/
 function createModal(modalTitle) {
-    var domBody = document.body;
+    const domBody = document.body;
 
     // modal
-    var modal = document.createElement('div');
+    const modal = document.createElement('div');
     modal.setAttribute('id', 'modelModal');
     modal.setAttribute('class', 'modal fade bd-example-modal-lg');
     modal.setAttribute('tabindex', '-1');
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-labelledby', 'myLargeModalLabel');
     modal.setAttribute('aria-hidden', 'true');
-    var modalDialog = document.createElement('div');
+    const modalDialog = document.createElement('div');
     modalDialog.setAttribute('class', 'modal-dialog modal-lg');
     modalDialog.setAttribute('role', 'document');
-    var modalContent = document.createElement('div');
+    const modalContent = document.createElement('div');
     modalContent.setAttribute('class', 'modal-content');
-    var modalHeader = document.createElement('div');
+    const modalHeader = document.createElement('div');
     modalHeader.setAttribute('class', 'modal-header');
     $(modalHeader).html(`
         <h4 class="modal-title" id="myLargeModalLabel">` + modalTitle + `</h4>
@@ -286,7 +284,7 @@ function createModal(modalTitle) {
             <span aria-hidden="true">X</span>
         </button>
     `);
-    var modalBody = document.createElement('div');
+    const modalBody = document.createElement('div');
     modalBody.setAttribute('class', 'modal-body');
 
     // add elements into page
@@ -303,10 +301,10 @@ function createModal(modalTitle) {
 *****************************************************/
 function displayIframeInModal(iframeUrl, modalTitle) {
     // modal
-    var modal = createModal(modalTitle);
+    let modal = createModal(modalTitle);
     
     // iframe
-    var iframe = document.createElement( 'iframe' );
+    const iframe = document.createElement( 'iframe' );
     iframe.src = iframeUrl;
 
     // add iframe into modal
@@ -323,10 +321,10 @@ function displayIframeInModal(iframeUrl, modalTitle) {
 *****************************************************/
 function displayVideoInModal(videoUrl, modalTitle) {
     // modal
-    var modal = createModal(modalTitle);
+    let modal = createModal(modalTitle);
 
     // video
-    var video = document.createElement( 'video' );
+    const video = document.createElement( 'video' );
     video.src = videoUrl;
     video.controls = true;
     video.autoplay = true;
