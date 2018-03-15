@@ -6,7 +6,26 @@ Medium: cadetblue #6a91bc rgb(106,145,188);
 Dark: blue #104c92 rgb(16,76,146);
 
 *****************************************************/
+/* Import Fonts
+*****************************************************/
+/* Headline */
+@font-face {
+	font-family: 'Marcellus';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Marcellus Regular'), local('Marcellus-Regular'), url('../fonts/Marcellus/Marcellus-Regular.ttf') format('woff2');
+}
 
+/* Body Text */
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/Montserrat/Montserrat-Regular.ttf') format('woff2');
+}
+
+/* General
+*****************************************************/
 html {
 	min-height:100%;
 }
@@ -16,11 +35,14 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    font: normal normal 400 normal 13px/18px verdana, sans-serif;
+    font: normal normal 400 normal 13px/18px Montserrat, sans-serif;
 	padding: 0;
 	height: 100%;
 	width: 100%;
 	overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: Marcellus, 'Times New Roman';
 }
 
 *:focus {
@@ -129,7 +151,7 @@ video::-webkit-media-controls-overlay-enclosure {
 	width: 100%;
 	padding:3%;
 	background: transparent !important;
-	font-family: 'Lato', sans-serif;
+	font-family: Montserrat, sans-serif;
 }
 .jumbotron h1 {
 	font-size: 125px !important;
@@ -272,6 +294,7 @@ a.switch-view-btn:active {
     box-sizing: border-box;
 }
 #bottom-menu-image-carousel .thumbnail span {
+	font-family: Montserrat, sans-serif;
 	font-weight: bold;
 	font-size: 12px;
 	height: 17px;
@@ -410,6 +433,7 @@ div.scrollableArea
 	margin-top: 20px;
 }
 #infoBox .nav-item a{
+	font-family: Marcellus, 'Times New Roman';
 	font-size: 14px;
 	font-weight: bold;
 	color: #015289;
@@ -430,8 +454,12 @@ div.scrollableArea
 	padding-top: 10px;
 }
 #infoBox #description strong {
+	font-family: Marcellus, 'Times New Roman';
 	font-size: 13px;
 	display: block;
+}
+#infoBox #description p {
+	font-family: Montserrat, sans-serif;
 }
 #infoBox #description strong + p {
     margin-bottom: 18px;

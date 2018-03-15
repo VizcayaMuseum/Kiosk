@@ -6065,7 +6065,7 @@ Potree.Annotation = function(scene, args = {}){
 		this.elOrdinalText.style.verticalAlign = "middle";
 		this.elOrdinalText.style.lineHeight = "1.5em";
 		this.elOrdinalText.style.textAlign = "center";
-		this.elOrdinalText.style.fontFamily = "Arial";
+		this.elOrdinalText.style.fontFamily = "Montserrat";
 		this.elOrdinalText.style.fontWeight = "bold";
 		this.elOrdinalText.style.padding = "1px 8px 0px 8px";
 		this.elOrdinalText.style.cursor = "default";
@@ -6109,7 +6109,7 @@ Potree.Annotation = function(scene, args = {}){
 			elButton.style.verticalAlign = "middle";
 			elButton.style.lineHeight = "1.5em";
 			elButton.style.textAlign = "center";
-			elButton.style.fontFamily = "Arial";
+			elButton.style.fontFamily = "Montserrat";
 			elButton.style.fontWeight = "bold";
 			elButton.style.padding = "1px 8px 0px 1px";
 			elButton.style.cursor = "default";	

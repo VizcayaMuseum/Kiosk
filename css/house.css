@@ -1,0 +1,17 @@
+/* Import Fonts
+*****************************************************/
+/* Headline */
+@font-face {
+	font-family: 'Marcellus';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Marcellus Regular'), local('Marcellus-Regular'), url('../fonts/Marcellus/Marcellus-Regular.ttf') format('woff2');
+}
+
+/* Body Text */
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/Montserrat/Montserrat-Regular.ttf') format('woff2');
+}

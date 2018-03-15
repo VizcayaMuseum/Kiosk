@@ -576,7 +576,7 @@ stopautorotation();
 	borderwidth="4.0"
 	bordercolor="0x015289"
 	borderalpha="1"
-	css="color:#ffffff;font-family:Verdana;font-size:13px;text-align:left;"
+	css="color:#ffffff;font-family:Montserrat;font-size:13px;text-align:left;"
 	height="20" 
 	autoheight="true"
 	autowidth="auto"
