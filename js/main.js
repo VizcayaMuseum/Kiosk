@@ -1,9 +1,5 @@
 // initialize these variables
-try {
-    const annotationsArr = viewer.scene.annotations;
-} catch(e) {
-    const annotationsArr = '';
-}
+const annotationsArr = viewer.scene.annotations;
 let annotationsCount,
     currentAnnotationIndex,
     currentAnnotation;
@@ -16,7 +12,6 @@ $(document).ready(function() {
         displayTransitionVideo(this.href);
     });
 
-    // initialize these variables
     annotationsCount = annotationsArr.length;
     currentAnnotationIndex = 0;
     currentAnnotation = annotationsArr[currentAnnotationIndex]

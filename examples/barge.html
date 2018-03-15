@@ -117,8 +117,8 @@
 			viewer.setScene(sceneVZP);
 			Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
 				sceneVZP.addPointCloud(e.pointcloud);
-				sceneVZP.view.position.set(-33.21, -8.46, 2.46);
-				sceneVZP.view.lookAt(new THREE.Vector3(-2.83, 4.93, 2.53));
+				sceneVZP.view.position.set(-33.21, -8.46, 2.46); //camera position
+				sceneVZP.view.lookAt(new THREE.Vector3(-2.83, 4.93, 2.53)); //camera target
 
 				// add annotations to the scene
 				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
