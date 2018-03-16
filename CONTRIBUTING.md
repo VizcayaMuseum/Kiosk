@@ -6,15 +6,15 @@ See below for contribution information.
 
 **How can I get involved?**
 
-First of all, thank you! I welcome all invitations for a friendly chat, exchange ideas and ask questions. 
+First of all, thank you for your interest in contributing to this project. Please email us at info@darumatech.com to discuss how you can contribute to this project.
 
 **I've found a typo**
 
-* A Pull Request is not necessary. Raise an [Issue](https://github.com/ceciliaconsta3/kiosk/issues) and I'll fix it as soon as I can. 
+* A Pull Request is not necessary. Raise an [Issue](https://github.com/VizcayaMuseum/kiosk/issues) and I'll fix it as soon as I can. 
 
 **I have a [great] idea**
 
-I'd like to make this Kiosk project the best it can be and welcome new contributions that align with the project's goals. That being said, if you have a proposal please contemplate its feasibility and timeline and provide a few sentences proposing your awesome idea!
+We would like to make this Kiosk project the best it can be and welcome new contributions that align with the project's goals. If you have a proposal, please provide a few sentences proposing your awesome idea!
 
 Quick Proposal Summary:
 
@@ -24,7 +24,7 @@ Quick Proposal Summary:
 * Effort required
 * Mock-up screenshots or examples of how the CLI would work
 
-**Paperwork for Pull Requests**
+**Required Info for Pull Requests**
 
 Please read this whole guide and make sure you agree to our DCO agreement (included below):
 
@@ -33,13 +33,13 @@ Please read this whole guide and make sure you agree to our DCO agreement (inclu
 * Always give instructions for testing
 * Provide CLI commands and output or screenshots where you can (screenshots are awesome!)
 
-**I have a question, a suggestion or need help**
+**I have a question, a suggestion, or need help**
 
-Please raise an Issue!
+Please raise an [Issue](https://github.com/VizcayaMuseum/kiosk/issues)!
 
 **Governance**
 
-Kiosk is a project based on Potree modified by Cecilia C. Constantine as a proof-of-concept for Vizcaya Museum and Gardens
+Kiosk is a project based on Potree modified by Daruma Tech as a kiosk web application for Vizcaya Museum and Gardens.
 
 ### License
 
