@@ -1,6 +1,6 @@
 <h1 align="center">Point Cloud Web Kiosk</h1>
 
-![Sample screenshot](https://github.com/ceciliaconsta3/kiosk/blob/master/assets/img/readme-pic.PNG?raw=true "Screenshot")
+![Sample screenshot](https://raw.githubusercontent.com/VizcayaMuseum/kiosk/master/assets/img/readme-pic.PNG "Screenshot")
 
 <p align="center">This is a Kiosk web application using Potree WebGL point cloud viewer and three.js.</p>
 <p align="center">This project includes custom pointclouds converted with PotreeConverter.</p>
