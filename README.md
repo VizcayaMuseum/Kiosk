@@ -1,8 +1,8 @@
 <h1 align="center">Point Cloud Web Kiosk</h1>
 
-![Sample screenshot](https://github.com/ceciliaconsta3/kiosk/blob/master/assets/img/readme-pic.PNG?raw=true "Screenshot")
+![Sample screenshot](https://raw.githubusercontent.com/VizcayaMuseum/kiosk/master/assets/img/readme-pic.PNG "Screenshot")
 
-<p align="center">This is a simplified proof-of-concept UI for the Potree WebGL point cloud viewer.</p>
+<p align="center">This is a Kiosk web application using Potree WebGL point cloud viewer and three.js.</p>
 <p align="center">This project includes custom pointclouds converted with PotreeConverter.</p>
 
 ## Features
@@ -18,18 +18,13 @@
 ## Prerequisites
 Make sure you have the following installed and working in order to reproduce the project. You can view detailed installation guidelines within the following links:
 * [Xampp / Apache server](https://www.apachefriends.org/index.html)
-* [PotreeConverter and binaries](https://github.com/potree/PotreeConverter/releases)
-
-## Installation
-Live viewing coming soon
+* [Github to clone project](https://git-scm.com/downloads)
 
 ## Performance
-Examples work best and are supported with Firefox 51, Chrome 56, and Chrome on Android
+Examples work best and with Google Chrome and Firefox.
 
 ## Contributions
-Very much welcome at this time. Check out [Contributing.](CONTRIBUTING.md)
+Check out [Contributing.](CONTRIBUTING.md)
 
 ## License
-For continuity sake, this project carries the same license as the original Potree project
-
-
+For continuity sake, this project carries the same license as the original Potree project.
