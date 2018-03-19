@@ -18,7 +18,7 @@ function displayTransitionVideo(redirectPage){
     } else if(redirectPage.includes("barge")) {
         video.src = "assets/video/bargeIntroShort.mp4";
     } else if(redirectPage.includes("grotto")) {
-        video.src = "assets/video/poolCutScene.mp4";
+        video.src = "assets/video/pool_cutScene_Black and White_2.mp4";
     }
 
     // hide .welcome div
