@@ -10,8 +10,8 @@
 
 /* Body Text */
 @font-face {
-	font-family: 'Montserrat';
+	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/Montserrat/Montserrat-Regular.ttf') format('woff2');
+	src: local('OpenSans-Regular'), local('OpenSans-Regular'), url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('woff2');
 }

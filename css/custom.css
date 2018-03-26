@@ -5,6 +5,9 @@ Light: cornflowerblue #56b7fb rgb(86,183,251);
 Medium: cadetblue #6a91bc rgb(106,145,188);
 Dark: blue #104c92 rgb(16,76,146);
 
+Headlines Subsitute Marcellus
+Body test - substitute OpenSans
+
 *****************************************************/
 /* Import Fonts
 *****************************************************/
@@ -18,10 +21,10 @@ Dark: blue #104c92 rgb(16,76,146);
 
 /* Body Text */
 @font-face {
-	font-family: 'Montserrat';
+	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/Montserrat/Montserrat-Regular.ttf') format('woff2');
+	src: local('OpenSans Regular'), local('OpenSans-Regular'), url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('woff2');
 }
 
 /* General
@@ -35,7 +38,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    font: normal normal 400 normal 13px/18px Montserrat, sans-serif;
+    font: normal normal 400 normal 13px/18px OpenSans, sans-serif;
 	padding: 0;
 	height: 100%;
 	width: 100%;
