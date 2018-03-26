@@ -76,7 +76,7 @@
 						// now load and append menu image carousel
 						$("#includedContent")
 							.append($('<div id="bottom-menu-image-carousel">')
-							.load("../pages/pleasuresandperils/menu-image-carousel.html", function(response, status, xhr) {
+                                .load("../pages/barge/menu-image-carousel.html", function(response, status, xhr) {
 								if(status == "success") {
 									// inital actions when bottom menu loads
 									handleBottomMenuImageClicks();
@@ -117,18 +117,20 @@
 			viewer.setScene(sceneVZP);
 			Potree.loadPointCloud("../pointclouds/pleasuresandperils1/cloud.js", "pleasuresandperils", e => {// starts here
 				sceneVZP.addPointCloud(e.pointcloud);
-                sceneVZP.view.position.set(-142.800, -25.422, 37.529);
-                sceneVZP.view.lookAt(new THREE.Vector3(-16.701, -21.794, 31.145));
+                sceneVZP.view.position.set(-183.20, -12.88, 139.46);
+                sceneVZP.view.lookAt(new THREE.Vector3(-17.66, -13.00, 12.94));
+                //sceneVZP.view.position.set(-142.800, -25.422, 37.529);
+                //sceneVZP.view.lookAt(new THREE.Vector3(-16.701, -21.794, 31.145));
 
 				//// add annotations to the scene
-				//sceneVZP.addAnnotation([-140.43, 0.13, 0.28], {
-				//	"cameraPosition":[-183.20, -12.88, 139.46],
-				//	"cameraTarget": [-17.66, -13.00, 12.94],
-				//	"title_en": "Pleasures and Perils",
-				//	"description_en": "Pleasures and Perils - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				//	"title_es": "Placeres y Peligros",
-				//	"description_es": "Placeres y Peligros - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				//});
+				sceneVZP.addAnnotation([-140.43, 0.13, 0.28], {
+                    "cameraPosition": [-142.800, -25.422, 37.529],
+                    "cameraTarget": [-16.701, -21.794, 31.145],
+					"title_en": "Pleasures and Perils",
+					"description_en": "Pleasures and Perils - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					"title_es": "Placeres y Peligros",
+					"description_es": "Placeres y Peligros - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+				});
 
 				// toggle initial infobox after all annotations are added
 				// added delay of 1 second to add effect
