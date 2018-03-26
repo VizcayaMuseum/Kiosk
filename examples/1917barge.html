@@ -1,235 +1,154 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <title>1917 Barge Re-imagined</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
-	<meta name="description" content="A Museum made digital. We are using the latest in 3D technology to scan and digitise a wide selection of Museum rooms and objects">
-	<meta name="author" content="">
-	<link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
-    <title>Daruma Tech | Vizcaya | Barge 2017</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
 
-	<!-- Bootstrap and Scrollbar-->
-	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="../libs/jquery-kinetic/jquery.kinetic.min.js"></script>
-	<script src="../libs/jquery-smooth-touch-scroll/jquery.smoothTouchScroll.min.js"></script>
-	<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
-	
-	<!-- Font related -->
-	<link rel="stylesheet" href="../libs/font-awesome/font-awesome.css">
-	<!-- Potree styling -->
-	<link rel="stylesheet" href="../build/potree/potree.css" type="text/css">
-	<!--Custom Elements -->
-	<link rel="stylesheet" href="../css/custom.css" type="text/css" id="theme"> 
-	<link rel="alternate stylesheet" href="../css/hiContrast.css" type="text/css" id="contrast-theme">
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../libs/html5shiv/html5shiv.min.js"></script>
-      <script src="../libs/respond/respond.min.js"></script>
-    <![endif]-->
-  </head>
+        #page-loader {
+            position: absolute;
+            top: 0;
+            bottom: 0%;
+            left: 0;
+            right: 0%;
+            background-color: white;
+            z-index: 99;
+            display: none;
+            text-align: center;
+            width: 100%;
+            padding-top: 25px;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/custom.css" type="text/css" id="theme">
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
 
-  <body>
-	<!-- Potree dependencies -->
-	<link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">	
-	<link rel="stylesheet" href="../libs/openlayers3/ol.css" type="text/css">	
-	<script src="../libs/three.js/build/three.min.js"></script>
-	<script src="../libs/three.js/build/OrbitControls.js"></script>
-	<script src="../libs/other/stats.min.js"></script>
-	<script src="../libs/other/BinaryHeap.js"></script>
-	<script src="../libs/other/PLYLoader.js"></script>
-	<script src="../libs/other/FBXLoader.js"></script>
-	<script src="../libs/other/OBJLoader.js"></script>
-	<script src="../libs/other/MTLLoader.js"></script>
-	<script src="../libs/tween/tween.min.js"></script>
-	<script src="../libs/d3/d3.js"></script>
-	<script src="../libs/proj4/proj4.js"></script>
-	<script src="../libs/openlayers3/ol.js"></script>
-    <script src="../libs/i18next/i18next.js"></script>
-	<!-- The Viewer -->
-	<script src="../libs/plasio/js/laslaz.js"></script>
-	<script src="../libs/plasio/vendor/bluebird.js"></script>
-	<script src="../build/potree/potree.js"></script>
+    <!-- Bootstrap and Scrollbar-->
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/jquery-kinetic/jquery.kinetic.min.js"></script>
+    <script src="../libs/jquery-smooth-touch-scroll/jquery.smoothTouchScroll.min.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <script src="../models/build/three.js"></script>
+    <script src="../models/js/controls/OrbitControls.js"></script>
+    <script src="../models/js/loaders/GLTFLoader.js"></script>
+    <script src="../models/js/libs/inflate.min.js"></script>
+    <div id="includedContent"></div>
+    <div id="sideBar"></div>
+
+    <script>
+
+        var container, stats, controls;
+        var camera, scene, renderer, light;
 
 
-	<!-- Potree Render Container -->
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
-		<div id="potree_render_area">
-			<div id="potree_description" class="potree_info_text"></div>
-		</div>
-		<div id="potree_sidebar_container"> </div>
-	</div>
+        init();
+        animate();
 
-	<div id="includedContent"></div>
-	
-	<script>
-		// initialize page and Potree
-		init();
-	
-		function init() {
-			// load controlbar
-			$("#includedContent")
-				.load("../pages/controlbar.html", function(response, status, xhr) {
-					if(status == "success") {
-						// now load and append menu image carousel
-						$("#includedContent")
-							.append($('<div id="bottom-menu-image-carousel">')
-							.load("../pages/barge/menu-image-carousel.html", function(response, status, xhr) {
-								if(status == "success") {
-									// inital actions when bottom menu loads
-									handleBottomMenuImageClicks();
-									hotspotSlider();
-								} else if(status == "error") {
+        function init() {
+            // load controlbar
+            $("#includedContent")
+                .load("../pages/controlbar.html", function (response, status, xhr) {
+                    if (status == "success") {
+                        // now load and append menu image carousel
+                        $("#includedContent")
+                            .append($('<div id="bottom-menu-image-carousel">')
+                                .load("../pages/barge/menu-image-carousel.html", function (response, status, xhr) {
+                                    if (status == "success") {
+                                        // inital actions when bottom menu loads
+                                        handleBottomMenuImageClicks();
+                                        hotspotSlider();
+                                    } else if (status == "error") {
 
-								}
-							})
-						);
-					} else if(status == "error") {
-						console.log("Error: could not controlbar.html");
-					}
-				});
+                                    }
+                                })
+                            );
+                    } else if (status == "error") {
+                        console.log("Error: could not controlbar.html");
+                    }
+                });
+            //load sideBar
+        
 
-			// Potree
-			window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+            container = document.createElement('div');
+            document.body.appendChild(container);
 
-			viewer.setPointSize(1);
-			viewer.setFOV(75);
-			viewer.setPointSizing("Fixed"); // ["Fixed", "Attenuated", "Adaptive"]
-			viewer.setQuality("Interpolation"); // ["Squares", "Circles", "Interpolation"]
-			viewer.setPointBudget(5*1000*1000);
-			viewer.setEDLEnabled(false);
-			viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
-			viewer.setMaterialID(Potree.PointColorType.RGB); // any Potree.PointColorType.XXXX 
-			viewer.setMinNodeSize(0);
-			
-			viewer.setDescription("");
-			viewer.loadSettingsFromURL();
-			
-			// Uncomment this section to show sidebar settings
-			// viewer.loadGUI(() => {
-			// 	viewer.setLanguage('en');
-			// 	$("#menu_appearance").next().show();
-			// });
+            camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.set(0, 5, 25);
+            camera.lookAt(new THREE.Vector3(0, 15, 0));
 
-			let sceneVZP = new Potree.Scene();		
-			viewer.setScene(sceneVZP);
-			Potree.loadPointCloud("../pointclouds/barge/cloud.js", "barge", e => {// starts here
-				sceneVZP.addPointCloud(e.pointcloud);
-				sceneVZP.view.position.set(-33.21, -8.46, 2.46); //camera position
-				sceneVZP.view.lookAt(new THREE.Vector3(-2.83, 4.93, 2.53)); //camera target
+            controls = new THREE.OrbitControls(camera);
+            controls.target.set(0, 0, 0);
+            controls.update();
 
-				// add annotations to the scene
-				sceneVZP.addAnnotation([-0.16, 30.21, 18.83], {
-					"cameraPosition":[-0.16, 30.21, 18.83],
-					"cameraTarget": [-0.10, -0.82, 2.34],
-					"title_en": "2017 Barge",
-					"description_en": "Barge 2017 - mollit anim id est laborum.",
-					"title_es": "Barca 2017",
-					"description_es": "Barca 2017 - Lorem ipsum dolor sit amet, consectetur adipiscing e.",
-					// "images": [{
-					// 	"name": "Placeholder image",
-					// 	"description": "Image description",
-					// 	"src": "../assets/img/100x100.png"
-					// }, {
-					// 	"name": "Placeholder image 2",
-					// 	"description": "Image description",
-					// 	"src": "../assets/img/100x100.png"
-					// }, {
-					// 	"name": "Placeholder image 3",
-					// 	"description": "Image description",
-					// 	"src": "../assets/img/100x100.png"
-					// }, {
-					// 	"name": "Placeholder image 4",
-					// 	"description": "Image description",
-					// 	"src": "../assets/img/100x100.png"
-					// }, {
-					// 	"name": "Placeholder image 5",
-					// 	"description": "Image description",
-					// 	"src": "../assets/img/100x100.png"
-					// }, {
-					// 	"name": "Placeholder image 6",
-					// 	"description": "Image description",
-					// 	"src": "../assets/img/100x100.png"
-					// }]
-				});
-				sceneVZP.addAnnotation([0.65, -1.40, 0.50], {
-					"cameraPosition": [2.25, -1.40, 4.60],
-					"cameraTarget": [-0.65, -1.20, 4.10],
-					"title_en": "Center",
-					"description_en": "Center - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Centro",
-					"description_es": "Centro - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				});
-				sceneVZP.addAnnotation([24.34, -1.80,0.50], {
-					"cameraPosition": [25.26, -1.81,5.66],
-					"cameraTarget": [24.34, -1.80,5.67],
-					"title_en": "Long view",
-					"description_en": "Long view - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Vista de Distancia",
-					"description_es": "Vista de Distancia - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				});
-				sceneVZP.addAnnotation([4.74, 5.44, 1.50], {
-					"cameraPosition": [5.20, 7.43, 4.48],
-					"cameraTarget": [4.74, 5.44, 4.40],
-					"title_en": "Hermes",
-					"description_en": "Hermes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Hermes",
-					"description_es": "Hermes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"model": {
-						"name": "Hermes 2017",
-						"type": "iframe",
-						"url": "../models/hermes-2017.html"
-					},
-				});
-				//sceneVZP.addAnnotation([-2.53, 5.37, 1.50], {
-				//	"cameraPosition": [-2.87, 7.50, 4.24],
-				//	"cameraTarget": [-2.53, 5.37, 4.12],
-				//	"title_en": "Hermes",
-				//	"description_en": "Hermes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				//	"title_es": "Hermes",
-				//	"description_es": "Hermes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				//	"model": {
-				//		"name": "Hermes 2017",
-				//		"type": "iframe",
-				//		"url": "../models/hermes-2017.html"
-				//	},
-				//});
-				sceneVZP.addAnnotation([-15.41, -1.68, 0.50], {
-					"cameraPosition":[-11.91, -1.86, 4.16],
-					"cameraTarget": [-15.41, -1.68, 3.49],
-					"title_en": "Stairwell",
-					"description_en": "Stairwell - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Hueco de Escalera",
-					"description_es": "Hueco de Escalera - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-				});
-				sceneVZP.addAnnotation([-25.89, -1.34, 2.75], {
-					"cameraPosition":[-21.73, -1.31, 6.92],
-					"cameraTarget": [-25.89, -1.34, 6.17],
-					"title_en": "Pleasures and Perils",
-					"description_en": "Pleasures and Perils - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"title_es": "Placeres y Peligros",
-					"description_es": "Placeres y Peligros - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-					"model": {
-						"name": "Pleasures and Perils",
-						"type": "pointcloud",
-						"url": "pleasures-and-perils.html"
-					},
-				});
+            scene = new THREE.Scene();
 
-				// toggle initial infobox after all annotations are added
-				// added delay of 1 second to add effect
-				setTimeout(function() {
-					viewer.scene.annotations[0].moveHere(viewer.scene.camera);
-					viewer.scene.annotations[0].displayInfoBox();
-				}, 1000);
-				
-			});
-		}
-	</script>
+            light = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
+            light.position.set(10, 20, -10);
+            scene.add(light);
+            // var HemisphereLightHelper = new THREE.HemisphereLightHelper( light, 5 );
+            // scene.add( HemisphereLightHelper );
 
-	<script src="../js/main.js" defer></script>
-	
-  </body>
+            light = new THREE.DirectionalLight(0xffffff, 2);
+            light.position.set(10, 20, -10);
+            scene.add(light);
+            // var DirectionalLightHelper = new THREE.DirectionalLightHelper( light, 5 );
+            // scene.add( DirectionalLightHelper );
+
+            // model
+            var loader = new THREE.GLTFLoader();
+            loader.load('../models/gltf/1917barge/scene.gltf', function (gltf) {
+
+                scene.add(gltf.scene);
+                //scene.rotation.x = Math.PI / 2;
+
+            });
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            window.addEventListener('resize', onWindowResize, false);
+
+            
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            renderer.render(scene, camera);
+
+        }
+
+
+
+    </script>
+
+</body>
 </html>
