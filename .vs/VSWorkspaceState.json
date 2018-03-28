@@ -1,7 +1,17 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\img",
+    "\\assets\\img\\bottom-menu-images",
+    "\\Pages",
+    "\\Pages\\barge",
+    "\\Pages\\grotto",
+    "\\pointclouds",
+    "\\pointclouds\\alligators",
+    "\\pointclouds\\alligators\\pointclouds",
+    "\\pointclouds\\alligators\\pointclouds\\alligators2"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\assets\\img\\bottom-menu-images",
   "PreviewInSolutionExplorer": false
 }

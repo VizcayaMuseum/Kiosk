@@ -14,7 +14,7 @@ function displayTransitionVideo(redirectPage){
 
     // set source of video based on redirectPage
     if(redirectPage.includes("house")) {
-        video.src = "assets/video/vizcayaFlyThrough_HiRes.mp4";
+        video.src = "assets/video/garden_cutScene.mp4";
     } else if(redirectPage.includes("barge")) {
         video.src = "assets/video/bargeIntroShort.mp4";
     } else if(redirectPage.includes("grotto")) {

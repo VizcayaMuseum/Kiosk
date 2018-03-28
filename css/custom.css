@@ -132,10 +132,11 @@ video::-webkit-media-controls-enclosure,
 video::-webkit-media-controls-overlay-enclosure {
 	display: none !important;
 }
+
 /* Landing 
 *****************************************************/
 .welcome {
-	background-image: url("../assets/img/villa_vizcaya_splash_1.jpg");
+	background-image: url("../assets/img/home/slide1.jpg");
 	background-position: center;
 	background-size:cover;
 	position:absolute;
@@ -156,18 +157,20 @@ video::-webkit-media-controls-overlay-enclosure {
 	background: transparent !important;
 	font-family: Montserrat, sans-serif;
 }
-.jumbotron h1 {
-	font-size: 125px !important;
-	margin-bottom: 3%;
-}
-.jumbotron p {
-	width: 50%;
-	margin-left: 25%;
-	font-size:25px;
-	font-weight: 300;
-}
+    .jumbotron h1 {
+        top: 0px;
+        font-size: 75px !important;
+        margin-bottom: 00%;
+    }
+    .jumbotron p {
+        width: 60%;
+        margin-left: 20%;
+        font-size: 14px;
+        font-weight: 300;
+        margin-bottom: 2%;
+    }
 .jumbotron p:last-of-type {
-	margin-bottom: 5%;
+	margin-bottom: 10%;
 }
 .welcome .btn-lg {
 	background-color: transparent;
@@ -516,4 +519,13 @@ div.scrollableArea
 	text-align: left;
 	vertical-align: middle;
 }
-/* END - Vertically align modal */
+/* END - Vertically align modal */#Logo1 {
+	position: static;
+	left: 10px;
+	top: 0px;
+}
+.Logo1 {
+	position: fixed;
+	left: 10px;
+	top: 0px;
+}

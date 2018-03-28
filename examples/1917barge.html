@@ -47,6 +47,12 @@
     <script src="../models/js/controls/OrbitControls.js"></script>
     <script src="../models/js/loaders/GLTFLoader.js"></script>
     <script src="../models/js/libs/inflate.min.js"></script>
+
+  <!--potree viewer-->
+    <script src="../libs/plasio/js/laslaz.js"></script>
+    <script src="../libs/plasio/vendor/bluebird.js"></script>
+    <script src="../build/potree/potree.js"></script>
+
     <div id="includedContent"></div>
     <div id="sideBar"></div>
 
@@ -82,7 +88,7 @@
                     }
                 });
             //load sideBar
-        
+
 
             container = document.createElement('div');
             document.body.appendChild(container);
@@ -116,6 +122,9 @@
                 scene.add(gltf.scene);
                 //scene.rotation.x = Math.PI / 2;
 
+                //scene.addAnnotation(
+                //    "title_en": "1917 Barge",
+                //);
             });
 
             renderer = new THREE.WebGLRenderer();
@@ -124,8 +133,6 @@
             container.appendChild(renderer.domElement);
 
             window.addEventListener('resize', onWindowResize, false);
-
-            
 
         }
 
