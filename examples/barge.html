@@ -116,7 +116,7 @@
 
             let sceneVZP = new Potree.Scene();
             viewer.setScene(sceneVZP);
-            Potree.loadPointCloud("../pointclouds/2017barge-laser/pointclouds/2017barge/cloud.js", "2017-barge-laser", e => {// starts here
+            Potree.loadPointCloud("../pointclouds/2017barge-laser/pointclouds/barge/cloud.js", "2017-barge-laser", e => {// starts here
                 sceneVZP.addPointCloud(e.pointcloud);
                 sceneVZP.view.position.set(-59.857, -63.072, 4.162); //camera position
                 sceneVZP.view.lookAt(new THREE.Vector3(-44.217, -34.464, 1.454)); //camera target
@@ -125,10 +125,10 @@
                 sceneVZP.addAnnotation([-64.470, -49.910, 2.111], {
                     "cameraPosition": [-64.20, -13.27, 0.61],
                     "cameraTarget": [-44.22, -34.46, 1.45],
-                    "title_en": "Side View",
-                    "description_en": "The boat-shaped stone structure in Biscayne Bay is known as the Barge. The Barge acts as a breakwater to protect the house and terraces from waves. Originally accessed by gondola or rowboat, the Barge featured fountains, electric lights, trees and plants, and a gazebo for entertaining guests. The Barge is covered in carved local limestone, which is soft and porous. The constant exposure of the Barge to the salt water of Biscayne Bay has caused significant erosion effecting stability of the statuary and decorative reliefs. Rising waters have submerged the lower landing steps and waves from storms continue to crash against the statuary and balustrades. Protecting this material is challenging for Vizcaya. 3D documentation enables Vizcaya’s staff to monitor the condition of the Barge over time while virtual models digitally present the structure and the sculptures as they appeared 100 years ago or even show how they might look in the future.",
+                    "title_en": "View From House",
+                    "description_en": "The Barge, playfully designed to look like a boat, is a breakwater built to protect the house and terraces from waves. Deering commissioned all of the sculptures from American artist Alexander Stirling Calder in 1915. The local limestone that covers the Barge is soft and porous. The salt water of Biscayne Bay, along with storm waves, have caused significant erosion, which threatens the stability of the statuary and decorative reliefs. The lower landing steps are submerged due to rising waters. 3D documentation enables Vizcaya to monitor the condition of the Barge over time.  Virtual models digitally present the structure and the sculptures as they look today, as they appeared 100 years ago and can even anticipate how they might look in the future. What is 3D documentation?",
                     "title_es": "Barca 2017",
-                    "description_es": "Barca 2017 - Lorem ipsum dolor sit amet, consectetur adipiscing e.",
+                    "description_es": "Barca 2017",
                     // "images": [{
                     // 	"name": "Placeholder image",
                     // 	"description": "Image description",
@@ -166,20 +166,20 @@
                 sceneVZP.addAnnotation([-25.03, -17.33, 2.40], {
                     "cameraPosition": [-28.411, -8.014, 3.795],
                     "cameraTarget": [-39.156, -35.580, -5.430],
-                    "title_en": "Long view",
-                    "description_en": "Long view - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "title_en": "Mermaids",
+                    "description_en": "Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions.  Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden.",
                     "title_es": "Vista de Distancia",
-                    "description_es": "Vista de Distancia - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "description_es": "Vista de Distancia ",
                 });
                 sceneVZP.addAnnotation([-46.36, -25.39, 0.61], {
                     "cameraPosition": [-46.36, -25.39, 0.61],
                     "cameraTarget": [-46.08, -26.81, 0.36],
                     "title_en": "Herm",
-                    "description_en": "Herm - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "description_en": "Four herms (squared stone pillars with a carved head on top) represent the tropics, with baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today, the details of the herms are hardly recognizable, and in some cases entirely lost. During Hurricane Wilma in 2005, the female herm on the east side of the Barge toppled into the bay. It was salvaged by a conservation team and after restoration, the figure was placed back onto the Barge in its original location. During Hurricane Irma in 2017, another female herm ravaged by wind and tidal surge broke into three large fragments. In 2018 the pieces were salvaged from the bay and after restoration, the herm will be returned to its original location on the Barge.",
                     "title_es": "Herm",
-                    "description_es": "Herm - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "description_es": "Herm - ",
                     "model": {
-                        "name": "Hermes 2017",
+                        "name": "Herme 2017",
                         "type": "iframe",
                         "url": "../models/hermes-2017.html"
                     },
@@ -200,18 +200,18 @@
                 sceneVZP.addAnnotation([-51.81, -41.21, 2.11], {
                     "cameraPosition": [-51.81, -41.21, 2.11],
                     "cameraTarget": [-61.79, -49.81, -2.51],
-                    "title_en": "Fountain",
-                    "description_en": "Fountain - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "title_en": "Grotesques",
+                    "description_en": "In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost WW1, the other seven remain intact.",
                     "title_es": "Hueco de Escalera",
-                    "description_es": "Hueco de Escalera - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "description_es": "",
                 });
                 sceneVZP.addAnnotation([-59.908, -48.508, 1.830], {
                     "cameraPosition": [-59.908, -48.508, 1.830],
                     "cameraTarget": [-62.355, -50.164, 1.346],
-                    "title_en": "Pleasures and Perils",
-                    "description_en": "Pleasures and Perils - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "title_en": "Sculptures",
+                    "description_en": "These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.",
                     "title_es": "Placeres y Peligros",
-                    "description_es": "Placeres y Peligros - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    "description_es": "Placeres y Peligros",
                     "model": {
                         "name": "Pleasures and Perils",
                         "type": "pointcloud",
