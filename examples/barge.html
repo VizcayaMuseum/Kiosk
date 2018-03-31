@@ -116,7 +116,7 @@
 
             let sceneVZP = new Potree.Scene();
             viewer.setScene(sceneVZP);
-            Potree.loadPointCloud("../pointclouds/2017barge-laser/pointclouds/barge/cloud.js", "2017-barge-laser", e => {// starts here
+            Potree.loadPointCloud("../pointclouds/2017barge/pointclouds/barge/cloud.js", "2017-barge-laser", e => {// starts here
                 sceneVZP.addPointCloud(e.pointcloud);
                 sceneVZP.view.position.set(-59.857, -63.072, 4.162); //camera position
                 sceneVZP.view.lookAt(new THREE.Vector3(-44.217, -34.464, 1.454)); //camera target
@@ -197,9 +197,9 @@
                 //		"url": "../models/hermes-2017.html"
                 //	},
                 //});
-                sceneVZP.addAnnotation([-51.81, -41.21, 2.11], {
-                    "cameraPosition": [-51.81, -41.21, 2.11],
-                    "cameraTarget": [-61.79, -49.81, -2.51],
+                sceneVZP.addAnnotation([-50.668, -50.816, -0.709], {
+                    "cameraPosition": [-50.668, -50.816, -0.709],
+                    "cameraTarget": [-50.668, -50.816, -0.709],
                     "title_en": "Grotesques",
                     "description_en": "In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost WW1, the other seven remain intact.",
                     "title_es": "Hueco de Escalera",
