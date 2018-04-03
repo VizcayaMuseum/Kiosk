@@ -1,1 +1,1 @@
-files moved to separate folder outside project
+files moved to separate point cloud folder
