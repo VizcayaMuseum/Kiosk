@@ -1,1 +1,0 @@
-<krpano><action name="hide_screen"> if(%1 == auto , delayedcall(1, js( hidestartscreen() )); ); if(%1 == btn , delayedcall(1, js( showbtn() )); ); </action></krpano>
