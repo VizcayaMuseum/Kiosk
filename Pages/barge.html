@@ -116,7 +116,7 @@
 
             let sceneVZP = new Potree.Scene();
             viewer.setScene(sceneVZP);
-            Potree.loadPointCloud("../pointclouds/barge/Hybrid/pointclouds/barge/cloud.js", "barge", e => {// starts here
+            Potree.loadPointCloud("../pointclouds/barge/pointclouds/barge/cloud.js", "barge", e => {// starts here
                 sceneVZP.addPointCloud(e.pointcloud);
                 sceneVZP.view.position.set(-59.857, -63.072, 4.162); //camera position
                 sceneVZP.view.lookAt(new THREE.Vector3(-44.217, -34.464, 1.454)); //camera target

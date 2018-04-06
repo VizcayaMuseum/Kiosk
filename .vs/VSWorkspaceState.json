@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\Pages",
     "\\Pages\\barge",
-    "\\Pages\\grotto"
+    "\\Pages\\grotto",
+    "\\vat\\kiosk"
   ],
-  "SelectedNode": "\\VisualStudioCode.gitignore",
+  "SelectedNode": "\\Pages",
   "PreviewInSolutionExplorer": false
 }

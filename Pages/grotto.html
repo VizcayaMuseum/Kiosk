@@ -61,7 +61,7 @@
 		<div id="potree_sidebar_container"> </div>
 	</div>
 
-	<!--<div id="includedContent"></div>-->
+	<div id="includedContent"></div>
 	
 	<script>
 		// initialize page and Potree
@@ -70,25 +70,7 @@
 		function init() {
 			// load controlbar
 			$("#includedContent")
-				.load("../pages/controlbar.html", function(response, status, xhr) {
-					if(status == "success") {
-						// now load and append menu image carousel
-						$("#includedContent")
-							.append($('<div id="bottom-menu-image-carousel">')
-							.load("../pages/grotto/menu-image-carousel.html", function(response, status, xhr) {
-								if(status == "success") {
-									// inital actions when bottom menu loads
-									handleBottomMenuImageClicks();
-									hotspotSlider();
-								} else if(status == "error") {
-
-								}
-							})
-						);
-					} else if(status == "error") {
-						console.log("Error: could not controlbar.html");
-					}
-				});
+				.load("../pages/controlbar.html");
 
 			// Potree
 			window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
