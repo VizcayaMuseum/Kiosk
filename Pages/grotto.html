@@ -95,7 +95,7 @@
 
             let sceneVZP = new Potree.Scene();
             viewer.setScene(sceneVZP);
-            Potree.loadPointCloud("../pointclouds/swimmingpoolgrotto/grotto/pointclouds/grotto/cloud.js", "grotto", e => {
+            Potree.loadPointCloud("../pointclouds/swimmingpoolgrotto/pointclouds/grotto/cloud.js", "grotto", e => {
                 console.log("loading point cloud");
                 sceneVZP.addPointCloud(e.pointcloud);
                 sceneVZP.view.position.set(-20.96, 10.06, 0.30);
