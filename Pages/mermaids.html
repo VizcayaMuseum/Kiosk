@@ -49,36 +49,37 @@
 		viewer.setFOV(60);
 		viewer.setPointBudget(5*1000*1000);
 		document.title = "";
+		viewer.setEDLEnabled(false);
 
-        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
 		viewer.loadSettingsFromURL();
 
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_scene").next().show();
-            //viewer.toggleSidebar();
-        });
+            
+			//viewer.toggleSidebar(); 
+		 });
 
         viewer.setDescription(`
 		
 		`);
 
         let sceneSG = new Potree.Scene();
-        let sceneSG2 = new Potree.Scene();
 
         viewer.setScene(sceneSG);
 
-      Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/herm/cloud.js", "herm", function (e){ 
-
+        Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/mermaid/cloud.js", "pleasuresandperils", function (e) {
+       
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(37.812, -26.781, 51.178);
-            sceneSG.view.lookAt(new THREE.Vector3(-53.587, 33.834, 28.864));
+            sceneSG.view.position.set(-162.305, -62.071, 52.959);
+            sceneSG.view.lookAt(new THREE.Vector3(-16.377, -11.826, 49.220));
 
 
             let material = e.pointcloud.material;
             material.size = 1;
             material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
+		
         });
 			
 		
