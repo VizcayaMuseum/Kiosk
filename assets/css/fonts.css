@@ -1,0 +1,109 @@
+/*FONTS.CSS*/
+/*------------------------------------------------------------------------------------*/
+/* Author: Designova.*/
+/* Website: http://www.Designova.net */
+/* Copyright: (C) 2015 */
+
+/* IMPORTANT NOTICE: */
+/*Some fonts used in this template are Premium Fonts with Special Extended License to Designova. As a buyer of this template you can use these fonts as part of the web template but you shoud not redistribute or resell the fonts by any means */
+/*-------------------------------------------------------------------------------------*/
+
+
+
+
+/*-------------------------------------------------------------------------------------*/
+/*1. SINKIN SANS FONT */
+/*-------------------------------------------------------------------------------------*/
+
+
+@font-face {
+    font-family: 'designova_ss_xblack';
+    src: url('sinkinsans/SinkinSans-900XBlack-webfont.eot');
+    src: url('sinkinsans/SinkinSans-900XBlack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-900XBlack-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-900XBlack-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-900XBlack-webfont.svg#sinkin_sans900_x_black') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'designova_ss_black';
+    src: url('sinkinsans/SinkinSans-800Black-webfont.eot');
+    src: url('sinkinsans/SinkinSans-800Black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-800Black-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-800Black-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-800Black-webfont.svg#sinkin_sans800_black') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'designova_ss_bold';
+    src: url('sinkinsans/SinkinSans-700Bold-webfont.eot');
+    src: url('sinkinsans/SinkinSans-700Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-700Bold-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-700Bold-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-700Bold-webfont.svg#sinkin_sans700_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'designova_ss_regular';
+    src: url('sinkinsans/SinkinSans-400Regular-webfont.eot');
+    src: url('sinkinsans/SinkinSans-400Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-400Regular-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-400Regular-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-400Regular-webfont.svg#sinkin_sans400_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'designova_ss_light';
+    src: url('sinkinsans/SinkinSans-300Light-webfont.eot');
+    src: url('sinkinsans/SinkinSans-300Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-300Light-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-300Light-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-300Light-webfont.svg#sinkin_sans300_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'designova_ss_xlight';
+    src: url('sinkinsans/SinkinSans-200XLight-webfont.eot');
+    src: url('sinkinsans/SinkinSans-200XLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-200XLight-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-200XLight-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-200XLight-webfont.svg#sinkin_sans200_x_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'designova_ss_thin';
+    src: url('sinkinsans/SinkinSans-100Thin-webfont.eot');
+    src: url('sinkinsans/SinkinSans-100Thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sinkinsans/SinkinSans-100Thin-webfont.woff') format('woff'),
+         url('sinkinsans/SinkinSans-100Thin-webfont.ttf') format('truetype'),
+         url('sinkinsans/SinkinSans-100Thin-webfont.svg#sinkin_sans100_thin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*-------------------------------------------------------------------------------------*/
+/* YOUR CUSTOM FONTS CAN BE DEFINED HERE VIA CSS3 FONT-FACE TECHNOLOGY*/
+/* More info : http://css-tricks.com/snippets/css/using-font-face/ */
+/*-------------------------------------------------------------------------------------*/
