@@ -65,7 +65,7 @@
 			// viewer.toggleSidebar();
 		});
 		
-		 Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function (e) {
+		 Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function (e) {
 			viewer.scene.addPointCloud(e.pointcloud);
 			viewer.scene.view.position.set(-243.94, 23.42, 155.44);
 			viewer.scene.view.lookAt(new THREE.Vector3(21.40, -18.98, 39.92));

@@ -69,7 +69,7 @@
 		let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-	Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){ 
+	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){ 
        
             sceneSG.addPointCloud(e.pointcloud);
             sceneSG.view.position.set(-22.189, -58.837, 7.413);
@@ -188,7 +188,7 @@
             }
         });
 			// Herm point cloud in scene 2
-			Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
+			Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
 			
 			sceneSG2.addPointCloud(e.pointcloud);
 			sceneSG2.view.position.set(40.753, -1.937, 52.563);
@@ -207,7 +207,7 @@
 		});
 		
 		// Pleasures and Perils
-		Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/mermaid/cloud.js", "pleasuresandperils", function(e){
+		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/mermaid/cloud.js", "pleasuresandperils", function(e){
 			sceneLion.addPointCloud(e.pointcloud);
 			sceneLion.view.position.set(-148.290, 22.164, 56.452);
 			sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
