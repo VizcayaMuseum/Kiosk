@@ -1,6 +1,8 @@
-@import url("../../webfonts/OpenSans_Regular/stylesheet.css");
-@import url("../../webfonts/Marcellus_Regular/stylesheet.css");
+/*@import url("../../webfonts/OpenSans_Regular/stylesheet.css");
+@import url("../../webfonts/Marcellus_Regular/stylesheet.css");*/
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Marcellus');
 
 body p {
     font-size: .875em;
@@ -53,7 +55,7 @@ h1,h2,h3,h4 {
   position: relative;
   top: 0;
   padding-bottom: 0px;
-  height: calc(100% - 200px);
+  height: calc(100% - 110px);
   /* height: 90%; */
   padding-top: .5rem;
   overflow-x: hidden;
