@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
+
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <style>      
+        
+        .annotation {
+            position: absolute;
+            padding: 10px;
+            opacity: 0.5;
+            transform: translate(-50%, -30px);
+            will-change: left, top;
+            color: white;
+        }
+
+        .annotation-titlebar {
+            color: white;
+            background-color: black;
+            border-radius: 1.5em;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            font-size: 12pt;
+            opacity: 1;
+            margin: auto;
+            display: table;
+            padding: 1px 8px;
+            cursor: pointer;
+        }
+
+        .annotation-expand {
+            color: white;
+            font-size: 0.6em;
+            opacity: 1;
+        }
+
+        .annotation-action-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.5em;
+            text-align: center;
+            font-family: Arial;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .annotation-action-icon:hover {
+                filter: drop-shadow(0px 0px 1px white);
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
+
+        .annotation-item {
+            color: white;
+            background-color: black;
+            opacity: 0.5;
+            border-radius: 1.5em;
+            font-size: 1em;
+            line-height: 1.5em;
+            padding: 1px 8px 0px 8px;
+            font-weight: bold;
+            display: flex;
+            cursor: default;
+        }
+
+            .annotation-item:hover {
+                opacity: 1.0;
+                box-shadow: 0 0 5px #ffffff;
+            }
+
+        .annotation-main {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .annotation-label {
+            display: inline-block;
+            height: 100%;
+            flex-grow: 1;
+            user-select: none;
+            -moz-user-select: none;
+            z-index: 100;
+            vertical-align: middle;
+            line-height: 1.5em;
+            font-family: Arial;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 11pt;
+            transition: opacity 1s;
+        }
+
+        .annotation-description {
+            position: relative;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            margin: 5px 0px 0px 0px;
+            border-radius: 4px;
+            display: none;
+            max-width: 250px;
+            width: 500px;
+            font-size: 1em;
+        }
+
+        .annotation-description-close {
+            filter: invert(100%);
+            float: right;
+            opacity: 0.5;
+            margin: 0px 0px 8px 8px;
+        }
+
+        .annotation-description-content {
+            color: white;
+            position: sticky;
+        }
+
+        .annotation-icon {
+            width: 20px;
+            height: 20px;
+            filter: invert(100%);
+            margin: 2px 2px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/spectrum/spectrum.js"></script>
+    <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/three.js/build/three.min.js"></script>
+    <script src="../libs/other/BinaryHeap.js"></script>
+    <script src="../libs/tween/tween.min.js"></script>
+    <script src="../libs/d3/d3.js"></script>
+    <script src="../libs/proj4/proj4.js"></script>
+    <script src="../libs/openlayers3/ol.js"></script>
+    <script src="../libs/i18next/i18next.js"></script>
+    <script src="../libs/jstree/jstree.js"></script>
+    <script src="../build/potree/potree.js"></script>
+    <script src="../libs/plasio/js/laslaz.js"></script>
+    <script src="../libs/other/GLTFLoader.js"></script>
+
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"> </div>
+    </div>
+
+    <script>
+
+        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
+        viewer.setEDLEnabled(true);
+        viewer.setFOV(60);
+        viewer.setPointBudget(1 * 1000 * 1000);
+        viewer.loadSettingsFromURL();
+
+        viewer.loadGUI(() => {
+            viewer.setLanguage('en');
+            $("#menu_tools").next().show();
+            $("#menu_scene").next().show();
+            viewer.toggleSidebar();
+        });
+
+        /*
+		// Sigeom
+		Potree.loadPointCloud("../pointclouds/vol_total/cloud.js", "sigeom.sa", function(e){
+			let scene = viewer.scene;
+			scene.addPointCloud(e.pointcloud);
+
+			let material = e.pointcloud.material;
+			material.size = 1;
+			material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+			scene.view.position.set(589974.341, 231698.397, 986.146);
+			scene.view.lookAt(new THREE.Vector3(589851.587, 231428.213, 715.634));
+			// viewer.fitToScreen();
+        });
+        */
+        {
+            let scene = viewer.scene;
+            scene.view.position.set(589829.832, 230589.378, 864.140);
+            scene.view.lookAt(new THREE.Vector3(589851.587, 231428.213, 715.634));
+        }
+
+        //ANNOTATIONS
+        {
+            let scene = viewer.scene;
+            
+            scene.annotations.add(new Potree.Annotation({
+                //annotation number position, where the # tags into object
+                position: [589287.205, 231502.723, 935.700], 
+                //how users view the annotation once they click
+                cameraPosition: [588889.175, 231274.226, 947.434],
+                cameraTarget: [589431.505, 231454.182, 848.344],
+                title: "1",
+                description: `SUMMER HOUSE <br> <hr>
+                A short boat ride from the main house,
+                a lattice summer house offered a refuge away
+                from the main house.The lattice structure was
+                destroyed during the Great Miami Hurricane of 1926.`
+            }));
+
+            scene.annotations.add(new Potree.Annotation({
+                position: [589944.621, 231373.319, 809.720],
+                title: "2",
+                cameraPosition: [589629.579, 231228.127, 842.718],
+                cameraTarget: [589831.948, 231447.920, 757.739],
+                description: `HERMES <br> <hr>
+                In the interest of keeping everything to scale, groups of statues
+                were designed so the figures were not out of scale with the mermaids
+                seen on the prow and stern. The baskets on the Herms display sea fruits,
+                trophies of sea creatures, like corals and pearls. Chalfin wanted the
+                barge to convey a confused mass.Point cloud of a small section in
+                Sorvilier, Switzerland.`
+            }));
+
+            scene.annotations.add(new Potree.Annotation({
+                position: [590537.665, 231569.355, 812.239],
+                title: "3",
+                cameraPosition: [590771.935, 231670.343, 814.045],
+                cameraTarget: [589486.323, 231231.256, 786.522],
+                description: `THE PROW <br><hr>
+                Alexander Stirling Calder, a classically trained sculptor with a flair
+                for modernity, was hired to help realize Chalfin’s vision. In one rather
+                interesting letter between Calder and Chalfin, we find the artist proposing
+                a mixture of classical sculptures and “saucy bitches, very much like the
+                mermaids and sea nymphs Chalfin envisioned.`,
+            }));
+
+            scene.annotations.add(new Potree.Annotation({
+                position: [590428.963, 231433.692, 877.667],
+                cameraPosition: [590620.372, 231279.533, 892.965],
+                cameraTarget: [590022.083, 231931.826, 787.403],
+                title: "4",
+                description: `PLEASURES & PERILS <br><hr>
+                Six of the figures along the prow and stern represent Pleasures and Perils.
+                From the first sketches, drawings, and concept models of the barge to the
+                finished work was a lengthy process. Calder worked in clay, the molds were
+                made from the clay figures and the plaster models which were shipped to the
+                site for the sculptors and carvers there to block them out. These roughed-out
+                figures were then set in place ready for Calder to come and finish them with
+                fine detail carving.`
+            }));
+
+            scene.annotations.add(new Potree.Annotation({
+                position: [590313.892, 231537.451, 845.479],
+                cameraPosition: [589880.177, 231492.741, 1771.115],
+                cameraTarget: [589880.318, 231498.999, 786.522],
+                title: "5",
+                description: `FOUNTAIN TERRACE & GROTTO <br><hr>
+                An army of Italian stonecutters, cabinet makers, painters, plasterers, gardeners,
+                and other artisans worked five years to build the palazzo, carve statues and
+                ornamental stonework, complete the landscaping, and install the water works system
+                for the series of fountains and a chain of small canals.`
+            }));
+
+            scene.annotations.add(new Potree.Annotation({
+                position: [589173.226, 231498.960, 822.902],
+                cameraPosition: [588874.008, 231428.602, 828.547],
+                cameraTarget: [589878.626, 231514.573, 779.208],
+                title: "6",
+                description: `THE STERN <br><hr>
+                As work on the barge developed, the mermaids on the ends of the barge were deemed
+                too overtly sexual for the taste of Deering and some of his guest. Calder was asked
+                to tone them down, which he eventually did.`
+            }));
+
+            /*
+			scene.annotations.add(new Potree.Annotation({
+				title: "Actions:&nbsp;",
+				position: [589769.27, 231236.83, 783.89],
+				description: `This annotation has actions that switch between elevation and color rendering modes.`,
+				actions: [{
+					"icon": Potree.resourcePath + "/icons/profile.svg",
+					"onclick": function(){
+						for(let pointcloud of viewer.scene.pointclouds){
+							pointcloud.material.pointColorType = Potree.PointColorType.ELEVATION;
+							pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+						}
+					}
+				}]
+            }));
+            */
+
+        }
+
+        { // Load Textured bunny from obj
+            let manager = new THREE.LoadingManager();
+            manager.onProgress = function (item, loaded, total) {
+                console.log(item, loaded, total);
+            };
+
+
+            let textureLoader = new THREE.TextureLoader(manager);
+            let texture = textureLoader.load(`${Potree.resourcePath}/models/textures/polySurface448SG1_baseColor.jpeg`);
+            let onProgress = function (xhr) {
+                if (xhr.lengthComputable) {
+                    let percentComplete = xhr.loaded / xhr.total * 100;
+                    console.log(Math.round(percentComplete, 2) + '% downloaded');
+                    let scene = viewer.scene;
+                    scene.console.log(Math.round(percentComplete, 2) + '% downloaded');
+                }
+            };
+            texture.wrapS = THREE.RepeatWrapping;
+            texture.wrapT = THREE.RepeatWrapping;
+
+
+            let onError = function (xhr) { };
+
+            
+            let loader = new THREE.GLTFLoader(manager);
+            loader.load(`${Potree.resourcePath}/models/scene.gltf`, function (gltf) {
+                gltf.scene.traverse(function (child) {
+                    if (child instanceof THREE.Mesh) {
+                        //child.material.map = texture;
+                    }
+                });
+
+                gltf.scene.position.set(589871.587, 231528.213, 725.634);
+                gltf.scene.scale.multiplyScalar(100);
+                gltf.scene.rotation.set(Math.PI / 2, Math.PI, 0)
+
+                viewer.scene.scene.add(gltf.scene);
+
+                
+                viewer.onGUILoaded(() => {
+                    // Add entries to object list in sidebar
+                    let tree = $(`#jstree_scene`);
+                    let parentNode = "other";
+                    /*
+                    let bunnyID = tree.jstree('create_node', parentNode, {
+                        text: "Bunny Textured",
+                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
+                        data: gltf
+                    },
+                        "last", false, false);
+                    */
+                    tree.jstree(object.visible ? "check_node" : "uncheck_node", bunnyID);
+
+                    //tree.jstree("open_node", parentNode);
+                });
+                
+
+            }, onProgress, onError);
+            
+        }
+
+        /*
+		// Load untextured bunny from ply
+		var loader = new THREE.PLYLoader();
+		loader.load( Potree.resourcePath + "/models/stanford_bunny_reduced.ply", (geometry) => {
+			geometry.computeVertexNormals();
+
+			// place two instances of this bunny into the scene
+
+			let mesh1;
+			{
+				let material = new THREE.MeshNormalMaterial();
+				mesh1 = new THREE.Mesh( geometry, material );
+				mesh1.position.set(589961.587, 231428.213, 710.634);
+				mesh1.scale.multiplyScalar(500);
+				mesh1.rotation.set(Math.PI / 2, Math.PI, 0)
+				viewer.scene.scene.add(mesh1);
+			}
+
+			let mesh2;
+			{
+				let material = new THREE.MeshPhysicalMaterial( {
+					color: 0x226666,
+					metalness: 0,
+					roughness: 0.5,
+					clearCoat:  1.0,
+					clearCoatRoughness: 1.0,
+					reflectivity: 1.0
+				} );
+				mesh2 = new THREE.Mesh( geometry, material );
+				mesh2.position.set(589751.587, 231428.213, 725.634);
+				mesh2.scale.multiplyScalar(500);
+				mesh2.rotation.set(Math.PI / 2, Math.PI, 0)
+				viewer.scene.scene.add(mesh2);
+			}
+
+			viewer.onGUILoaded(() => {
+				// Add entries to object list in sidebar
+				let tree = $(`#jstree_scene`);
+				let parentNode = "other";
+
+				let bunny1ID = tree.jstree('create_node', parentNode, {
+						text: "Bunny 1",
+						icon: `${Potree.resourcePath}/icons/triangle.svg`,
+						data: mesh1
+					},
+					"last", false, false);
+				tree.jstree(mesh1.visible ? "check_node" : "uncheck_node", bunny1ID);
+
+				let bunny2ID = tree.jstree('create_node', parentNode, {
+						text: "Bunny 2",
+						icon: `${Potree.resourcePath}/icons/triangle.svg`,
+						data: mesh2
+					},
+					"last", false, false);
+				tree.jstree(mesh2.visible ? "check_node" : "uncheck_node", bunny2ID);
+			});
+
+		});
+
+        */
+
+    </script>
+</body>
+</html>
