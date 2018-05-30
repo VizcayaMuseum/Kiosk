@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Pages\\barge",
-    "\\Pages\\grotto",
-    "\\vat\\kiosk"
+    "\\Pages"
   ],
-  "SelectedNode": "\\Pages",
+  "SelectedNode": "\\Pages\\barge-context.html",
   "PreviewInSolutionExplorer": false
 }
