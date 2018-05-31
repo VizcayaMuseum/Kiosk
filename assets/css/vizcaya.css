@@ -39,6 +39,8 @@ html, body {
     width: 83.5%;
 }
 
+
+
 #house-image {
     width: 100%;
     height: 100%;
@@ -46,39 +48,34 @@ html, body {
 
 #footer-div {
     width: 5%;
-    height: 5%;
+    height: 6%;
     position: absolute;
-    top: 95%;
+    top: 94%;
     left: 95%;
 }
 
 .footer-split {
     height: 100%;
     float: left;
+    border-radius: 50%;
 }
 
 #footer-splitone {
     width: 50%;
-    background-color: blue;
-    border: 2px solid black;
-    border-radius: 50%;
 }
 
 #footer-splittwo {
     width: 50%;
-    background-color: purple;
-    border: 2px solid black;
-    border-radius: 50%;
 }
 
 
 .footer-icon {
-    width: 70%;
-    height: 70%;
+    width: 60%;
+    height: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 20%;
     cursor: pointer;
 }
 
