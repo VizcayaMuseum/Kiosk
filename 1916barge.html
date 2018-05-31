@@ -59,7 +59,19 @@
             </div>
 
             <div id="split-container" class="mini-container2">
-                <div id="footer-div"></div>
+                <div id="footer-div">
+
+                    <div class="footer-split" id="footer-splitone">
+
+                        <img class="footer-icon" src="images/wheelchair.svg">
+                    </div>
+
+
+                    <div class="footer-split" id="footer-splittwo">
+                        <img class="footer-icon" id="button" src="images/arrows-alt.svg">
+
+                    </div>
+                </div>
                 <iframe id="iframe" src="models/1916barge.html" allowfullscreen></iframe>
             </div>
         </div>
@@ -74,6 +86,65 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+
+        var button = document.querySelector('.mini-container2 #button');
+        button.addEventListener('click', fullscreen);
+        // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener.
+        // so don't use it to detect exit fullscreen
+        document.addEventListener('keydown', function (e) {
+            console.log('key press' + e.keyCode);
+        });
+        // detect enter or exit fullscreen mode
+        document.addEventListener('webkitfullscreenchange', fullscreenChange);
+        document.addEventListener('mozfullscreenchange', fullscreenChange);
+        document.addEventListener('fullscreenchange', fullscreenChange);
+        document.addEventListener('MSFullscreenChange', fullscreenChange);
+
+        function fullscreen() {
+            // check if fullscreen mode is available
+            if (document.fullscreenEnabled ||
+                document.webkitFullscreenEnabled ||
+                document.mozFullScreenEnabled ||
+                document.msFullscreenEnabled) {
+
+                // which element will be fullscreen
+                var iframe = document.querySelector('.mini-container2 iframe');
+                // Do fullscreen
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.webkitRequestFullscreen) {
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.mozRequestFullScreen) {
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.msRequestFullscreen) {
+                    iframe.msRequestFullscreen();
+                }
+            }
+            else {
+                document.querySelector('.error').innerHTML = 'Your browser is not supported';
+            }
+        }
+
+        function fullscreenChange() {
+            if (document.fullscreenEnabled ||
+                document.webkitIsFullScreen ||
+                document.mozFullScreen ||
+                document.msFullscreenElement) {
+                console.log('enter fullscreen');
+            }
+            else {
+                console.log('exit fullscreen');
+            }
+            // force to reload iframe once to prevent the iframe source didn't care about trying to resize the window
+            // comment this line and you will see
+            var iframe = document.querySelector('iframe');
+            iframe.src = iframe.src;
+        }
+
+    </script>
 
 </body>
 </html>

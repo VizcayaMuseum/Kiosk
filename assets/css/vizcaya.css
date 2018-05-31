@@ -44,11 +44,42 @@ html, body {
     height: 100%;
 }
 
-#box {
-    width: 10%;
-    height: 10%;
+#footer-div {
+    width: 5%;
+    height: 5%;
     position: absolute;
-    background-color: red;
+    top: 95%;
+    left: 95%;
+}
+
+.footer-split {
+    height: 100%;
+    float: left;
+}
+
+#footer-splitone {
+    width: 50%;
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+#footer-splittwo {
+    width: 50%;
+    background-color: purple;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+
+.footer-icon {
+    width: 70%;
+    height: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    cursor: pointer;
 }
 
 iframe {
