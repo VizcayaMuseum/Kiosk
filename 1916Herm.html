@@ -14,47 +14,58 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
-  
+
 
 </head>
 
-<body>
+<body style="touch-action:none;">
     <script src="models/build/three.js"></script>
     <script src="libs/other/OrbitControls.js"></script>
     <script src="libs/loaders/GLTFLoader.js"></script>
     <script src="libs/inflate.min.js"></script>
 
     <div class="container-fluid">
-		     <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-              <div class="sidebar-sticky">
 
-                  <h1>1916 HERM</h1>
-                    <p>This is a digital rendering of a herm based on historical photographs in Vizcaya’s archives. This image, compared to the 3D documentation in 2017, reveals the extreme erosion that has taken place over more than 100 years.  </p>
+        <div id="container">
 
-   </div>
-                  <!--sticky footer-->
-          <footer class="footer">
-			  <div >
-                          <p align="center"><a href="index.html">Home</a> | <a href="es/1916Herm.html">Español</a><br>
-						  <!--<p>This interactive was made possible through the support of</p>-->
-                          <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a></p>
-			  
-                      </div>
 
-                  </footer>
-           
-           </nav>
-  </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-            <!-- Featured Content  -->
-            
-              <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="models/1916herm.html" allowfullscreen></iframe>
-              </div>
+            <div id="split-container" class="mini-container1">
 
-        </main>
+
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+
+                            <h1>1916 HERM</h1>
+                            <p>This is a digital rendering of a herm based on historical photographs in Vizcaya’s archives. This image, compared to the 3D documentation in 2017, reveals the extreme erosion that has taken place over more than 100 years.  </p>
+
+                        </div>
+                        <!--sticky footer-->
+                        <footer class="footer">
+                            <div>
+                                <p align="center">
+                                    <a href="index.html">Home</a> | <a href="es/1916Herm.html">Español</a><br>
+                                    <!--<p>This interactive was made possible through the support of</p>-->
+                                    <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
+                                </p>
+
+                            </div>
+
+                        </footer>
+
+                    </nav>
+                </div>
+
+
+            </div>
+
+
+            <div id="split-container" class="mini-container2">
+
+                <iframe src="models/1916herm.html" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
 
 
@@ -62,7 +73,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    
+
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
