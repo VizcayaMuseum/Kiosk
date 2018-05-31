@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>1917 Barge Re-imagined</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -48,21 +49,20 @@
     <script src="js/libs/inflate.min.js"></script>
     <div id="includedContent"></div>
 
-    <script>
+    <script type="text/javascript">
 
         var container, stats, controls;
         var camera, scene, renderer, light;
 
-
         init();
         animate();
-
+        setup();
         function init() {
-            
+
             container = document.createElement('div');
             document.body.appendChild(container);
 
-            camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1, 1000);
+            camera = new THREE.PerspectiveCamera(22, window.innerWidth / window.innerHeight, 1, 1000);
             camera.position.set(0, 5, 25);
             camera.lookAt(new THREE.Vector3(0, 15, 0));
 
@@ -120,6 +120,44 @@
             renderer.render(scene, camera);
 
         }
+
+        var timeoutID;
+
+        function setup() {
+            this.addEventListener("mousemove", resetTimer, false);
+            this.addEventListener("touchstart", resetTimer, false);
+            this.addEventListener("mousedown", resetTimer, false);
+            this.addEventListener("mouseover", resetTimer, false);
+            this.addEventListener("mouseout", resetTimer, false);
+            this.addEventListener("keypress", resetTimer, false);
+            this.addEventListener("DOMMouseScroll", resetTimer, false);
+            this.addEventListener("mousewheel", resetTimer, false);
+            this.addEventListener("touchmove", resetTimer, false);
+            this.addEventListener("MSPointerMove", resetTimer, false);
+
+            startTimer();
+        }
+
+        function startTimer() {
+
+            timeoutID = window.setTimeout(goInactive, 300000);
+        }
+
+        function resetTimer(e) {
+            window.clearTimeout(timeoutID);
+
+            goActive();
+        }
+
+        function goInactive() {
+
+            window.top.location.href = "../index.html";
+        }
+
+        function goActive() {
+            startTimer();
+        }
+
 
 
 

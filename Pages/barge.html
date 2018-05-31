@@ -1,55 +1,55 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
 
-	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
-	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
 </head>
 
 <body>
-	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="../libs/spectrum/spectrum.js"></script>
-	<script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="../libs/three.js/build/three.min.js"></script>
-	<script src="../libs/other/BinaryHeap.js"></script>
-	<script src="../libs/tween/tween.min.js"></script>
-	<script src="../libs/d3/d3.js"></script>
-	<script src="../libs/proj4/proj4.js"></script>
-	<script src="../libs/openlayers3/ol.js"></script>
-	<script src="../libs/i18next/i18next.js"></script>
-	<script src="../libs/jstree/jstree.js"></script>
-	<script src="../build/potree/potree.js"></script>
-	<script src="../libs/plasio/js/laslaz.js"></script>
-	
-	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
-	<!-- INCLUDE SETTINGS HERE -->
-	
-	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
-		<div id="potree_render_area"></div>
-		<div id="potree_sidebar_container"> </div>
-	</div>
-	
-	<script>
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/spectrum/spectrum.js"></script>
+    <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/three.js/build/three.min.js"></script>
+    <script src="../libs/other/BinaryHeap.js"></script>
+    <script src="../libs/tween/tween.min.js"></script>
+    <script src="../libs/d3/d3.js"></script>
+    <script src="../libs/proj4/proj4.js"></script>
+    <script src="../libs/openlayers3/ol.js"></script>
+    <script src="../libs/i18next/i18next.js"></script>
+    <script src="../libs/jstree/jstree.js"></script>
+    <script src="../build/potree/potree.js"></script>
+    <script src="../libs/plasio/js/laslaz.js"></script>
 
- 
-	
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"> </div>
+    </div>
+
+    <script>
+
+
+	   setup();
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-		
+
 		viewer.setEDLEnabled(false);
 		viewer.setFOV(60);
 		viewer.setPointBudget(5*1000*1000);
 		document.title = "";
-	
+
 		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
 		viewer.loadSettingsFromURL();
 
@@ -60,7 +60,7 @@
 		});
 
         viewer.setDescription(`
-		
+
 		`);
 
         let sceneSG = new Potree.Scene();
@@ -69,7 +69,7 @@
 		let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){ 
+	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){
 
             sceneSG.addPointCloud(e.pointcloud);
             sceneSG.view.position.set(-22.189, -58.837, 7.413);
@@ -86,9 +86,9 @@
                     let elTitle = $(`
 						<span>
 							Herm
-							<img src="${Potree.resourcePath}/icons/goto.svg" 
+							<img src="${Potree.resourcePath}/icons/goto.svg"
 								name="action_set_scene"
-								class="annotation-action-icon" 
+								class="annotation-action-icon"
 								style="filter: invert(1);" />
 						</span>
 					`);
@@ -113,9 +113,9 @@
                     let elTitle = $(`
 						<span>
 							Pleasures and Perils
-							<img src="${Potree.resourcePath}/icons/goto.svg" 
+							<img src="${Potree.resourcePath}/icons/goto.svg"
 								name="action_set_scene"
-								class="annotation-action-icon" 
+								class="annotation-action-icon"
 								style="filter: invert(1);" />
 						</span>
 					`);
@@ -135,7 +135,7 @@
 
                     sceneSG.annotations.add(aAbout3);
                 }
-				
+
             //   {
 //                    let aAbout2 = new Potree.Annotation({
 //                        position: [-61.216, -49.492, 2.215],
@@ -149,7 +149,7 @@
 //                    sceneSG.annotations.add(aAbout2);
 //                }
 //
-			// Statues         				
+			// Statues
                 {
                     let aStatues = new Potree.Annotation({
                         position: [-23.590, -23.959, 2.530],
@@ -165,9 +165,9 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
-				
-				
-			// Grotesque         				
+
+
+			// Grotesque
                 {
                     let Grotesque = new Potree.Annotation({
                         position: [-52.389, -50.813, -1.241],
@@ -183,8 +183,8 @@
                     });
                     sceneSG.annotations.add(Grotesque);
                 }
-								
-				
+
+
             }
         });
 			// Herm point cloud in scene 2
@@ -194,7 +194,7 @@
 			sceneSG2.view.position.set(40.753, -1.937, 52.563);
 			sceneSG2.view.lookAt(new THREE.Vector3(0.166, 3.954, 48.562));
 			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-			
+
 			sceneSG2.addAnnotation([31.570, 1.729, 53.886], {
 				"title": "Return to Barge",
 				"actions": [{
@@ -205,7 +205,7 @@
 				}]
 			});
 		});
-		
+
 		// Pleasures and Perils
 		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function(e)
 {
@@ -213,7 +213,7 @@
 			sceneLion.view.position.set(-148.290, 22.164, 56.452);
 			sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
 			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-			
+
 			sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
 				"title": "Return to Barge",
 				"actions": [{
@@ -224,8 +224,47 @@
 				}]
 			});
 		});
-	</script>
-	
-	
-  </body>
+
+        var timeoutID;
+
+        function setup() {
+            this.addEventListener("mousemove", resetTimer, false);
+            this.addEventListener("touchstart", resetTimer, false);
+            this.addEventListener("mousedown", resetTimer, false);
+            this.addEventListener("mouseover", resetTimer, false);
+            this.addEventListener("mouseout", resetTimer, false);
+            this.addEventListener("keypress", resetTimer, false);
+            this.addEventListener("DOMMouseScroll", resetTimer, false);
+            this.addEventListener("mousewheel", resetTimer, false);
+            this.addEventListener("touchmove", resetTimer, false);
+            this.addEventListener("MSPointerMove", resetTimer, false);
+
+            startTimer();
+        }
+
+        function startTimer() {
+
+            timeoutID = window.setTimeout(goInactive, 300000);
+        }
+
+        function resetTimer(e) {
+            window.clearTimeout(timeoutID);
+
+            goActive();
+        }
+
+        function goInactive() {
+
+            window.top.location.href = "../index.html";
+        }
+
+        function goActive() {
+
+
+            startTimer();
+        }
+    </script>
+
+
+</body>
 </html>
