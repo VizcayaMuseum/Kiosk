@@ -59,16 +59,28 @@
             </div>
 
             <div id="split-container" class="mini-container2">
+                
+                <div id="panel-div">
+
+                    <map name="controlMap">
+
+                        <area onclick="mapTest()" shape="circle" coords="50,55,21,10" href=""/>
+
+                    </map>
+
+                    <img src="images/Control_Panel.png" usemap="#controlMap"/>
+                </div>
+
                 <div id="footer-div">
 
                     <div class="footer-split" id="footer-splitone">
 
-                        <img class="footer-icon" src="images/Handicap_Icon.png">
+                        <img class="footer-icon" src="images/Handicap_Icon.png" title="Help">
                     </div>
 
 
                     <div class="footer-split" id="footer-splittwo">
-                        <img class="footer-icon" id="button" src="images/Arrows_Icon02.png">
+                        <img class="footer-icon" id="button" src="images/Arrows_Icon02.png" title="Fullscreen">
 
                     </div>
                 </div>
@@ -89,7 +101,10 @@
 
     <script type="text/javascript">
 
+        function mapTest() {
 
+            alert("working!");
+        }
         var button = document.querySelector('.mini-container2 #button');
         button.addEventListener('click', fullscreen);
         // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener.
