@@ -5,13 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Marcellus');
 
 
-@font-face {
-    font-family: 'Marcellus';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Marcellus'), local('Marcellus-Regular'), url(../) format(');
-    
-}
+
 html, body {
     height: 100%;
     width: 100%;
