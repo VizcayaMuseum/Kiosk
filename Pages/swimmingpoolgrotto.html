@@ -69,11 +69,30 @@
 		let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
+        function getParam(paramName) {
+            var paramList = window.location.search.substring(1);
+            var paramArray = paramList.split('&');
+            for (var i = 0; i < paramArray.length; i++) {
+                var pArr = paramArray[i].split('=');
+                if (pArr[0] == paramName)
+                    return pArr[1];
+            }
+        }
+
+        var x_position = parseFloat(getParam('x_position'));
+        var y_position = parseFloat(getParam('y_position'));
+        var z_position = parseFloat(getParam('z_position'));
+
+        var x_lookAt = parseFloat(getParam('x_lookAt'));
+        var y_lookAt = parseFloat(getParam('y_lookAt'));
+        var z_lookAt = parseFloat(getParam('z_lookAt'));
+
+
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
 
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-28.752, 1.866, -1.597);
-            sceneSG.view.lookAt(new THREE.Vector3(-30.657, 2.000, -1.767));
+            sceneSG.view.position.set(x_position, y_position, z_position);
+            sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
 
 
             let material = e.pointcloud.material;

@@ -6,6 +6,7 @@
 
 
 
+
 html, body {
     height: 100%;
     width: 100%;
@@ -33,6 +34,7 @@ html, body {
 .mini-container1 {
     /*background-color: purple;*/
     width: 16.5%;
+    overflow: hidden;
 }
 
 .mini-container2 {
@@ -53,6 +55,25 @@ html, body {
     position: absolute;
     top: 94%;
     left: 95%;
+    
+}
+
+#panel-div{
+    width: 20%;
+    height: 25%;
+   position: absolute;
+   top: 70%;
+   left: 75%;
+   
+}
+
+#panel-div img{
+
+    max-width:90%;
+    max-height: 85%;
+    margin-left:45%;
+    margin-top: 8%;
+    
 }
 
 .footer-split {
