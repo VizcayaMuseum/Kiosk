@@ -1,14 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\css",
-    "\\assets\\scss",
-    "\\dist\\css",
-    "\\images",
-    "\\models",
-    "\\models\\libs\\three.js",
-    "\\models\\libs\\three.js\\build"
+    "\\images\\works"
   ],
-  "SelectedNode": "\\1916Mermaids.html",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
