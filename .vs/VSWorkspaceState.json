@@ -1,6 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets\\css",
+    "\\assets\\scss",
+    "\\dist\\css",
+    "\\images",
+    "\\models",
+    "\\models\\libs\\three.js",
+    "\\models\\libs\\three.js\\build"
   ],
+  "SelectedNode": "\\1916Mermaids.html",
   "PreviewInSolutionExplorer": false
 }
