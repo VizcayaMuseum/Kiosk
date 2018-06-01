@@ -26,6 +26,41 @@
             width: 100%;
             padding-top: 25px;
         }
+
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #76ced9;
+            border-bottom: 16px solid #76ced9;
+            width: 150px;
+            height: 150px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
     </style>
 </head>
 
@@ -42,6 +77,7 @@
 
     <script src="js/libs/inflate.min.js"></script>
 
+    <div id="loader"></div>
     <script>
 
         var container, stats, controls;
@@ -84,7 +120,22 @@
             loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/fbx/hermes1917_3.fbx', function (object) {
                 // add the model into the scene
                 scene.add(object);
-            });
+            },
+                function (xhr) {
+
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                    if ((xhr.loaded / xhr.total * 100) == 100) {
+
+                        document.getElementById('loader').style.display = "none";
+                    }
+
+                },
+                // called when loading has errors
+                function (error) {
+                    console.log(error);
+                }
+            );
+
 
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);

@@ -13,6 +13,45 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <style>
+
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #76ced9;
+            border-bottom: 16px solid #76ced9;
+            width: 150px;
+            height: 150px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+
+    </style>
 </head>
 
 <body>
@@ -30,7 +69,7 @@
     <script src="../libs/jstree/jstree.js"></script>
     <script src="../build/potree/potree.js"></script>
     <script src="../libs/plasio/js/laslaz.js"></script>
-
+    <div id="loader"></div>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
@@ -71,6 +110,7 @@
 
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
 
+           
             sceneSG.addPointCloud(e.pointcloud);
             sceneSG.view.position.set(-32.400, 0.078, -0.641);
             sceneSG.view.lookAt(new THREE.Vector3(-32.749, -0.148, -0.217));
@@ -197,6 +237,8 @@
 
             }
         });
+
+
 
 		var timeoutID;
 
