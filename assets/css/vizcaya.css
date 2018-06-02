@@ -64,7 +64,7 @@ html, body {
    position: absolute;
    top: 70%;
    left: 75%;
-   
+   display: none;
 }
 
 #panel-div img{

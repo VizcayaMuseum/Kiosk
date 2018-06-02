@@ -1,25 +1,26 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <title>1916 BARGE</title>
 
-    <title>1916 BARGE</title>
+            <!-- Bootstrap core CSS -->
+            <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/vizcaya.css" rel="stylesheet">
+            <!-- Custom styles for this template -->
+            <link href="assets/css/vizcaya.css" rel="stylesheet">
 
 
 </head>
 
 <body style="touch-action:none;">
-    <script src="models/build/three.js"></script>
+            <script src="models/build/three.js"></script>
     <script src="libs/other/OrbitControls.js"></script>
     <script src="libs/loaders/GLTFLoader.js"></script>
     <script src="libs/inflate.min.js"></script>
@@ -59,23 +60,23 @@
             </div>
 
             <div id="split-container" class="mini-container2">
-                
+
                 <div id="panel-div">
 
                     <map name="controlMap">
 
-                        <area onclick="mapTest()" shape="circle" coords="50,55,21,10" href=""/>
+                        <area onclick="mapTest()" shape="circle" coords="50,55,21,10" href="" />
 
                     </map>
 
-                    <img src="images/Control_Panel.png" usemap="#controlMap"/>
+                    <img src="images/Control_Panel.png" usemap="#controlMap" />
                 </div>
 
                 <div id="footer-div">
 
                     <div class="footer-split" id="footer-splitone">
 
-                        <img class="footer-icon" src="images/Handicap_Icon.png" title="Help">
+                        <img onclick="panelFunc()" id="handicap" class="footer-icon" src="images/Handicap_Icon.png" title="Help">
                     </div>
 
 
@@ -101,65 +102,71 @@
 
     <script type="text/javascript">
 
-        function mapTest() {
+                function panelFunc() {
 
-            alert("working!");
-        }
-        var button = document.querySelector('.mini-container2 #button');
-        button.addEventListener('click', fullscreen);
-        // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener.
-        // so don't use it to detect exit fullscreen
-        document.addEventListener('keydown', function (e) {
-            console.log('key press' + e.keyCode);
-        });
-        // detect enter or exit fullscreen mode
-        document.addEventListener('webkitfullscreenchange', fullscreenChange);
-        document.addEventListener('mozfullscreenchange', fullscreenChange);
-        document.addEventListener('fullscreenchange', fullscreenChange);
-        document.addEventListener('MSFullscreenChange', fullscreenChange);
-
-        function fullscreen() {
-            // check if fullscreen mode is available
-            if (document.fullscreenEnabled ||
-                document.webkitFullscreenEnabled ||
-                document.mozFullScreenEnabled ||
-                document.msFullscreenEnabled) {
-
-                // which element will be fullscreen
-                var iframe = document.querySelector('.mini-container2 iframe');
-                // Do fullscreen
-                if (iframe.requestFullscreen) {
-                    iframe.requestFullscreen();
-                } else if (iframe.webkitRequestFullscreen) {
-                    iframe.webkitRequestFullscreen();
-                } else if (iframe.mozRequestFullScreen) {
-                    iframe.mozRequestFullScreen();
-                } else if (iframe.msRequestFullscreen) {
-                    iframe.msRequestFullscreen();
+                    $("#handicap").click(function () {
+                        $("#panel-div").toggle();
+                    });
                 }
-            }
-            else {
-                document.querySelector('.error').innerHTML = 'Your browser is not supported';
-            }
-        }
+                function mapTest() {
 
-        function fullscreenChange() {
-            if (document.fullscreenEnabled ||
-                document.webkitIsFullScreen ||
-                document.mozFullScreen ||
-                document.msFullscreenElement) {
-                console.log('enter fullscreen');
-            }
-            else {
-                console.log('exit fullscreen');
-            }
-            // force to reload iframe once to prevent the iframe source didn't care about trying to resize the window
-            // comment this line and you will see
-            var iframe = document.querySelector('iframe');
-            iframe.src = iframe.src;
-        }
+                    alert("working!");
+                }
+                var button = document.querySelector('.mini-container2 #button');
+                button.addEventListener('click', fullscreen);
+                // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener.
+                // so don't use it to detect exit fullscreen
+                document.addEventListener('keydown', function (e) {
+                    console.log('key press' + e.keyCode);
+                });
+                // detect enter or exit fullscreen mode
+                document.addEventListener('webkitfullscreenchange', fullscreenChange);
+                document.addEventListener('mozfullscreenchange', fullscreenChange);
+                document.addEventListener('fullscreenchange', fullscreenChange);
+                document.addEventListener('MSFullscreenChange', fullscreenChange);
+
+                function fullscreen() {
+                    // check if fullscreen mode is available
+                    if (document.fullscreenEnabled ||
+                        document.webkitFullscreenEnabled ||
+                        document.mozFullScreenEnabled ||
+                        document.msFullscreenEnabled) {
+
+                        // which element will be fullscreen
+                        var iframe = document.querySelector('.mini-container2 iframe');
+                        // Do fullscreen
+                        if (iframe.requestFullscreen) {
+                            iframe.requestFullscreen();
+                        } else if (iframe.webkitRequestFullscreen) {
+                            iframe.webkitRequestFullscreen();
+                        } else if (iframe.mozRequestFullScreen) {
+                            iframe.mozRequestFullScreen();
+                        } else if (iframe.msRequestFullscreen) {
+                            iframe.msRequestFullscreen();
+                        }
+                    }
+                    else {
+                        document.querySelector('.error').innerHTML = 'Your browser is not supported';
+                    }
+                }
+
+                function fullscreenChange() {
+                    if (document.fullscreenEnabled ||
+                        document.webkitIsFullScreen ||
+                        document.mozFullScreen ||
+                        document.msFullscreenElement) {
+                        console.log('enter fullscreen');
+                    }
+                    else {
+                        console.log('exit fullscreen');
+                    }
+                    // force to reload iframe once to prevent the iframe source didn't care about trying to resize the window
+                    // comment this line and you will see
+                    var iframe = document.querySelector('iframe');
+                    iframe.src = iframe.src;
+                }
 
     </script>
 
-</body>
+    </body>
 </html>
