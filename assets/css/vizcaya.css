@@ -50,34 +50,29 @@ html, body {
 }
 
 #footer-div {
-    width: auto;
-    height: auto;
-    max-width: 100px;
-    max-height: 50px;
+    width: 5%;
+    height: 6%;
     position: absolute;
     top: 94%;
     left: 95%;
-    background-color: blue;
     
 }
 
 #panel-div{
-   display:block;
-   width: auto;
-   height: auto;
-   width: 200px;
-   height: 200px;
+    width: 20%;
+    height: 25%;
    position: absolute;
    top: 70%;
-   left: 80%;
-   background-color: red;
-   
+   left: 75%;
+   display: none;
 }
 
 #panel-div img{
-    width: 200px;
-    height: 200px;
-   
+
+    max-width:90%;
+    max-height: 85%;
+    margin-left:45%;
+    margin-top: 8%;
     
 }
 
@@ -85,7 +80,6 @@ html, body {
     height: 100%;
     float: left;
     border-radius: 50%;
-    background-color: red;
 }
 
 #footer-splitone {
@@ -107,11 +101,6 @@ html, body {
     cursor: pointer;
 }
 
-#fullscreeIcon{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-}
 iframe {
     height: 100%;
     width: 100%;

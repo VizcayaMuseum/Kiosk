@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vizcaya</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #page-loader {
+            position: absolute;
+            top: 0;
+            bottom: 0%;
+            left: 0;
+            right: 0%;
+            background-color: white;
+            z-index: 99;
+            display: none;
+            text-align: center;
+            width: 100%;
+            padding-top: 25px;
+        }
+
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #76ced9;
+            border-bottom: 16px solid #76ced9;
+            width: 150px;
+            height: 150px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="page-loader">
+        <img src="../assets/img/Ajax_loader_gray_256.gif" alt="Loading..." />
+    </div>
+
+    <script src="build/three.js"></script>
+
+    <script src="js/controls/OrbitControls.js"></script>
+
+    <script src="js/loaders/FBXLoader.js"></script>
+
+    <script src="js/libs/inflate.min.js"></script>
+
+    <div id="loader"></div>
+    <script>
+
+        var container, stats, controls;
+        var camera, scene, renderer, light;
+
+        init();
+        animate();
+        setup();
+        function init() {
+
+            container = document.createElement('div');
+            document.body.appendChild(container);
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+            camera.position.set(-3.9711402282682964, 24.664728908700592, -90.64164758948131);
+            camera.lookAt(new THREE.Vector3(0, 10, 0));
+
+            controls = new THREE.OrbitControls(camera);
+            controls.target.set(0, 24, 0);
+            controls.update();
+
+            scene = new THREE.Scene();
+
+            light = new THREE.HemisphereLight(0xffffff, 0x444444);
+            light.position.set(0, 1, 0);
+            scene.add(light);
+
+            light = new THREE.DirectionalLight(0xffffff);
+            light.position.set(0, 1, 0);
+            scene.add(light);
+
+            // grid
+            // var gridHelper = new THREE.GridHelper( 28, 28, 0x303030, 0x303030 );
+            // scene.add( gridHelper );
+
+
+
+            // model
+            var loader = new THREE.FBXLoader();
+            loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/fbx/hermes1917_3.fbx', function (object) {
+                // add the model into the scene
+                scene.add(object);
+            },
+                function (xhr) {
+
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                    if ((xhr.loaded / xhr.total * 100) == 100) {
+
+                        document.getElementById('loader').style.display = "none";
+                    }
+
+                },
+                // called when loading has errors
+                function (error) {
+                    console.log(error);
+                }
+            );
+
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        //
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            renderer.render(scene, camera);
+
+        }
+
+        var timeoutID;
+
+        function setup() {
+            this.addEventListener("mousemove", resetTimer, false);
+            this.addEventListener("touchstart", resetTimer, false);
+            this.addEventListener("mousedown", resetTimer, false);
+            this.addEventListener("mouseover", resetTimer, false);
+            this.addEventListener("mouseout", resetTimer, false);
+            this.addEventListener("keypress", resetTimer, false);
+            this.addEventListener("DOMMouseScroll", resetTimer, false);
+            this.addEventListener("mousewheel", resetTimer, false);
+            this.addEventListener("touchmove", resetTimer, false);
+            this.addEventListener("MSPointerMove", resetTimer, false);
+
+            startTimer();
+        }
+
+        function startTimer() {
+
+            timeoutID = window.setTimeout(goInactive, 300000);
+        }
+
+        function resetTimer(e) {
+            window.clearTimeout(timeoutID);
+
+            goActive();
+        }
+
+        function goInactive() {
+
+            window.top.location.href = "../index.html";
+        }
+
+        function goActive() {
+
+
+            startTimer();
+        }
+
+    </script>
+
+</body>
+</html>
