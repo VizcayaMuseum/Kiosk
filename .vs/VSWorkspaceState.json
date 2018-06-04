@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\pages"
+    "\\assets\\css",
+    "\\images",
+    "\\models",
+    "\\webfonts",
+    "\\webfonts\\Marcellus_Regular",
+    "\\webfonts\\OpenSans_Regular"
   ],
-  "SelectedNode": "\\pages\\barge-context.html",
+  "SelectedNode": "\\images",
   "PreviewInSolutionExplorer": false
 }
