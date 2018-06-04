@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\es\\images",
+    "\\es\\images\\works",
+    "\\images",
+    "\\models",
+    "\\models\\build",
     "\\pages"
   ],
-  "SelectedNode": "\\pages\\barge-context.html",
+  "SelectedNode": "\\models\\build\\three.js",
   "PreviewInSolutionExplorer": false
 }
