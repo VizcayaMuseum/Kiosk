@@ -1,19 +1,20 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
+ 
+            <title>1916 BARGE</title>
 
-    <title>1916 BARGE</title>
+            <!-- Bootstrap core CSS -->
+            <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/vizcaya.css" rel="stylesheet">
+            <!-- Custom styles for this template -->
+            <link href="assets/css/vizcaya.css" rel="stylesheet">
 
 
 </head>
@@ -59,23 +60,23 @@
             </div>
 
             <div id="split-container" class="mini-container2">
-                
+               <!--
                 <div id="panel-div">
+                   
+                    <map id="controlMap" name="controlMap">
 
-                    <map name="controlMap">
-
-                        <area onclick="mapTest()" shape="circle" coords="50,55,21,10" href=""/>
+                        <area shape="circle" coords="50,55,18,10" href="" />
 
                     </map>
 
-                    <img src="images/Control_Panel.png" usemap="#controlMap"/>
+                    <img src="images/Control_Panel.png" usemap="#controlMap" />
                 </div>
-
-                <div id="footer-div">
-
+                   -->
+                <!--<div id="footer-div">
+                    
                     <div class="footer-split" id="footer-splitone">
 
-                        <img class="footer-icon" src="images/Handicap_Icon.png" title="Help">
+                        <img id="handicap" class="footer-icon" src="images/Handicap_Icon.png" title="Help">
                     </div>
 
 
@@ -83,7 +84,10 @@
                         <img class="footer-icon" id="button" src="images/Arrows_Icon02.png" title="Fullscreen">
 
                     </div>
+                        
                 </div>
+                    -->
+                <img id="fullscreeIcon" src="images/Arrows_Icon02.png"/>
                 <iframe id="iframe" src="models/1916barge_gltf.html" allowfullscreen></iframe>
             </div>
         </div>
@@ -98,13 +102,20 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
 
-        function mapTest() {
 
-            alert("working!");
-        }
+        $(document).ready(function () {
+
+            $("#handicap").click(function () {
+                $("#panel-div").toggle();
+            });
+        });
+
+       
+
+
         var button = document.querySelector('.mini-container2 #button');
         button.addEventListener('click', fullscreen);
         // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener.
@@ -155,6 +166,7 @@
             }
             // force to reload iframe once to prevent the iframe source didn't care about trying to resize the window
             // comment this line and you will see
+            document.getElementById('panel-div').style.display = "none";
             var iframe = document.querySelector('iframe');
             iframe.src = iframe.src;
         }

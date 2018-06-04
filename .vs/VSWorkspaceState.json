@@ -1,13 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\es\\images",
-    "\\es\\images\\works",
+    "\\assets\\css",
     "\\images",
     "\\models",
-    "\\models\\build",
-    "\\pages"
+    "\\webfonts",
+    "\\webfonts\\Marcellus_Regular",
+    "\\webfonts\\OpenSans_Regular"
   ],
-  "SelectedNode": "\\models\\build\\three.js",
+  "SelectedNode": "\\images",
   "PreviewInSolutionExplorer": false
 }
