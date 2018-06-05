@@ -70,8 +70,12 @@
         viewer.setScene(sceneSG);
 
         function getParam(paramName) {
-            var paramList = window.location.search.substring(1);
-            var paramArray = paramList.split('&');
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var address = srcSplit[1];
+            var paramArray = address.split('&');
+            //var paramList = window.location.search.substring(1);
+            //var paramArray = paramList.split('&');
             for (var i = 0; i < paramArray.length; i++) {
                 var pArr = paramArray[i].split('=');
                 if (pArr[0] == paramName)
@@ -79,13 +83,13 @@
             }
         }
 
-        var x_position = parseFloat(getParam('x_position'));
-        var y_position = parseFloat(getParam('y_position'));
-        var z_position = parseFloat(getParam('z_position'));
+        var x_position = parseFloat(getParam('xP'));
+        var y_position = parseFloat(getParam('yP'));
+        var z_position = parseFloat(getParam('zP'));
 
-        var x_lookAt = parseFloat(getParam('x_lookAt'));
-        var y_lookAt = parseFloat(getParam('y_lookAt'));
-        var z_lookAt = parseFloat(getParam('z_lookAt'));
+        var x_lookAt = parseFloat(getParam('xL'));
+        var y_lookAt = parseFloat(getParam('yL'));
+        var z_lookAt = parseFloat(getParam('zL'));
 
 
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
