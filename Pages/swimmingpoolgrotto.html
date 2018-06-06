@@ -45,8 +45,10 @@
 	   setup();
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
-		viewer.setEDLEnabled(false);
-		viewer.setFOV(60);
+        
+        viewer.setEDLEnabled(false);
+        viewer.setFOV(60);
+
 		viewer.setPointBudget(5*1000*1000);
 		document.title = "";
 		viewer.setEDLEnabled(false);
@@ -102,6 +104,8 @@
             let material = e.pointcloud.material;
             material.size = 1;
             material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+
 
 
             {

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Potree Viewer</title>
 
-    <link rel="stylesheet" type="text/css" href="../libs2/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
     <link rel="stylesheet" type="text/css" href="../libs2/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="../libs2/perfect-scrollbar/css/perfect-scrollbar.css">
     <link rel="stylesheet" type="text/css" href="../libs2/openlayers3/ol.css">
@@ -29,12 +29,12 @@
             color: white;
             background-color: black;
             border-radius: 1.5em;
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
             font-size: 12pt;
             opacity: 1;
             margin: auto;
             display: table;
-            padding: 1px 8px;
+            padding: 2px 13px; /*1px 8px for roundness*/
             cursor: pointer;
         }
 
@@ -95,11 +95,11 @@
             z-index: 100;
             vertical-align: middle;
             line-height: 1.5em;
-            font-family: Arial;
+            font-family: Segoe UI Black; /*Arial, Arial Rounded MT, Bauhaus 93, Elephant*/
             font-weight: bold;
             cursor: pointer;
             white-space: nowrap;
-            font-size: 11pt;
+            font-size: 14pt; /*11pt*/
             transition: opacity 1s;
         }
 
@@ -188,7 +188,7 @@
     <script src="../libs2/openlayers3/ol.js"></script>
     <script src="../libs2/i18next/i18next.js"></script>
     <script src="../libs2/jstree/jstree.js"></script>
-    <script src="../libs2/potree/potree.js"></script>
+    <script src="../build/potree/potree.js"></script>
     <script src="../libs2/plasio/js/laslaz.js"></script>
     <script src="../libs2/other/GLTFLoader.js"></script>
     <script src="../libs2/other/OrbitControls.js"></script>
@@ -279,7 +279,7 @@
                 //how users view the annotation once they click
                 cameraPosition: [588889.175, 231274.226, 947.434],
                 cameraTarget: [589431.505, 231454.182, 848.344],
-                title: "1",
+                title: "i",
                 description: `SUMMER HOUSE <br> <hr>
                     The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure
                     that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
@@ -289,7 +289,7 @@
 
             scene.annotations.add(new Potree.Annotation({
                 position: [589944.621, 231373.319, 809.720],
-                title: "2",
+                title: "i",
                 cameraPosition: [589629.579, 231228.127, 842.718],
                 cameraTarget: [589831.948, 231447.920, 757.739],
                 description: `HERM <br> <hr>
@@ -300,7 +300,7 @@
 
             scene.annotations.add(new Potree.Annotation({
                 position: [590537.665, 231569.355, 812.239],
-                title: "3",
+                title: "i",
                 cameraPosition: [590771.935, 231670.343, 814.045],
                 cameraTarget: [589486.323, 231231.256, 786.522],
                 description: `MERMAIDS <br><hr>
@@ -312,7 +312,7 @@
                 position: [590428.963, 231433.692, 877.667],
                 cameraPosition: [590620.372, 231279.533, 892.965],
                 cameraTarget: [590022.083, 231931.826, 787.403],
-                title: "4", //NOT UPDATED
+                title: "i", //NOT UPDATED
                 description: `PLEASURES & PERILS <br><hr>
                     Six of the figures along the prow and stern represent Pleasures and Perils.
                     From the first sketches, drawings, and concept models of the barge to the
@@ -328,18 +328,18 @@
                 cameraPosition: [589880.177, 231492.741, 1771.115],
                 cameraTarget: [589880.318, 231498.999, 786.522],
                 title: "5", //NOT UPDATED
-                description: `FOUNTAIN TERRACE & GROTTO <br><hr>
-                    An army of Italian stonecutters, cabinet makers, painters, plasterers, gardeners,
-                    and other artisans worked five years to build the palazzo, carve statues and
-                    ornamental stonework, complete the landscaping, and install the water works system
-                    for the series of fountains and a chain of small canals.`
+                description: `FOUNTAIN TERRACE & GROTTO <br><hr> 
+                An army of Italian stonecutters, cabinet makers, painters, plasterers, gardeners,
+                and other artisans worked five years to build the palazzo, carve statues and
+                ornamental stonework, complete the landscaping, and install the water works system
+                for the series of fountains and a chain of small canals.`
             }));
 
             scene.annotations.add(new Potree.Annotation({
                 position: [589173.226, 231498.960, 822.902],
                 cameraPosition: [588874.008, 231428.602, 828.547],
                 cameraTarget: [589878.626, 231514.573, 779.208],
-                title: "6", //NOT UPDATED
+                title: "i", //NOT UPDATED
                 description: `THE STERN <br><hr>
                     As work on the barge developed, the mermaids on the ends of the barge were deemed
                     too overtly sexual for the taste of Deering and some of his guest. Calder was asked
