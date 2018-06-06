@@ -224,7 +224,24 @@
                 description: `HERM <br> <hr>
                 This is a digital rendering of a herm based on historical photographs in Vizcaya’s archives. 
                 This image, compared to the 3D documentation in 2017, reveals the extreme erosion that has taken 
-                place over more than 100 years.`
+                place over more than 100 years. <br><br> View More`,
+                actions: [{
+                    "icon": Potree.resourcePath + "/icons/profile.svg",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.ELEVATION;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }, {
+                    "icon": Potree.resourcePath + "/icons/rgb.png",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.RGB;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }]
             }));
 
             scene.annotations.add(new Potree.Annotation({
@@ -276,19 +293,27 @@
             }));
 
             /*
-			scene.annotations.add(new Potree.Annotation({
-				title: "Actions:&nbsp;",
-				position: [589769.27, 231236.83, 783.89],
-				description: `This annotation has actions that switch between elevation and color rendering modes.`,
-				actions: [{
-					"icon": Potree.resourcePath + "/icons/profile.svg",
-					"onclick": function(){
-						for(let pointcloud of viewer.scene.pointclouds){
-							pointcloud.material.pointColorType = Potree.PointColorType.ELEVATION;
-							pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-						}
-					}
-				}]
+            scene.annotations.add(new Potree.Annotation({
+                title: "Actions:&nbsp;",
+                position: [589769.27, 231236.83, 783.89],
+                description: `This annotation has actions that switch between elevation and color rendering modes.`,
+                actions: [{
+                    "icon": Potree.resourcePath + "/icons/profile.svg",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.ELEVATION;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }, {
+                    "icon": Potree.resourcePath + "/icons/rgb.png",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.RGB;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }]
             }));
             */
 
