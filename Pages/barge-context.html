@@ -72,13 +72,15 @@
 	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e){
 
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-22.189, -58.837, 7.413);
-            sceneSG.view.lookAt(new THREE.Vector3(-42.340, -36.309, -0.732));
+        sceneSG.view.position.set(-34.313, -37.898, 0.868);
+        sceneSG.view.lookAt(new THREE.Vector3(-42.363, -36.939, 0.481));
 
 
             let material = e.pointcloud.material;
-            material.size = 1;
+            material.size = .66;
             material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+            material.shape = Potree.PointShape.CIRCLE;
+       
 
 
             {
@@ -165,6 +167,23 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
+            //
+            // FemaleHerm
+            {
+                let aStatues = new Potree.Annotation({
+                    position: [-35.131, -37.530, 0.901],
+                    title: "Female Herm",
+                    cameraPosition: [-35.131, -37.530, 0.901],
+                    cameraTarget: [-42.340, -36.309, -0.732],
+                    description: `This herm was damed during hurricane Irma in 2017.`,
+                });
+                aStatues.domElement.off("mouseenter");
+                aStatues.domElement.off("mouseleave");
+                aStatues.addEventListener("click", () => {
+                    aStatues.setHighlighted(!aStatues.isHighlighted);
+                });
+                sceneSG.annotations.add(aStatues);
+            }
 
 
 			// Grotesque

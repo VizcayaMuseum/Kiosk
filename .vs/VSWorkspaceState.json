@@ -1,13 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\css",
-    "\\images",
-    "\\models",
-    "\\webfonts",
-    "\\webfonts\\Marcellus_Regular",
-    "\\webfonts\\OpenSans_Regular"
+    "\\models\\build"
   ],
-  "SelectedNode": "\\images",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }
