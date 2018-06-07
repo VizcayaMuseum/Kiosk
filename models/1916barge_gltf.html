@@ -169,6 +169,7 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
+            display: none;
             
         }
 
@@ -192,6 +193,7 @@
     <script src="../libs2/plasio/js/laslaz.js"></script>
     <script src="../libs2/other/GLTFLoader.js"></script>
     <script src="../libs2/other/OrbitControls.js"></script>
+    <script src="../main.js"></script>
 
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
@@ -201,8 +203,8 @@
         <div id="potree_sidebar_container"> </div>
 
 
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" />
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen"/>
+        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help"/>
         <div>
 
             <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel"/>
@@ -211,8 +213,7 @@
 
                 <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
                 <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <area shape="circle" coords="50,170,20,10" onclick="testFunc()" />
-
+                <area shape="rect" coords="70,55,30,10" onclick="moveUp()" />
 
             </map>
         </div>
@@ -222,18 +223,7 @@
     
     <script>
         setup();
-
-        function redirectFunc() {
-
-            window.top.location.href = "../1916barge.html";
-        }
-
-        function redirectHomeFunc() {
-
-            window.top.location.href = "../index.html";
-        }
-
-       
+        controlToggle();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(true);
@@ -486,65 +476,6 @@
         });
 
         */
-
-        function toggleFullScreen() {
-            if ((document.fullScreenElement && document.fullScreenElement !== null) ||
-                (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-                if (document.documentElement.requestFullScreen) {
-                    document.documentElement.requestFullScreen();
-                } else if (document.documentElement.mozRequestFullScreen) {
-                    document.documentElement.mozRequestFullScreen();
-                } else if (document.documentElement.webkitRequestFullScreen) {
-                    document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-                }
-            } else {
-                if (document.cancelFullScreen) {
-                    document.cancelFullScreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitCancelFullScreen) {
-                    document.webkitCancelFullScreen();
-                }
-            }
-        }
-
-        var timeoutID;
-
-        function setup() {
-            this.addEventListener("mousemove", resetTimer, false);
-            this.addEventListener("touchstart", resetTimer, false);
-            this.addEventListener("mousedown", resetTimer, false);
-            this.addEventListener("mouseover", resetTimer, false);
-            this.addEventListener("mouseout", resetTimer, false);
-            this.addEventListener("keypress", resetTimer, false);
-            this.addEventListener("DOMMouseScroll", resetTimer, false);
-            this.addEventListener("mousewheel", resetTimer, false);
-            this.addEventListener("touchmove", resetTimer, false);
-            this.addEventListener("MSPointerMove", resetTimer, false);
-
-            startTimer();
-        }
-
-        function startTimer() {
-
-            timeoutID = window.setTimeout(goInactive, 300000);
-        }
-
-        function resetTimer(e) {
-            window.clearTimeout(timeoutID);
-
-            goActive();
-        }
-
-        function goInactive() {
-
-            window.top.location.href = "../index.html";
-        }
-
-        function goActive() {
-            startTimer();
-        }
-
 
             /*
             if ($(domElement).find('#potree_description').length === 0) {
