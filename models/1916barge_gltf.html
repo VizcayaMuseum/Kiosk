@@ -169,7 +169,7 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
-            display: none;
+            display: ;
             
         }
 
@@ -211,10 +211,18 @@
 
             <map name="controlPanel">
 
+                <!--Reset Button-->
                 <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <!--Home Button-->
                 <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <area shape="rect" coords="70,55,30,10" onclick="moveUp()" />
-
+                <!--Up Button-->
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <!--Down Button-->
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <!--left Button-->
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <!--Right Button-->
+                <area shape="circle" coords="150,105,20,10" onclick="zoomIn()" />
             </map>
         </div>
 
@@ -222,6 +230,7 @@
     </div>
     
     <script>
+        
         setup();
         controlToggle();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
