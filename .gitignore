@@ -4,3 +4,4 @@ vat/*
 /.vs/Kiosk\v15
 /.vs/kiosk\v15
 .vs/*
+.vs/slnx.sqlite
