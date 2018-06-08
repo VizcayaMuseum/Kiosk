@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../libs2/jstree/themes/mixed/style.css">
     <style>      
         
-
         .annotation {
             position: absolute;
             padding: 10px;
@@ -135,45 +134,6 @@
             margin: 2px 2px;
             opacity: 0.5;
         }
-
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display: ;
-            
-        }
-
-        
     </style>
 </head>
 <body>
@@ -192,8 +152,6 @@
     <script src="../build/potree/potree.js"></script>
     <script src="../libs2/plasio/js/laslaz.js"></script>
     <script src="../libs2/other/GLTFLoader.js"></script>
-    <script src="../libs2/other/OrbitControls.js"></script>
-    <script src="../main.js"></script>
 
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
@@ -201,38 +159,10 @@
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
-
-
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen"/>
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help"/>
-        <div>
-
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel"/>
-
-            <map name="controlPanel">
-
-                <!--Reset Button-->
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                <!--Home Button-->
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-                <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-                <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-                <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="zoomIn()" />
-            </map>
-        </div>
-
-       
     </div>
-    
+
     <script>
-        
         setup();
-        controlToggle();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(true);
@@ -244,22 +174,22 @@
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
             $("#menu_scene").next().show();
-            //  viewer.toggleSidebar();
+          //  viewer.toggleSidebar();
         });
 
         /*
-        // Sigeom
-        Potree.loadPointCloud("../pointclouds/vol_total/cloud.js", "sigeom.sa", function(e){
-            let scene = viewer.scene;
-            scene.addPointCloud(e.pointcloud);
+		// Sigeom
+		Potree.loadPointCloud("../pointclouds/vol_total/cloud.js", "sigeom.sa", function(e){
+			let scene = viewer.scene;
+			scene.addPointCloud(e.pointcloud);
 
-            let material = e.pointcloud.material;
-            material.size = 1;
-            material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+			let material = e.pointcloud.material;
+			material.size = 1;
+			material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-            scene.view.position.set(589974.341, 231698.397, 986.146);
-            scene.view.lookAt(new THREE.Vector3(589851.587, 231428.213, 715.634));
-            // viewer.fitToScreen();
+			scene.view.position.set(589974.341, 231698.397, 986.146);
+			scene.view.lookAt(new THREE.Vector3(589851.587, 231428.213, 715.634));
+			// viewer.fitToScreen();
         });
         */
         {
@@ -271,19 +201,19 @@
         //ANNOTATIONS
         {
             let scene = viewer.scene;
-
+            
             scene.annotations.add(new Potree.Annotation({
                 //annotation number position, where the # tags into object
-                position: [589287.205, 231502.723, 935.700],
+                position: [589287.205, 231502.723, 935.700], 
                 //how users view the annotation once they click
                 cameraPosition: [588889.175, 231274.226, 947.434],
                 cameraTarget: [589431.505, 231454.182, 848.344],
                 title: "i",
                 description: `SUMMER HOUSE <br> <hr>
-                    The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure
-                    that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
-                    originally landscaped with many potted plants, had functioning fountains as well as electricity.
-                    <br><br> How does 3D documentation contribute to the preservation of Vizcaya?`
+                The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure 
+                that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was 
+                originally landscaped with many potted plants, had functioning fountains as well as electricity. 
+                <br><br> How does 3D documentation contribute to the preservation of Vizcaya?`
             }));
 
             scene.annotations.add(new Potree.Annotation({
@@ -292,9 +222,26 @@
                 cameraPosition: [589629.579, 231228.127, 842.718],
                 cameraTarget: [589831.948, 231447.920, 757.739],
                 description: `HERM <br> <hr>
-                    This is a digital rendering of a herm based on historical photographs in Vizcaya’s archives.
-                    This image, compared to the 3D documentation in 2017, reveals the extreme erosion that has taken
-                    place over more than 100 years.`
+                This is a digital rendering of a herm based on historical photographs in Vizcaya’s archives. 
+                This image, compared to the 3D documentation in 2017, reveals the extreme erosion that has taken 
+                place over more than 100 years. <br><br> View More`,
+                actions: [{
+                    "icon": Potree.resourcePath + "/icons/profile.svg",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.ELEVATION;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }, {
+                    "icon": Potree.resourcePath + "/icons/rgb.png",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.RGB;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }]
             }));
 
             scene.annotations.add(new Potree.Annotation({
@@ -303,8 +250,8 @@
                 cameraPosition: [590771.935, 231670.343, 814.045],
                 cameraTarget: [589486.323, 231231.256, 786.522],
                 description: `MERMAIDS <br><hr>
-                    The Barge mermaids were designed by Alexander Calder. James Deering initially found the proportions of the Mermaids too provocative and Calder was asked to alter the proportion of the sculptures to a more modest size.
-                    `
+                The Barge mermaids were designed by Alexander Calder. James Deering initially found the proportions of the Mermaids too provocative and Calder was asked to alter the proportion of the sculptures to a more modest size. 
+                `
             }));
 
             scene.annotations.add(new Potree.Annotation({
@@ -313,13 +260,13 @@
                 cameraTarget: [590022.083, 231931.826, 787.403],
                 title: "i", //NOT UPDATED
                 description: `PLEASURES & PERILS <br><hr>
-                    Six of the figures along the prow and stern represent Pleasures and Perils.
-                    From the first sketches, drawings, and concept models of the barge to the
-                    finished work was a lengthy process. Calder worked in clay, the molds were
-                    made from the clay figures and the plaster models which were shipped to the
-                    site for the sculptors and carvers there to block them out. These roughed-out
-                    figures were then set in place ready for Calder to come and finish them with
-                    fine detail carving.`
+                Six of the figures along the prow and stern represent Pleasures and Perils.
+                From the first sketches, drawings, and concept models of the barge to the
+                finished work was a lengthy process. Calder worked in clay, the molds were
+                made from the clay figures and the plaster models which were shipped to the
+                site for the sculptors and carvers there to block them out. These roughed-out
+                figures were then set in place ready for Calder to come and finish them with
+                fine detail carving.`
             }));
 
             scene.annotations.add(new Potree.Annotation({
@@ -340,9 +287,9 @@
                 cameraTarget: [589878.626, 231514.573, 779.208],
                 title: "i", //NOT UPDATED
                 description: `THE STERN <br><hr>
-                    As work on the barge developed, the mermaids on the ends of the barge were deemed
-                    too overtly sexual for the taste of Deering and some of his guest. Calder was asked
-                    to tone them down, which he eventually did.`
+                As work on the barge developed, the mermaids on the ends of the barge were deemed
+                too overtly sexual for the taste of Deering and some of his guest. Calder was asked
+                to tone them down, which he eventually did.`
             }));
 
             /*
@@ -352,9 +299,17 @@
                 description: `This annotation has actions that switch between elevation and color rendering modes.`,
                 actions: [{
                     "icon": Potree.resourcePath + "/icons/profile.svg",
-                    "onclick": function(){
-                        for(let pointcloud of viewer.scene.pointclouds){
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
                             pointcloud.material.pointColorType = Potree.PointColorType.ELEVATION;
+                            pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        }
+                    }
+                }, {
+                    "icon": Potree.resourcePath + "/icons/rgb.png",
+                    "onclick": function () {
+                        for (let pointcloud of viewer.scene.pointclouds) {
+                            pointcloud.material.pointColorType = Potree.PointColorType.RGB;
                             pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
                         }
                     }
@@ -387,7 +342,7 @@
 
             let onError = function (xhr) { };
 
-
+            
             let loader = new THREE.GLTFLoader(manager);
             loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
                 gltf.scene.traverse(function (child) {
@@ -402,7 +357,7 @@
 
                 viewer.scene.scene.add(gltf.scene);
 
-
+                
                 viewer.onGUILoaded(() => {
                     // Add entries to object list in sidebar
                     let tree = $(`#jstree_scene`);
@@ -419,79 +374,109 @@
 
                     //tree.jstree("open_node", parentNode);
                 });
-
+                
 
             }, onProgress, onError);
-
+            
         }
 
         /*
-        // Load untextured bunny from ply
-        var loader = new THREE.PLYLoader();
-        loader.load( Potree.resourcePath + "/models/stanford_bunny_reduced.ply", (geometry) => {
-            geometry.computeVertexNormals();
+		// Load untextured bunny from ply
+		var loader = new THREE.PLYLoader();
+		loader.load( Potree.resourcePath + "/models/stanford_bunny_reduced.ply", (geometry) => {
+			geometry.computeVertexNormals();
 
-            // place two instances of this bunny into the scene
+			// place two instances of this bunny into the scene
 
-            let mesh1;
-            {
-                let material = new THREE.MeshNormalMaterial();
-                mesh1 = new THREE.Mesh( geometry, material );
-                mesh1.position.set(589961.587, 231428.213, 710.634);
-                mesh1.scale.multiplyScalar(500);
-                mesh1.rotation.set(Math.PI / 2, Math.PI, 0)
-                viewer.scene.scene.add(mesh1);
-            }
+			let mesh1;
+			{
+				let material = new THREE.MeshNormalMaterial();
+				mesh1 = new THREE.Mesh( geometry, material );
+				mesh1.position.set(589961.587, 231428.213, 710.634);
+				mesh1.scale.multiplyScalar(500);
+				mesh1.rotation.set(Math.PI / 2, Math.PI, 0)
+				viewer.scene.scene.add(mesh1);
+			}
 
-            let mesh2;
-            {
-                let material = new THREE.MeshPhysicalMaterial( {
-                    color: 0x226666,
-                    metalness: 0,
-                    roughness: 0.5,
-                    clearCoat:  1.0,
-                    clearCoatRoughness: 1.0,
-                    reflectivity: 1.0
-                } );
-                mesh2 = new THREE.Mesh( geometry, material );
-                mesh2.position.set(589751.587, 231428.213, 725.634);
-                mesh2.scale.multiplyScalar(500);
-                mesh2.rotation.set(Math.PI / 2, Math.PI, 0)
-                viewer.scene.scene.add(mesh2);
-            }
+			let mesh2;
+			{
+				let material = new THREE.MeshPhysicalMaterial( {
+					color: 0x226666,
+					metalness: 0,
+					roughness: 0.5,
+					clearCoat:  1.0,
+					clearCoatRoughness: 1.0,
+					reflectivity: 1.0
+				} );
+				mesh2 = new THREE.Mesh( geometry, material );
+				mesh2.position.set(589751.587, 231428.213, 725.634);
+				mesh2.scale.multiplyScalar(500);
+				mesh2.rotation.set(Math.PI / 2, Math.PI, 0)
+				viewer.scene.scene.add(mesh2);
+			}
 
-            viewer.onGUILoaded(() => {
-                // Add entries to object list in sidebar
-                let tree = $(`#jstree_scene`);
-                let parentNode = "other";
+			viewer.onGUILoaded(() => {
+				// Add entries to object list in sidebar
+				let tree = $(`#jstree_scene`);
+				let parentNode = "other";
 
-                let bunny1ID = tree.jstree('create_node', parentNode, {
-                        text: "Bunny 1",
-                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
-                        data: mesh1
-                    },
-                    "last", false, false);
-                tree.jstree(mesh1.visible ? "check_node" : "uncheck_node", bunny1ID);
+				let bunny1ID = tree.jstree('create_node', parentNode, {
+						text: "Bunny 1",
+						icon: `${Potree.resourcePath}/icons/triangle.svg`,
+						data: mesh1
+					},
+					"last", false, false);
+				tree.jstree(mesh1.visible ? "check_node" : "uncheck_node", bunny1ID);
 
-                let bunny2ID = tree.jstree('create_node', parentNode, {
-                        text: "Bunny 2",
-                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
-                        data: mesh2
-                    },
-                    "last", false, false);
-                tree.jstree(mesh2.visible ? "check_node" : "uncheck_node", bunny2ID);
-            });
+				let bunny2ID = tree.jstree('create_node', parentNode, {
+						text: "Bunny 2",
+						icon: `${Potree.resourcePath}/icons/triangle.svg`,
+						data: mesh2
+					},
+					"last", false, false);
+				tree.jstree(mesh2.visible ? "check_node" : "uncheck_node", bunny2ID);
+			});
 
-        });
+		});
 
         */
 
-            /*
-            if ($(domElement).find('#potree_description').length === 0) {
-                let potreeDescription = $(`<div id="potree_description" class="potree_info_text"></div>`);
-                $(domElement).append(potreeDescription);
-            }
-            */
+        var timeoutID;
+
+        function setup() {
+            this.addEventListener("mousemove", resetTimer, false);
+            this.addEventListener("touchstart", resetTimer, false);
+            this.addEventListener("mousedown", resetTimer, false);
+            this.addEventListener("mouseover", resetTimer, false);
+            this.addEventListener("mouseout", resetTimer, false);
+            this.addEventListener("keypress", resetTimer, false);
+            this.addEventListener("DOMMouseScroll", resetTimer, false);
+            this.addEventListener("mousewheel", resetTimer, false);
+            this.addEventListener("touchmove", resetTimer, false);
+            this.addEventListener("MSPointerMove", resetTimer, false);
+
+            startTimer();
+        }
+
+        function startTimer() {
+
+            timeoutID = window.setTimeout(goInactive, 300000);
+        }
+
+        function resetTimer(e) {
+            window.clearTimeout(timeoutID);
+
+            goActive();
+        }
+
+        function goInactive() {
+
+            window.top.location.href = "../index.html";
+        }
+
+        function goActive() {
+            startTimer();
+        }
 
     </script>
 </body>
