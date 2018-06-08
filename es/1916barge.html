@@ -18,47 +18,57 @@
 
 </head>
 
-<body>
+<body style="touch-action: none;">
     <script src="models/build/three.js"></script>
     <script src="libs/other/OrbitControls.js"></script>
     <script src="libs/loaders/GLTFLoader.js"></script>
     <script src="libs/inflate.min.js"></script>
 
     <div class="container-fluid">
-		     <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-              <div class="sidebar-sticky">
+		     
+        <div id="container">
 
-                  <h1>La Barcaza 1916</h1>
-                    <p>
-                        Nuestros compañeros de proyecto usaron las fotografías en los archivos de Vizcaya para crear esta fiel reproducción de la Barcaza como se veía cuando se terminó de construir en 1916. En el modelo se pueden apreciar los detalles originales y la calidad de la superficie que se han perdido durante los últimos cien a os. Esta vista al pasado ayuda a los conservadores a calcular el desgaste que puede sufrir la Barcaza en el futuro.
-					<br><br>
-                       
-                    </p>
- </div>
+            <div id="split-container" class="mini-container1">
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
 
-          <!--sticky footer-->
-          <footer class="footer">
-			  <div >
-                          <p align="center"><a href="index.html">Home</a> | <a href="../1916barge.html">English</a><br>
-						  <!--<p>This interactive was made possible through the support of</p>-->
-                          <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a></p>
-			  
-                      </div>
+                            <h1>La Barcaza 1916</h1>
+                            <p>
+                                Nuestros compañeros de proyecto usaron las fotografías en los archivos de Vizcaya para crear esta fiel reproducción de la Barcaza como se veía cuando se terminó de construir en 1916. En el modelo se pueden apreciar los detalles originales y la calidad de la superficie que se han perdido durante los últimos cien a os. Esta vista al pasado ayuda a los conservadores a calcular el desgaste que puede sufrir la Barcaza en el futuro.
+                                <br><br>
 
-                  </footer>
-             
-           </nav>
-  </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                            </p>
+                        </div>
 
-            <!-- Featured Content  -->
-            
-              <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="models/1916barge_gltf_es.html" allowfullscreen></iframe>
-              </div>
+                        <!--sticky footer-->
+                        <footer class="footer">
+                            <div>
+                                <p align="center">
+                                    <a href="index.html">Home</a> | <a href="../1916barge.html">English</a><br>
+                                    <!--<p>This interactive was made possible through the support of</p>-->
+                                    <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
+                                </p>
 
-        </main>
+                            </div>
+
+                        </footer>
+
+                    </nav>
+                </div>
+
+
+            </div>
+
+
+            <div id="split-container" class="mini-container2">
+
+                <iframe id="iframe" src="models/1916barge_gltf_es.html" allowfullscreen></iframe>
+
+            </div>
+
+
+        </div>
     </div>
 
 

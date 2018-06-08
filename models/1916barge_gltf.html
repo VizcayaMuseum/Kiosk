@@ -169,7 +169,7 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
-            display: ;
+            display: none;
             
         }
 
@@ -222,7 +222,7 @@
                 <!--left Button-->
                 <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
                 <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="zoomIn()" />
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
             </map>
         </div>
 
@@ -230,9 +230,16 @@
     </div>
     
     <script>
-        
+
+        //For control panel
+
+        $("#handicap_icon").click(function () {
+
+            $("#control_panel").toggle();
+        });
+
+
         setup();
-        controlToggle();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
         viewer.setEDLEnabled(true);
@@ -246,6 +253,8 @@
             $("#menu_scene").next().show();
             //  viewer.toggleSidebar();
         });
+
+
 
         /*
         // Sigeom
@@ -424,7 +433,6 @@
             }, onProgress, onError);
 
         }
-
         /*
         // Load untextured bunny from ply
         var loader = new THREE.PLYLoader();

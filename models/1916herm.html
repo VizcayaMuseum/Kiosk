@@ -4,6 +4,8 @@
     <title>Vizcaya</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
     <style>
         body {
             font-family: Monospace;
@@ -94,8 +96,7 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
-            display: ;
-            
+            display: none;
         }
     </style>
 </head>
@@ -130,13 +131,18 @@
             <!--Home Button-->
             <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
             <!--Up Button-->
-            <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+            <area shape="circle" coords="110,62,25,10" onclick="gltfMoveUp()" />
             <!--Down Button-->
-            <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+            <area shape="circle" coords="110,140,25,10" onclick="gltfMoveDown()" />
             <!--left Button-->
-            <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+            <area shape="circle" coords="70,105,20,10" onclick="gltfMoveLeft()" />
             <!--Right Button-->
-            <area shape="circle" coords="150,105,20,10" onclick="testC()" />
+            <area shape="circle" coords="150,105,20,10" onclick="gltfMoveRight()" />
+            <!--Zoom In-->
+            <area shape="circle" coords="50,160,20,10" onclick="gltfZoomIn()" />
+            <!--Zoom Out-->
+            <area shape="circle" coords="170,160,20,10" onclick="gltfZoomOut()" />
+
         </map>
     </div>
 
@@ -148,6 +154,11 @@
         init();
         animate();
         setup();
+
+        $("#handicap_icon").click(function () {
+
+            $("#control_panel").toggle();
+        });
         function init() {
 
             container = document.createElement('div');
@@ -159,7 +170,7 @@
 
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 24, 0);
-            controls.update();
+            
 
             scene = new THREE.Scene();
 
@@ -222,54 +233,12 @@
         function animate() {
 
             requestAnimationFrame(animate);
-
+            controls.update();
             renderer.render(scene, camera);
 
         }
-
-        var timeoutID;
-
-        function setup() {
-            this.addEventListener("mousemove", resetTimer, false);
-            this.addEventListener("touchstart", resetTimer, false);
-            this.addEventListener("mousedown", resetTimer, false);
-            this.addEventListener("mouseover", resetTimer, false);
-            this.addEventListener("mouseout", resetTimer, false);
-            this.addEventListener("keypress", resetTimer, false);
-            this.addEventListener("DOMMouseScroll", resetTimer, false);
-            this.addEventListener("mousewheel", resetTimer, false);
-            this.addEventListener("touchmove", resetTimer, false);
-            this.addEventListener("MSPointerMove", resetTimer, false);
-
-            startTimer();
-        }
-
-        function startTimer() {
-
-            timeoutID = window.setTimeout(goInactive, 300000);
-        }
-
-        function resetTimer(e) {
-            window.clearTimeout(timeoutID);
-
-            goActive();
-        }
-
-        function goInactive() {
-
-            window.top.location.href = "../index.html";
-        }
-
-        function goActive() {
-
-
-            startTimer();
-        }
-
-        function testC() {
-
-            scene.rotation.y += 0.1;
-        }
+        
+        
     </script>
 
 </body>
