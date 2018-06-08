@@ -13,6 +13,45 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <style>
+
+
+        #fullscreen_icon {
+            max-width: 40px;
+            max-height: 40px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 10px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #handicap_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 70px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #control_panel {
+            max-width: 300px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            position: fixed;
+            bottom: 100px;
+            right: 70px;
+            z-index: 100;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,45 +69,73 @@
     <script src="../libs/jstree/jstree.js"></script>
     <script src="../build/potree/potree.js"></script>
     <script src="../libs/plasio/js/laslaz.js"></script>
-
+    <script src="../libs2/other/OrbitControls.js"></script>
+    <script src="../main.js"></script>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
+
+
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
+        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <div>
+
+            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+
+            <map name="controlPanel">
+
+                <!--Reset Button-->
+                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <!--Home Button-->
+                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                <!--Up Button-->
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <!--Down Button-->
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <!--left Button-->
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <!--Right Button-->
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+            </map>
+        </div>
     </div>
 
     <script>
 
+        $("#handicap_icon").click(function () {
 
-	   setup();
-		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+            $("#control_panel").toggle();
+        });
+        setup();
+        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
-        
+
         viewer.setEDLEnabled(false);
         viewer.setFOV(60);
 
-		viewer.setPointBudget(5*1000*1000);
-		document.title = "";
-		viewer.setEDLEnabled(false);
-		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		viewer.loadSettingsFromURL();
+        viewer.setPointBudget(5 * 1000 * 1000);
+        document.title = "";
+        viewer.setEDLEnabled(false);
+        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.loadSettingsFromURL();
 
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_scene").next().show();
-       //     viewer.toggleSidebar();
+            //     viewer.toggleSidebar();
         });
 
         viewer.setDescription(`
 
-		`);
+            `);
 
         let sceneSG = new Potree.Scene();
         let sceneSG2 = new Potree.Scene();
-		let sceneSG3 = new Potree.Scene();
-		let sceneLion = new Potree.Scene();
+        let sceneSG3 = new Potree.Scene();
+        let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
         function getParam(paramName) {
@@ -111,99 +178,99 @@
             {
 
 
-			// AMORINO
+                // AMORINO
                 {
                     let AMORINO = new Potree.Annotation({
                         position: [-30.428, 2.040, -1.779],
                         title: "AMORINO",
-						cameraPosition: [-29.999, 2.334, -1.774],
+                        cameraPosition: [-29.999, 2.334, -1.774],
                         cameraTarget: [-31.353, 1.407, -1.790],
                         description: `This sculpture, cast in lead, was always intended to be a fountain for this grotto, though it no longer functions in this way. It has survived flooding from multiple storms because lead generally resists corrosion, and when exposed, the surface develops a protective, grey patina as seen here.`,
                     });
                     AMORINO.domElement.off("mouseenter");
                     AMORINO.domElement.off("mouseleave");
                     AMORINO.addEventListener("click", () => {
-                    AMORINO.setHighlighted(!AMORINO.isHighlighted);
+                        AMORINO.setHighlighted(!AMORINO.isHighlighted);
                     });
                     sceneSG.annotations.add(AMORINO);
                 }
 
-			// END AMORINO
+                // END AMORINO
 
-			// CEILING
-		{
-			let CEILING = new Potree.Annotation({
-				position: [-32.029, 3.443, 0.213],
-				title: "Ceiling",
-				cameraPosition: [-29.999, 2.334, -1.774],
-				cameraTarget: [-31.909, 3.231, 0.200],
-				description: `The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors of the ceiling are now faded and difficult to identify.`,
-			});
-			CEILING.domElement.off("mouseenter");
-			CEILING.domElement.off("mouseleave");
-			CEILING.addEventListener("click", () => {
-			CEILING.setHighlighted(!CEILING.isHighlighted);
-			});
-			sceneSG.annotations.add(CEILING);
-		}
+                // CEILING
+                {
+                    let CEILING = new Potree.Annotation({
+                        position: [-32.029, 3.443, 0.213],
+                        title: "Ceiling",
+                        cameraPosition: [-29.999, 2.334, -1.774],
+                        cameraTarget: [-31.909, 3.231, 0.200],
+                        description: `The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors of the ceiling are now faded and difficult to identify.`,
+                    });
+                    CEILING.domElement.off("mouseenter");
+                    CEILING.domElement.off("mouseleave");
+                    CEILING.addEventListener("click", () => {
+                        CEILING.setHighlighted(!CEILING.isHighlighted);
+                    });
+                    sceneSG.annotations.add(CEILING);
+                }
 
-	// END CEILING
+                // END CEILING
 
-	// STURGEON
-		{
-			let STURGEON = new Potree.Annotation({
-				position: [-28.673, 2.003, 0.226],
-				title: "Hudson River Sturgeon",
-				cameraPosition: [-29.826, 0.515, -1.949],
-				cameraTarget: [-28.269, 2.743, 0.219],
-				description: `Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for Deering’s guests.`,
-			});
-			STURGEON.domElement.off("mouseenter");
-			STURGEON.domElement.off("mouseleave");
-			STURGEON.addEventListener("click", () => {
-			STURGEON.setHighlighted(!STURGEON.isHighlighted);
-			});
-			sceneSG.annotations.add(STURGEON);
-		}
+                // STURGEON
+                {
+                    let STURGEON = new Potree.Annotation({
+                        position: [-28.673, 2.003, 0.226],
+                        title: "Hudson River Sturgeon",
+                        cameraPosition: [-29.826, 0.515, -1.949],
+                        cameraTarget: [-28.269, 2.743, 0.219],
+                        description: `Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for Deering’s guests.`,
+                    });
+                    STURGEON.domElement.off("mouseenter");
+                    STURGEON.domElement.off("mouseleave");
+                    STURGEON.addEventListener("click", () => {
+                        STURGEON.setHighlighted(!STURGEON.isHighlighted);
+                    });
+                    sceneSG.annotations.add(STURGEON);
+                }
 
-	// END STURGEON
-	// FOUNTAINS
-		{
-			let FOUNTAINS = new Potree.Annotation({
-				position: [-28.474, -2.484, -1.770],
-				title: "Fountains",
-				cameraPosition: [-31.114, -1.877, -1.743],
-				cameraTarget: [-28.873, -1.743, -1.718],
-				description: `These coral rock fountains are similar to some of the other fountains found throughout the gardens at Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in the space and better protect the collection of objects in the Swimming Pool Grotto.`,
-			});
-			FOUNTAINS.domElement.off("mouseenter");
-			FOUNTAINS.domElement.off("mouseleave");
-			FOUNTAINS.addEventListener("click", () => {
-			FOUNTAINS.setHighlighted(!FOUNTAINS.isHighlighted);
-			});
-			sceneSG.annotations.add(FOUNTAINS);
-		}
+                // END STURGEON
+                // FOUNTAINS
+                {
+                    let FOUNTAINS = new Potree.Annotation({
+                        position: [-28.474, -2.484, -1.770],
+                        title: "Fountains",
+                        cameraPosition: [-31.114, -1.877, -1.743],
+                        cameraTarget: [-28.873, -1.743, -1.718],
+                        description: `These coral rock fountains are similar to some of the other fountains found throughout the gardens at Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in the space and better protect the collection of objects in the Swimming Pool Grotto.`,
+                    });
+                    FOUNTAINS.domElement.off("mouseenter");
+                    FOUNTAINS.domElement.off("mouseleave");
+                    FOUNTAINS.addEventListener("click", () => {
+                        FOUNTAINS.setHighlighted(!FOUNTAINS.isHighlighted);
+                    });
+                    sceneSG.annotations.add(FOUNTAINS);
+                }
 
-	// END FOUNTAINS
+                // END FOUNTAINS
 
-	// FLOOR
-		{
-			let FLOOR = new Potree.Annotation({
-				position: [-31.699, 0.139, -2.585],
-				title: "Floor",
-				cameraPosition: [-35.245, 3.333, -1.282],
-				cameraTarget: [-33.559, 1.499, -2.736],
-				description: `Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in an intricate pattern. Any hypothesis why this one has encountered more damage?`,
-			});
-			FLOOR.domElement.off("mouseenter");
-			FLOOR.domElement.off("mouseleave");
-			FLOOR.addEventListener("click", () => {
-			FLOOR.setHighlighted(!FLOOR.isHighlighted);
-			});
-			sceneSG.annotations.add(FLOOR);
-		}
+                // FLOOR
+                {
+                    let FLOOR = new Potree.Annotation({
+                        position: [-31.699, 0.139, -2.585],
+                        title: "Floor",
+                        cameraPosition: [-35.245, 3.333, -1.282],
+                        cameraTarget: [-33.559, 1.499, -2.736],
+                        description: `Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in an intricate pattern. Any hypothesis why this one has encountered more damage?`,
+                    });
+                    FLOOR.domElement.off("mouseenter");
+                    FLOOR.domElement.off("mouseleave");
+                    FLOOR.addEventListener("click", () => {
+                        FLOOR.setHighlighted(!FLOOR.isHighlighted);
+                    });
+                    sceneSG.annotations.add(FLOOR);
+                }
 
-	// END STURGEON
+                // END STURGEON
 
             }
         });

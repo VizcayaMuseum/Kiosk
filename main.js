@@ -9,15 +9,6 @@ function redirectHomeFunc() {
 
     window.top.location.href = "../index.html";
 }
-
-//For control panel
-function controlToggle() {
-
-    $("#handicap_icon").click(function () {
-
-        $("#control_panel").toggle();
-    });
-}
     
 
 /* Zoom In
@@ -29,8 +20,8 @@ function zoomIn() {
 
 /* Zoom Out
 *****************************************************/
-function zoomOut(){
-    viewer.scene.camera.zoom -= 0.1;
+function zoomOut() {
+    viewer.scene.position.z += 1;
 }
 
 /* Tween function used with camera movement - arrow buttons
@@ -204,4 +195,48 @@ function goInactive() {
 
 function goActive() {
     startTimer();
+}
+
+/* Movements for three.js GLTF models ***************************************/
+
+function gltfMoveUp() {
+
+    scene.rotation.x += 0.1;
+}
+
+function gltfMoveDown() {
+
+    scene.rotation.x -= 0.1;
+}
+
+function gltfMoveRight() {
+
+    scene.rotation.y += 0.1;
+}
+
+function gltfMoveLeft() {
+
+    scene.rotation.y -= 0.1;
+}
+
+function gltfZoomIn() {
+
+    camera.position.z += 1;
+
+}
+
+function gltfZoomOut() {
+
+    camera.position.z -= 1;
+}
+
+function mermidsGltfZoomIn() {
+
+    camera.position.z -= 1;
+
+}
+
+function mermidsGltfZoomOut() {
+
+    camera.position.z += 1;
 }
