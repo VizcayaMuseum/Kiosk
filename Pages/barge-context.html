@@ -169,21 +169,21 @@
                 }
             //
             // FemaleHerm
-            {
-                let aStatues = new Potree.Annotation({
-                    position: [-35.131, -37.530, 0.901],
-                    title: "Female Herm",
-                    cameraPosition: [-35.131, -37.530, 0.901],
-                    cameraTarget: [-42.340, -36.309, -0.732],
-                    description: `This herm was damed during hurricane Irma in 2017.`,
-                });
-                aStatues.domElement.off("mouseenter");
-                aStatues.domElement.off("mouseleave");
-                aStatues.addEventListener("click", () => {
-                    aStatues.setHighlighted(!aStatues.isHighlighted);
-                });
-                sceneSG.annotations.add(aStatues);
-            }
+                {
+                    let aStatues = new Potree.Annotation({
+                        position: [-35.131, -37.530, 0.901],
+                        title: "Female Herm",
+                        cameraPosition: [-35.131, -37.530, 0.901],
+                        cameraTarget: [-42.340, -36.309, -0.732],
+                        description: `This herm was damed during hurricane Irma in 2017.`,
+                    });
+                    aStatues.domElement.off("mouseenter");
+                    aStatues.domElement.off("mouseleave");
+                    aStatues.addEventListener("click", () => {
+                        aStatues.setHighlighted(!aStatues.isHighlighted);
+                    });
+                    sceneSG.annotations.add(aStatues);
+                }
 
 
 			// Grotesque
@@ -201,6 +201,23 @@
                         Grotesque.setHighlighted(!Grotesque.isHighlighted);
                     });
                     sceneSG.annotations.add(Grotesque);
+                }
+
+            // Mermaids
+                {
+                    let Mermaids = new Potree.Annotation({
+                        position: [-63.358, -51.438, -1.902],
+                        title: "Mermaids",
+                        cameraPosition: [-65.596, -53.536, -1.081],
+                        cameraTarget: [-44.362, -35.946, -6.132],
+                        description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
+                    });
+                    Mermaids.domElement.off("mouseenter");
+                    Mermaids.domElement.off("mouseleave");
+                    Mermaids.addEventListener("click", () => {
+                        Mermaids.setHighlighted(!Mermaids.isHighlighted);
+                    });
+                    sceneSG.annotations.add(Mermaids);
                 }
 
 
