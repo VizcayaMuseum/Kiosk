@@ -18,43 +18,51 @@
 
 </head>
 
-<body>
+<body style="touch-action: none;">
     <script src="models/build/three.js"></script>
     <script src="libs/other/OrbitControls.js"></script>
     <script src="libs/loaders/GLTFLoader.js"></script>
     <script src="libs/inflate.min.js"></script>
 
     <div class="container-fluid">
-		     <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-              <div class="sidebar-sticky">
+		     
+        <div id="container">
 
-                  <h1>Versión de 1916</h1>
-                    <p>Esta representación digital de un herma está basada en fotografías históricas de los archivos de Vizcaya. La comparación de esta imagen con los modelos tridimensionales producidos en el 2017 permite apreciar el gran daño causado por la erosión durante más de cien años. </p>
-</div>
+            <div id="split-container" class="mini-container1">
 
-                 <!--sticky footer-->
-          <footer class="footer">
-			  <div >
-                          <p align="center"><a href="index.html">Inicio</a> | <a href="../1916Herm.html">English</a><br>
-						 <!-- <p>Este interactivo ha sido posible a través del apoyo de</p>-->
-                          <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a></p>
-			  
-                      </div>
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
 
-                  </footer>
-              
-           </nav>
-  </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                            <h1>Versión de 1916</h1>
+                            <p>Esta representación digital de un herma está basada en fotografías históricas de los archivos de Vizcaya. La comparación de esta imagen con los modelos tridimensionales producidos en el 2017 permite apreciar el gran daño causado por la erosión durante más de cien años. </p>
+                        </div>
 
-            <!-- Featured Content  -->
-            
-              <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="models/1916herm.html" allowfullscreen></iframe>
-              </div>
+                        <!--sticky footer-->
+                        <footer class="footer">
+                            <div>
+                                <p align="center">
+                                    <a href="index.html">Inicio</a> | <a href="../1916Herm.html">English</a><br>
+                                    <!-- <p>Este interactivo ha sido posible a través del apoyo de</p>-->
+                                    <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
+                                </p>
 
-        </main>
+                            </div>
+
+                        </footer>
+
+                    </nav>
+                </div>
+            </div>
+
+            <div id="split-container" class="mini-container2">
+                <iframe id="iframe" src="models/1916herm.html" allowfullscreen></iframe>
+
+            </div>
+
+
+
+        </div>
     </div>
 
 
