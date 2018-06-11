@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
-    "\\es\\assets",
+    "\\es",
     "\\es\\assets\\css",
-    "\\webfonts",
-    "\\webfonts\\Marcellus_Regular"
+    "\\es\\images\\works",
+    "\\images\\works"
   ],
-  "SelectedNode": "\\webfonts\\OpenSans_Regular",
+  "SelectedNode": "\\es\\1916barge.html",
   "PreviewInSolutionExplorer": false
 }
