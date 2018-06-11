@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\es"
+    "\\assets",
+    "\\assets\\css",
+    "\\es\\assets",
+    "\\es\\assets\\css",
+    "\\webfonts",
+    "\\webfonts\\Marcellus_Regular"
   ],
-  "SelectedNode": "\\1916Mermaids.html",
+  "SelectedNode": "\\webfonts\\OpenSans_Regular",
   "PreviewInSolutionExplorer": false
 }
