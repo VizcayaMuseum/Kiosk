@@ -18,43 +18,58 @@
 
 </head>
 
-<body>
+<body style="touch-action: none;">
     <script src="models/build/three.js"></script>
     <script src="libs/other/OrbitControls.js"></script>
     <script src="libs/loaders/GLTFLoader.js"></script>
     <script src="libs/inflate.min.js"></script>
 
     <div class="container-fluid">
-		     <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-              <div class="sidebar-sticky">
+		     
+        <div id="container">
 
-                  <h1>Las Sirenas 1916</h1>
-                    <p>Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.</p>
+            <div id="split-container" class="mini-container1">
 
-   </div>
-                  <!--sticky footer-->
-          <footer class="footer">
-			  <div >
-                          <p align="center"><a href="index.html">Home</a> | <a href="es/1916Herm.html">Español</a><br>
-						 
-                          <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a></p>
-			  
-                      </div>
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
 
-                  </footer>
-           
-           </nav>
-  </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                            <h1>LAS SIRENAS 1916</h1>
+                            <p>
+                                <hr />Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara
+                                las proporciones de las esculturas porque le parecían demasiado provocativas.
+                            </p>
 
-            <!-- Featured Content  -->
-            
-              <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="models/1916mermaids.html" allowfullscreen></iframe>
-              </div>
+                        </div>
+                        <!--sticky footer-->
+                        <footer class="footer">
+                            <div>
+                                <p align="center">
+                                    <a href="index.html">Home</a> | <a href="../1916mermaids.html">English</a><br>
 
-        </main>
+                                    <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
+                                </p>
+
+                            </div>
+
+                        </footer>
+
+                    </nav>
+                </div>
+
+
+            </div>
+
+            <div id="split-container" class="mini-container2">
+
+                <iframe id="iframe" src="models/1916mermaids.html" allowfullscreen></iframe>
+
+            </div>
+
+
+
+
+        </div>
     </div>
 
 
