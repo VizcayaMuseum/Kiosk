@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="../libs2/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style>
 
 
@@ -116,6 +118,7 @@
             max-width: 250px;
             width: 500px;
             font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .annotation-description-close {
@@ -538,7 +541,13 @@
                 description: `SUMMER HOUSE <br> <hr>
                     The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure
                     that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
-                    originally landscaped with many potted plants, had functioning fountains as well as electricity.`
+                    originally landscaped with many potted plants, had functioning fountains as well as electricity.`           
+                /*
+                ,
+                actions: [{
+                    "icon": Potree.resourcePath + "/icons/popup-window.png",
+                }]
+                */
             }));
 
             scene.annotations.add(new Potree.Annotation({
@@ -571,7 +580,7 @@
                     These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs 
                     such as seaweed and coral. The seated figures are reproductions made in 1982.`
             }));
-
+/*
             scene.annotations.add(new Potree.Annotation({
                 position: [590313.892, 231537.451, 845.479],
                 cameraPosition: [589880.177, 231492.741, 1771.115],
@@ -594,7 +603,7 @@
                 too overtly sexual for the taste of Deering and some of his guest. Calder was asked
                 to tone them down, which he eventually did.`
             }));
-
+*/
             scene.annotations.add(new Potree.Annotation({
                 position: [589438.405, 231376.987, 807.788],
                 title: "i",

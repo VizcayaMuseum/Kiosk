@@ -183,7 +183,23 @@
                     });
                     sceneSG.annotations.add(Grotesque);
                 }
-								
+
+            // Mermaids
+            {
+                let Mermaids = new Potree.Annotation({
+                    position: [-63.358, -51.438, -1.902],
+                    title: "Mermaids",
+                    cameraPosition: [-65.596, -53.536, -1.081],
+                    cameraTarget: [-44.362, -35.946, -6.132],
+                    description: `El clima subtropical y más de un siglo de tormentas han borrado muchos de los detalles de las sirenas que adornan la Barcaza. A través de Vizcaya se encuentran representaciones de la vida marina. Algunas de estas obras se basan en la naturaleza, y otras, como las esculturas de niños tritones en la Fuente del Jardín, son producto de la imaginación.  `,
+                });
+                Mermaids.domElement.off("mouseenter");
+                Mermaids.domElement.off("mouseleave");
+                Mermaids.addEventListener("click", () => {
+                    Mermaids.setHighlighted(!Mermaids.isHighlighted);
+                });
+                sceneSG.annotations.add(Mermaids);
+            }					
 				
             }
         });

@@ -132,17 +132,15 @@ h1, h2, h3, h4 {
     max-width: calc(100% - 20px);
     position: absolute;
     bottom: 0%;
-   /* Set the fixed height of the footer here */
+    /* Set the fixed height of the footer here */
     /*line-height: 60px; /* Vertically center the text there */
     /*padding: 20px;*/
     background-color: #F8F9FA;
-    
+    font-size: 20px; /*increase for home | spanish links*/
 }
 
 .footer img{
-
-    width: 100%;
-    
+    width: 100%;  
 }
 
 
@@ -166,12 +164,15 @@ h1, h2, h3, h4 {
 .sidebar-sticky {
     position: relative;
     top: 0;
-    padding-bottom: 0px;
+    /*padding-bottom: 0px;*/
     height: calc(100% - 110px);
     /* height: 90%; */
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    padding: 5%;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 /*@supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -261,5 +262,5 @@ a {
     color: #555555;
     text-decoration: none;
 }
-}
+
 
