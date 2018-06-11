@@ -412,7 +412,7 @@
                 <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
             </map>
         </div>
-
+<!--
         <div class="controls">
 
             <div class="hotspot-controls">
@@ -436,13 +436,13 @@
                     <ul class="js-scrollable">
 
                         <li class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
-<!--
+
                         <li class="link"><a data-hotspot-target="1" title="Hermes"><span class="index">2</span> Hermes</a></li>
                         <li class="link"><a data-hotspot-target="2" title="The Prow"><span class="index">3</span> The Prow</a></li>
                         <li class="link"><a data-hotspot-target="3" title="Pleasures &amp; Perils"><span class="index">4</span> Pleasures &amp; Perils</a></li>
                         <li class="link"><a data-hotspot-target="4" title="Fountain Terrace &amp; Grotto"><span class="index">5</span> Fountain Terrace &amp; Grotto</a></li>
                         <li class="link"><a data-hotspot-target="5" title="The Stern"><span class="index">6</span> The Stern</a></li>
--->
+
                     </ul>
 
                 </div>
@@ -450,7 +450,7 @@
             </div>
 
         </div>
-
+-->
     </div>
     
     <script>
@@ -495,10 +495,33 @@
             // viewer.fitToScreen();
         });
         */
+
+        function getParam(paramName) {
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var address = srcSplit[1];
+            var paramArray = address.split('&');
+            //var paramList = window.location.search.substring(1);
+            //var paramArray = paramList.split('&');
+            for (var i = 0; i < paramArray.length; i++) {
+                var pArr = paramArray[i].split('=');
+                if (pArr[0] == paramName)
+                    return pArr[1];
+            }
+        }
+
+        var x_position = parseFloat(getParam('xP'));
+        var y_position = parseFloat(getParam('yP'));
+        var z_position = parseFloat(getParam('zP'));
+
+        var x_lookAt = parseFloat(getParam('xL'));
+        var y_lookAt = parseFloat(getParam('yL'));
+        var z_lookAt = parseFloat(getParam('zL'));
+
         {
             let scene = viewer.scene;
-            scene.view.position.set(589829.832, 230589.378, 864.140);
-            scene.view.lookAt(new THREE.Vector3(589851.587, 231428.213, 715.634));
+            scene.view.position.set(x_position, y_position, z_position);
+            scene.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
         }
 
         //ANNOTATIONS
@@ -519,7 +542,7 @@
             }));
 
             scene.annotations.add(new Potree.Annotation({
-                position: [589944.621, 231373.319, 809.720],
+                position: [589768.929, 231370.362, 802.951],
                 title: "i",
                 cameraPosition: [589629.579, 231228.127, 842.718],
                 cameraTarget: [589831.948, 231447.920, 757.739],
