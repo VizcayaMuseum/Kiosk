@@ -22660,11 +22660,12 @@ initSidebar = (viewer) => {
 			let elSplatQuality = $("#splat_quality_options");
 			elSplatQuality.selectgroup({title: "Splat Quality"});
 
+            //modified the viewer.useHQ booleans to make standard default into hq option
 			elSplatQuality.find("input").click( (e) => {
 				if(e.target.value === "standard"){
-					viewer.useHQ = false;
-				}else if(e.target.value === "hq"){
 					viewer.useHQ = true;
+				}else if(e.target.value === "hq"){
+                    viewer.useHQ = false;
 				}
 			});
 
