@@ -1,18 +1,73 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
 
-	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
-	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">\
+    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+
+
+        #fullscreen_icon {
+            max-width: 40px;
+            max-height: 40px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 10px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #handicap_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 70px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #control_panel {
+            max-width: 300px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            position: fixed;
+            bottom: 100px;
+            right: 70px;
+            z-index: 100;
+            display:;
+        }
+
+        .annotation-description {
+            position: relative;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            margin: 5px 0px 0px 0px;
+            border-radius: 4px;
+            display: none;
+            max-width: 430px;
+            width: 500px;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -69,11 +124,33 @@
 		let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
+        function getParam(paramName) {
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var address = srcSplit[1];
+            var paramArray = address.split('&');
+            //var paramList = window.location.search.substring(1);
+            //var paramArray = paramList.split('&');
+            for (var i = 0; i < paramArray.length; i++) {
+                var pArr = paramArray[i].split('=');
+                if (pArr[0] == paramName)
+                    return pArr[1];
+            }
+        }
+
+        var x_position = parseFloat(getParam('xP'));
+        var y_position = parseFloat(getParam('yP'));
+        var z_position = parseFloat(getParam('zP'));
+
+        var x_lookAt = parseFloat(getParam('xL'));
+        var y_lookAt = parseFloat(getParam('yL'));
+        var z_lookAt = parseFloat(getParam('zL'));
+
 	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){ 
        
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-22.189, -58.837, 7.413);
-            sceneSG.view.lookAt(new THREE.Vector3(-42.340, -36.309, -0.732));
+            sceneSG.view.position.set(x_position, y_position, z_position);
+            sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
 
 
             let material = e.pointcloud.material;
@@ -99,10 +176,10 @@
                     elTitle.toString = () => "HERM";
 
                     let aAbout1 = new Potree.Annotation({
-                        position: [-45.313, -22.859, -0.641],
+                        position: [-45.632, -27.628, -0.686],
                         title: elTitle,
-                        cameraPosition: [-45.313, -22.859, -0.641],
-                        cameraTarget: [-48.776, -36.047, 0.446],
+                        cameraPosition: [-47.033, -24.550, 0.708],
+                        cameraTarget: [-44.035, -36.829, -1.740],
                         description: `Cuatro hermas (bustos sin brazos colocados sobre columnas) dan la bienvenida a los invitados de la Barcaza. Las cestas de bananas y piñas sobre la cabeza de cada herma representan los trópicos. Hoy en día es difícil distinguir los detalles de los hermas, e inclusive algunos elementos han desaparecido por completo. Durante el huracán Wilma en el 2005, el herma femenino al lado este de la Barcaza se cayó en la bahía. Un equipo de conservación lo devolvió a su lugar después de recuperar y restaurar la figura. Los vientos y las mareas producidos por el huracán Irma en el 2017 hicieron que otro herma femenino se rompiera en tres grandes pedazos. Los pedazos fueron recuperados de la bahía en el 2018, y el herma será devuelto a su lugar después de su restauración.`
                     });
 
@@ -126,10 +203,10 @@
                     elTitle.toString = () => "SCULPTURES";
 
                     let aAbout3 = new Potree.Annotation({
-                        position: [-61.216, -49.492, 2.215],
+                        position: [-62.499, -50.734, 2.004],
                         title: elTitle,
-                        cameraPosition: [-60.112, -48.382, 2.478],
-                        cameraTarget: [-62.181, -50.463, 1.985],
+                        cameraPosition: [-63.384, -51.399, 2.409],
+                        cameraTarget: [-62.166, -50.460, 2.043],
                         description: `Estas criaturas míticas desnudas con características humanas y pez se encuentran rodeadas de motivos marítimos, como algas marinas y corales. Las figuras sentadas son reproducciones hechas en 1982.`
                     });
 
@@ -170,10 +247,10 @@
 			// Grotesque         				
                 {
                     let Grotesque = new Potree.Annotation({
-                        position: [-49.754, -51.426, -0.820],
+                        position: [-52.107, -49.002, -2.007],
                         title: "Grotesques",
-						cameraPosition: [-50.404, -50.724, -0.986],
-                        cameraTarget: [-57.708, -42.839, -2.847],
+                        cameraPosition: [-50.295, -51.055, -1.438],
+                        cameraTarget: [-67.337, -30.449, -0.615],
                         description: `En arquitectura, el grutesco es un motivo decorativo derivado de la mitología o la fantasía. Un grutesco en el lado oeste está casi completamente desaparecido. Los otros siete grutescos se mantienen intactos.`,
                     });
                     Grotesque.domElement.off("mouseenter");
@@ -183,7 +260,23 @@
                     });
                     sceneSG.annotations.add(Grotesque);
                 }
-								
+
+            // Mermaids
+            {
+                let Mermaids = new Potree.Annotation({
+                    position: [-63.358, -51.438, -1.902],
+                    title: "Mermaids",
+                    cameraPosition: [-65.596, -53.536, -1.081],
+                    cameraTarget: [-44.362, -35.946, -6.132],
+                    description: `El clima subtropical y más de un siglo de tormentas han borrado muchos de los detalles de las sirenas que adornan la Barcaza. A través de Vizcaya se encuentran representaciones de la vida marina. Algunas de estas obras se basan en la naturaleza, y otras, como las esculturas de niños tritones en la Fuente del Jardín, son producto de la imaginación.  `,
+                });
+                Mermaids.domElement.off("mouseenter");
+                Mermaids.domElement.off("mouseleave");
+                Mermaids.addEventListener("click", () => {
+                    Mermaids.setHighlighted(!Mermaids.isHighlighted);
+                });
+                sceneSG.annotations.add(Mermaids);
+            }					
 				
             }
         });
@@ -191,8 +284,8 @@
 			Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
 			
 			sceneSG2.addPointCloud(e.pointcloud);
-			sceneSG2.view.position.set(40.753, -1.937, 52.563);
-			sceneSG2.view.lookAt(new THREE.Vector3(0.166, 3.954, 48.562));
+			sceneSG2.view.position.set(40.480, -28.044, 52.055);
+			sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
 			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 			
 			sceneSG2.addAnnotation([31.570, 1.729, 53.886], {

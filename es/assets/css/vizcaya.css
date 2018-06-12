@@ -133,6 +133,7 @@ h1, h2, h3, h4 {
     /*line-height: 60px; /* Vertically center the text there */
     /*padding: 20px;*/
     background-color: #F8F9FA;
+    font-size: 20px; /*increase for home | spanish links*/
 }
 
     .footer img {
@@ -166,6 +167,9 @@ h1, h2, h3, h4 {
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    padding: 5%;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 /*@supports ((position: -webkit-sticky) or (position: sticky)) {
@@ -255,4 +259,11 @@ a {
     color: #555555;
     text-decoration: none;
 }
+
+.modal-title {
+    font-size: 25px;
+}
+
+.modal-body {
+    font-size: 20px;
 }

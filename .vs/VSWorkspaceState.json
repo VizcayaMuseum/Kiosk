@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\assets",
+    "\\assets\\css",
+    "\\assets\\img",
     "\\es",
-    "\\es\\assets\\css",
-    "\\es\\pages",
-    "\\images\\works",
-    "\\webfonts\\Marcellus_Regular"
+    "\\es\\assets",
+    "\\es\\images",
+    "\\es\\images\\works",
+    "\\images",
+    "\\images\\works"
   ],
-  "SelectedNode": "\\es\\pages",
+  "SelectedNode": "\\assets\\css\\vizcaya.css",
   "PreviewInSolutionExplorer": false
 }
