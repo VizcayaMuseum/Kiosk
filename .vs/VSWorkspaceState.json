@@ -2,12 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\css",
-    "\\es\\assets",
+    "\\es",
     "\\es\\assets\\css",
-    "\\webfonts",
+    "\\es\\pages",
+    "\\images\\works",
     "\\webfonts\\Marcellus_Regular"
   ],
-  "SelectedNode": "\\webfonts\\OpenSans_Regular",
+  "SelectedNode": "\\es\\pages",
   "PreviewInSolutionExplorer": false
 }
