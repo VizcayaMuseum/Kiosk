@@ -413,6 +413,10 @@
                 <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
                 <!--Right Button-->
                 <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <!--Zoom In-->
+                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                <!--Zoom Out-->
+                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
             </map>
         </div>
 <!--
@@ -545,7 +549,7 @@
                     let percentComplete = xhr.loaded / xhr.total * 100;
                     console.log(Math.round(percentComplete, 2) + '% downloaded');
                     let scene = viewer.scene;
-                    scene.console.log(Math.round(percentComplete, 2) + '% downloaded');
+                    console.log(Math.round(percentComplete, 2) + '% downloaded');
                 }
             };
             //texture.wrapS = THREE.RepeatWrapping;

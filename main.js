@@ -14,13 +14,15 @@ function redirectHomeFunc() {
 /* Zoom In
 *****************************************************/
 function zoomIn() {
-    let camera = e.viewer.scene.getActiveCamera();
-    viewer.scene.camera.zoom += 0.1;
+    viewer.controls.scene.cameraP.zoom += 0.1;
+    //let camera = e.viewer.scene.getActiveCamera();
+    //viewer.scene.camera.zoom += 0.1;
 }
 
 /* Zoom Out
 *****************************************************/
 function zoomOut() {
+    alert('zoom out');
     viewer.scene.position.z += 1;
 }
 
