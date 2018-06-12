@@ -572,7 +572,7 @@
             }));
 
             scene.annotations.add(new Potree.Annotation({
-                position: [590527.242, 231514.705, 867.874],
+                position: [590531.513, 231532.327, 870.313],
                 cameraPosition: [590676.913, 231463.673, 901.307],
                 cameraTarget: [589612.761, 231942.214, 556.678],
                 title: "i", 
@@ -639,20 +639,20 @@
                 console.log(item, loaded, total);
             };
 
-
-            let textureLoader = new THREE.TextureLoader(manager);
-            let texture = textureLoader.load(`${Potree.resourcePath}/models/textures/polySurface448SG1_baseColor.jpeg`);
+            
+            //let textureLoader = new THREE.TextureLoader(manager);
+            //let texture = textureLoader.load(`${Potree.resourcePath}/models/textures/polySurface448SG1_baseColor.jpeg`);
             let onProgress = function (xhr) {
                 if (xhr.lengthComputable) {
                     let percentComplete = xhr.loaded / xhr.total * 100;
-                    console.log(Math.round(percentComplete, 2) + '% downloaded');
+                    //console.log(Math.round(percentComplete, 2) + '% downloaded');
                     let scene = viewer.scene;
-                    scene.console.log(Math.round(percentComplete, 2) + '% downloaded');
+                    //scene.console.log(Math.round(percentComplete, 2) + '% downloaded');
                 }
             };
-            texture.wrapS = THREE.RepeatWrapping;
-            texture.wrapT = THREE.RepeatWrapping;
-
+            //texture.wrapS = THREE.RepeatWrapping;
+            //texture.wrapT = THREE.RepeatWrapping;
+            
 
             let onError = function (xhr) { };
 
@@ -689,77 +689,9 @@
                     //tree.jstree("open_node", parentNode);
                 });
 
-
             }, onProgress, onError);
 
         }
-        /*
-        // Load untextured bunny from ply
-        var loader = new THREE.PLYLoader();
-        loader.load( Potree.resourcePath + "/models/stanford_bunny_reduced.ply", (geometry) => {
-            geometry.computeVertexNormals();
-
-            // place two instances of this bunny into the scene
-
-            let mesh1;
-            {
-                let material = new THREE.MeshNormalMaterial();
-                mesh1 = new THREE.Mesh( geometry, material );
-                mesh1.position.set(589961.587, 231428.213, 710.634);
-                mesh1.scale.multiplyScalar(500);
-                mesh1.rotation.set(Math.PI / 2, Math.PI, 0)
-                viewer.scene.scene.add(mesh1);
-            }
-
-            let mesh2;
-            {
-                let material = new THREE.MeshPhysicalMaterial( {
-                    color: 0x226666,
-                    metalness: 0,
-                    roughness: 0.5,
-                    clearCoat:  1.0,
-                    clearCoatRoughness: 1.0,
-                    reflectivity: 1.0
-                } );
-                mesh2 = new THREE.Mesh( geometry, material );
-                mesh2.position.set(589751.587, 231428.213, 725.634);
-                mesh2.scale.multiplyScalar(500);
-                mesh2.rotation.set(Math.PI / 2, Math.PI, 0)
-                viewer.scene.scene.add(mesh2);
-            }
-
-            viewer.onGUILoaded(() => {
-                // Add entries to object list in sidebar
-                let tree = $(`#jstree_scene`);
-                let parentNode = "other";
-
-                let bunny1ID = tree.jstree('create_node', parentNode, {
-                        text: "Bunny 1",
-                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
-                        data: mesh1
-                    },
-                    "last", false, false);
-                tree.jstree(mesh1.visible ? "check_node" : "uncheck_node", bunny1ID);
-
-                let bunny2ID = tree.jstree('create_node', parentNode, {
-                        text: "Bunny 2",
-                        icon: `${Potree.resourcePath}/icons/triangle.svg`,
-                        data: mesh2
-                    },
-                    "last", false, false);
-                tree.jstree(mesh2.visible ? "check_node" : "uncheck_node", bunny2ID);
-            });
-
-        });
-
-        */
-
-            /*
-            if ($(domElement).find('#potree_description').length === 0) {
-                let potreeDescription = $(`<div id="potree_description" class="potree_info_text"></div>`);
-                $(domElement).append(potreeDescription);
-            }
-            */
 
     </script>
 </body>

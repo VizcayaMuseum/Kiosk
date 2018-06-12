@@ -312,12 +312,12 @@
 
             }
         });
-			// Herm point cloud in scene 2
 
-			Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
+        // Herm point cloud in scene 2
+		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
 			sceneSG2.addPointCloud(e.pointcloud);
-			sceneSG2.view.position.set(40.753, -1.937, 52.563);
-			sceneSG2.view.lookAt(new THREE.Vector3(0.166, 3.954, 48.562));
+			sceneSG2.view.position.set(40.480, -28.044, 52.055);
+			sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
 			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
 			sceneSG2.addAnnotation([31.570, 1.729, 53.886], {

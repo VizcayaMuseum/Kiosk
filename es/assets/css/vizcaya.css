@@ -260,3 +260,10 @@ a {
     text-decoration: none;
 }
 
+.modal-title {
+    font-size: 25px;
+}
+
+.modal-body {
+    font-size: 20px;
+}
