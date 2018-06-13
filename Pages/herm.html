@@ -48,7 +48,7 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
-            display: ;
+            display: none;
         }
     </style>
 </head>
@@ -107,7 +107,10 @@
 
     <script>
 
+        $("#handicap_icon").click(function () {
 
+            $("#control_panel").toggle();
+        });
         setup();
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 

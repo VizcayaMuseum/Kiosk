@@ -1,16 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
-    "\\assets\\img",
-    "\\es",
-    "\\es\\assets",
-    "\\es\\images",
-    "\\es\\images\\works",
-    "\\images",
-    "\\images\\works"
+    "\\es\\pages",
+    "\\libs2\\potree",
+    "\\models",
+    "\\models\\js\\animation"
   ],
-  "SelectedNode": "\\assets\\css\\vizcaya.css",
+  "SelectedNode": "\\models\\1916herm.html",
   "PreviewInSolutionExplorer": false
 }

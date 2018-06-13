@@ -22,8 +22,7 @@ function zoomIn() {
 /* Zoom Out
 *****************************************************/
 function zoomOut() {
-    alert('zoom out');
-    viewer.scene.position.z += 1;
+    viewer.controls.scene.cameraP.zoom -= 0.1;
 }
 
 /* Tween function used with camera movement - arrow buttons
@@ -119,7 +118,7 @@ function moveLeft() {
 
 /* Move Right
 *****************************************************/
-function moveRight(){
+function moveRight() {
     // movement direction
     const direction = 'left';
 
@@ -223,22 +222,21 @@ function gltfMoveLeft() {
 
 function gltfZoomIn() {
 
-    camera.position.z += 1;
+    camera.scale.z += 0.01;
 
 }
 
 function gltfZoomOut() {
 
-    camera.position.z -= 1;
+    camera.scale.z -= 0.01;
 }
 
-function mermidsGltfZoomIn() {
+function merGltfMoveUp() {
 
-    camera.position.z -= 1;
-
+    scene.rotation.x -= 0.1;
 }
 
-function mermidsGltfZoomOut() {
+function merGltfMoveDown() {
 
-    camera.position.z += 1;
+    scene.rotation.x += 0.1;
 }
