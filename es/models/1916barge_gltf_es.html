@@ -137,6 +137,70 @@
             margin: 2px 2px;
             opacity: 0.5;
         }
+
+        #handicap_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 70px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #control_panel {
+            max-width: 300px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            position: fixed;
+            bottom: 100px;
+            right: 70px;
+            z-index: 100;
+            display: none;
+        }
+
+        #fullscreen_icon {
+            max-width: 40px;
+            max-height: 40px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 10px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        .controls {
+            display: flex;
+            min-width: 0;
+            padding: 10px;
+            pointer-events: none;
+            position: absolute;
+            right: 30%; /*from 0 to 30% to align it in the middle*/
+            bottom: 0;
+            left: 30%; /*from 0 to 30% to align it in the middle*/
+            z-index: 2;
+            height: 50px;
+            /*width: 40% my change*/
+            /*inherited*/
+            font-family: "Open Sans", sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -155,13 +219,37 @@
     <script src="../../libs2/potree/potree.js"></script>
     <script src="../../libs2/plasio/js/laslaz.js"></script>
     <script src="../../libs2/other/GLTFLoader.js"></script>
-
+    <script src="../main.js"></script>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
+
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
+        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <div>
+
+            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+
+            <map name="controlPanel">
+
+                <!--Reset Button-->
+                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <!--Home Button-->
+                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                <!--Up Button-->
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <!--Down Button-->
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <!--left Button-->
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <!--Right Button-->
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+            </map>
+        </div>
     </div>
 
     <script>
@@ -251,7 +339,7 @@
             }));
 
             scene.annotations.add(new Potree.Annotation({
-                position: [590527.242, 231514.705, 867.874],
+                position: [590535.767, 231531.950, 866.741],
                 cameraPosition: [590676.913, 231463.673, 901.307],
                 cameraTarget: [589612.761, 231942.214, 556.678],
                 title: "i",

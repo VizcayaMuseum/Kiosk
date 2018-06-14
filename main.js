@@ -5,6 +5,11 @@ function redirectFunc() {
 
 }
 
+function refreshButton() {
+
+    window.top.location.reload();
+}
+
 function redirectHomeFunc() {
 
     window.top.location.href = "../index.html";
@@ -14,14 +19,15 @@ function redirectHomeFunc() {
 /* Zoom In
 *****************************************************/
 function zoomIn() {
-    let camera = e.viewer.scene.getActiveCamera();
-    viewer.scene.camera.zoom += 0.1;
+    viewer.controls.scene.cameraP.zoom += 0.1;
+    //let camera = e.viewer.scene.getActiveCamera();
+    //viewer.scene.camera.zoom += 0.1;
 }
 
 /* Zoom Out
 *****************************************************/
 function zoomOut() {
-    viewer.scene.position.z += 1;
+    viewer.controls.scene.cameraP.zoom -= 0.1;
 }
 
 /* Tween function used with camera movement - arrow buttons
@@ -63,7 +69,7 @@ function moveUp() {
         'amount': viewer.scene.view.pitch
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.pitch - .25
+        'amount': viewer.scene.view.pitch + .25
     };
 
     // call tween function
@@ -85,7 +91,7 @@ function moveDown(){
         'amount': viewer.scene.view.pitch
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.pitch + .25
+        'amount': viewer.scene.view.pitch - .25
     };
 
     // call tween function
@@ -107,7 +113,7 @@ function moveLeft() {
         'amount': viewer.scene.view.yaw
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.yaw - .25
+        'amount': viewer.scene.view.yaw + .25
     };
 
     // call tween function
@@ -117,7 +123,7 @@ function moveLeft() {
 
 /* Move Right
 *****************************************************/
-function moveRight(){
+function moveRight() {
     // movement direction
     const direction = 'left';
 
@@ -129,7 +135,7 @@ function moveRight(){
         'amount': viewer.scene.view.yaw
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.yaw + .25
+        'amount': viewer.scene.view.yaw - .25
     };
 
     // call tween function
@@ -221,22 +227,55 @@ function gltfMoveLeft() {
 
 function gltfZoomIn() {
 
-    camera.position.z += 1;
+    camera.scale.z += 0.01;
 
 }
 
 function gltfZoomOut() {
 
-    camera.position.z -= 1;
+    camera.scale.z -= 0.01;
 }
 
-function mermidsGltfZoomIn() {
+//Movements for the GLTF mermiad
+function merGltfMoveUp() {
 
-    camera.position.z -= 1;
-
+    scene.rotation.x -= 0.1;
 }
 
-function mermidsGltfZoomOut() {
+function merGltfMoveDown() {
 
-    camera.position.z += 1;
+    scene.rotation.x += 0.1;
+}
+
+//Movements for mermaid potree 
+function potreeMerMoveRight() {
+
+    
+    sceneSG.scenePointCloud.rotation.z += 0.1;
+}
+
+function potreeMerMoveLeft() {
+
+    sceneSG.scenePointCloud.rotation.z -= 0.1;
+}
+
+function potreeMerMoveUp() {
+
+    sceneSG.scenePointCloud.rotation.y += 0.1;
+}
+
+function potreeMerMoveDown() {
+
+    sceneSG.scenePointCloud.rotation.y -= 0.1;
+}
+
+//Movements for herm potree
+function potreeHermMoveUp() {
+
+    sceneSG.scenePointCloud.rotation.y -= 0.1;
+}
+
+function potreeHermMoveDown() {
+
+    sceneSG.scenePointCloud.rotation.y += 0.1;
 }

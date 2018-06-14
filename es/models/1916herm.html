@@ -59,65 +59,148 @@
                     transform: rotate(360deg);
                 }
             }
+
+            #fullscreen_icon {
+                max-width: 40px;
+                max-height: 40px;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                bottom: 15px;
+                right: 10px;
+                z-index: 100;
+                cursor: pointer;
+            }
+
+            #handicap_icon {
+                max-width: 50px;
+                max-height: 50px;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                bottom: 15px;
+                right: 70px;
+                z-index: 100;
+                cursor: pointer;
+            }
+
+            #control_panel {
+                max-width: 300px;
+                max-height: 300px;
+                width: auto;
+                height: auto;
+                position: fixed;
+                bottom: 100px;
+                right: 70px;
+                z-index: 100;
+                display: none;
+            }
+
+            #refresh_icon {
+                max-width: 50px;
+                max-height: 50px;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                bottom: 15px;
+                right: 140px;
+                z-index: 100;
+                cursor: pointer;
+            }
         
 		</style>
 	</head>
 
-	<body>
-		<div id="page-loader">
-			<img src="../assets/img/Ajax_loader_gray_256.gif" alt="Loading..." />
-		</div>
+    <body>
+        <div id="page-loader">
+            <img src="../assets/img/Ajax_loader_gray_256.gif" alt="Loading..." />
+        </div>
         <div id="loader"></div>
-		<script src="build/three.js"></script>
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
+        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <div>
 
-		<script src="js/controls/OrbitControls.js"></script>
+            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
 
-		<script src="js/loaders/FBXLoader.js"></script>
+            <map name="controlPanel">
 
-		<script src="js/libs/inflate.min.js"></script>
+                <!--Reset Button-->
+                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <!--Home Button-->
+                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                <!--Up Button-->
+                <area shape="circle" coords="110,62,25,10" onclick="gltfMoveUp()" />
+                <!--Down Button-->
+                <area shape="circle" coords="110,140,25,10" onclick="gltfMoveDown()" />
+                <!--left Button-->
+                <area shape="circle" coords="70,105,20,10" onclick="gltfMoveLeft()" />
+                <!--Right Button-->
+                <area shape="circle" coords="150,105,20,10" onclick="gltfMoveRight()" />
+                <!--Zoom In-->
+                <area shape="circle" coords="50,160,20,10" onclick="gltfZoomIn()" />
+                <!--Zoom Out-->
+                <area shape="circle" coords="170,160,20,10" onclick="gltfZoomOut()" />
 
-		<script>
+            </map>
+        </div>
+        <script src="build/three.js"></script>
 
-			var container, stats, controls;
-			var camera, scene, renderer, light;
+        <script src="js/controls/OrbitControls.js"></script>
 
-			init();
-			animate();
+        <script src="js/loaders/FBXLoader.js"></script>
 
-			function init() {
+        <script src="js/libs/inflate.min.js"></script>
+        <script src="../main.js"></script>
+        <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+        <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
 
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
+        <script>
 
-				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-				camera.position.set( -3.9711402282682964, 24.664728908700592, -90.64164758948131 );
-				camera.lookAt(new THREE.Vector3(0,10,0));
+            $("#handicap_icon").click(function () {
 
-				controls = new THREE.OrbitControls( camera );
-				controls.target.set( 0, 24, 0 );
-				controls.update();
+                $("#control_panel").toggle();
+            });
+            var container, stats, controls;
+            var camera, scene, renderer, light;
 
-				scene = new THREE.Scene();
+            init();
+            animate();
 
-				light = new THREE.HemisphereLight( 0xffffff, 0x444444 );
-				light.position.set( 0, 1, 0 );
-				scene.add( light );
+            function init() {
 
-				light = new THREE.DirectionalLight( 0xffffff );
-				light.position.set( 0, 1, 0 );
-				scene.add( light );
+                container = document.createElement('div');
+                document.body.appendChild(container);
 
-				// grid
-				// var gridHelper = new THREE.GridHelper( 28, 28, 0x303030, 0x303030 );
-				// scene.add( gridHelper );
+                camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+                camera.position.set(-3.9711402282682964, 24.664728908700592, -90.64164758948131);
+                camera.lookAt(new THREE.Vector3(0, 10, 0));
 
-   
+                controls = new THREE.OrbitControls(camera);
+                controls.target.set(0, 24, 0);
+                controls.update();
 
-				// model
-				var loader = new THREE.FBXLoader();
-				loader.load( 'http://localhost/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function( object ) {
-					// add the model into the scene
-					scene.add( object );
+                scene = new THREE.Scene();
+
+                light = new THREE.HemisphereLight(0xffffff, 0x444444);
+                light.position.set(0, 1, 0);
+                scene.add(light);
+
+                light = new THREE.DirectionalLight(0xffffff);
+                light.position.set(0, 1, 0);
+                scene.add(light);
+
+                // grid
+                // var gridHelper = new THREE.GridHelper( 28, 28, 0x303030, 0x303030 );
+                // scene.add( gridHelper );
+
+
+
+                // model
+                var loader = new THREE.FBXLoader();
+                loader.load('http://localhost/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {
+                    // add the model into the scene
+                    scene.add(object);
                 },
                     function (xhr) {
 
@@ -134,35 +217,35 @@
                     }
                 );
 
-				renderer = new THREE.WebGLRenderer();
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				container.appendChild( renderer.domElement );
+                renderer = new THREE.WebGLRenderer();
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                container.appendChild(renderer.domElement);
 
-				window.addEventListener( 'resize', onWindowResize, false );
+                window.addEventListener('resize', onWindowResize, false);
 
-			}
+            }
 
-			function onWindowResize() {
+            function onWindowResize() {
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
 
-				renderer.setSize( window.innerWidth, window.innerHeight );
+                renderer.setSize(window.innerWidth, window.innerHeight);
 
-			}
+            }
 
-			//
+            //
 
-			function animate() {
+            function animate() {
 
-				requestAnimationFrame( animate );
+                requestAnimationFrame(animate);
 
-				renderer.render( scene, camera );
+                renderer.render(scene, camera);
 
-			}
+            }
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 </html>

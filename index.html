@@ -16,7 +16,10 @@
     <link href="assets/css/vizcaya.css" rel="stylesheet">
     <style>
         h1 {
-            font-size: 3em;
+            position: sticky;
+            font-size: 3em; /*3em*/ /*60px*/
+            overflow-y: hidden;
+            overflow-x: auto;
         }
         * {
             box-sizing: border-box;
@@ -75,10 +78,13 @@
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
-
                     <h1>Virtual Vizcaya</h1> <hr />
                     <p>This project was made possible by the John S. and James L. Knight Foundation.</p>
-                    <p>For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning 21st century technology documents Vizcaya’s most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future. </p><p>Touch the tiles to the right to begin a virtual experience.</p>
+                    <p>For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. 
+                    Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling 
+                    and scanning 21st century technology documents Vizcaya’s most vulnerable historic assets to advance innovative approaches 
+                    to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider 
+                    Vizcaya’s past, present and future. </p><p>Touch the tiles to the right to begin a virtual experience.</p>
                     <!--p><a data-toggle="modal" href="#myModal" class="href-links">What is 3D documentation?</a></p>-->
                     
 
@@ -107,28 +113,25 @@
                 <div class="column">
                     <a href="3d-documentation.html"><img src="images/works/3DDocumentation_English.png" style="width:100%"></a>
                     <a href="swimmingpoolgrotto.html?xP=-32.400&yP=0.078&zP=-0.641&xL=-32.749&yL=-0.148&zL=-0.217"><img src="images/works/alligators5.gif" style="width:100%"></a>
-
-                    <a href="mermaids.html"><img src="images/works/Mermaids01.jpg" style="width:100%"></a>
+                    <a href="barge.html?xP=-63.384&yP=-51.399&zP=2.409&xL=-62.166&yL=-50.460&zL=2.043"><img src="images/works/Mermaids01.jpg" style="width:100%"></a>
 
                 </div>
                 <div class="column">
                     <a href="irma.html"><img src="images/works/IrmaFootage.gif" style="width:100%"></a>
                     <a href="swimmingpoolgrotto.html?xP=-25.003&yP=2.362&zP=-1.762&xL=-30.657&yL=2.000&zL=-1.767"><img src="images/works/Grotto_English.png" style="width:100%"></a>
-                    <a href="1916barge.html?xP=589629.579&yP=231228.127&zP=842.718&xL=589831.948&yL=231447.920&zL=757.739"><img src="images/works/Herm1916.jpg" style="width:100%"></a>
+                    <a href="1916barge.html?xP=589745.165&yP=231273.979&zP=845.176&xL=589835.249&yL=231457.095&zL=787.373"><img src="images/works/Herm1916.jpg" style="width:100%"></a>
 
                 </div>
                 <div class="column">
-
-                    <a href="2017herm.html"><img src="images/works/Herm.gif" style="width:100%"></a>
-                    <a href="barge.html"><img src="images/works/Barge_English.png" style="width:100%"></a>
+                    <a href="barge.html?xP=-47.248&yP=-24.943&zP=0.782&xL=-44.048&yL=-36.910&zL=-1.289"><img src="images/works/Herm.gif" style="width:100%"></a>
+                    <a href="barge.html?xP=-22.189&yP=-58.837&zP=7.413&xL=-42.340&yL=-36.309&zL=-0.732"><img src="images/works/Barge_English.png" style="width:100%"></a>
                     <a href="barge-context.html"><img src="images/works/barge-context.jpg" style="width:100%"></a>
 
                 </div>
                 <div class="column">
-
-                    <a href="1916barge.html?xP=589829.832&yP=230589.378&zP=864.140&xL=589851.5878&yL=231428.213&zL=715.634"><img src="images/works/1916Barge_English.png" style="width:100%"></a>
+                    <a href="1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147"><img src="images/works/1916Barge_English.png" style="width:100%"></a>
                     <a data-toggle="modal" href="#myHouse"><img src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a>
-                    <a href="1916barge.html?xP=590676.913&yP=231463.673&zP=901.307&xL=589612.761&yL=231942.214&zL=556.678"><img src="images/works/1916mermaids.png" style="width:100%"></a>
+                    <a href="1916barge.html?xP=590563.514&yP=231532.629&zP=891.572&xL=589565.027&yL=231617.968&zL=539.305"><img src="images/works/1916mermaids.png" style="width:100%"></a>
 
                 </div>
             </div>
@@ -151,13 +154,9 @@
                 <div class="modal-body">
                     <p>
                         Vizcaya used two methods of 3D documentation: <br>
-
                         Laser scanning captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models. <br><br>
-
                         Photogrammetry makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models. <br><br>
-
                         Vizcaya and the project partners combined photogrammetry and laser scanning to maximize the advantages of each technique. The results are unique and highly accurate images and print models that document Vizcaya over time.
-
                     </p>
                 </div>
 
@@ -189,14 +188,22 @@
                         <br>
 
                         <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg"><br><br>
-                        Laser scanning captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models. <br><br>
+                        Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925. 
+                        As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed 
+                        in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom. 
+                        Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and 
+                        hard-to-reach areas of the gardens. <br /><br />
+                        Select start to begin a virtual access tour.
 
+                        <!--
+                            Laser scanning captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models. <br><br>
+    -->
                     </p>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a href="../vizcaya/vat/kiosk/house.html"><button type="button" class="btn">Accept</button></a>
+                    <a href="http://vizcaya.darumatech.com/VAT/kiosk/house.html"><button type="button" class="btn">Start</button></a>
                     <button type="button" class="btn" data-dismiss="modal">Close</button>
                 </div>
 

@@ -1,18 +1,69 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Potree Viewer</title>
 
-	<link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
-	<link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <style>
+
+
+        #fullscreen_icon {
+            max-width: 40px;
+            max-height: 40px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 10px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #handicap_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 70px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #control_panel {
+            max-width: 300px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            position: fixed;
+            bottom: 100px;
+            right: 70px;
+            z-index: 100;
+            display: none;
+        }
+
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,19 +81,50 @@
 	<script src="../libs/jstree/jstree.js"></script>
 	<script src="../build/potree/potree.js"></script>
 	<script src="../libs/plasio/js/laslaz.js"></script>
-	
+    <script src="../main.js"></script>
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
 	<!-- INCLUDE SETTINGS HERE -->
 	
-	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
-		<div id="potree_render_area"></div>
-		<div id="potree_sidebar_container"> </div>
-	</div>
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+        <div id="potree_render_area"></div>
+        <div id="potree_sidebar_container"> </div>
+
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
+        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <div>
+
+            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+
+            <map name="controlPanel">
+
+                <!--Reset Button-->
+                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <!--Home Button-->
+                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                <!--Up Button-->
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <!--Down Button-->
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <!--left Button-->
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <!--Right Button-->
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <!--Zoom In-->
+                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                <!--Zoom Out-->
+                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+            </map>
+        </div>
+    </div>
 	
 	<script>
 
  
-	
+        $("#handicap_icon").click(function () {
+
+            $("#control_panel").toggle();
+        });
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 		
 		viewer.setEDLEnabled(false);

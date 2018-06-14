@@ -48,7 +48,19 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
-            display: ;
+            display: none;
+        }
+
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -77,6 +89,7 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
         <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
         <div>
@@ -90,13 +103,13 @@
                 <!--Home Button-->
                 <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
                 <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <area shape="circle" coords="110,62,25,10" onclick="potreeHermMoveUp()" />
                 <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <area shape="circle" coords="110,140,25,10" onclick="potreeHermMoveDown()" />
                 <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
                 <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
                 <!--Zoom In-->
                 <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
                 <!--Zoom Out-->
@@ -107,7 +120,10 @@
 
     <script>
 
+        $("#handicap_icon").click(function () {
 
+            $("#control_panel").toggle();
+        });
         setup();
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 

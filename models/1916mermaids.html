@@ -85,6 +85,18 @@
             cursor: pointer;
         }
 
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
         #control_panel {
             max-width: 300px;
             max-height: 300px;
@@ -96,6 +108,30 @@
             z-index: 100;
             display:none;
         }
+        #menu {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            color: white;
+            background: transparent;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+            button:hover {
+                background-color: rgb(63,68,70);
+            }
+
+            button:active {
+                color: white;
+                /*background-color: rgba(0,255,255,0.75);*/
+            }
     </style>
 
     <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
@@ -119,6 +155,7 @@
     <script src="../main.js"></script>
     <div id="includedContent"></div>
     <div id="loader"></div>
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
     <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
     <div>
@@ -132,20 +169,25 @@
             <!--Home Button-->
             <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
             <!--Up Button-->
-            <area shape="circle" coords="110,62,25,10" onclick="gltfMoveUp()" />
+            <area shape="circle" coords="110,62,25,10" onclick="merGltfMoveUp()" />
             <!--Down Button-->
-            <area shape="circle" coords="110,140,25,10" onclick="gltfMoveDown()" />
+            <area shape="circle" coords="110,140,25,10" onclick="merGltfMoveDown()" />
             <!--left Button-->
             <area shape="circle" coords="70,105,20,10" onclick="gltfMoveLeft()" />
             <!--Right Button-->
             <area shape="circle" coords="150,105,20,10" onclick="gltfMoveRight()" />
             <!--Zoom In-->
-            <area shape="circle" coords="50,160,20,10" onclick="mermidsGltfZoomIn()" />
+            <area shape="circle" coords="50,160,20,10" onclick="gltfZoomIn()" />
             <!--Zoom Out-->
-            <area shape="circle" coords="170,160,20,10" onclick="mermidsGltfZoomOut()" />
+            <area shape="circle" coords="170,160,20,10" onclick="gltfZoomOut()" />
 
         </map>
     </div>
+
+    <div id="menu">
+        <button onclick="returntoBarge()"><b>Return to Barge</b></button>
+    </div>
+
     <script>
 
         var container, stats, controls;
@@ -172,7 +214,7 @@
 
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 15, 0);
-            
+
 
             scene = new THREE.Scene();
 
@@ -237,7 +279,9 @@
             renderer.render(scene, camera);
 
         }
-
+        function returntoBarge() {
+            window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
+        }
 
     </script>
 

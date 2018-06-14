@@ -86,6 +86,17 @@
             z-index: 100;
             cursor: pointer;
         }
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
 
         #control_panel {
             max-width: 300px;
@@ -98,6 +109,30 @@
             z-index: 100;
             display: none;
         }
+        #menu {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            color: white;
+            background: transparent;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+            button:hover {
+                background-color: rgb(63,68,70);
+            }
+
+            button:active {
+                color: white;
+                /*background-color: rgba(0,255,255,0.75);*/
+            }
     </style>
 </head>
 
@@ -118,6 +153,7 @@
 
     <div id="loader"></div>
 
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
     <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
     <div>
@@ -146,6 +182,10 @@
         </map>
     </div>
 
+    <div id="menu">
+        <button onclick="returntoBarge()"><b>Return to Barge</b></button>
+    </div>
+
     <script>
 
         var container, stats, controls;
@@ -170,7 +210,7 @@
 
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 24, 0);
-            
+
 
             scene = new THREE.Scene();
 
@@ -237,8 +277,10 @@
             renderer.render(scene, camera);
 
         }
-        
-        
+
+        function returntoBarge() {
+            window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
+        }
     </script>
 
 </body>
