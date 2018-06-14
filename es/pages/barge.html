@@ -162,7 +162,7 @@
                 {
                     let elTitle = $(`
 						<span>
-							Herm
+							HERMAS
 							<img src="${Potree.resourcePath}/icons/goto.svg" 
 								name="action_set_scene"
 								class="annotation-action-icon" 
@@ -189,7 +189,7 @@
 				{
                     let elTitle = $(`
 						<span>
-							Pleasures and Perils
+							ESCULTURAS
 							<img src="${Potree.resourcePath}/icons/goto.svg" 
 								name="action_set_scene"
 								class="annotation-action-icon" 
@@ -200,7 +200,7 @@
                         event.stopPropagation();
                         viewer.setScene(sceneLion);
                     });
-                    elTitle.toString = () => "SCULPTURES";
+                    elTitle.toString = () => "ESCULTURAS";
 
                     let aAbout3 = new Potree.Annotation({
                         position: [-62.499, -50.734, 2.004],
@@ -225,7 +225,7 @@
 //                    });
 //                    sceneSG.annotations.add(aAbout2);
 //                }
-//
+/*
 			// Statues         				
                 {
                     let aStatues = new Potree.Annotation({
@@ -242,13 +242,13 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
-				
+*/				
 				
 			// Grotesque         				
                 {
                     let Grotesque = new Potree.Annotation({
                         position: [-52.107, -49.002, -2.007],
-                        title: "Grotesques",
+                        title: "GRUTESCOS",
                         cameraPosition: [-50.295, -51.055, -1.438],
                         cameraTarget: [-67.337, -30.449, -0.615],
                         description: `En arquitectura, el grutesco es un motivo decorativo derivado de la mitología o la fantasía. Un grutesco en el lado oeste está casi completamente desaparecido. Los otros siete grutescos se mantienen intactos.`,
@@ -265,7 +265,7 @@
             {
                 let Mermaids = new Potree.Annotation({
                     position: [-63.358, -51.438, -1.902],
-                    title: "Mermaids",
+                    title: "SIRENAS",
                     cameraPosition: [-65.596, -53.536, -1.081],
                     cameraTarget: [-44.362, -35.946, -6.132],
                     description: `El clima subtropical y más de un siglo de tormentas han borrado muchos de los detalles de las sirenas que adornan la Barcaza. A través de Vizcaya se encuentran representaciones de la vida marina. Algunas de estas obras se basan en la naturaleza, y otras, como las esculturas de niños tritones en la Fuente del Jardín, son producto de la imaginación.  `,
@@ -299,8 +299,8 @@
 			});
 		});
 		
-		// Pleasures and Perils
-		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/mermaid/cloud.js", "pleasuresandperils", function(e){
+		//Sculptures
+		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/mermaid/cloud.js", "sculptures", function(e){
 			sceneLion.addPointCloud(e.pointcloud);
 			sceneLion.view.position.set(-148.290, 22.164, 56.452);
 			sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));

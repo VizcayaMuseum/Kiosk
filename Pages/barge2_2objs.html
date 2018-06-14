@@ -688,13 +688,36 @@
 
             }
         }
-/*
-        var fbxLoader = new THREE.FBXLoader();
-        fbxLoader.load('https://vizcaya.s3.amazonaws.com/3dmodels/fbx/hermes1917_3.fbx', function (object) {           
-            scene.position.set(0,0,0);
-            scene.scale.multiplyScalar(100);
-            scene.rotation.set(Math.PI / 2, Math.PI, 0)
+        /*
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
+            sceneSG2.addPointCloud(e.pointcloud);
+            sceneSG2.view.position.set(40.480, -28.044, 52.055);
+            sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
+            e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+            sceneSG2.addAnnotation([31.570, 1.729, 53.886], {
+                "title": "Return to Barge",
+                "actions": [{
+                    "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                    "onclick": function () {
+                        viewer.setScene(sceneSG);
+                    }
+                }]
+            });
+        });
+        */
+        var loader = new THREE.FBXLoader();
+        loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/fbx/hermes1917_3.fbx', function (object) {
             // add the model into the scene
+            //scene.add(fbx.scene);
+            //scene.position.set(-3.9711402282682964, 24.664728908700592, -90.64164758948131);
+            //scene.scale.multiplyScalar(100);
+            //scene.rotation.set(Math.PI / 2, Math.PI, 0)
+
+            object.position.set(589871.587, 231528.213, 725.634);
+            object.scale.multiplyScalar(100);
+            object.rotation.set(Math.PI / 2, Math.PI, 0)
+
             viewer.scene.scene.add(object);
 
             //object.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
@@ -710,15 +733,16 @@
                 }]
             });
         });
-*/
-        var gltfLoader = new THREE.GLTFLoader();
-        gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/herm1917/scene.gltf', function (gltf) {
-            sceneSG2.scene.position.set(0,0,0);
-            sceneSG2.scene.scale.multiplyScalar(100);
-            sceneSG2.scene.rotation.set(Math.PI / 2, Math.PI, 0)
 
-            viewer.scene.scene.add(gltf.scene);
-            sceneSG2.addAnnotation([0, 0, 0], {
+        /*
+        // Pleasures and Perils
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function (e) {
+            sceneLion.addPointCloud(e.pointcloud);
+            sceneLion.view.position.set(-148.290, 22.164, 56.452);
+            sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
+            e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+            sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
                 "title": "Return to Barge",
                 "actions": [{
                     "icon": Potree.resourcePath + "/icons/goto-w.svg",
@@ -728,23 +752,28 @@
                 }]
             });
         });
+        */
 
-        gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {           
-            sceneSG4.scene.position.set(-10,0,-3500); 
-            sceneSG4.scene.scale.multiplyScalar(100);
-            sceneSG4.scene.rotation.set(Math.PI / 2, Math.PI, 0)           
-
-            viewer.scene.scene.add(gltf.scene);            
-            sceneSG4.addAnnotation([0,0,0], {
-                "title": "Return",
+        var loader = new THREE.GLTFLoader();
+        loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {           
+            viewer.scene.scene.add(gltf);
+            //scene.rotation.x = Math.PI / 2;
+            //gltf.scene.view.position.set(-148.290, 22.164, 56.452);
+            //gltf.scene.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
+            //object.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+            
+            sceneSG4.addAnnotation([-36.268, -19.210, -15.277], {
+                "title": "Return to Barge",
                 "actions": [{
                     "icon": Potree.resourcePath + "/icons/goto-w.svg",
                     "onclick": function () {
                         viewer.setScene(sceneSG);
                     }
                 }]
-            });           
+            });
+            
         });
+
 
         var timeoutID;
 
