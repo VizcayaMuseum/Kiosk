@@ -51,7 +51,19 @@
             bottom: 100px;
             right: 70px;
             z-index: 100;
-            display:;
+            display:none;
+        }
+
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
         }
 
         .annotation-description {
@@ -93,6 +105,7 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
         <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
         <div>
@@ -106,13 +119,13 @@
                 <!--Home Button-->
                 <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
                 <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
                 <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
                 <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
                 <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
                 <!--Zoom In-->
                 <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
                 <!--Zoom Out-->
@@ -155,7 +168,7 @@
 		let sceneSG3 = new Potree.Scene();
 		let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
-
+/*
         function getParam(paramName) {
             var src = document.referrer;
             var srcSplit = src.split("?");
@@ -177,12 +190,12 @@
         var x_lookAt = parseFloat(getParam('xL'));
         var y_lookAt = parseFloat(getParam('yL'));
         var z_lookAt = parseFloat(getParam('zL'));
-
+*/
 	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){
 
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(x_position, y_position, z_position);
-            sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+            sceneSG.view.position.set(-22.189,-58.837,7.413);
+            sceneSG.view.lookAt(new THREE.Vector3(-42.340,-36.309,-0.732));
             
 
             let material = e.pointcloud.material;

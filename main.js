@@ -5,6 +5,11 @@ function redirectFunc() {
 
 }
 
+function refreshButton() {
+
+    window.top.location.reload();
+}
+
 function redirectHomeFunc() {
 
     window.top.location.href = "../index.html";
@@ -64,7 +69,7 @@ function moveUp() {
         'amount': viewer.scene.view.pitch
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.pitch - .25
+        'amount': viewer.scene.view.pitch + .25
     };
 
     // call tween function
@@ -86,7 +91,7 @@ function moveDown(){
         'amount': viewer.scene.view.pitch
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.pitch + .25
+        'amount': viewer.scene.view.pitch - .25
     };
 
     // call tween function
@@ -108,7 +113,7 @@ function moveLeft() {
         'amount': viewer.scene.view.yaw
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.yaw - .25
+        'amount': viewer.scene.view.yaw + .25
     };
 
     // call tween function
@@ -130,7 +135,7 @@ function moveRight() {
         'amount': viewer.scene.view.yaw
     };
     const newPitchObject = {
-        'amount': viewer.scene.view.yaw + .25
+        'amount': viewer.scene.view.yaw - .25
     };
 
     // call tween function
@@ -231,6 +236,7 @@ function gltfZoomOut() {
     camera.scale.z -= 0.01;
 }
 
+//Movements for the GLTF mermiad
 function merGltfMoveUp() {
 
     scene.rotation.x -= 0.1;
@@ -239,4 +245,37 @@ function merGltfMoveUp() {
 function merGltfMoveDown() {
 
     scene.rotation.x += 0.1;
+}
+
+//Movements for mermaid potree 
+function potreeMerMoveRight() {
+
+    
+    sceneSG.scenePointCloud.rotation.z += 0.1;
+}
+
+function potreeMerMoveLeft() {
+
+    sceneSG.scenePointCloud.rotation.z -= 0.1;
+}
+
+function potreeMerMoveUp() {
+
+    sceneSG.scenePointCloud.rotation.y += 0.1;
+}
+
+function potreeMerMoveDown() {
+
+    sceneSG.scenePointCloud.rotation.y -= 0.1;
+}
+
+//Movements for herm potree
+function potreeHermMoveUp() {
+
+    sceneSG.scenePointCloud.rotation.y -= 0.1;
+}
+
+function potreeHermMoveDown() {
+
+    sceneSG.scenePointCloud.rotation.y += 0.1;
 }

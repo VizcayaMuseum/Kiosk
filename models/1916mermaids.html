@@ -85,6 +85,18 @@
             cursor: pointer;
         }
 
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
         #control_panel {
             max-width: 300px;
             max-height: 300px;
@@ -119,6 +131,7 @@
     <script src="../main.js"></script>
     <div id="includedContent"></div>
     <div id="loader"></div>
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
     <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
     <div>
@@ -172,7 +185,7 @@
 
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 15, 0);
-            
+
 
             scene = new THREE.Scene();
 

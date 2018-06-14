@@ -177,6 +177,18 @@
             display: none;
         }
 
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
+
         .controls {
             display: flex;
             min-width: 0;
@@ -392,7 +404,7 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
-
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
         <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
         <div>
@@ -415,45 +427,45 @@
                 <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
             </map>
         </div>
-<!--
-        <div class="controls">
+        <!--
+            <div class="controls">
 
-            <div class="hotspot-controls">
+                <div class="hotspot-controls">
 
-                <div data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
-                </div>
+                    <div data-title="Previous Annotation" data-action="prev-annotation">
+                        <div class="icon fa fa-caret-left"></div>
+                    </div>
 
-                <div class="hotspot-name" data-action="toggle-annotation-list">Select an annotation</div>
+                    <div class="hotspot-name" data-action="toggle-annotation-list">Select an annotation</div>
 
-                <div data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
-                </div>
+                    <div data-title="Next Annotation" data-action="next-annotation">
+                        <div class="icon fa fa-caret-right"></div>
+                    </div>
 
-                <div class="list hotspots-list visible">
+                    <div class="list hotspots-list visible">
 
-                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                        <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
 
-                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+                        <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
 
-                    <ul class="js-scrollable">
+                        <ul class="js-scrollable">
 
-                        <li class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
+                            <li class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
 
-                        <li class="link"><a data-hotspot-target="1" title="Hermes"><span class="index">2</span> Hermes</a></li>
-                        <li class="link"><a data-hotspot-target="2" title="The Prow"><span class="index">3</span> The Prow</a></li>
-                        <li class="link"><a data-hotspot-target="3" title="Pleasures &amp; Perils"><span class="index">4</span> Pleasures &amp; Perils</a></li>
-                        <li class="link"><a data-hotspot-target="4" title="Fountain Terrace &amp; Grotto"><span class="index">5</span> Fountain Terrace &amp; Grotto</a></li>
-                        <li class="link"><a data-hotspot-target="5" title="The Stern"><span class="index">6</span> The Stern</a></li>
+                            <li class="link"><a data-hotspot-target="1" title="Hermes"><span class="index">2</span> Hermes</a></li>
+                            <li class="link"><a data-hotspot-target="2" title="The Prow"><span class="index">3</span> The Prow</a></li>
+                            <li class="link"><a data-hotspot-target="3" title="Pleasures &amp; Perils"><span class="index">4</span> Pleasures &amp; Perils</a></li>
+                            <li class="link"><a data-hotspot-target="4" title="Fountain Terrace &amp; Grotto"><span class="index">5</span> Fountain Terrace &amp; Grotto</a></li>
+                            <li class="link"><a data-hotspot-target="5" title="The Stern"><span class="index">6</span> The Stern</a></li>
 
-                    </ul>
+                        </ul>
+
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
--->
+    -->
     </div>
     
     <script>

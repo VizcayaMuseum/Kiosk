@@ -51,6 +51,18 @@
             z-index: 100;
             display: none;
         }
+
+        #refresh_icon {
+            max-width: 50px;
+            max-height: 50px;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: 140px;
+            z-index: 100;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -78,7 +90,7 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
-
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
         <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
         <div>
@@ -99,6 +111,10 @@
                 <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
                 <!--Right Button-->
                 <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <!--Zoom In-->
+                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                <!--Zoom Out-->
+                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
             </map>
         </div>
     </div>
