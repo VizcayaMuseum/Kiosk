@@ -512,7 +512,7 @@
 
 
             let loader = new THREE.GLTFLoader(manager);
-            loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
+            loader.load('http://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
                 /*
                 gltf.scene.traverse(function (child) {
                     if (child instanceof THREE.Mesh) {
@@ -627,10 +627,10 @@
                 // Summer House
                 {
                     let aStatues = new Potree.Annotation({
-                        position: [589287.205, 231502.723, 935.700],
-                        title: "Summer House",
-                        cameraPosition: [588889.175, 231274.226, 947.434],
-                        cameraTarget: [589431.505, 231454.182, 848.344],
+                        position: [589367.536, 231407.493, 852.372],
+                        title: "SUMMER HOUSE",
+                        cameraPosition: [589512.482, 231554.667, 919.268],
+                        cameraTarget: [589394.480, 231518.869, 889.558],
                         description: `The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure
                                     that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
                                     originally landscaped with many potted plants, had functioning fountains as well as electricity.`,
@@ -664,11 +664,13 @@
                 // Grotesque
                 {
                     let Grotesque = new Potree.Annotation({
-                        position: [589438.405, 231376.987, 807.788],
-                        title: "Grotesques",
-                        cameraPosition: [589188.988, 231204.663, 820.657],
-                        cameraTarget: [589638.021, 231772.931, 768.584],
-                        description: `In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`,
+                        position: [589427.435, 231387.364, 754.621],
+                        title: "GROTESQUES",
+                        cameraPosition: [589429.688, 231295.807, 778.016],
+                        cameraTarget: [589439.255, 231558.884, 793.770],
+                        description: `These eight grotesques around the outside of the Barge were designed by Alexander Calder and 
+                                    include bearded men, youthful women, and animals.
+                           `,
                     });
                     Grotesque.domElement.off("mouseenter");
                     Grotesque.domElement.off("mouseleave");
