@@ -108,6 +108,30 @@
             z-index: 100;
             cursor: pointer;
         }
+        #menu {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            color: white;
+            background: transparent;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+            button:hover {
+                background-color: rgb(63,68,70);
+            }
+
+            button:active {
+                color: white;
+                /*background-color: rgba(0,255,255,0.75);*/
+            }
     </style>
 
     <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
@@ -162,6 +186,10 @@
     <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
     <div id="includedContent"></div>
 
+    <div id="menu">
+        <button onclick="returntoBarge()"><b>Regresa a la Barcaza</b></button>
+    </div>
+
     <script>
 
         $("#handicap_icon").click(function () {
@@ -204,7 +232,7 @@
 
             // model
             var loader = new THREE.GLTFLoader();
-            loader.load('http://localhost/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {
+            loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {
 
                 scene.add(gltf.scene);
                 //scene.rotation.x = Math.PI / 2;
@@ -253,7 +281,9 @@
 
         }
 
-
+        function returntoBarge() {
+            window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
+        }
 
     </script>
 
