@@ -455,7 +455,7 @@
         let sceneSG3 = new Potree.Scene();
         let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
-        /*
+        
         function getParam(paramName) {
             var src = document.referrer;
             var srcSplit = src.split("?");
@@ -477,12 +477,12 @@
         var x_lookAt = parseFloat(getParam('xL'));
         var y_lookAt = parseFloat(getParam('yL'));
         var z_lookAt = parseFloat(getParam('zL'));
-        */
+        
 
         {
             let scene = viewer.scene;
-            scene.view.position.set(589829.832, 230589.378, 864.140);
-            scene.view.lookAt(new THREE.Vector3(589851.588, 231428.213, 715.634));
+            scene.view.position.set(x_position, y_position, z_position);
+            scene.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
         }
 
         { // Load Textured bunny from obj
@@ -549,7 +549,7 @@
                 {
                     let elTitle = $(`
                     <span>
-                        Herm
+                        HERM
                         <img src="${Potree.resourcePath}/icons/goto.svg"
                             name="action_set_scene"
                             class="annotation-action-icon"
@@ -558,17 +558,20 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         event.stopPropagation();
-                        viewer.setScene(sceneSG2);
+                        window.top.location.href = "../1916Herm.html";
+                        /*viewer.setScene(sceneSG2);*/
                     });
-                    elTitle.toString = () => "Herm";
+                    elTitle.toString = () => "HERM";
 
                     let aAbout1 = new Potree.Annotation({
-                        position: [589768.929, 231370.362, 802.951], /*-45.313, -22.859, -0.641*/
+                        position: [589768.929, 231370.362, 802.951], 
                         title: elTitle,
-                        cameraPosition: [589629.579, 231228.127, 842.718], /*-45.313, -22.859, -0.641*/
-                        cameraTarget: [589831.948, 231447.920, 757.739], /*-48.776, -36.047, 0.446*/
-                        description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with baskets 
-                                    of bananas and pineapples on their heads, and welcome guests onto the Barge. `
+                        cameraPosition: [589720.288, 231313.461, 844.211], 
+                        cameraTarget: [589850.010, 231471.276, 802.153], 
+                        description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with 
+                                    baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today, 
+                                    the details of the herms are hardly recognizable, and in some cases entirely lost. 
+                        `
                     });
 
                     sceneSG.annotations.add(aAbout1);
@@ -577,7 +580,7 @@
                 {
                     let elTitle = $(`
                         <span>
-                            Pleasures and Perils
+                            SCULPTURES
                             <img src="${Potree.resourcePath}/icons/goto.svg"
                                 name="action_set_scene"
                                 class="annotation-action-icon"
@@ -586,16 +589,20 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         event.stopPropagation();
-                        viewer.setScene(sceneSG4);
+                        window.top.location.href = "../1916Mermaids.html";
+                        /*viewer.setScene(sceneSG4);*/
                     });
-                    elTitle.toString = () => "Pleasures and Perils";
+                    elTitle.toString = () => "SCULPTURES";
 
                     let aAbout3 = new Potree.Annotation({
                         position: [590531.513, 231532.327, 870.313],
                         title: elTitle,
-                        cameraPosition: [590676.913, 231463.673, 901.307],
-                        cameraTarget: [589612.761, 231942.214, 556.678],
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`
+                        cameraPosition: [590596.548, 231533.623, 899.108],
+                        cameraTarget: [589504.057, 231586.431, 576.050],
+                        description: `This is a digital rendering of one of the statues based on historical photographs in Vizcaya’s 
+                                    archives. This image, compared to the 3D documentation in 2017, reveals the extreme erosion that 
+                                    has taken place over the years.  
+                                    `
                     });
 
                     sceneSG.annotations.add(aAbout3);
@@ -672,11 +679,14 @@
                 // Mermaids
                 {
                     let Mermaids = new Potree.Annotation({
-                        position: [590537.665, 231569.355, 812.239],
-                        title: "Mermaids",
-                        cameraPosition: [590771.935, 231670.343, 814.045],
-                        cameraTarget: [589486.323, 231231.256, 786.522],
-                        description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
+                        position: [590571.616, 231533.355, 759.504],
+                        title: "MERMAIDS",
+                        cameraPosition: [590692.467, 231544.884, 777.119],
+                        cameraTarget: [589480.236, 231520.246, 752.555],
+                        description: `The Barge mermaids were designed by Alexander Calder. James Deering initially found the 
+                                    proportions of the Mermaids too provocative and Calder was asked to alter the proportion of 
+                                    the sculptures to a more modest size. 
+                                `,
                     });
                     Mermaids.domElement.off("mouseenter");
                     Mermaids.domElement.off("mouseleave");
@@ -711,6 +721,7 @@
             });
         });
 */
+/*
         var gltfLoader = new THREE.GLTFLoader();
         gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/herm1917/scene.gltf', function (gltf) {
             sceneSG2.scene.position.set(0,0,0);
@@ -745,7 +756,7 @@
                 }]
             });           
         });
-
+*/
         var timeoutID;
 
         function setup() {
