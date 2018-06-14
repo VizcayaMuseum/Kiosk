@@ -207,7 +207,7 @@
                 {
                     let elTitle = $(`
 						<span>
-							Herm
+							HERM
 							<img src="${Potree.resourcePath}/icons/goto.svg"
 								name="action_set_scene"
 								class="annotation-action-icon"
@@ -218,7 +218,7 @@
                         event.stopPropagation();
                         viewer.setScene(sceneSG2);
                     });
-                    elTitle.toString = () => "Herm";
+                    elTitle.toString = () => "HERM";
 
                     let aAbout1 = new Potree.Annotation({
                         position: [-45.632, -27.628, -0.686], /*-45.313, -22.859, -0.641*/
@@ -234,7 +234,7 @@
 				{
                     let elTitle = $(`
 						<span>
-							Pleasures and Perils
+							SCULPTURES
 							<img src="${Potree.resourcePath}/icons/goto.svg"
 								name="action_set_scene"
 								class="annotation-action-icon"
@@ -245,7 +245,7 @@
                         event.stopPropagation();
                         viewer.setScene(sceneLion);
                     });
-                    elTitle.toString = () => "Pleasures and Perils";
+                    elTitle.toString = () => "SCULPTURES";
 
                     let aAbout3 = new Potree.Annotation({
                         position: [-62.499, -50.734, 2.004],
@@ -270,7 +270,7 @@
 //                    });
 //                    sceneSG.annotations.add(aAbout2);
 //                }
-//
+/*
 			// Statues
                 {
                     let aStatues = new Potree.Annotation({
@@ -287,13 +287,13 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
-
+*/
 
 			// Grotesque
                 {
                     let Grotesque = new Potree.Annotation({
                         position: [-52.107, -49.002, -2.007],
-                        title: "Grotesques",
+                        title: "GROTESQUES",
                         cameraPosition: [-50.295, -51.055, -1.438],
                         cameraTarget: [-67.337, -30.449, -0.615],
                         description: `In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`,
@@ -310,7 +310,7 @@
             {
                 let Mermaids = new Potree.Annotation({
                     position: [-63.358, -51.438, -1.902],
-                    title: "Mermaids",
+                    title: "MERMAIDS",
                     cameraPosition: [-65.596, -53.536, -1.081],
                     cameraTarget: [-44.362, -35.946, -6.132],
                     description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
@@ -344,8 +344,8 @@
 			});
 		});
 
-		// Pleasures and Perils
-		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function(e)
+		// Sculptures
+		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "sculptures", function(e)
 {
 			sceneLion.addPointCloud(e.pointcloud);
 			sceneLion.view.position.set(-148.290, 22.164, 56.452);
