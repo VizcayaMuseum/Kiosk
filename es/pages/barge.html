@@ -216,7 +216,7 @@
                         event.stopPropagation();
                         viewer.setScene(sceneSG2);
                     });
-                    elTitle.toString = () => "HERM";
+                    elTitle.toString = () => "HERMAS";
 
                     let aAbout1 = new Potree.Annotation({
                         position: [-45.632, -27.628, -0.686],
@@ -331,8 +331,8 @@
 			sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
 			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 			
-			sceneSG2.addAnnotation([31.570, 1.729, 53.886], {
-				"title": "Return to Barge",
+			sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
+				"title": "Regresa a la Barcaza",
 				"actions": [{
 					"icon": Potree.resourcePath + "/icons/goto-w.svg",
 					"onclick": function(){
@@ -342,23 +342,23 @@
 			});
 		});
 		
-		//Sculptures
-		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/mermaid/cloud.js", "sculptures", function(e){
-			sceneLion.addPointCloud(e.pointcloud);
-			sceneLion.view.position.set(-148.290, 22.164, 56.452);
-			sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
-			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-			
-			sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
-				"title": "Return to Barge",
-				"actions": [{
-					"icon": Potree.resourcePath + "/icons/goto-w.svg",
-					"onclick": function(){
-						viewer.setScene(sceneSG);
-					}
-				}]
-			});
-		});
+        // Sculptures
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "sculptures", function (e) {
+            sceneLion.addPointCloud(e.pointcloud);
+            sceneLion.view.position.set(-148.290, 22.164, 56.452);
+            sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
+            e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+            sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
+                "title": "Regresa a la Barcaza",
+                "actions": [{
+                    "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                    "onclick": function () {
+                        viewer.setScene(sceneSG);
+                    }
+                }]
+            });
+        });
 	</script>
 	
 	
