@@ -415,7 +415,7 @@
 
             
             let loader = new THREE.GLTFLoader(manager);
-            loader.load('http://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
+            loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
                 gltf.scene.traverse(function (child) {
                     if (child instanceof THREE.Mesh) {
                         //child.material.map = texture;
