@@ -510,7 +510,7 @@
 
 
             let loader = new THREE.GLTFLoader(manager);
-            loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
+            loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
                 /*
                 gltf.scene.traverse(function (child) {
                     if (child instanceof THREE.Mesh) {
@@ -707,7 +707,7 @@
         });
         */
         var loader = new THREE.FBXLoader();
-        loader.load('https://vizcaya.s3.amazonaws.com/3dmodels/fbx/hermes1917_3.fbx', function (object) {
+        loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {
             // add the model into the scene
             //scene.add(fbx.scene);
             //scene.position.set(-3.9711402282682964, 24.664728908700592, -90.64164758948131);
