@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\es\\assets",
+    "\\es\\assets\\css",
+    "\\es\\images",
+    "\\es\\images\\works",
+    "\\models\\libs\\potree",
+    "\\models\\libs\\potree\\resources",
+    "\\models\\libs\\potree\\resources\\icons",
+    "\\models\\libs\\potree\\resources\\images"
   ],
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\.gitattributes",
+  "PreviewInSolutionExplorer": true
 }
