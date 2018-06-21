@@ -1,8 +1,18 @@
 {
   "ExpandedNodes": [
     "",
-    "\\libs2\\jquery-ui"
+    "\\assets",
+    "\\assets\\scss",
+    "\\assets\\scss\\dist",
+    "\\assets\\scss\\dist\\css",
+    "\\dist\\css",
+    "\\es",
+    "\\es\\libs\\bootstrap",
+    "\\es\\libs\\bootstrap\\css",
+    "\\es\\pages",
+    "\\libs\\bootstrap",
+    "\\libs\\bootstrap\\css"
   ],
-  "SelectedNode": "\\Pages",
+  "SelectedNode": "\\es\\pages\\barge.html",
   "PreviewInSolutionExplorer": true
 }
