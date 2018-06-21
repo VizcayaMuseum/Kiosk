@@ -1,16 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\es\\assets",
-    "\\es\\assets\\css",
-    "\\es\\images",
-    "\\es\\images\\works",
-    "\\models\\libs\\potree",
-    "\\models\\libs\\potree\\resources",
-    "\\models\\libs\\potree\\resources\\icons",
-    "\\models\\libs\\potree\\resources\\images"
+    "\\libs2\\jquery-ui"
   ],
-  "SelectedNode": "\\.gitattributes",
+  "SelectedNode": "\\Pages",
   "PreviewInSolutionExplorer": true
 }
