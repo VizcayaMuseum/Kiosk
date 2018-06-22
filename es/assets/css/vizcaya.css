@@ -370,4 +370,22 @@ a {
 
     ::-webkit-scrollbar-thumb:hover {
         background: #7d7d7d;
-    } 
+    }
+
+/*
+    *Annotation
+    */
+
+.annotation-description {
+    position: relative;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin: 5px 0px 0px 0px;
+    border-radius: 12px; /*4px*/
+    display: none;
+    max-width: 250px;
+    width: 500px;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+}
