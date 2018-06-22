@@ -26,7 +26,7 @@
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            z-index: 3; /* Sit on top */
             padding-top: 100px; /* Location of the box */
             left: 0;
             top: 0;
@@ -34,7 +34,7 @@
             height: 100%; /* Full height */
             overflow: auto; /* Enable scroll if needed */
             background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
         }
 
         /* Modal Content */
@@ -472,22 +472,13 @@
                     <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
 
                     <map name="controlPanel">
-
-
                         <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-
                         <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-
                         <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-
                         <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-
                         <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-
                         <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-
                         <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-
                         <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
                     </map>
                 </div>
@@ -689,8 +680,7 @@
                                     style="filter: invert(1);" />
                             </span>
                                                 `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                        /*event.stopPropagation();*/
+                    elTitle.find("img[name=action_set_scene]").click((event) => {                        
                         var modal = document.getElementById('myModal1');
                         var span = document.getElementsByClassName("close")[0];
 
@@ -703,6 +693,7 @@
                                 modal.style.display = "none";
                             }
                         }
+                        /*event.stopPropagation();*/
                         /*window.top.location.href = "../1916Herm.html";*/
                         /*viewer.setScene(sceneSG2);*/
                     });
@@ -732,8 +723,7 @@
                                     style="filter: invert(1);" />
                             </span>
                                             `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                        /*event.stopPropagation();*/
+                    elTitle.find("img[name=action_set_scene]").click((event) => {                       
                         var modal = document.getElementById('myModal2');
                         var span = document.getElementsByClassName("close")[1];
 
@@ -746,6 +736,7 @@
                                 modal.style.display = "none";
                             }
                         }
+                        /*event.stopPropagation();*/
                         /*window.top.location.href = "../1916Mermaids.html";*/
                         /*viewer.setScene(sceneSG4);*/
                     });

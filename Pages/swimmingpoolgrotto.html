@@ -97,7 +97,15 @@
             left: 12%;
             top: 15%;
         }
-        
+        /*not complete/draft to make button round background when hovered*/
+        .tooltip{
+            color: black;
+            border-radius: 50%;
+        }
+        #help_panel {
+            color: black;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -153,7 +161,7 @@
                 <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
             </map>
         </div>
-        <div>
+        <div class="tooltip">
             <img id="help_panel" src="../images/instructions.png" usemap="#helpPanel" />
         </div>
 

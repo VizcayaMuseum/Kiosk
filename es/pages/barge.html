@@ -16,7 +16,75 @@
     <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 3; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+        }
 
+        /* Modal Content */
+        .modal-content {
+            background-color: black; /*#fefefe*/
+            margin: auto;
+            padding: 20px;
+            border: 1px solid black; /*#888*/
+            width: 80%;
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            padding: 5px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: white; /*#000*/
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .intrinsic-container {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 16x9 Aspect Ratio */
+        .intrinsic-container-16x9 {
+            padding-bottom: 56.25%;
+        }
+
+        /* 4x3 Aspect Ratio */
+        .intrinsic-container-4x3 {
+            padding-bottom: 75%;
+        }
+
+        .intrinsic-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-color: black;
+            border-radius: 20px;
+        }
 
         #fullscreen_icon {
             max-width: 40px;
@@ -83,24 +151,24 @@
 </head>
 
 <body>
-	<script src="../libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="../libs/spectrum/spectrum.js"></script>
-	<script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-	<script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="../libs/three.js/build/three.min.js"></script>
-	<script src="../libs/other/BinaryHeap.js"></script>
-	<script src="../libs/tween/tween.min.js"></script>
-	<script src="../libs/d3/d3.js"></script>
-	<script src="../libs/proj4/proj4.js"></script>
-	<script src="../libs/openlayers3/ol.js"></script>
-	<script src="../libs/i18next/i18next.js"></script>
-	<script src="../libs/jstree/jstree.js"></script>
-	<script src="../build/potree/potree.js"></script>
-	<script src="../libs/plasio/js/laslaz.js"></script>
-	<script src="../main.js"></script>
-	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
-	<!-- INCLUDE SETTINGS HERE -->
-	
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/spectrum/spectrum.js"></script>
+    <script src="../libs/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/three.js/build/three.min.js"></script>
+    <script src="../libs/other/BinaryHeap.js"></script>
+    <script src="../libs/tween/tween.min.js"></script>
+    <script src="../libs/d3/d3.js"></script>
+    <script src="../libs/proj4/proj4.js"></script>
+    <script src="../libs/openlayers3/ol.js"></script>
+    <script src="../libs/i18next/i18next.js"></script>
+    <script src="../libs/jstree/jstree.js"></script>
+    <script src="../build/potree/potree.js"></script>
+    <script src="../libs/plasio/js/laslaz.js"></script>
+    <script src="../main.js"></script>
+    <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+    <!-- INCLUDE SETTINGS HERE -->
+
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
@@ -133,38 +201,60 @@
             </map>
         </div>
     </div>
-	
-	<script>
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <iframe class="iframe" src="../2017herm.html"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <iframe class="iframe" src="../mermaids.html"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
 
         $("#handicap_icon").click(function () {
 
             $("#control_panel").toggle();
         });
-	
-		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-		
-		viewer.setEDLEnabled(false);
-		viewer.setFOV(60);
-		viewer.setPointBudget(5*1000*1000);
-		document.title = "";
-	
-		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		viewer.loadSettingsFromURL();
 
-		viewer.loadGUI(() => {
-			viewer.setLanguage('en');
-			$("#menu_tools").next().show();
-			//viewer.toggleSidebar();
-		});
+        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
+        viewer.setEDLEnabled(false);
+        viewer.setFOV(60);
+        viewer.setPointBudget(5 * 1000 * 1000);
+        document.title = "";
+
+        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.loadSettingsFromURL();
+
+        viewer.loadGUI(() => {
+            viewer.setLanguage('en');
+            $("#menu_tools").next().show();
+            //viewer.toggleSidebar();
+        });
 
         viewer.setDescription(`
-		
-		`);
+
+            `);
 
         let sceneSG = new Potree.Scene();
         let sceneSG2 = new Potree.Scene();
-		let sceneSG3 = new Potree.Scene();
-		let sceneLion = new Potree.Scene();
+        let sceneSG3 = new Potree.Scene();
+        let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
         function getParam(paramName) {
@@ -189,8 +279,8 @@
         var y_lookAt = parseFloat(getParam('yL'));
         var z_lookAt = parseFloat(getParam('zL'));
 
-	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){ 
-       
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
+
             sceneSG.addPointCloud(e.pointcloud);
             sceneSG.view.position.set(x_position, y_position, z_position);
             sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
@@ -204,17 +294,29 @@
             {
                 {
                     let elTitle = $(`
-						<span>
-							HERMAS
-							<img src="${Potree.resourcePath}/icons/goto.svg" 
-								name="action_set_scene"
-								class="annotation-action-icon" 
-								style="filter: invert(1);" />
-						</span>
-					`);
+                            <span>
+                                HERMAS
+                                <img src="${Potree.resourcePath}/icons/goto.svg"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                        `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        viewer.setScene(sceneSG2);
+                        var modal = document.getElementById('myModal1');
+                        var span = document.getElementsByClassName("close")[0];
+
+                        modal.style.display = "block";
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                        /*event.stopPropagation();*/
+                        /*viewer.setScene(sceneSG2);*/
                     });
                     elTitle.toString = () => "HERMAS";
 
@@ -229,19 +331,31 @@
                     sceneSG.annotations.add(aAbout1);
                 }
 
-				{
+                {
                     let elTitle = $(`
-						<span>
-							ESCULTURAS
-							<img src="${Potree.resourcePath}/icons/goto.svg" 
-								name="action_set_scene"
-								class="annotation-action-icon" 
-								style="filter: invert(1);" />
-						</span>
-					`);
+                            <span>
+                                ESCULTURAS
+                                <img src="${Potree.resourcePath}/icons/goto.svg"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                        `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        viewer.setScene(sceneLion);
+                        var modal = document.getElementById('myModal2');
+                        var span = document.getElementsByClassName("close")[1];
+
+                        modal.style.display = "block";
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                        /*event.stopPropagation();*/
+                        /*viewer.setScene(sceneSG4);*/
                     });
                     elTitle.toString = () => "ESCULTURAS";
 
@@ -255,39 +369,39 @@
 
                     sceneSG.annotations.add(aAbout3);
                 }
-				
-            //   {
-//                    let aAbout2 = new Potree.Annotation({
-//                        position: [-61.216, -49.492, 2.215],
-//                        "cameraPosition": [-61.216, -49.492, 2.215],
-//                        "cameraTarget": [-62.181, -50.463, 1.985],
-//                        "title": "Pleasures and Perils",
-//                        "description": `
-//						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-//						`
-//                    });
-//                    sceneSG.annotations.add(aAbout2);
-//                }
-/*
-			// Statues         				
-                {
-                    let aStatues = new Potree.Annotation({
-                        position: [-23.590, -23.959, 2.530],
-                        title: "Statues",
-						cameraPosition: [-23.590, -23.959, 2.530],
-                        cameraTarget: [-25.609, -23.231, 1.536],
-                        description: `Estas criaturas míticas desnudas con características humanas y pez se encuentran rodeadas de motivos marítimos, como algas marinas y corales. Las figuras sentadas son reproducciones hechas en 1982.`,
-                    });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
-                    aStatues.addEventListener("click", () => {
-                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                    });
-                    sceneSG.annotations.add(aStatues);
-                }
-*/				
-				
-			// Grotesque         				
+
+                //   {
+                //                    let aAbout2 = new Potree.Annotation({
+                //                        position: [-61.216, -49.492, 2.215],
+                //                        "cameraPosition": [-61.216, -49.492, 2.215],
+                //                        "cameraTarget": [-62.181, -50.463, 1.985],
+                //                        "title": "Pleasures and Perils",
+                //                        "description": `
+                //						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
+                //						`
+                //                    });
+                //                    sceneSG.annotations.add(aAbout2);
+                //                }
+                /*
+                            // Statues
+                                {
+                                    let aStatues = new Potree.Annotation({
+                                        position: [-23.590, -23.959, 2.530],
+                                        title: "Statues",
+                                        cameraPosition: [-23.590, -23.959, 2.530],
+                                        cameraTarget: [-25.609, -23.231, 1.536],
+                                        description: `Estas criaturas míticas desnudas con características humanas y pez se encuentran rodeadas de motivos marítimos, como algas marinas y corales. Las figuras sentadas son reproducciones hechas en 1982.`,
+                                    });
+                                    aStatues.domElement.off("mouseenter");
+                                    aStatues.domElement.off("mouseleave");
+                                    aStatues.addEventListener("click", () => {
+                                        aStatues.setHighlighted(!aStatues.isHighlighted);
+                                    });
+                                    sceneSG.annotations.add(aStatues);
+                                }
+                */
+
+                // Grotesque
                 {
                     let Grotesque = new Potree.Annotation({
                         position: [-35.764, -19.774, -2.063],
@@ -304,44 +418,44 @@
                     sceneSG.annotations.add(Grotesque);
                 }
 
-            // Mermaids
-            {
-                let Mermaids = new Potree.Annotation({
-                    position: [-63.358, -51.438, -1.902],
-                    title: "SIRENAS",
-                    cameraPosition: [-65.596, -53.536, -1.081],
-                    cameraTarget: [-44.362, -35.946, -6.132],
-                    description: `El clima subtropical y más de un siglo de tormentas han borrado muchos de los detalles de las sirenas que adornan la Barcaza. A través de Vizcaya se encuentran representaciones de la vida marina. Algunas de estas obras se basan en la naturaleza, y otras, como las esculturas de niños tritones en la Fuente del Jardín, son producto de la imaginación.  `,
-                });
-                Mermaids.domElement.off("mouseenter");
-                Mermaids.domElement.off("mouseleave");
-                Mermaids.addEventListener("click", () => {
-                    Mermaids.setHighlighted(!Mermaids.isHighlighted);
-                });
-                sceneSG.annotations.add(Mermaids);
-            }					
-				
+                // Mermaids
+                {
+                    let Mermaids = new Potree.Annotation({
+                        position: [-63.358, -51.438, -1.902],
+                        title: "SIRENAS",
+                        cameraPosition: [-65.596, -53.536, -1.081],
+                        cameraTarget: [-44.362, -35.946, -6.132],
+                        description: `El clima subtropical y más de un siglo de tormentas han borrado muchos de los detalles de las sirenas que adornan la Barcaza. A través de Vizcaya se encuentran representaciones de la vida marina. Algunas de estas obras se basan en la naturaleza, y otras, como las esculturas de niños tritones en la Fuente del Jardín, son producto de la imaginación.  `,
+                    });
+                    Mermaids.domElement.off("mouseenter");
+                    Mermaids.domElement.off("mouseleave");
+                    Mermaids.addEventListener("click", () => {
+                        Mermaids.setHighlighted(!Mermaids.isHighlighted);
+                    });
+                    sceneSG.annotations.add(Mermaids);
+                }
+
             }
         });
-			// Herm point cloud in scene 2
-			Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
-			
-			sceneSG2.addPointCloud(e.pointcloud);
-			sceneSG2.view.position.set(40.480, -28.044, 52.055);
-			sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-			
-			sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
-				"title": "Regresa a la Barcaza",
-				"actions": [{
-					"icon": Potree.resourcePath + "/icons/goto-w.svg",
-					"onclick": function(){
-						viewer.setScene(sceneSG);
-					}
-				}]
-			});
-		});
-		
+        // Herm point cloud in scene 2
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
+
+            sceneSG2.addPointCloud(e.pointcloud);
+            sceneSG2.view.position.set(40.480, -28.044, 52.055);
+            sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
+            e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
+            sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
+                "title": "Regresa a la Barcaza",
+                "actions": [{
+                    "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                    "onclick": function () {
+                        viewer.setScene(sceneSG);
+                    }
+                }]
+            });
+        });
+
         // Sculptures
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "sculptures", function (e) {
             sceneLion.addPointCloud(e.pointcloud);
@@ -359,8 +473,8 @@
                 }]
             });
         });
-	</script>
-	
-	
-  </body>
+    </script>
+
+
+</body>
 </html>

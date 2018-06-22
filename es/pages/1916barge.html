@@ -18,7 +18,75 @@
     <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 3; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+        }
 
+        /* Modal Content */
+        .modal-content {
+            background-color: black; /*#fefefe*/
+            margin: auto;
+            padding: 20px;
+            border: 1px solid black; /*#888*/
+            width: 80%;
+            border-radius: 20px;
+        }
+
+        .modal-header {
+            padding: 5px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: white; /*#000*/
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .intrinsic-container {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* 16x9 Aspect Ratio */
+        .intrinsic-container-16x9 {
+            padding-bottom: 56.25%;
+        }
+
+        /* 4x3 Aspect Ratio */
+        .intrinsic-container-4x3 {
+            padding-bottom: 75%;
+        }
+
+        .intrinsic-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-color: black;
+            border-radius: 20px;
+        }
 
         .annotation {
             position: absolute;
@@ -394,33 +462,55 @@
         <div id="potree_sidebar_container"> </div>
 
         <!--
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
-        <div>
+            <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
+            <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+            <div>
 
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
 
-            <map name="controlPanel">
+                <map name="controlPanel">
 
-                
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-                
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-                
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-                
-                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-                
-                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                
-                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-            </map>
+
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+
+                    <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+
+                    <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+
+                    <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+
+                    <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+        -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <iframe class="iframe" src="../1916Herm.html"></iframe>
+            </div>
+
         </div>
-    -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <iframe class="iframe" src="../1916Mermaids.html"></iframe>
+            </div>
+
+        </div>
     </div>
 
     <script>
@@ -450,14 +540,14 @@
 
         viewer.setDescription(`
 
-                            `);
+                                `);
 
         let sceneSG = new Potree.Scene();
         let sceneSG2 = new Potree.Scene();
         let sceneSG3 = new Potree.Scene();
         let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
-        
+
         function getParam(paramName) {
             var src = document.referrer;
             var srcSplit = src.split("?");
@@ -479,7 +569,7 @@
         var x_lookAt = parseFloat(getParam('xL'));
         var y_lookAt = parseFloat(getParam('yL'));
         var z_lookAt = parseFloat(getParam('zL'));
-        
+
 
         {
             let scene = viewer.scene;
@@ -525,7 +615,7 @@
                 gltf.scene.rotation.set(Math.PI / 2, Math.PI, 0)
 
                 viewer.scene.scene.add(gltf.scene);
-               
+
                 viewer.onGUILoaded(() => {
                     // Add entries to object list in sidebar
                     let tree = $(`#jstree_scene`);
@@ -541,7 +631,7 @@
                     tree.jstree(object.visible ? "check_node" : "uncheck_node", bunnyID);
 
                     //tree.jstree("open_node", parentNode);
-                });            
+                });
 
 
             }, onProgress, onError);
@@ -550,28 +640,40 @@
             {
                 {
                     let elTitle = $(`
-                    <span>
-                        HERMAS
-                        <img src="${Potree.resourcePath}/icons/goto.svg"
-                            name="action_set_scene"
-                            class="annotation-action-icon"
-                            style="filter: invert(1);" />
-                    </span>
-                                        `);
+                        <span>
+                            HERMAS
+                            <img src="${Potree.resourcePath}/icons/goto.svg"
+                                name="action_set_scene"
+                                class="annotation-action-icon"
+                                style="filter: invert(1);" />
+                        </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        window.top.location.href = "../1916Herm.html";
+                        var modal = document.getElementById('myModal1');
+                        var span = document.getElementsByClassName("close")[0];
+
+                        modal.style.display = "block";
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                        /*event.stopPropagation();*/
+                        /*window.top.location.href = "../1916Herm.html";*/
                         /*viewer.setScene(sceneSG2);*/
                     });
                     elTitle.toString = () => "HERMAS";
 
                     let aAbout1 = new Potree.Annotation({
-                        position: [589768.929, 231370.362, 802.951], 
+                        position: [589768.929, 231370.362, 802.951],
                         title: elTitle,
-                        cameraPosition: [589641.037, 231210.382, 851.979], 
-                        cameraTarget: [589841.773, 231481.066, 774.607], 
-                        description: `Cuatro hermas (bustos sin brazos colocados sobre columnas) dan la bienvenida a los invitados de la Barcaza. Las cestas de bananas y piñas sobre la cabeza de cada herma representan los trópicos. Hoy en día es difícil distinguir los detalles de los hermas, e inclusive algunos elementos han desaparecido por completo.                                       
-                                    `
+                        cameraPosition: [589641.037, 231210.382, 851.979],
+                        cameraTarget: [589841.773, 231481.066, 774.607],
+                        description: `Cuatro hermas (bustos sin brazos colocados sobre columnas) dan la bienvenida a los invitados de la Barcaza. Las cestas de bananas y piñas sobre la cabeza de cada herma representan los trópicos. Hoy en día es difícil distinguir los detalles de los hermas, e inclusive algunos elementos han desaparecido por completo.
+                                        `
                     });
 
                     sceneSG.annotations.add(aAbout1);
@@ -579,17 +681,29 @@
 
                 {
                     let elTitle = $(`
-                        <span>
-                            ESCULTURAS
-                            <img src="${Potree.resourcePath}/icons/goto.svg"
-                                name="action_set_scene"
-                                class="annotation-action-icon"
-                                style="filter: invert(1);" />
-                        </span>
-                                        `);
+                            <span>
+                                ESCULTURAS
+                                <img src="${Potree.resourcePath}/icons/goto.svg"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        window.top.location.href = "../1916Mermaids.html";
+                        var modal = document.getElementById('myModal2');
+                        var span = document.getElementsByClassName("close")[1];
+
+                        modal.style.display = "block";
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                        /*event.stopPropagation();*/
+                        /*window.top.location.href = "../1916Mermaids.html";*/
                         /*viewer.setScene(sceneSG4);*/
                     });
                     elTitle.toString = () => "ESCULTURAS";
@@ -600,25 +714,25 @@
                         cameraPosition: [590625.603, 231519.145, 897.813],
                         cameraTarget: [589498.722, 231655.070, 606.460],
                         description: `Estas criaturas míticas desnudas con características humanas y pez se encuentran rodeadas de motivos marítimos, como algas marinas y corales. Las figuras sentadas son reproducciones hechas en 1982.
-                                    `
+                                        `
                     });
 
                     sceneSG.annotations.add(aAbout3);
                 }
 
-//              {
-//                    let aAbout2 = new Potree.Annotation({
-//                        position: [-61.216, -49.492, 2.215],
-//                        "cameraPosition": [-61.216, -49.492, 2.215],
-//                        "cameraTarget": [-62.181, -50.463, 1.985],
-//                        "title": "Pleasures and Perils",
-//                        "description": `
-//						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-//						`
-//                    });
-//                    sceneSG.annotations.add(aAbout2);
-//                }
-//
+                //              {
+                //                    let aAbout2 = new Potree.Annotation({
+                //                        position: [-61.216, -49.492, 2.215],
+                //                        "cameraPosition": [-61.216, -49.492, 2.215],
+                //                        "cameraTarget": [-62.181, -50.463, 1.985],
+                //                        "title": "Pleasures and Perils",
+                //                        "description": `
+                //						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
+                //						`
+                //                    });
+                //                    sceneSG.annotations.add(aAbout2);
+                //                }
+                //
 
                 // Summer House
                 {
@@ -628,7 +742,7 @@
                         cameraPosition: [589512.482, 231554.667, 919.268],
                         cameraTarget: [589394.480, 231518.869, 889.558],
                         description: `La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
-                                    `,
+                                        `,
                     });
                     aStatues.domElement.off("mouseenter");
                     aStatues.domElement.off("mouseleave");
@@ -637,24 +751,24 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
-/*                
-                // Statues
-                {
-                    let aStatues = new Potree.Annotation({
-                        position: [-23.590, -23.959, 2.530],
-                        title: "Statues",
-                        cameraPosition: [-23.590, -23.959, 2.530],
-                        cameraTarget: [-25.609, -23.231, 1.536],
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`,
-                    });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
-                    aStatues.addEventListener("click", () => {
-                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                    });
-                    sceneSG.annotations.add(aStatues);
-                }
-*/
+                /*
+                                // Statues
+                                {
+                                    let aStatues = new Potree.Annotation({
+                                        position: [-23.590, -23.959, 2.530],
+                                        title: "Statues",
+                                        cameraPosition: [-23.590, -23.959, 2.530],
+                                        cameraTarget: [-25.609, -23.231, 1.536],
+                                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`,
+                                    });
+                                    aStatues.domElement.off("mouseenter");
+                                    aStatues.domElement.off("mouseleave");
+                                    aStatues.addEventListener("click", () => {
+                                        aStatues.setHighlighted(!aStatues.isHighlighted);
+                                    });
+                                    sceneSG.annotations.add(aStatues);
+                                }
+                */
 
                 // Grotesque
                 {
@@ -664,7 +778,7 @@
                         cameraPosition: [589429.688, 231295.807, 778.016],
                         cameraTarget: [589439.255, 231558.884, 793.770],
                         description: `Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
-                           `,
+                               `,
                     });
                     Grotesque.domElement.off("mouseenter");
                     Grotesque.domElement.off("mouseleave");
@@ -681,8 +795,8 @@
                         title: "SIRENAS",
                         cameraPosition: [590708.145, 231492.013, 769.828],
                         cameraTarget: [589483.126, 231733.839, 872.968],
-                        description: `Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas. 
-                                `,
+                        description: `Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.
+                                    `,
                     });
                     Mermaids.domElement.off("mouseenter");
                     Mermaids.domElement.off("mouseleave");
@@ -694,65 +808,65 @@
 
             }
         }
-/*
-        var fbxLoader = new THREE.FBXLoader();
-        fbxLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {           
-            scene.position.set(0,0,0);
-            scene.scale.multiplyScalar(100);
-            scene.rotation.set(Math.PI / 2, Math.PI, 0)
-            // add the model into the scene
-            viewer.scene.scene.add(object);
+        /*
+                var fbxLoader = new THREE.FBXLoader();
+                fbxLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {
+                    scene.position.set(0,0,0);
+                    scene.scale.multiplyScalar(100);
+                    scene.rotation.set(Math.PI / 2, Math.PI, 0)
+                    // add the model into the scene
+                    viewer.scene.scene.add(object);
 
-            //object.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-            //object.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                    //object.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
+                    //object.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-            sceneSG2.addAnnotation([0,0,0], {
-                "title": "Return to Barge",
-                "actions": [{
-                    "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                    "onclick": function () {
-                        viewer.setScene(sceneSG);
-                    }
-                }]
-            });
-        });
-*/
-/*
-        var gltfLoader = new THREE.GLTFLoader();
-        gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/herm1917/scene.gltf', function (gltf) {
-            sceneSG2.scene.position.set(0,0,0);
-            sceneSG2.scene.scale.multiplyScalar(100);
-            sceneSG2.scene.rotation.set(Math.PI / 2, Math.PI, 0)
+                    sceneSG2.addAnnotation([0,0,0], {
+                        "title": "Return to Barge",
+                        "actions": [{
+                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                            "onclick": function () {
+                                viewer.setScene(sceneSG);
+                            }
+                        }]
+                    });
+                });
+        */
+        /*
+                var gltfLoader = new THREE.GLTFLoader();
+                gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/herm1917/scene.gltf', function (gltf) {
+                    sceneSG2.scene.position.set(0,0,0);
+                    sceneSG2.scene.scale.multiplyScalar(100);
+                    sceneSG2.scene.rotation.set(Math.PI / 2, Math.PI, 0)
 
-            viewer.scene.scene.add(gltf.scene);
-            sceneSG2.addAnnotation([0, 0, 0], {
-                "title": "Return to Barge",
-                "actions": [{
-                    "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                    "onclick": function () {
-                        viewer.setScene(sceneSG);
-                    }
-                }]
-            });
-        });
+                    viewer.scene.scene.add(gltf.scene);
+                    sceneSG2.addAnnotation([0, 0, 0], {
+                        "title": "Return to Barge",
+                        "actions": [{
+                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                            "onclick": function () {
+                                viewer.setScene(sceneSG);
+                            }
+                        }]
+                    });
+                });
 
-        gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {           
-            sceneSG4.scene.position.set(-10,0,-3500); 
-            sceneSG4.scene.scale.multiplyScalar(100);
-            sceneSG4.scene.rotation.set(Math.PI / 2, Math.PI, 0)           
+                gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {
+                    sceneSG4.scene.position.set(-10,0,-3500);
+                    sceneSG4.scene.scale.multiplyScalar(100);
+                    sceneSG4.scene.rotation.set(Math.PI / 2, Math.PI, 0)
 
-            viewer.scene.scene.add(gltf.scene);            
-            sceneSG4.addAnnotation([0,0,0], {
-                "title": "Return",
-                "actions": [{
-                    "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                    "onclick": function () {
-                        viewer.setScene(sceneSG);
-                    }
-                }]
-            });           
-        });
-*/
+                    viewer.scene.scene.add(gltf.scene);
+                    sceneSG4.addAnnotation([0,0,0], {
+                        "title": "Return",
+                        "actions": [{
+                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                            "onclick": function () {
+                                viewer.setScene(sceneSG);
+                            }
+                        }]
+                    });
+                });
+        */
         var timeoutID;
 
         function setup() {

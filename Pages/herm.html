@@ -132,15 +132,16 @@
 		viewer.setPointBudget(5*1000*1000);
 		document.title = "";
 
-        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
 		viewer.loadSettingsFromURL();
 
+        /*
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_scene").next().show();
             //viewer.toggleSidebar();
         });
-
+        */
         viewer.setDescription(`
 
 		`);
