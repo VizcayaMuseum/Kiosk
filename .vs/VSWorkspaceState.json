@@ -1,18 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\scss",
-    "\\assets\\scss\\dist",
-    "\\assets\\scss\\dist\\css",
-    "\\dist\\css",
-    "\\es",
-    "\\es\\libs\\bootstrap",
-    "\\es\\libs\\bootstrap\\css",
-    "\\es\\pages",
-    "\\libs\\bootstrap",
-    "\\libs\\bootstrap\\css"
+    "\\es\\images\\works",
+    "\\Pages"
   ],
-  "SelectedNode": "\\es\\pages\\barge.html",
+  "SelectedNode": "\\Pages\\barge.html",
   "PreviewInSolutionExplorer": true
 }
