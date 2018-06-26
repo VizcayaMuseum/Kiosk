@@ -395,3 +395,140 @@ a {
     max-height: 50px !important;
     max-width: 50px !important;
 }
+
+
+/* 
+*Pop-up Windows
+*/
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* popup Content */
+.popup-content {
+    background-color: black; /*#fefefe*/
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black; /*#888*/
+    width: 80%;
+    border-radius: 20px;
+}
+
+.popup-header {
+    padding: 5px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: white; /*#000*/
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.intrinsic-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+    padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+    padding-bottom: 75%;
+}
+
+.intrinsic-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-color: black;
+    border-radius: 20px;
+}
+
+/*
+* CONTROLS ICONS
+*/
+#question_icon {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 190px;
+    z-index: 100;
+    cursor: pointer;
+}
+#refresh_icon {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 130px;
+    z-index: 100;
+    cursor: pointer;
+}
+#control_icon {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 70px;
+    z-index: 100;
+    cursor: pointer;
+}
+#fullscreen_icon {
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    z-index: 100;
+    cursor: pointer;
+}
+/*Control Panel image after selecting control icon*/
+#control_panel {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    position: fixed;
+    bottom: 100px;
+    right: 70px;
+    z-index: 100;
+    display: none;
+}
+
+
+

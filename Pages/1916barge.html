@@ -25,8 +25,11 @@
         body {
             background-color: black !important;
         }
-        /* The Modal (background) */
-        .modal {
+
+        /* MOVING IT TO VIZCAYA.CSS CAUSE RANDOM WHITE BOXES BEFORE IFRAME LOADS
+        *Pop-up Windows
+        */
+        .popup {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
             z-index: 3; /* Sit on top */
@@ -40,8 +43,8 @@
             background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
         }
 
-        /* Modal Content */
-        .modal-content {
+        /* popup Content */
+        .popup-content {
             background-color: black; /*#fefefe*/
             margin: auto;
             padding: 20px;
@@ -49,13 +52,14 @@
             width: 80%;
             border-radius: 20px;
         }
-        .modal-header {
+
+        .popup-header {
             padding: 5px;
         }
 
         /* The Close Button */
         .close {
-            color: #aaaaaa; 
+            color: #aaaaaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -93,8 +97,10 @@
             border-color: black;
             border-radius: 20px;
         }
+        
 
-        /*
+
+        /* WHEN MOVED TO VISCAYA.CSS IT DISAPPEARS
         *ANNOTATIONS
         */
         .annotation {
@@ -103,7 +109,7 @@
 
         .annotation-titlebar {
             background-color: #3D9FD6;
-            border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
+            /*border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
             padding: 5px 8px; /*1px 8px | 2px 13px for roundness*/
             opacity: 1; /*0 !important could hide annotations*/
         }
@@ -143,52 +149,13 @@
             opacity: 1; /*0.5*/
         }
 
-            /*
-        *CONTROLS
-        */
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display: none;
-        }
-        
-        .potree_container:hover .controls {
-            display: flex;          
-        }
-        
         /*
         *HOTSPOTS CONTROLS
         */
+        .potree_container:hover .controls {
+            display: flex;          
+        }
+               
         .controls {
             display: none; /*flex*/
             min-width: 0;
@@ -262,7 +229,7 @@
                     right: 30px;
                     bottom: 40px;
                     left: 30px;
-                    display: flex; /*flex*/
+                    display: none; /*flex*/
                     max-height: 190px;
                     padding: 4px;
                     color: #ffffff;
@@ -282,7 +249,7 @@
                     */
                     .controls .hotspot-controls .list .annotations-visibility,
                     .controls .hotspot-controls .list .annotations-autopilot {
-                        display: flex;
+                        display: none; /*flex*/
                         height: 28px;
                         padding-top: 0px;
                         padding-right: 5px;
@@ -388,7 +355,7 @@
                     }
 
         /*
- * Scrollbar
+ * Scrollbar for annotation bar
  */
 
         ::-webkit-scrollbar {
@@ -473,15 +440,17 @@
                         <div class="icon fa fa-caret-left"></div>
                     </div>
 
-                    <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select an annotation</div>
+                    <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
 
                     <div id="next" data-title="Next Annotation" data-action="next-annotation">
                         <div class="icon fa fa-caret-right"></div>
                     </div>
 
                     <div id="lists" class="list hotspots-list visible">
+<!--
                         <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
                         <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+-->
                         <ul class="js-scrollable">
                             <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
                             <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
@@ -495,9 +464,9 @@
 
     </div>
 
-    <!-- Modal 1 -->
-    <div id="myModal1" class="modal">
-        <div class="modal-content">
+    <!-- popup 1 -->
+    <div id="mypopup1" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
                 <iframe class="iframe" src="../1916Herm.html"></iframe>
@@ -505,9 +474,9 @@
         </div>
     </div>
 
-    <!-- Modal 2-->
-    <div id="myModal2" class="modal">
-        <div class="modal-content">
+    <!-- popup 2-->
+    <div id="mypopup2" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
                 <iframe class="iframe" src="../1916Mermaids.html"></iframe>
@@ -651,16 +620,16 @@
                             </span>
                                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {                        
-                        var modal = document.getElementById('myModal1');
+                        var popup = document.getElementById('mypopup1');
                         var span = document.getElementsByClassName("close")[0];
 
-                        modal.style.display = "block";
+                        popup.style.display = "block";
                         span.onclick = function () {
-                            modal.style.display = "none";
+                            popup.style.display = "none";
                         }
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == popup) {
+                                popup.style.display = "none";
                             }
                         }
                         /*event.stopPropagation();*/
@@ -695,16 +664,16 @@
                             </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {                       
-                        var modal = document.getElementById('myModal2');
+                        var popup = document.getElementById('mypopup2');
                         var span = document.getElementsByClassName("close")[1];
 
-                        modal.style.display = "block";
+                        popup.style.display = "block";
                         span.onclick = function () {
-                            modal.style.display = "none";
+                            popup.style.display = "none";
                         }
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == popup) {
+                                popup.style.display = "none";
                             }
                         }
                         /*event.stopPropagation();*/

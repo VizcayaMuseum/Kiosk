@@ -1,15 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\assets\\css",
-    "\\assets\\img",
-    "\\models\\js",
-    "\\models\\js\\controls",
-    "\\models\\js\\modifiers",
-    "\\models\\js\\shaders",
-    "\\models\\js\\utils",
-    "\\models\\js\\vr",
-    "\\Pages"
+    ""
   ],
   "SelectedNode": "\\2017herm.html",
   "PreviewInSolutionExplorer": true
