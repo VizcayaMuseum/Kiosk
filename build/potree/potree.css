@@ -243,8 +243,10 @@ a:hover, a:visited, a:link, a:active{
 }
 
 .annotation-item:hover {
+    /*
 	opacity:		1.0;
 	box-shadow:		0 0 5px #ffffff;
+        */
 }
 
 .annotation-main{

@@ -1,16 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
+    "\\assets\\css",
+    "\\assets\\img",
     "\\es\\assets",
     "\\es\\assets\\css",
     "\\es\\images",
     "\\es\\images\\works",
-    "\\models\\libs\\potree",
-    "\\models\\libs\\potree\\resources",
-    "\\models\\libs\\potree\\resources\\icons",
-    "\\models\\libs\\potree\\resources\\images"
+    "\\images\\works",
+    "\\Pages"
   ],
-  "SelectedNode": "\\.gitattributes",
+  "SelectedNode": "\\Pages\\1916barge.html",
   "PreviewInSolutionExplorer": true
 }

@@ -13,20 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
     <style>
-        .annotation-description {
-            position: relative;
-            color: white;
-            background-color: black;
-            padding: 10px;
-            margin: 5px 0px 0px 0px;
-            border-radius: 4px;
-            display: none;
-            max-width: 250px;
-            width: 500px;
-            font-size: 1em;
-            font-family: 'Open Sans', sans-serif;
-        }
 
         #fullscreen_icon {
             max-width: 40px;
@@ -103,7 +91,7 @@
 
         <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <img id="handicap_icon" src="../images/arrows.png" title="Help" />
         <div>
 
             <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -204,9 +192,9 @@
 			// AMORINO         				
                 {
                     let AMORINO = new Potree.Annotation({
-                        position: [-30.882, 1.687, -2.096],
+                        position: [-30.790, 1.353, -2.003], /*- 30.764, 1.304, -2.122*/
                         title: "AMORINO",
-                        cameraPosition: [-30.447, 2.036, -1.872],
+                        cameraPosition: [-30.474, 2.067, -1.787],
                         cameraTarget: [-31.354, 1.411, -1.882],
                         description: `El propósito de esta escultura de plomo fundido siempre fue ser una fuente para la gruta. A pesar de que 
                             ya no cumple con su función original, la escultura ha sobrevivido las inundaciones causadas por varias tormentas.
@@ -226,10 +214,10 @@
 			// CEILING         				
 		{
 			let CEILING = new Potree.Annotation({
-                position: [-34.259, 5.022, -0.547],
+                position: [-34.114, 4.688, -0.122], /*-34.259, 5.022, -0.547*/
 				title: "TECHO MURAL",
-                cameraPosition: [-27.743, 1.298, -2.786],
-                cameraTarget: [-31.625, 3.181, 0.527],
+                cameraPosition: [-27.002, 0.944, -2.493],
+                cameraTarget: [-31.510, 3.114, 0.732],
                 description: `El mural escultural que adorna el techo abovedado muestra una fantasía marina enmarcada por conchas y corales 
                     de yeso. Busque las tortugas de mar, los caballitos de mar, los pulpos, los lagartos y los peces. Los colores originales
                     del techo son difíciles de identificar ya que se han desteñido.`,
@@ -268,10 +256,10 @@
 	// FOUNTAINS         				
 		{
 			let FOUNTAINS = new Potree.Annotation({
-                position: [-27.095, -1.088, -1.653],
+                position: [-26.413, -0.618, -1.323], /*-27.074, -1.108, -1.653*/
 				title: "FUENTES",
-                cameraPosition: [-27.702, 1.941, -1.532],
-                cameraTarget: [-26.509, -0.893, -1.570],
+                cameraPosition: [-27.349, 1.554, -1.479],
+                cameraTarget: [-25.942, 0.084, -1.567],
                 description: `Estas fuentes de roca coralina son parecidas a las otras fuentes de Vizcaya. El personal de Vizcaya ha aprendido 
                     que la restauración de las fuentes ayuda a moderar los altos niveles de humedad en el espacio y a proteger mejor la
                     colección de objetos en la Gruta de la Piscina.`,
@@ -291,7 +279,7 @@
 			let FLOOR = new Potree.Annotation({
                 position: [-29.326, -2.261, -2.682],
 				title: "PISO",
-                cameraPosition: [-34.478, 2.714, -1.822],
+                cameraPosition: [-35.020, 3.368, -1.354],
                 cameraTarget: [-33.436, 1.582, -2.699],
                 description: `Al igual que el piso dentro de la casa, el piso de mármol está hecho de raras piedras importadas, cortadas 
                     cuidadosamente y colocadas en un intricado patrón.`,
