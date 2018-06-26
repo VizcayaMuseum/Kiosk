@@ -22,6 +22,9 @@
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
 
     <style>
+        body {
+            background-color: black !important;
+        }
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
@@ -97,9 +100,10 @@
         .annotation {
             opacity: 1 !important;
         }
-            
-        .annotation-titlebar { 
+
+        .annotation-titlebar {
             background-color: #3D9FD6;
+            border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
             padding: 5px 8px; /*1px 8px | 2px 13px for roundness*/
             opacity: 1; /*0 !important could hide annotations*/
         }
@@ -126,7 +130,7 @@
         }
         .annotation-description {
             border-radius: 10px; /*4px*/
-            max-width: 300px; /*500px*/
+            max-width: 250px; /*500px*/
             font-family: 'Open Sans', sans-serif; /*new*/
         }
         .annotation-description-close {
@@ -142,7 +146,7 @@
             /*
         *CONTROLS
         */
-            #fullscreen_icon {
+        #fullscreen_icon {
             max-width: 40px;
             max-height: 40px;
             width: 100%;
@@ -750,7 +754,7 @@
                                             `),
                         cameraPosition: [589512.482, 231554.667, 919.268],
                         cameraTarget: [589394.480, 231518.869, 889.558],
-                        description: `The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure
+                        description: `SUMMER HOUSE <hr>The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure
                                                                 that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
                                                                 originally landscaped with many potted plants, had functioning fountains as well as electricity.`,
                     });
@@ -781,12 +785,48 @@
                 */
 
                 // Grotesque
+
+                {
+                    let elTitle = $(`
+                        <span>
+                
+                            <img src="${Potree.resourcePath}/icons/i.png"
+                                name="action_set_scene"
+                                class="annotation-action-icon"
+                                style="filter: invert(1);" />
+                        </span>
+                                `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "HERM";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [589392.007, 231383.248, 795.418],
+                        title: elTitle,
+                        cameraPosition: [589429.177, 231255.717, 767.927],
+                        cameraTarget: [589435.471, 231558.942, 795.472],
+                        description: `
+                                GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and
+                                                                include bearded men, youthful women, and animals.
+                                    `
+                    });
+
+                    aAbout2.domElement.off("mouseenter");
+                    aAbout2.domElement.off("mouseleave");
+                    aAbout2.addEventListener("click", () => {
+                        aAbout2.setHighlighted(!aAbout2.isHighlighted);
+                    });
+
+                    sceneSG.annotations.add(aAbout2);
+                }
+
+            /*
                 {
                     let Grotesque = new Potree.Annotation({
-                        position: [589427.435, 231387.364, 754.621],
+                        position: [589392.007, 231383.248, 795.418],
                         title: "GROTESQUES",
-                        cameraPosition: [589429.688, 231295.807, 778.016],
-                        cameraTarget: [589439.255, 231558.884, 793.770],
+                        cameraPosition: [589429.177, 231255.717, 767.927],
+                        cameraTarget: [589435.471, 231558.942, 795.472],
                         description: `
                         GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and
                                                                 include bearded men, youthful women, and animals.
@@ -799,6 +839,9 @@
                     });
                     sceneSG.annotations.add(Grotesque);
                 }
+*/
+                
+                
 
                 // Mermaids
                 {
@@ -926,8 +969,8 @@
 
         function item2() {
             let scene = viewer.scene;
-            scene.view.position.set(589429.688, 231295.807, 778.016);
-            scene.view.lookAt(new THREE.Vector3(589439.255, 231558.884, 793.770));
+            scene.view.position.set(589429.177, 231255.717, 767.927);
+            scene.view.lookAt(new THREE.Vector3(589435.471, 231558.942, 795.472));
         }
         function item3() {
             let scene = viewer.scene;

@@ -3,13 +3,14 @@
     "",
     "\\assets\\css",
     "\\assets\\img",
-    "\\es\\assets",
-    "\\es\\assets\\css",
-    "\\es\\images",
-    "\\es\\images\\works",
-    "\\images\\works",
+    "\\models\\js",
+    "\\models\\js\\controls",
+    "\\models\\js\\modifiers",
+    "\\models\\js\\shaders",
+    "\\models\\js\\utils",
+    "\\models\\js\\vr",
     "\\Pages"
   ],
-  "SelectedNode": "\\Pages\\1916barge.html",
+  "SelectedNode": "\\2017herm.html",
   "PreviewInSolutionExplorer": true
 }
