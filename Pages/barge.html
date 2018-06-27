@@ -156,8 +156,8 @@
                 {
                     let elTitle = $(`
                             <span>
-                                HERM
-                                <img src="${Potree.resourcePath}/icons/goto.svg"
+                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
                                     name="action_set_scene"
                                     class="annotation-action-icon"
                                     style="filter: invert(1);" />
@@ -186,7 +186,9 @@
                         title: elTitle,
                         cameraPosition: [-47.086, -24.116, 0.709],
                         cameraTarget: [-42.272, -36.396, -2.128],
+                        /*
                         description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today, the details of the herms are hardly recognizable, and in some cases entirely lost. During Hurricane Wilma in 2005, the female herm on the east side of the Barge toppled into the bay. It was salvaged by a conservation team and after restoration, the figure was placed back onto the Barge in its original location. During Hurricane Irma in 2017, another female herm ravaged by wind and tidal surge broke into three large fragments. In 2018 the pieces were salvaged from the bay and after restoration, the herm will be returned to its original location on the Barge.`
+                        */
                     });
 
                     sceneSG.annotations.add(aAbout1);
@@ -195,8 +197,8 @@
                 {
                     let elTitle = $(`
                             <span>
-                                SCULPTURES
-                                <img src="${Potree.resourcePath}/icons/goto.svg"
+                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
                                     name="action_set_scene"
                                     class="annotation-action-icon"
                                     style="filter: invert(1);" />
@@ -221,33 +223,66 @@
                     elTitle.toString = () => "SCULPTURES";
 
                     let aAbout3 = new Potree.Annotation({
-                        position: [-62.640, -50.738, 1.574],
+                        position: [-62.707, -50.302, 1.725],
                         title: elTitle,
-                        cameraPosition: [-62.892, -51.912, 2.461], /*-63.491, -51.460, 2.361*/
-                        cameraTarget: [-62.190, -50.457, 1.970], /*-62.190, -50.457, 1.970*/
+                        cameraPosition: [-62.962, -52.057, 2.510], 
+                        cameraTarget: [-62.190, -50.457, 1.970], 
                         description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`
                     });
 
                     sceneSG.annotations.add(aAbout3);
                 }
 
-                // Grotesque
                 {
-                    let Grotesque = new Potree.Annotation({
-                        position: [-35.764, -19.774, -2.063],
-                        title: "GROTESQUES",
-                        cameraPosition: [-39.007, -16.073, -0.970],
-                        cameraTarget: [-25.093, -33.305, -2.585],
-                        description: `In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`,
+                    let elTitle = $(`
+                            <span>
+                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                        `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    Grotesque.domElement.off("mouseenter");
-                    Grotesque.domElement.off("mouseleave");
-                    Grotesque.addEventListener("click", () => {
-                        Grotesque.setHighlighted(!Grotesque.isHighlighted);
+                    elTitle.toString = () => "GROTESQUES";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [-34.982, -18.500, -0.927],
+                        title: elTitle,
+                        cameraPosition: [-38.793, -16.289, -1.458], 
+                        cameraTarget: [-24.277, -32.639, -0.579], 
+                        description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`
                     });
-                    sceneSG.annotations.add(Grotesque);
+
+                    sceneSG.annotations.add(aAbout2);
                 }
 
+                {
+                    let elTitle = $(`
+                            <span>
+                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                        `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "MERMAIDS";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [-63.358, -51.438, -1.902],
+                        title: elTitle,
+                        cameraPosition: [-66.079, -52.591, -1.147],
+                        cameraTarget: [-42.122, -38.767, -4.326],
+                        description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `
+                    });
+
+                    sceneSG.annotations.add(aAbout2);
+                }
+            /*
                 // Mermaids
                 {
                     let Mermaids = new Potree.Annotation({
@@ -264,7 +299,7 @@
                     });
                     sceneSG.annotations.add(Mermaids);
                 }
-
+                */
             }
         });
 /*
