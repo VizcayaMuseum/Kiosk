@@ -684,7 +684,8 @@ a {
     height: 50px;
     /*width: 40% my change*/
     /*inherited*/
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
     /*temp*/
     transition-property: opacity;
     transition-duration: 250ms;
@@ -701,7 +702,7 @@ a {
         flex-basis: 0;
         pointer-events: all;
         height: 30px;
-        font-size: 13px;
+        font-size: 20px; /*13px*/
         color: #ffffff;
         background: rgba(0,0,0,0.3);
         border-radius: 20px;
@@ -755,6 +756,7 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
+            
         }
             /*
                        .hotspot-controls:hover .list hotspots-list visible{

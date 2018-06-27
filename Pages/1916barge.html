@@ -33,7 +33,7 @@
             top: 0px;
         }       
         /*
-        * Scrollbar for annotation bar
+        * Scrollbar for hotspot controls
         */
         ::-webkit-scrollbar {
             width: 9px;
@@ -106,24 +106,21 @@
             </map>
         </div>
 
+        <!--HOTSPOT CONTROLS-->
         <div class="controls">
             <div class="hotspot-controls">
-
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div class="icon fa fa-caret-left"></div>
                 </div>
-
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
-
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div class="icon fa fa-caret-right"></div>
                 </div>
-
                 <div id="lists" class="list hotspots-list visible">
-                    <!--
-                                        <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                                        <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                -->
+<!--
+                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+-->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
@@ -134,7 +131,7 @@
                 </div>
             </div>
         </div>
-
+        <!--END OF HOTSPOT CONTROLS-->
     </div>
 
     <!-- popup 1 -->
@@ -281,7 +278,10 @@
             }, onProgress, onError);
             // Herm point cloud in scene 2
 
-            {
+            {   
+                /*
+                 * HERM
+                */
                 {
                     let elTitle = $(`
                             <span>
@@ -326,6 +326,9 @@
                     sceneSG.annotations.add(aAbout1);
                 }
 
+                /*
+                 * SCULPTURES
+                */
                 {
                     let elTitle = $(`
                             <span>
@@ -342,7 +345,9 @@
 
                         popup.style.display = "block";
                         span.onclick = function () {
-                            popup.style.display = "none";
+                            //window.top.location.reload();causes entire page to reload
+                            //location.reload(); causes the page to disappear
+                            popup.style.display = "none";                            
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
@@ -561,10 +566,15 @@
             startTimer();
         }
 
+        /*
+         * HOTSPOT CONTROLS FUNCTIONS 
+        */
+
         $("#hotspots").click(function () {
             $("#lists").toggle();
         });
 
+        //Functions for each annotation
         function item1() {
             let scene = viewer.scene;
             scene.view.position.set(589512.482, 231554.667, 919.268);
@@ -593,6 +603,8 @@
             scene.view.lookAt(new THREE.Vector3(589483.126, 231733.839, 872.968));
         }
 
+        //Click functions for each annotation within Hotspot Control's List
+
         $("#li1").click(function () {
             item1();
         });
@@ -608,7 +620,8 @@
         $("#li5").click(function () {
             item5();
         });
-       
+
+        //Functions for continuous click on Prev and Next buttons
         const functions = [];
         functions.push(item1);
         functions.push(item2);
@@ -626,7 +639,7 @@
             }
         }
 
-        let idx; // idx is undefined, so getNextIdx will take 0 as default       
+        let idx; // idx is undefined, so getNewScene will take 0 as default       
         const getNewScene = (direction) => {
             idx = getNextIdx(idx, length, direction);           
             var sceneFunction = functions[idx];
@@ -641,6 +654,9 @@
             getNewScene('next');
         });
 
+        /*
+         * END OF HOTSPOT CONTROLS FUNCTIONS 
+        */
     </script>
 
 

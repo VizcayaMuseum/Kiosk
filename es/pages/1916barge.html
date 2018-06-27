@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Potree Viewer</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
     <link rel="stylesheet" type="text/css" href="../libs2/jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="../libs2/perfect-scrollbar/css/perfect-scrollbar.css">
@@ -15,423 +18,49 @@
     <link rel="stylesheet" type="text/css" href="../libs2/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
-    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+
     <style>
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 3; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+        body {
+            background-color: black !important;
         }
 
-        /* Modal Content */
-        .modal-content {
-            background-color: black; /*#fefefe*/
-            margin: auto;
-            padding: 20px;
-            border: 1px solid black; /*#888*/
-            width: 80%;
-            border-radius: 20px;
-        }
-
-        .modal-header {
-            padding: 5px;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-            .close:hover,
-            .close:focus {
-                color: white; /*#000*/
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-        .intrinsic-container {
-            position: relative;
-            height: 0;
-            overflow: hidden;
-        }
-
-        /* 16x9 Aspect Ratio */
-        .intrinsic-container-16x9 {
-            padding-bottom: 56.25%;
-        }
-
-        /* 4x3 Aspect Ratio */
-        .intrinsic-container-4x3 {
-            padding-bottom: 75%;
-        }
-
-        .intrinsic-container iframe {
+        .potree_container {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            border-color: black;
-            border-radius: 20px;
+            left: 0px;
+            top: 0px;
+        }
+        /*
+        * Scrollbar for hotspot controls
+        */
+        ::-webkit-scrollbar {
+            width: 9px;
         }
 
-        .annotation {
-            position: absolute;
-            padding: 10px;
-            opacity: 0.5;
-            transform: translate(-50%, -30px);
-            will-change: left, top;
-            color: white;
+        ::-webkit-scrollbar-button {
+            width: 8px;
+            height: 2px;
         }
 
-        .annotation-titlebar {
-            color: white;
-            background-color: black;
-            border-radius: 1.5em;
-            border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
-            font-size: 12pt;
-            opacity: 1;
-            margin: auto;
-            display: table;
-            padding: 2px 13px; /*1px 8px for roundness*/
-            cursor: pointer;
+        ::-webkit-scrollbar-track {
+            background: black;
+            border: thin solid black;
+            box-shadow: 0px 0px 3px black inset;
+            border-radius: 12px;
         }
 
-        .annotation-expand {
-            color: white;
-            font-size: 0.6em;
-            opacity: 1;
+        ::-webkit-scrollbar-thumb {
+            background: #565656;
+            border: thin solid #565656;
+            border-radius: 12px;
         }
 
-        .annotation-action-icon {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 1.5em;
-            text-align: center;
-            font-family: Arial;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-            .annotation-action-icon:hover {
-                filter: drop-shadow(0px 0px 1px white);
-                width: 24px;
-                height: 24px;
-                cursor: pointer;
+            ::-webkit-scrollbar-thumb:hover {
+                background: #7d7d7d;
             }
-
-        .annotation-item {
-            color: white;
-            background-color: black;
-            opacity: 0.5;
-            border-radius: 1.5em;
-            font-size: 1em;
-            line-height: 1.5em;
-            padding: 1px 8px 0px 8px;
-            font-weight: bold;
-            display: flex;
-            cursor: default;
-        }
-
-            .annotation-item:hover {
-                opacity: 1.0;
-                box-shadow: 0 0 5px #ffffff;
-            }
-
-        .annotation-main {
-            display: flex;
-            flex-grow: 1;
-        }
-
-        .annotation-label {
-            display: inline-block;
-            height: 100%;
-            flex-grow: 1;
-            user-select: none;
-            -moz-user-select: none;
-            z-index: 100;
-            vertical-align: middle;
-            line-height: 1.5em;
-            font-family: Segoe UI Black; /*Arial, Arial Rounded MT, Bauhaus 93, Elephant*/
-            font-weight: bold;
-            cursor: pointer;
-            white-space: nowrap;
-            font-size: 14pt; /*11pt*/
-            transition: opacity 1s;
-        }
-
-        .annotation-description {
-            position: relative;
-            color: white;
-            background-color: black;
-            padding: 10px;
-            margin: 5px 0px 0px 0px;
-            border-radius: 4px;
-            display: none;
-            max-width: 250px;
-            width: 500px;
-            font-size: 1em;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .annotation-description-close {
-            filter: invert(100%);
-            float: right;
-            opacity: 0.5;
-            margin: 0px 0px 8px 8px;
-        }
-
-        .annotation-description-content {
-            color: white;
-            position: sticky;
-        }
-
-        .annotation-icon {
-            width: 20px;
-            height: 20px;
-            filter: invert(100%);
-            margin: 2px 2px;
-            opacity: 0.5;
-        }
-
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display: none;
-        }
-
-        .controls {
-            display: flex;
-            min-width: 0;
-            padding: 10px;
-            pointer-events: none;
-            position: absolute;
-            right: 30%; /*from 0 to 30% to align it in the middle*/
-            bottom: 0;
-            left: 30%; /*from 0 to 30% to align it in the middle*/
-            z-index: 2;
-            height: 50px;
-            /*width: 40% my change*/
-            /*inherited*/
-            font-family: "Open Sans", sans-serif;
-        }
-
-            .controls .hotspot-controls {
-                display: flex;
-                width: 200px;
-                position: relative;
-                flex-grow: 1;
-                flex-shrink: 0;
-                flex-basis: 0;
-                pointer-events: all;
-                height: 30px;
-                font-size: 13px;
-                color: #ffffff;
-                background: rgba(0,0,0,0.3);
-                border-radius: 20px;
-            }
-
-                .controls .hotspot-controls [data-action="prev-annotation"] {
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-                    padding-left: 15px;
-                    padding-right: 15px;
-                    line-height: 30px;
-                    cursor: pointer;
-                }
-
-                .controls .hotspot-controls .hotspot-name {
-                    padding: 0 10px;
-                    overflow: hidden;
-                    line-height: 30px;
-                    text-align: center;
-                    text-overflow: ellipsis;
-                    text-shadow: 0 0 10px #000000;
-                    white-space: nowrap;
-                    cursor: pointer;
-                    -ms-flex: 1;
-                    flex: 1;
-                }
-
-                .controls .hotspot-controls [data-action="next-annotation"] {
-                    padding-top: 0px;
-                    padding-right: 15px;
-                    padding-bottom: 0px;
-                    padding-left: 15px;
-                    line-height: 30px;
-                    cursor: pointer;
-                }
-
-                .controls .hotspot-controls .list {
-                    position: absolute;
-                    right: 30px;
-                    bottom: 40px;
-                    left: 30px;
-                    display: flex;
-                    max-height: 190px;
-                    padding: 4px;
-                    color: #ffffff;
-                    background: rgba(0, 0, 0, 0.75);
-                    border-radius: 8px;
-                    transition-property: opacity;
-                    transition-duration: 250ms;
-                    transition-timing-function: ease-in-out;
-                    transition-delay: initial;
-                    flex-direction: column;
-                    flex-wrap: nowrap;
-                }
-
-                    .controls .hotspot-controls .list .annotations-visibility,
-                    .controls .hotspot-controls .list .annotations-autopilot {
-                        display: flex;
-                        height: 28px;
-                        padding-top: 0px;
-                        padding-right: 5px;
-                        padding-bottom: 0px;
-                        padding-left: 5px;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        border-radius: 2px;
-                        align-items: center;
-                        justify-content: flex-start;
-                        flex-grow: 1;
-                        flex-shrink: 0;
-                        flex-basis: auto;
-                    }
-
-                        .controls .hotspot-controls .list .annotations-visibility:hover,
-                        .controls .hotspot-controls .list .annotations-autopilot:hover {
-                            background-color: #333333;
-                        }
-
-                    .controls .hotspot-controls .list ul {
-                        overflow: auto;
-                        border-top-width: 1px;
-                        border-top-style: solid;
-                        border-top-color: rgb(86, 86, 86);
-                        flex-grow: 1;
-                        flex-shrink: 1;
-                        flex-basis: 0%;
-                        padding: 10px;
-                    }
-
-                    .controls .hotspot-controls .list li a {
-                        display: flex;
-                        width: 100%;
-                        height: 28px;
-                        box-sizing: border-box;
-                        padding: 0 5px;
-                        overflow: hidden;
-                        color: #cccccc;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        border-radius: 2px;
-                        align-items: center;
-                        justify-content: flex-start;
-                        cursor: pointer;
-                    }
-
-                        .controls .hotspot-controls .list li a:hover {
-                            background-color: #333333;
-                        }
-
-                    .controls .hotspot-controls .list li .index {
-                        margin-right: 8px;
-                    }
-
-
-                    /*visibility*/
-                    .controls .hotspot-controls .list .annotations-visibility.\--hide:before {
-                        content: "\F070";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:before {
-                        content: "\F06E";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:before,
-                    .controls .hotspot-controls .list .annotations-autopilot:before {
-                        margin-right: 8px;
-                        font-family: "FontAwesome";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility.\--hide:after {
-                        content: "Hide annotations";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:after {
-                        content: "Show annotations";
-                    }
-
-
-                    /*autopilot*/
-                    .controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
-                        content: "\F04B";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-autopilot:before {
-                        content: "\F04D";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:before,
-                    .controls .hotspot-controls .list .annotations-autopilot:before {
-                        margin-right: 8px;
-                        font-family: "FontAwesome";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
-                        content: "Start autopilot";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-autopilot:after {
-                        content: "Stop autopilot";
-                    }
     </style>
 </head>
 <body>
@@ -457,70 +86,86 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+    <div class="potree_container">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
+        <!--Previously commented out-->
+        <img id="question_icon" src="../images/question.svg" title="Navigation" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
-        <!--
-            <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-            <img id="handicap_icon" src="../images/arrows.png" title="Help" />
-            <div>
+        <div>
 
-                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
 
-                <map name="controlPanel">
+            <map name="controlPanel">
+                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+            </map>
+        </div>
 
-
-                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-
-                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-
-                    <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-
-                    <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-
-                    <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-
-                    <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-
-                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-
-                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-                </map>
+        <!--HOTSPOT CONTROLS-->
+        <div class="controls">
+            <div class="hotspot-controls">
+                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                    <div class="icon fa fa-caret-left"></div>
+                </div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona un punto de interés</div>
+                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                    <div class="icon fa fa-caret-right"></div>
+                </div>
+                <div id="lists" class="list hotspots-list visible">
+                    <!--
+                                        <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                                        <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+                    -->
+                    <ul class="js-scrollable">
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">3</span> Herm</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">4</span> Sculptures</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">5</span> Mermaids</a></li>
+                    </ul>
+                </div>
             </div>
-        -->
+        </div>
+        <!--END OF HOTSPOT CONTROLS-->
     </div>
 
-    <!-- The Modal -->
-    <div id="myModal1" class="modal">
-        <div class="modal-content">
+    <!-- popup 1 -->
+    <div id="mypopup1" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
                 <iframe class="iframe" src="../1916Herm.html"></iframe>
             </div>
-
         </div>
     </div>
 
-    <!-- The Modal -->
-    <div id="myModal2" class="modal">
-        <div class="modal-content">
+    <!-- popup 2-->
+    <div id="mypopup2" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
                 <iframe class="iframe" src="../1916Mermaids.html"></iframe>
             </div>
-
         </div>
     </div>
 
     <script>
 
-        //For control panel
-
-        $("#handicap_icon").click(function () {
-
+        //Controls bar
+        $("#control_icon").click(function () {
             $("#control_panel").toggle();
         });
+
         setup();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
@@ -540,13 +185,15 @@
 
         viewer.setDescription(`
 
-                                `);
+                                                            `);
 
         let sceneSG = new Potree.Scene();
         let sceneSG2 = new Potree.Scene();
         let sceneSG3 = new Potree.Scene();
         let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
+
+
 
         function getParam(paramName) {
             var src = document.referrer;
@@ -582,7 +229,6 @@
             manager.onProgress = function (item, loaded, total) {
                 console.log(item, loaded, total);
             };
-
 
             //let textureLoader = new THREE.TextureLoader(manager);
             //let texture = textureLoader.load(`${Potree.resourcePath}/models/textures/polySurface448SG1_baseColor.jpeg`);
@@ -640,25 +286,25 @@
             {
                 {
                     let elTitle = $(`
-                        <span>
-                            HERMAS
-                            <img src="${Potree.resourcePath}/icons/goto.svg"
-                                name="action_set_scene"
-                                class="annotation-action-icon"
-                                style="filter: invert(1);" />
-                        </span>
-                                            `);
+                                <span>
+
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                                                    `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        var modal = document.getElementById('myModal1');
+                        var popup = document.getElementById('mypopup1');
                         var span = document.getElementsByClassName("close")[0];
 
-                        modal.style.display = "block";
+                        popup.style.display = "block";
                         span.onclick = function () {
-                            modal.style.display = "none";
+                            popup.style.display = "none";
                         }
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == popup) {
+                                popup.style.display = "none";
                             }
                         }
                         /*event.stopPropagation();*/
@@ -672,8 +318,11 @@
                         title: elTitle,
                         cameraPosition: [589641.037, 231210.382, 851.979],
                         cameraTarget: [589841.773, 231481.066, 774.607],
-                        description: `Cuatro hermas (bustos sin brazos colocados sobre columnas) dan la bienvenida a los invitados de la Barcaza. Las cestas de bananas y piñas sobre la cabeza de cada herma representan los trópicos. Hoy en día es difícil distinguir los detalles de los hermas, e inclusive algunos elementos han desaparecido por completo.
-                                        `
+                        /*
+                        description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with
+                                                                baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today,
+                                                                the details of the herms are hardly recognizable, and in some cases entirely lost.
+                                                    `*/
                     });
 
                     sceneSG.annotations.add(aAbout1);
@@ -681,25 +330,25 @@
 
                 {
                     let elTitle = $(`
-                            <span>
-                                ESCULTURAS
-                                <img src="${Potree.resourcePath}/icons/goto.svg"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                                            `);
+                                <span>
+
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                                                `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        var modal = document.getElementById('myModal2');
+                        var popup = document.getElementById('mypopup2');
                         var span = document.getElementsByClassName("close")[1];
 
-                        modal.style.display = "block";
+                        popup.style.display = "block";
                         span.onclick = function () {
-                            modal.style.display = "none";
+                            popup.style.display = "none";
                         }
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == popup) {
+                                popup.style.display = "none";
                             }
                         }
                         /*event.stopPropagation();*/
@@ -713,36 +362,29 @@
                         title: elTitle,
                         cameraPosition: [590625.603, 231519.145, 897.813],
                         cameraTarget: [589498.722, 231655.070, 606.460],
-                        description: `Estas criaturas míticas desnudas con características humanas y pez se encuentran rodeadas de motivos marítimos, como algas marinas y corales. Las figuras sentadas son reproducciones hechas en 1982.
-                                        `
+                        /*
+                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
+                                                                `*/
                     });
 
                     sceneSG.annotations.add(aAbout3);
                 }
 
-                //              {
-                //                    let aAbout2 = new Potree.Annotation({
-                //                        position: [-61.216, -49.492, 2.215],
-                //                        "cameraPosition": [-61.216, -49.492, 2.215],
-                //                        "cameraTarget": [-62.181, -50.463, 1.985],
-                //                        "title": "Pleasures and Perils",
-                //                        "description": `
-                //						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-                //						`
-                //                    });
-                //                    sceneSG.annotations.add(aAbout2);
-                //                }
-                //
-
                 // Summer House
                 {
                     let aStatues = new Potree.Annotation({
                         position: [589367.536, 231407.493, 852.372],
-                        title: "LA CASA DE VERANO",
+                        title: $(`
+                                <span>
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                                                `),
                         cameraPosition: [589512.482, 231554.667, 919.268],
                         cameraTarget: [589394.480, 231518.869, 889.558],
-                        description: `La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
-                                        `,
+                        description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.`,
                     });
                     aStatues.domElement.off("mouseenter");
                     aStatues.domElement.off("mouseleave");
@@ -751,62 +393,78 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
-                /*
-                                // Statues
-                                {
-                                    let aStatues = new Potree.Annotation({
-                                        position: [-23.590, -23.959, 2.530],
-                                        title: "Statues",
-                                        cameraPosition: [-23.590, -23.959, 2.530],
-                                        cameraTarget: [-25.609, -23.231, 1.536],
-                                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`,
-                                    });
-                                    aStatues.domElement.off("mouseenter");
-                                    aStatues.domElement.off("mouseleave");
-                                    aStatues.addEventListener("click", () => {
-                                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                                    });
-                                    sceneSG.annotations.add(aStatues);
-                                }
-                */
 
                 // Grotesque
+
                 {
-                    let Grotesque = new Potree.Annotation({
-                        position: [589427.435, 231387.364, 754.621],
-                        title: "GRUTESCOS",
-                        cameraPosition: [589429.688, 231295.807, 778.016],
-                        cameraTarget: [589439.255, 231558.884, 793.770],
-                        description: `Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
-                               `,
+                    let elTitle = $(`
+                            <span>
+
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    Grotesque.domElement.off("mouseenter");
-                    Grotesque.domElement.off("mouseleave");
-                    Grotesque.addEventListener("click", () => {
-                        Grotesque.setHighlighted(!Grotesque.isHighlighted);
+                    elTitle.toString = () => "GRUTESCOS";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [589392.007, 231383.248, 795.418],
+                        title: elTitle,
+                        cameraPosition: [589429.177, 231255.717, 767.927],
+                        cameraTarget: [589435.471, 231558.942, 795.472],
+                        description: `
+                                    GRUTESCOS<hr>Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
+                                        `
                     });
-                    sceneSG.annotations.add(Grotesque);
+
+                    aAbout2.domElement.off("mouseenter");
+                    aAbout2.domElement.off("mouseleave");
+                    aAbout2.addEventListener("click", () => {
+                        aAbout2.setHighlighted(!aAbout2.isHighlighted);
+                    });
+
+                    sceneSG.annotations.add(aAbout2);
                 }
 
-                // Mermaids
+                //Mermaids
                 {
-                    let Mermaids = new Potree.Annotation({
+                    let elTitle = $(`
+                            <span>
+
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "SIRENAS";
+
+                    let aAbout4 = new Potree.Annotation({
                         position: [590571.616, 231533.355, 759.504],
-                        title: "SIRENAS",
-                        cameraPosition: [590708.145, 231492.013, 769.828],
+                        title: elTitle,
+                        cameraPosition: [590710.354, 231503.486, 769.828],
                         cameraTarget: [589483.126, 231733.839, 872.968],
-                        description: `Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.
-                                    `,
+                        description: `
+                                    SIRENAS<hr>Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.`
                     });
-                    Mermaids.domElement.off("mouseenter");
-                    Mermaids.domElement.off("mouseleave");
-                    Mermaids.addEventListener("click", () => {
-                        Mermaids.setHighlighted(!Mermaids.isHighlighted);
+
+                    aAbout4.domElement.off("mouseenter");
+                    aAbout4.domElement.off("mouseleave");
+                    aAbout4.addEventListener("click", () => {
+                        aAbout4.setHighlighted(!aAbout4.isHighlighted);
                     });
-                    sceneSG.annotations.add(Mermaids);
+
+                    sceneSG.annotations.add(aAbout4);
                 }
+
 
             }
+
         }
         /*
                 var fbxLoader = new THREE.FBXLoader();
@@ -880,32 +538,119 @@
             this.addEventListener("mousewheel", resetTimer, false);
             this.addEventListener("touchmove", resetTimer, false);
             this.addEventListener("MSPointerMove", resetTimer, false);
-
             startTimer();
         }
 
         function startTimer() {
-
             timeoutID = window.setTimeout(goInactive, 300000);
         }
 
         function resetTimer(e) {
             window.clearTimeout(timeoutID);
-
             goActive();
         }
 
         function goInactive() {
-
             window.top.location.href = "../index.html";
         }
 
         function goActive() {
-
-
             startTimer();
         }
+
+        /*
+         * HOTSPOT CONTROLS FUNCTIONS
+        */
+
+        $("#hotspots").click(function () {
+            $("#lists").toggle();
+        });
+
+        //Functions for each annotation
+        function item1() {
+            let scene = viewer.scene;
+            scene.view.position.set(589512.482, 231554.667, 919.268);
+            scene.view.lookAt(new THREE.Vector3(589394.480, 231518.869, 889.558));
+        }
+
+        function item2() {
+            let scene = viewer.scene;
+            scene.view.position.set(589429.177, 231255.717, 767.927);
+            scene.view.lookAt(new THREE.Vector3(589435.471, 231558.942, 795.472));
+        }
+        function item3() {
+            let scene = viewer.scene;
+            scene.view.position.set(589641.037, 231210.382, 851.979);
+            scene.view.lookAt(new THREE.Vector3(589841.773, 231481.066, 774.607));
+
+        }
+        function item4() {
+            let scene = viewer.scene;
+            scene.view.position.set(590625.603, 231519.145, 897.813);
+            scene.view.lookAt(new THREE.Vector3(589498.722, 231655.070, 606.460));
+        }
+        function item5() {
+            let scene = viewer.scene;
+            scene.view.position.set(590708.145, 231492.013, 769.828);
+            scene.view.lookAt(new THREE.Vector3(589483.126, 231733.839, 872.968));
+        }
+
+        //Click functions for each annotation within Hotspot Control's List
+
+        $("#li1").click(function () {
+            item1();
+        });
+        $("#li2").click(function () {
+            item2();
+        });
+        $("#li3").click(function () {
+            item3();
+        });
+        $("#li4").click(function () {
+            item4();
+        });
+        $("#li5").click(function () {
+            item5();
+        });
+
+        //Functions for continuous click on Prev and Next buttons
+        const functions = [];
+        functions.push(item1);
+        functions.push(item2);
+        functions.push(item3);
+        functions.push(item4);
+        functions.push(item5);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = 0, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+
+            /*
+             * END OF HOTSPOT CONTROLS FUNCTIONS
+            */
     </script>
+
 
 
 </body>

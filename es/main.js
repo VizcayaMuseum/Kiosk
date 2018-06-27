@@ -10,6 +10,10 @@ function refreshButton() {
     window.top.location.reload();
 }
 
+    function refreshPopup() {
+        location.reload();
+    }
+
 function redirectHomeFunc() {
 
     window.top.location.href = "../index.html";
