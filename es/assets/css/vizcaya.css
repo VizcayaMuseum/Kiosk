@@ -1,9 +1,6 @@
 /*@import url("../../webfonts/OpenSans_Regular/stylesheet.css");
 @import url("../../webfonts/Marcellus_Regular/stylesheet.css");*/
 
-/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
-/*@import url('https://fonts.googleapis.com/css?family=Marcellus');*/
-
 /*MARCELLUS FONT*/
 /* latin-ext */
 @font-face {
@@ -592,9 +589,9 @@ a {
     display: none;
 }
 
-/* MOVING IT TO VIZCAYA.CSS CAUSE RANDOM WHITE BOXES BEFORE IFRAME LOADS
-               *Pop-up Windows
-               */
+/*
+*Pop-up Windows
+*/
 .popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -665,9 +662,9 @@ a {
 }
 
 
-/*WHEN MOVED TO VISCAYA.CSS IT DISAPPEARS
-               *HOTSPOTS CONTROLS
-               */
+/*
+*HOTSPOTS CONTROLS
+*/
 .potree_container:hover .controls {
     display: flex;
 }
@@ -745,7 +742,7 @@ a {
             right: 30px;
             bottom: 40px;
             left: 30px;
-            display: none; /*flex*/
+            display: flex; /*set to none if hidden on barge*/
             max-height: 190px;
             padding: 4px;
             color: #ffffff;
@@ -765,7 +762,7 @@ a {
                            */
             .controls .hotspot-controls .list .annotations-visibility,
             .controls .hotspot-controls .list .annotations-autopilot {
-                display: none; /*flex*/
+                display: flex; /*set to none if hidden on barge*/
                 height: 28px;
                 padding-top: 0px;
                 padding-right: 5px;

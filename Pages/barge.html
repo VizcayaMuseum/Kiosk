@@ -137,7 +137,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../2017herm.html"></iframe>
+                <iframe id="iframe1" class="iframe" src="../2017herm.html"></iframe>
             </div>
         </div>
     </div>
@@ -147,7 +147,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../mermaids.html"></iframe>
+                <iframe id="iframe2" class="iframe" src="../mermaids.html"></iframe>
             </div>
         </div>
     </div>
@@ -239,10 +239,18 @@
                         popup.style.display = "block";
                         span.onclick = function () {
                             popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src; 
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup1').attr('src', '');
+                                var iframe = document.getElementById('iframe1');
+                                iframe.src = iframe.src; 
                             }
                         }
                         /*event.stopPropagation();*/
@@ -280,10 +288,18 @@
                         popup.style.display = "block";
                         span.onclick = function () {
                             popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src; 
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup2').attr('src', '');
+                                var iframe = document.getElementById('iframe2');
+                                iframe.src = iframe.src; 
                             }
                         }
                         /*event.stopPropagation();*/

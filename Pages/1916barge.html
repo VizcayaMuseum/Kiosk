@@ -117,10 +117,10 @@
                     <div class="icon fa fa-caret-right"></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-<!--
+
                     <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
                     <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
--->
+
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
@@ -139,7 +139,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../1916Herm.html"></iframe>
+                <iframe id="iframe1" class="iframe" src="../1916Herm.html"></iframe>
             </div>
         </div>
     </div>
@@ -149,7 +149,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../1916Mermaids.html"></iframe>
+                <iframe id="iframe2" class="iframe" src="../1916Mermaids.html"></iframe>
             </div>
         </div>
     </div>
@@ -297,12 +297,20 @@
                         var span = document.getElementsByClassName("close")[0];
 
                         popup.style.display = "block";
-                        span.onclick = function () {
-                            popup.style.display = "none";
+                        span.onclick = function () {  
+                            popup.style.display = "none";  
+                            //Reloads the Iframe
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src;                                   
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup1').attr('src', '');
+                                var iframe = document.getElementById('iframe1');
+                                iframe.src = iframe.src;
                             }
                         }
                         /*event.stopPropagation();*/
@@ -318,9 +326,9 @@
                         cameraTarget: [589841.773, 231481.066, 774.607],
                         /*
                         description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with
-                                                                baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today,
-                                                                the details of the herms are hardly recognizable, and in some cases entirely lost.
-                                                    `*/
+                                        baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today,
+                                        the details of the herms are hardly recognizable, and in some cases entirely lost.
+                            `*/
                     });
 
                     sceneSG.annotations.add(aAbout1);
@@ -345,13 +353,19 @@
 
                         popup.style.display = "block";
                         span.onclick = function () {
-                            //window.top.location.reload();causes entire page to reload
-                            //location.reload(); causes the page to disappear
-                            popup.style.display = "none";                            
+                            popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src; 
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup2').attr('src', '');
+                                var iframe = document.getElementById('iframe2');
+                                iframe.src = iframe.src; 
                             }
                         }
                         /*event.stopPropagation();*/

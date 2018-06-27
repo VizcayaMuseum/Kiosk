@@ -127,11 +127,11 @@
                                         <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
                     -->
                     <ul class="js-scrollable">
-                        <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
-                        <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">3</span> Herm</a></li>
-                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">4</span> Sculptures</a></li>
-                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">5</span> Mermaids</a></li>
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="La Casa de Verano"><span class="index">1</span>La Casa de Verano</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Grotescos"><span class="index">2</span>Grotescos</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Herma"><span class="index">3</span>Herma</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Esculturas"><span class="index">4</span>Esculturas</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Sirenas"><span class="index">5</span>Sirenas</a></li>
                     </ul>
                 </div>
             </div>
@@ -144,7 +144,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../1916Herm.html"></iframe>
+                <iframe id="iframe1" class="iframe" src="../1916Herm.html"></iframe>
             </div>
         </div>
     </div>
@@ -154,7 +154,7 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../1916Mermaids.html"></iframe>
+                <iframe id="iframe2" class="iframe" src="../1916Mermaids.html"></iframe>
             </div>
         </div>
     </div>
@@ -301,10 +301,18 @@
                         popup.style.display = "block";
                         span.onclick = function () {
                             popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src;
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup1').attr('src', '');
+                                var iframe = document.getElementById('iframe1');
+                                iframe.src = iframe.src;
                             }
                         }
                         /*event.stopPropagation();*/
@@ -345,10 +353,18 @@
                         popup.style.display = "block";
                         span.onclick = function () {
                             popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src;
                         }
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup2').attr('src', '');
+                                var iframe = document.getElementById('iframe2');
+                                iframe.src = iframe.src;
                             }
                         }
                         /*event.stopPropagation();*/
