@@ -61,6 +61,17 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
+        #prevDiv, #nextDiv {
+            background-color: red;
+            position: center;
+        }
+        #prevIcon, #nextIcon {
+            height: 23px;
+            width: 23px;
+            position: center;
+            background-color: yellow;
+            
+        }
     </style>
 </head>
 <body>
@@ -115,17 +126,17 @@
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg"/></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-
+<!--
                     <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
                     <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-
+-->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>

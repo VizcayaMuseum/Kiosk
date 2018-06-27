@@ -61,6 +61,17 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
+        #prevDiv, #nextDiv {
+
+            position: center;
+        }
+
+        #prevIcon, #nextIcon {
+            height: 23px;
+            width: 23px;
+            position: center;
+
+        }
     </style>
 </head>
 <body>
@@ -115,11 +126,11 @@
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona un punto de interés</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
                     <!--

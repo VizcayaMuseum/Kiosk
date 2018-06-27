@@ -369,25 +369,6 @@ a {
         background: #7d7d7d;
     }
 
-/*
-*Annotation
-*/
-/*
-.annotation-description {
-    position: relative;
-    color: white;
-    background-color: black;
-    padding: 10px;
-    margin: 5px 0px 0px 0px;
-    border-radius: 12px;
-    display: none;
-    max-width: 250px;
-    width: 500px;
-    font-size: 1em;
-    font-family: 'Open Sans', sans-serif;
-}
-*/
-
 /* 
 *POTREE ANNOTATIONS
 */
@@ -665,12 +646,13 @@ a {
 /*
 *HOTSPOTS CONTROLS
 */
+/*
 .potree_container:hover .controls {
     display: flex;
 }
-
+*/
 .controls {
-    display: none; /*flex*/
+    display: flex; /*flex*/
     min-width: 0;
     padding: 10px;
     pointer-events: none;
@@ -738,11 +720,12 @@ a {
         }
 
         .controls .hotspot-controls .list {
+            overflow: auto;
             position: absolute;
             right: 30px;
             bottom: 40px;
             left: 30px;
-            display: flex; /*set to none if hidden on barge*/
+            display: none; /*set to none if hidden on barge*/
             max-height: 190px;
             padding: 4px;
             color: #ffffff;
@@ -822,11 +805,11 @@ a {
 
             /*visibility*/
             .controls .hotspot-controls .list .annotations-visibility.\--hide:before {
-                content: "\F070";
+                content: "\F06E";
             }
 
             .controls .hotspot-controls .list .annotations-visibility:before {
-                content: "\F06E";
+                content: "\F070";
             }
 
             .controls .hotspot-controls .list .annotations-visibility:before,
@@ -836,21 +819,21 @@ a {
             }
 
             .controls .hotspot-controls .list .annotations-visibility.\--hide:after {
-                content: "Hide annotations";
+                content: "Show annotations";
             }
 
             .controls .hotspot-controls .list .annotations-visibility:after {
-                content: "Show annotations";
+                content: "Hide annotations";
             }
 
 
             /*autopilot*/
             .controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
-                content: "\F04B";
+                content: "\F04D";
             }
 
             .controls .hotspot-controls .list .annotations-autopilot:before {
-                content: "\F04D";
+                content: "\F04B";
             }
 
             .controls .hotspot-controls .list .annotations-visibility:before,
@@ -860,9 +843,9 @@ a {
             }
 
             .controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
-                content: "Start autopilot";
+                content: "Stop autopilot";
             }
 
             .controls .hotspot-controls .list .annotations-autopilot:after {
-                content: "Stop autopilot";
+                content: "Start autopilot";
             }
