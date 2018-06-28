@@ -70,6 +70,12 @@
         .tooltip {
             color: black;
         }
+
+        #prevIcon, #nextIcon {
+            height: 15px;
+            width: 15px;
+            position: center;
+        }
     </style>
 </head>
 
@@ -127,21 +133,30 @@
             </map>
         </div>
 
+        <!-- navPanel 1 -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
+            </div>
+        </div>
+
         <!--HOTSPOT CONTROLS-->
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona un punto de interés</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-<!--
-                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
--->
+                    <!--
+                                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+                -->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">1</span> Amorino</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Techo Mural"><span class="index">2</span>Techo Mural</a></li>
@@ -167,7 +182,13 @@
 
             $("#question_icon").click(function () {
 
-                $("#help_panel").toggle();
+                $("#nav_panel").toggle();
+            });
+
+            //Navigation Panel
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
             });
 
             setup();
@@ -191,7 +212,7 @@
 
             viewer.setDescription(`
 
-                                                `);
+                                                                `);
 
             let sceneSG = new Potree.Scene();
             let sceneSG2 = new Potree.Scene();
@@ -237,13 +258,13 @@
                     // AMORINO
                     {
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                                        `);
+                                                    <span>
+                                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                                            name="action_set_scene"
+                                                            class="annotation-action-icon"
+                                                            style="filter: invert(1);" />
+                                                    </span>
+                                                                        `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "AMORINO";
@@ -253,11 +274,11 @@
                             title: elTitle,
                             cameraPosition: [-30.289, 2.205, -1.767],
                             cameraTarget: [-31.354, 1.411, -1.882],
-                            description: `AMORINO<hr>El propósito de esta escultura de plomo fundido siempre fue ser una fuente para la gruta. A pesar de que 
-                            ya no cumple con su función original, la escultura ha sobrevivido las inundaciones causadas por varias tormentas.
-                            El plomo resiste la corrosión porque cuando se expone a la humedad forma una capa de pátina gris como la que se ve
-                            aquí.
-                                                                `
+                            description: `AMORINO<hr>El propósito de esta escultura de plomo fundido siempre fue ser una fuente para la gruta. A pesar de que
+                                            ya no cumple con su función original, la escultura ha sobrevivido las inundaciones causadas por varias tormentas.
+                                            El plomo resiste la corrosión porque cuando se expone a la humedad forma una capa de pátina gris como la que se ve
+                                            aquí.
+                                                                                `
                         });
 
                         sceneSG.annotations.add(aAbout1);
@@ -266,26 +287,26 @@
                     // CEILING
                     {
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                                        `);
+                                                    <span>
+                                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                                            name="action_set_scene"
+                                                            class="annotation-action-icon"
+                                                            style="filter: invert(1);" />
+                                                    </span>
+                                                                        `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "CEILING MURAL";
 
                         let aAbout2 = new Potree.Annotation({
-                            position: [-34.114, 4.688, -0.122],
+                            position: [-31.509, 4.221, 0.443],
                             title: elTitle,
-                            cameraPosition: [-27.002, 0.944, -2.493],
-                            cameraTarget: [-31.510, 3.114, 0.732],
-                            description: `TECHO MURAL<hr>El mural escultural que adorna el techo abovedado muestra una fantasía marina enmarcada por conchas y corales 
-                    de yeso. Busque las tortugas de mar, los caballitos de mar, los pulpos, los lagartos y los peces. Los colores originales
-                    del techo son difíciles de identificar ya que se han desteñido.
-                                                                `
+                            cameraPosition: [-27.114, 1.190, -2.820],
+                            cameraTarget: [-31.292, 2.889, 1.065],
+                            description: `TECHO MURAL<hr>El mural escultural que adorna el techo abovedado muestra una fantasía marina enmarcada por conchas y corales
+                                    de yeso. Busque las tortugas de mar, los caballitos de mar, los pulpos, los lagartos y los peces. Los colores originales
+                                    del techo son difíciles de identificar ya que se han desteñido.
+                                                                                `
                         });
 
                         sceneSG.annotations.add(aAbout2);
@@ -294,13 +315,13 @@
                     //STURGEON
                     {
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                                        `);
+                                                    <span>
+                                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                                            name="action_set_scene"
+                                                            class="annotation-action-icon"
+                                                            style="filter: invert(1);" />
+                                                    </span>
+                                                                        `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "HUDSON RIVER STURGEONS";
@@ -310,11 +331,11 @@
                             title: elTitle,
                             cameraPosition: [-28.826, 1.887, -3.110],
                             cameraTarget: [-28.826, 1.887, 0.219],
-                            description: `ESTURIONES DEL RIO HUDSON<hr>Originalmente, casi todos los peces estaban recubiertos de una pintura metálica que replicaba la iridiscencia de 
-                    sus escamas brillando en el agua. El efecto contribuía a la experiencia inmersiva que Deering había preparado para sus
-                    invitados. La pintura metálica fue ocultada por las capas de pintura no-metálica aplicada por el personal de Vizcaya para
-                    tratar de conservar el mural.
-                                                                `
+                            description: `ESTURIONES DEL RIO HUDSON<hr>Originalmente, casi todos los peces estaban recubiertos de una pintura metálica que replicaba la iridiscencia de
+                                    sus escamas brillando en el agua. El efecto contribuía a la experiencia inmersiva que Deering había preparado para sus
+                                    invitados. La pintura metálica fue ocultada por las capas de pintura no-metálica aplicada por el personal de Vizcaya para
+                                    tratar de conservar el mural.
+                                                                                `
                         });
 
                         sceneSG.annotations.add(aAbout3);
@@ -323,13 +344,13 @@
                     //FOUNTAINS
                     {
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                                        `);
+                                                    <span>
+                                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                                            name="action_set_scene"
+                                                            class="annotation-action-icon"
+                                                            style="filter: invert(1);" />
+                                                    </span>
+                                                                        `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "FOUNTAINS";
@@ -339,10 +360,10 @@
                             title: elTitle,
                             cameraPosition: [-27.815, 2.041, -1.450],
                             cameraTarget: [-25.942, 0.084, -1.567],
-                            description: `FUENTES<hr>Estas fuentes de roca coralina son parecidas a las otras fuentes de Vizcaya. El personal de Vizcaya ha aprendido 
-                    que la restauración de las fuentes ayuda a moderar los altos niveles de humedad en el espacio y a proteger mejor la
-                    colección de objetos en la Gruta de la Piscina.
-                                                                `
+                            description: `FUENTES<hr>Estas fuentes de roca coralina son parecidas a las otras fuentes de Vizcaya. El personal de Vizcaya ha aprendido
+                                    que la restauración de las fuentes ayuda a moderar los altos niveles de humedad en el espacio y a proteger mejor la
+                                    colección de objetos en la Gruta de la Piscina.
+                                                                                `
                         });
 
                         sceneSG.annotations.add(aAbout4);
@@ -351,13 +372,13 @@
                     //FLOOR
                     {
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                                        `);
+                                                    <span>
+                                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                                            name="action_set_scene"
+                                                            class="annotation-action-icon"
+                                                            style="filter: invert(1);" />
+                                                    </span>
+                                                                        `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "FLOOR";
@@ -367,9 +388,9 @@
                             title: elTitle,
                             cameraPosition: [-35.020, 3.368, -1.354],
                             cameraTarget: [-33.436, 1.582, -2.699],
-                            description: `PISO<hr>Al igual que el piso dentro de la casa, el piso de mármol está hecho de raras piedras importadas, cortadas 
-                    cuidadosamente y colocadas en un intricado patrón.
-                                                                `
+                            description: `PISO<hr>Al igual que el piso dentro de la casa, el piso de mármol está hecho de raras piedras importadas, cortadas
+                                    cuidadosamente y colocadas en un intricado patrón.
+                                                                                `
                         });
 
                         sceneSG.annotations.add(aAbout5);
@@ -504,9 +525,9 @@
                 getNewScene('next');
             });
 
-                    /*
-                     * END OF HOTSPOT CONTROLS FUNCTIONS
-                    */
+                                    /*
+                                     * END OF HOTSPOT CONTROLS FUNCTIONS
+                                    */
 
         </script>
 

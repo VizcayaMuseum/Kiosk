@@ -84,7 +84,27 @@
         </div>
     </div>
 
+    <!-- navPanel 1 -->
+    <div id="nav_panel" class="navPanel">
+        <div class="navPanel-content">
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <img class="nav_img" src="../images/navigation.png" />
+            </div>
+        </div>
+    </div>
+
     <script>
+
+        $("#question_icon").click(function () {
+
+            $("#nav_panel").toggle();
+        });
+
+        //Navigation Panel
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
 
         $("#control_icon").click(function () {
 
@@ -110,7 +130,7 @@
         */
         viewer.setDescription(`
 
-            `);
+                `);
 
         let sceneSG = new Potree.Scene();
         let sceneSG2 = new Potree.Scene();

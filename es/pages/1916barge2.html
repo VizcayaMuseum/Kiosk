@@ -33,6 +33,7 @@
             left: 0px;
             top: 0px;
         }
+        
         /*
         * Scrollbar for hotspot controls
         */
@@ -64,13 +65,15 @@
         #prevDiv, #nextDiv {
             background-color: red;
             position: center;
+            
         }
         #prevIcon, #nextIcon {
             height: 23px;
             width: 23px;
             position: center;
             background-color: yellow;
-            
+            bottom: 0px;
+            -webkit-justify-content: flex-end;
         }
     </style>
 </head>
@@ -421,8 +424,8 @@
                                                                 that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
                                                                 originally landscaped with many potted plants, had functioning fountains as well as electricity.`,
                     });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
+                    aStatues.domElement.off("touch");
+                    aStatues.domElement.off("touch");
                     aStatues.addEventListener("click", () => {
                         aStatues.setHighlighted(!aStatues.isHighlighted);
                     });
@@ -456,8 +459,8 @@
                                     `
                     });
 
-                    aAbout2.domElement.off("mouseenter");
-                    aAbout2.domElement.off("mouseleave");
+                    aAbout2.domElement.off("touch");
+                    aAbout2.domElement.off("touch");
                     aAbout2.addEventListener("click", () => {
                         aAbout2.setHighlighted(!aAbout2.isHighlighted);
                     });
@@ -491,8 +494,8 @@
                                                                 the sculptures to a more modest size.`
                     });
 
-                    aAbout4.domElement.off("mouseenter");
-                    aAbout4.domElement.off("mouseleave");
+                    aAbout4.domElement.off("touch");
+                    aAbout4.domElement.off("touch");
                     aAbout4.addEventListener("click", () => {
                         aAbout4.setHighlighted(!aAbout4.isHighlighted);
                     });

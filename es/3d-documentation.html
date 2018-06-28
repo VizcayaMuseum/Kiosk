@@ -16,6 +16,9 @@
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
     <style>
+        body {
+            background-color: black !important;
+        }
         .modal-content {
             width: 115%;
         }
@@ -23,10 +26,10 @@
 
 </head>
 
-  <body style="overflow: auto;">
+<body style="overflow:auto;>
 
     <div class="container-fluid">
-            
+
         <div id="container">
 
             <div id="split-container" class="mini-container1">
@@ -35,15 +38,14 @@
                     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                         <div class="sidebar-sticky">
 
-                            <h1>¿Qué Es La Documentación 3D?</h1><hr />
+                            <h1>¿Qué Es La Documentación 3D?</h1>
                             <p>
-                                Vizcaya emplea dos métodos de documentación tridimensional: <br /><br />
+                                <hr>Vizcaya emplea dos métodos de documentación tridimensional: <br /><br />
                                 Los <b>escáneres láser</b> usan rayos láser para medir la distancia entre el escáner y un objeto. El resultado es una fiel representación digital del objeto. Vizcaya usó el escaneo láser para crear imágenes virtuales y modelos tridimensionales de la Barcaza y la Gruta de la Piscina.<br /><br />
                                 La <b>fotogrametría</b> se utiliza para tomar medidas basadas en fotografías. Vizcaya utilizó fotografías para detectar, medir y documentar la Barcaza y la Gruta de la Piscina. Después estas fotografías fueron procesadas por un programa de computadora que produjo modelos digitales en tres dimensiones. <br><br>Vizcaya y los otros miembros del proyecto combinaron la fotogrametría y el escaneo láser para maximizar las ventajas de cada método. Las imágenes y modelos de alta precisión resultantes se emplean para documentar el legado material de Vizcaya a través del tiempo.
                                 <br />
                                 <!--Pop-up-->
-                                <a data-toggle="modal" href="#myModal"><br />¿Qué papel juega la documentación 3D en la conservación de Vizcaya? </a>
-
+                                <a data-toggle="modal" href="#myModal"><br />¿Qué papel juega la documentación 3D en la conservación de Vizcaya?</a>
                             </p>
 
                         </div>
@@ -51,7 +53,7 @@
                         <footer class="footer">
                             <div>
                                 <p align="center">
-                                    <a href="index.html">Inicio</a> | <a href="../3d-documentation.html">English</a><br>
+                                    <a href="index.html">Home</a> | <a href="../3d-documentation.html">English</a><br>
                                     <!--<p>This interactive was made possible through the support of</p>-->
                                     <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
                                 </p>
@@ -64,13 +66,15 @@
 
             </div>
 
-            <div id="split-container" class="mini-container2" style="overflow: auto; overflow-x: hidden;">
+            <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
+
+
 
                 <!--Featured Content-->
                 <div class="embed-responsive col-lg-12">
                     <img src="images/explainer_1.PNG" width="100%" alt="photogrammetry" />
                 </div>
-                
+
 
 
                 <div class="row">
@@ -81,7 +85,7 @@
                                     <source src="https://s3.amazonaws.com/vizcaya/video/photogrammetry1.mp4" type="video/mp4">
                                 </video>
                             </div>
-                         
+
                         </div>
                     </div>
                     <div class="col-sm-4" style="margin:0; padding:0;">
@@ -91,7 +95,7 @@
                                     <source src="https://s3.amazonaws.com/vizcaya/video/bargeIntroShort.mp4" type="video/mp4">
                                 </video>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="col-sm-4" style="margin:0; padding:0;">
@@ -100,7 +104,40 @@
                                 <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">¿Qué papel juega la documentación 3D en la conservación de Vizcaya? </h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <ol>
+                                <li>Mide el desgaste de la superficie y el ritmo de deterioro debido a las condiciones ambientales.</li>
+                                <li>Predice el ritmo de deterioro y ayuda a los conservadores a establecer prioridades.</li>
+                                <li>Analiza los efectos de la subida del nivel del mar y predice el futuro impacto que estos cambios pueden tener en Vizcaya.</li>
+                                <li>Mide y graba objetos y estructuras. Los conservadores usan las precisas medidas obtenidas para planificar los proyectos de conservación.</li>
+                                <li>Facilita el estudio de detalles magnificados a una escala casi ilimitada.</li>
+                                <li>Mejora la accesibilidad al permitir que los visitantes exploren los espacios de forma virtual y estudien los objetos de la colección a través de modelos tridimensionales.</li>
+                            </ol>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-dismiss="modal">Close</button>
+                        </div>
+
                     </div>
                 </div>
 
@@ -108,39 +145,7 @@
 
 
         </div>
-      </div>
- 
-      <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-              <div class="modal-content">
-
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                      <h4 class="modal-title">¿Qué papel juega la documentación 3D en la conservación de Vizcaya? </h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-
-                  <!-- Modal body -->
-                  <div class="modal-body">
-                      <ol>
-                          <li>Mide el desgaste de la superficie y el ritmo de deterioro debido a las condiciones ambientales.</li>
-                          <li>Predice el ritmo de deterioro y ayuda a los conservadores a establecer prioridades.</li>
-                          <li>Analiza los efectos de la subida del nivel del mar y predice el futuro impacto que estos cambios pueden tener en Vizcaya.</li>
-                          <li>Mide y graba objetos y estructuras. Los conservadores usan las precisas medidas obtenidas para planificar los proyectos de conservación.</li>
-                          <li>Facilita el estudio de detalles magnificados a una escala casi ilimitada.</li>
-                          <li>Mejora la accesibilidad al permitir que los visitantes exploren los espacios de forma virtual y estudien los objetos de la colección a través de modelos tridimensionales.</li>
-                      </ol>
-                  </div>
-
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                      <button type="button" class="btn" data-dismiss="modal">Close</button>
-                  </div>
-
-              </div>
-          </div>
-      </div>	
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -150,5 +155,5 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
 
-    </body>
+</body>
 </html>

@@ -85,10 +85,10 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
         <!--Previously commented out-->
-            <img id="question_icon" src="../images/question.svg" title="Navigation" />
-            <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-            <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-            <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+        <img id="question_icon" src="../images/question.svg" title="Navigation" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
         <div>
 
@@ -106,13 +106,22 @@
             </map>
         </div>
 
+        <!-- navPanel 1 -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
+            </div>
+        </div>
+
         <!--HOTSPOT CONTROLS-->
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div class="icon fa fa-caret-left"></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select a point of interest</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div class="icon fa fa-caret-right"></div>
                 </div>
@@ -155,12 +164,23 @@
     </div>
 
     <script>
-
+        
         //Controls bar
         $("#control_icon").click(function () {
             $("#control_panel").toggle();
         });        
-      
+
+        $("#question_icon").click(function () {
+
+            $("#nav_panel").toggle();
+        });
+
+        //Navigation Panel
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
+
         setup();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
@@ -405,8 +425,8 @@
                                                                 that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
                                                                 originally landscaped with many potted plants, had functioning fountains as well as electricity.`,
                     });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
+                    aStatues.domElement.off("touch"); /*mouseenter*/
+                    aStatues.domElement.off("touch"); /*mouseleave*/
                     aStatues.addEventListener("click", () => {
                         aStatues.setHighlighted(!aStatues.isHighlighted);
                     });
@@ -440,8 +460,8 @@
                                     `
                     });
 
-                    aAbout2.domElement.off("mouseenter");
-                    aAbout2.domElement.off("mouseleave");
+                    aAbout2.domElement.off("touch");
+                    aAbout2.domElement.off("touch");
                     aAbout2.addEventListener("click", () => {
                         aAbout2.setHighlighted(!aAbout2.isHighlighted);
                     });
@@ -475,8 +495,8 @@
                                                                 the sculptures to a more modest size.`
                     });
 
-                    aAbout4.domElement.off("mouseenter");
-                    aAbout4.domElement.off("mouseleave");
+                    aAbout4.domElement.off("touch");
+                    aAbout4.domElement.off("touch");
                     aAbout4.addEventListener("click", () => {
                         aAbout4.setHighlighted(!aAbout4.isHighlighted);
                     });

@@ -13,6 +13,15 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <style>
+        .potree_container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,15 +43,12 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+    <div class="potree_container">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
     </div>
 
     <script>
-
-
-
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
 		viewer.setEDLEnabled(false);
@@ -95,7 +101,7 @@
 					`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         event.stopPropagation();
-                        viewer.setScene(sceneSG2);
+                        //viewer.setScene(sceneSG2);
                     });
                     elTitle.toString = () => "HERM";
 
@@ -107,7 +113,7 @@
                         description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today, the details of the herms are hardly recognizable, and in some cases entirely lost. During Hurricane Wilma in 2005, the female herm on the east side of the Barge toppled into the bay. It was salvaged by a conservation team and after restoration, the figure was placed back onto the Barge in its original location. During Hurricane Irma in 2017, another female herm ravaged by wind and tidal surge broke into three large fragments. In 2018 the pieces were salvaged from the bay and after restoration, the herm will be returned to its original location on the Barge.`
                     });
 
-                    sceneSG.annotations.add(aAbout1);
+                    //sceneSG.annotations.add(aAbout1);
                 }
 
 				{
@@ -122,7 +128,7 @@
 					`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         event.stopPropagation();
-                        viewer.setScene(sceneLion);
+                        //viewer.setScene(sceneLion);
                     });
                     elTitle.toString = () => "SCULPTURES";
 
@@ -134,7 +140,7 @@
                         description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`
                     });
 
-                    sceneSG.annotations.add(aAbout3);
+                    //sceneSG.annotations.add(aAbout3);
                 }
 
             //   {
@@ -149,7 +155,7 @@
 //                    });
 //                    sceneSG.annotations.add(aAbout2);
 //                }
-/*
+
 			// Statues
                 {
                     let aStatues = new Potree.Annotation({
@@ -164,7 +170,7 @@
                     aStatues.addEventListener("click", () => {
                         aStatues.setHighlighted(!aStatues.isHighlighted);
                     });
-                    sceneSG.annotations.add(aStatues);
+                    //sceneSG.annotations.add(aStatues);
                 }
             
             // FemaleHerm
@@ -181,9 +187,9 @@
                     aStatues.addEventListener("click", () => {
                         aStatues.setHighlighted(!aStatues.isHighlighted);
                     });
-                    sceneSG.annotations.add(aStatues);
+                    //sceneSG.annotations.add(aStatues);
                 }
-*/
+
 
 			// Grotesque
                 {
@@ -199,7 +205,7 @@
                     Grotesque.addEventListener("click", () => {
                         Grotesque.setHighlighted(!Grotesque.isHighlighted);
                     });
-                    sceneSG.annotations.add(Grotesque);
+                    //sceneSG.annotations.add(Grotesque);
                 }
 
             // Mermaids
@@ -216,14 +222,14 @@
                     Mermaids.addEventListener("click", () => {
                         Mermaids.setHighlighted(!Mermaids.isHighlighted);
                     });
-                    sceneSG.annotations.add(Mermaids);
+                    //sceneSG.annotations.add(Mermaids);
                 }
 
 
             }
         });
 			// Herm point cloud in scene 2
-
+/*
 			Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
 			sceneSG2.addPointCloud(e.pointcloud);
 			sceneSG2.view.position.set(53.870, -7.065, 46.968);
@@ -259,6 +265,7 @@
 				}]
 			});
 		});
+*/
     </script>
 
 

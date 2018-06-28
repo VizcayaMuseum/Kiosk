@@ -56,6 +56,11 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
+        #prevIcon, #nextIcon {
+            height: 15px;
+            width: 15px;
+            position: center;
+        }
     </style>
 </head>
 
@@ -103,21 +108,31 @@
                 <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
             </map>
         </div>
+
+        <!-- navPanel 1 -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
+            </div>
+        </div>
+
         <!--HOTSPOT CONTROLS-->
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona un punto de interés</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
                     <!--
-                                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                    -->
+                                <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                                <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+                -->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Grotescos"><span class="index">1</span>Grotescos</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Herma"><span class="index">2</span>Herma</a></li>
@@ -159,6 +174,18 @@
 
             $("#control_panel").toggle();
         });
+
+        $("#question_icon").click(function () {
+
+            $("#nav_panel").toggle();
+        });
+
+        //Navigation Panel
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
+
         setup();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
