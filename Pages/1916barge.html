@@ -9,8 +9,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="assets/css/vizcaya.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../build/potree/potree.css">
     <link rel="stylesheet" type="text/css" href="../libs2/jquery-ui/jquery-ui.min.css">
@@ -20,403 +18,44 @@
     <link rel="stylesheet" type="text/css" href="../libs2/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
 
     <style>
         body {
             background-color: black !important;
         }
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 3; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: black; /*#fefefe*/
-            margin: auto;
-            padding: 20px;
-            border: 1px solid black; /*#888*/
-            width: 80%;
-            border-radius: 20px;
-        }
-        .modal-header {
-            padding: 5px;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa; 
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-            .close:hover,
-            .close:focus {
-                color: white; /*#000*/
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-        .intrinsic-container {
-            position: relative;
-            height: 0;
-            overflow: hidden;
-        }
-
-        /* 16x9 Aspect Ratio */
-        .intrinsic-container-16x9 {
-            padding-bottom: 56.25%;
-        }
-
-        /* 4x3 Aspect Ratio */
-        .intrinsic-container-4x3 {
-            padding-bottom: 75%;
-        }
-
-        .intrinsic-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-color: black;
-            border-radius: 20px;
-        }
-
+        .potree_container {
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            left: 0px; 
+            top: 0px;
+        }       
         /*
-        *ANNOTATIONS
+        * Scrollbar for hotspot controls
         */
-        .annotation {
-            opacity: 1 !important;
-        }
-
-        .annotation-titlebar {
-            background-color: #3D9FD6;
-            border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
-            padding: 5px 8px; /*1px 8px | 2px 13px for roundness*/
-            opacity: 1; /*0 !important could hide annotations*/
-        }
-            .annotation-titlebar:hover {
-                background-color: #015289 !important;
-            }
-
-        .annotation-expand {
-        }
-        .annotation-action-icon {
-        }
-            .annotation-action-icon:hover {
-                /*filter: unset !important;*/
-            }
-        .annotation-item {
-            opacity: 1; /*0.5*/
-        }
-            .annotation-item:hover {
-
-            }
-        .annotation-main {
-        }
-        .annotation-label {
-        }
-        .annotation-description {
-            border-radius: 10px; /*4px*/
-            max-width: 250px; /*500px*/
-            font-family: 'Open Sans', sans-serif; /*new*/
-        }
-        .annotation-description-close {
-        }
-        .annotation-description-content {
-        }
-        .annotation-icon {
-            width: 40px; /*20px*/
-            height: 40px; /*20px*/
-            opacity: 1; /*0.5*/
-        }
-
-            /*
-        *CONTROLS
-        */
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display: none;
-        }
-        
-        .potree_container:hover .controls {
-            display: flex;          
-        }
-        
-        /*
-        *HOTSPOTS CONTROLS
-        */
-        .controls {
-            display: none; /*flex*/
-            min-width: 0;
-            padding: 10px;
-            pointer-events: none;
-            position: absolute;
-            right: 30%; /*from 0 to 30% to align it in the middle*/
-            bottom: 0;
-            left: 30%; /*from 0 to 30% to align it in the middle*/
-            z-index: 2;
-            height: 50px;
-            /*width: 40% my change*/
-            /*inherited*/
-            font-family: "Open Sans", sans-serif;
-            
-            /*temp*/
-            transition-property: opacity;
-            transition-duration: 250ms;
-            transition-timing-function: ease-in-out;
-            transition-delay: initial;
-        }
-
-            .controls .hotspot-controls {
-                display: flex;
-                width: 200px;
-                position: relative;
-                flex-grow: 1;
-                flex-shrink: 0;
-                flex-basis: 0;
-                pointer-events: all;
-                height: 30px;
-                font-size: 13px;
-                color: #ffffff;
-                background: rgba(0,0,0,0.3);
-                border-radius: 20px;
-            }
-
-                .controls .hotspot-controls [data-action="prev-annotation"] {
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-                    padding-left: 15px;
-                    padding-right: 15px;
-                    line-height: 30px;
-                    cursor: pointer;
-                }
-
-                .controls .hotspot-controls .hotspot-name {
-                    padding: 0 10px;
-                    overflow: hidden;
-                    line-height: 30px;
-                    text-align: center;
-                    text-overflow: ellipsis;
-                    text-shadow: 0 0 10px #000000;
-                    white-space: nowrap;
-                    cursor: pointer;
-                    -ms-flex: 1;
-                    flex: 1;
-                }
-
-                .controls .hotspot-controls [data-action="next-annotation"] {
-                    padding-top: 0px;
-                    padding-right: 15px;
-                    padding-bottom: 0px;
-                    padding-left: 15px;
-                    line-height: 30px;
-                    cursor: pointer;
-                }
-
-                .controls .hotspot-controls .list {
-                    position: absolute;
-                    right: 30px;
-                    bottom: 40px;
-                    left: 30px;
-                    display: flex; /*flex*/
-                    max-height: 190px;
-                    padding: 4px;
-                    color: #ffffff;
-                    background: rgba(0, 0, 0, 0.75);
-                    border-radius: 8px;
-                    transition-property: opacity;
-                    transition-duration: 250ms;
-                    transition-timing-function: ease-in-out;
-                    transition-delay: initial;
-                    flex-direction: column;
-                    flex-wrap: nowrap;
-                }
-                    /*
-                .hotspot-controls:hover .list hotspots-list visible{
-                    display: flex;
-                }
-                    */
-                    .controls .hotspot-controls .list .annotations-visibility,
-                    .controls .hotspot-controls .list .annotations-autopilot {
-                        display: flex;
-                        height: 28px;
-                        padding-top: 0px;
-                        padding-right: 5px;
-                        padding-bottom: 0px;
-                        padding-left: 5px;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        border-radius: 2px;
-                        align-items: center;
-                        justify-content: flex-start;
-                        flex-grow: 1;
-                        flex-shrink: 0;
-                        flex-basis: auto;
-                    }
-
-                        .controls .hotspot-controls .list .annotations-visibility:hover,
-                        .controls .hotspot-controls .list .annotations-autopilot:hover {
-                            background-color: #333333;
-                        }
-
-                    .controls .hotspot-controls .list ul {
-                        overflow: auto;
-                        border-top-width: 1px;
-                        border-top-style: solid;
-                        border-top-color: rgb(86, 86, 86);
-                        flex-grow: 1;
-                        flex-shrink: 1;
-                        flex-basis: 0%;
-                        padding: 10px;
-                    }
-
-                    .controls .hotspot-controls .list li a {
-                        display: flex;
-                        width: 100%;
-                        height: 28px;
-                        box-sizing: border-box;
-                        padding: 0 5px;
-                        overflow: hidden;
-                        color: #cccccc;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        border-radius: 2px;
-                        align-items: center;
-                        justify-content: flex-start;
-                        cursor: pointer;
-                    }
-
-                        .controls .hotspot-controls .list li a:hover {
-                            background-color: #333333;
-                        }
-
-                    .controls .hotspot-controls .list li .index {
-                        margin-right: 8px;
-                    }
-
-
-                    /*visibility*/
-                    .controls .hotspot-controls .list .annotations-visibility.\--hide:before {
-                        content: "\F070";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:before {
-                        content: "\F06E";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:before,
-                    .controls .hotspot-controls .list .annotations-autopilot:before {
-                        margin-right: 8px;
-                        font-family: "FontAwesome";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility.\--hide:after {
-                        content: "Hide annotations";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:after {
-                        content: "Show annotations";
-                    }
-
-
-                    /*autopilot*/
-                    .controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
-                        content: "\F04B";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-autopilot:before {
-                        content: "\F04D";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-visibility:before,
-                    .controls .hotspot-controls .list .annotations-autopilot:before {
-                        margin-right: 8px;
-                        font-family: "FontAwesome";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
-                        content: "Start autopilot";
-                    }
-
-                    .controls .hotspot-controls .list .annotations-autopilot:after {
-                        content: "Stop autopilot";
-                    }
-
-        /*
- * Scrollbar
- */
-
         ::-webkit-scrollbar {
             width: 9px;
         }
-
         ::-webkit-scrollbar-button {
             width: 8px;
             height: 2px;
         }
-
         ::-webkit-scrollbar-track {
             background: black;
             border: thin solid black;
             box-shadow: 0px 0px 3px black inset;
             border-radius: 12px;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #565656;
             border: thin solid #565656;
             border-radius: 12px;
         }
-
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
-            } 
-
+            }
     </style>
 </head>
 <body>
@@ -442,75 +81,75 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+    <div class="potree_container">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
+        <!--Previously commented out-->
+            <img id="question_icon" src="../images/question.svg" title="Navigation" />
+            <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+            <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+            <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
-        <!--
-                <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-                <img id="handicap_icon" src="../images/arrows.png" title="Help" />
-                <div>
+        <div>
 
-                    <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
 
-                    <map name="controlPanel">
-                        <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                        <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                        <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-                        <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-                        <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-                        <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-                        <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                        <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-                    </map>
+            <map name="controlPanel">
+                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
+                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+            </map>
+        </div>
+
+        <!--HOTSPOT CONTROLS-->
+        <div class="controls">
+            <div class="hotspot-controls">
+                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                    <div class="icon fa fa-caret-left"></div>
                 </div>
-        -->
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
+                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                    <div class="icon fa fa-caret-right"></div>
+                </div>
+                <div id="lists" class="list hotspots-list visible">
 
-            <div class="controls">
-                <div class="hotspot-controls">
+                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
 
-                    <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                        <div class="icon fa fa-caret-left"></div>
-                    </div>
-
-                    <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select an annotation</div>
-
-                    <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                        <div class="icon fa fa-caret-right"></div>
-                    </div>
-
-                    <div id="lists" class="list hotspots-list visible">
-                        <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                        <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                        <ul class="js-scrollable">
-                            <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
-                            <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
-                            <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">3</span> Herm</a></li>
-                            <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">4</span> Sculptures</a></li>
-                            <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">5</span> Mermaids</a></li>
-                        </ul>
-                    </div>
+                    <ul class="js-scrollable">
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">3</span> Herm</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">4</span> Sculptures</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">5</span> Mermaids</a></li>
+                    </ul>
                 </div>
             </div>
-
+        </div>
+        <!--END OF HOTSPOT CONTROLS-->
     </div>
 
-    <!-- Modal 1 -->
-    <div id="myModal1" class="modal">
-        <div class="modal-content">
+    <!-- popup 1 -->
+    <div id="mypopup1" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../1916Herm.html"></iframe>
+                <iframe id="iframe1" class="iframe" src="../1916Herm.html"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2-->
-    <div id="myModal2" class="modal">
-        <div class="modal-content">
+    <!-- popup 2-->
+    <div id="mypopup2" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <div class="intrinsic-container intrinsic-container-16x9">
-                <iframe class="iframe" src="../1916Mermaids.html"></iframe>
+                <iframe id="iframe2" class="iframe" src="../1916Mermaids.html"></iframe>
             </div>
         </div>
     </div>
@@ -518,8 +157,8 @@
     <script>
 
         //Controls bar
-        $("#help_icon").click(function () {
-            $("#help_panel").toggle();
+        $("#control_icon").click(function () {
+            $("#control_panel").toggle();
         });        
       
         setup();
@@ -639,7 +278,10 @@
             }, onProgress, onError);
             // Herm point cloud in scene 2
 
-            {
+            {   
+                /*
+                 * HERM
+                */
                 {
                     let elTitle = $(`
                             <span>
@@ -651,16 +293,24 @@
                             </span>
                                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {                        
-                        var modal = document.getElementById('myModal1');
+                        var popup = document.getElementById('mypopup1');
                         var span = document.getElementsByClassName("close")[0];
 
-                        modal.style.display = "block";
-                        span.onclick = function () {
-                            modal.style.display = "none";
+                        popup.style.display = "block";
+                        span.onclick = function () {  
+                            popup.style.display = "none";  
+                            //Reloads the Iframe
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src;                                   
                         }
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == popup) {
+                                popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup1').attr('src', '');
+                                var iframe = document.getElementById('iframe1');
+                                iframe.src = iframe.src;
                             }
                         }
                         /*event.stopPropagation();*/
@@ -676,14 +326,17 @@
                         cameraTarget: [589841.773, 231481.066, 774.607],
                         /*
                         description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with
-                                                                baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today,
-                                                                the details of the herms are hardly recognizable, and in some cases entirely lost.
-                                                    `*/
+                                        baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today,
+                                        the details of the herms are hardly recognizable, and in some cases entirely lost.
+                            `*/
                     });
 
                     sceneSG.annotations.add(aAbout1);
                 }
 
+                /*
+                 * SCULPTURES
+                */
                 {
                     let elTitle = $(`
                             <span>
@@ -695,16 +348,24 @@
                             </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {                       
-                        var modal = document.getElementById('myModal2');
+                        var popup = document.getElementById('mypopup2');
                         var span = document.getElementsByClassName("close")[1];
 
-                        modal.style.display = "block";
+                        popup.style.display = "block";
                         span.onclick = function () {
-                            modal.style.display = "none";
+                            popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src; 
                         }
                         window.onclick = function (event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
+                            if (event.target == popup) {
+                                popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup2').attr('src', '');
+                                var iframe = document.getElementById('iframe2');
+                                iframe.src = iframe.src; 
                             }
                         }
                         /*event.stopPropagation();*/
@@ -725,20 +386,6 @@
 
                     sceneSG.annotations.add(aAbout3);
                 }
-
-                //              {
-                //                    let aAbout2 = new Potree.Annotation({
-                //                        position: [-61.216, -49.492, 2.215],
-                //                        "cameraPosition": [-61.216, -49.492, 2.215],
-                //                        "cameraTarget": [-62.181, -50.463, 1.985],
-                //                        "title": "Pleasures and Perils",
-                //                        "description": `
-                //						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-                //						`
-                //                    });
-                //                    sceneSG.annotations.add(aAbout2);
-                //                }
-                //
 
                 // Summer House
                 {
@@ -765,24 +412,6 @@
                     });
                     sceneSG.annotations.add(aStatues);
                 }
-                /*
-                                // Statues
-                                {
-                                    let aStatues = new Potree.Annotation({
-                                        position: [-23.590, -23.959, 2.530],
-                                        title: "Statues",
-                                        cameraPosition: [-23.590, -23.959, 2.530],
-                                        cameraTarget: [-25.609, -23.231, 1.536],
-                                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`,
-                                    });
-                                    aStatues.domElement.off("mouseenter");
-                                    aStatues.domElement.off("mouseleave");
-                                    aStatues.addEventListener("click", () => {
-                                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                                    });
-                                    sceneSG.annotations.add(aStatues);
-                                }
-                */
 
                 // Grotesque
 
@@ -798,7 +427,7 @@
                                 `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "HERM";
+                    elTitle.toString = () => "GROTESQUES";
 
                     let aAbout2 = new Potree.Annotation({
                         position: [589392.007, 231383.248, 795.418],
@@ -818,52 +447,46 @@
                     });
 
                     sceneSG.annotations.add(aAbout2);
-                }
+                }              
 
-            /*
+                //Mermaids
                 {
-                    let Grotesque = new Potree.Annotation({
-                        position: [589392.007, 231383.248, 795.418],
-                        title: "GROTESQUES",
-                        cameraPosition: [589429.177, 231255.717, 767.927],
-                        cameraTarget: [589435.471, 231558.942, 795.472],
-                        description: `
-                        GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and
-                                                                include bearded men, youthful women, and animals.
-                                                       `,
-                    });
-                    Grotesque.domElement.off("mouseenter");
-                    Grotesque.domElement.off("mouseleave");
-                    Grotesque.addEventListener("click", () => {
-                        Grotesque.setHighlighted(!Grotesque.isHighlighted);
-                    });
-                    sceneSG.annotations.add(Grotesque);
-                }
-*/
+                    let elTitle = $(`
+                        <span>
                 
-                
+                            <img src="${Potree.resourcePath}/icons/i.png"
+                                name="action_set_scene"
+                                class="annotation-action-icon"
+                                style="filter: invert(1);" />
+                        </span>
+                                `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "MERMAIDS";
 
-                // Mermaids
-                {
-                    let Mermaids = new Potree.Annotation({
+                    let aAbout4 = new Potree.Annotation({
                         position: [590571.616, 231533.355, 759.504],
-                        title: "MERMAIDS",
-                        cameraPosition: [590708.145, 231492.013, 769.828],
+                        title: elTitle,
+                        cameraPosition: [590710.354, 231503.486, 769.828],
                         cameraTarget: [589483.126, 231733.839, 872.968],
-                        description: `The Barge mermaids were designed by Alexander Calder. James Deering initially found the
+                        description: `
+                                MERMAIDS<hr>The Barge mermaids were designed by Alexander Calder. James Deering initially found the
                                                                 proportions of the Mermaids too provocative and Calder was asked to alter the proportion of
-                                                                the sculptures to a more modest size.
-                                                            `,
+                                                                the sculptures to a more modest size.`
                     });
-                    Mermaids.domElement.off("mouseenter");
-                    Mermaids.domElement.off("mouseleave");
-                    Mermaids.addEventListener("click", () => {
-                        Mermaids.setHighlighted(!Mermaids.isHighlighted);
+
+                    aAbout4.domElement.off("mouseenter");
+                    aAbout4.domElement.off("mouseleave");
+                    aAbout4.addEventListener("click", () => {
+                        aAbout4.setHighlighted(!aAbout4.isHighlighted);
                     });
-                    sceneSG.annotations.add(Mermaids);
-                }
+
+                    sceneSG.annotations.add(aAbout4);
+                } 
+
 
             }
+            
         }
         /*
                 var fbxLoader = new THREE.FBXLoader();
@@ -957,10 +580,15 @@
             startTimer();
         }
 
+        /*
+         * HOTSPOT CONTROLS FUNCTIONS 
+        */
+
         $("#hotspots").click(function () {
             $("#lists").toggle();
         });
 
+        //Functions for each annotation
         function item1() {
             let scene = viewer.scene;
             scene.view.position.set(589512.482, 231554.667, 919.268);
@@ -989,6 +617,8 @@
             scene.view.lookAt(new THREE.Vector3(589483.126, 231733.839, 872.968));
         }
 
+        //Click functions for each annotation within Hotspot Control's List
+
         $("#li1").click(function () {
             item1();
         });
@@ -1004,7 +634,8 @@
         $("#li5").click(function () {
             item5();
         });
-       
+
+        //Functions for continuous click on Prev and Next buttons
         const functions = [];
         functions.push(item1);
         functions.push(item2);
@@ -1022,7 +653,7 @@
             }
         }
 
-        let idx; // idx is undefined, so getNextIdx will take 0 as default       
+        let idx; // idx is undefined, so getNewScene will take 0 as default       
         const getNewScene = (direction) => {
             idx = getNextIdx(idx, length, direction);           
             var sceneFunction = functions[idx];
@@ -1037,6 +668,9 @@
             getNewScene('next');
         });
 
+        /*
+         * END OF HOTSPOT CONTROLS FUNCTIONS 
+        */
     </script>
 
 

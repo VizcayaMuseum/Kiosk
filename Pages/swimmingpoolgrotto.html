@@ -13,87 +13,62 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
+    <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
     <style>
-        
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
+        body {
+            background-color: black !important;
         }
 
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
+        .potree_container {
+            position: absolute;
             width: 100%;
             height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
+            left: 0px;
+            top: 0px;
+        }
+        /*
+        * Scrollbar for hotspot controls
+        */
+        ::-webkit-scrollbar {
+            width: 9px;
         }
 
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display: none;
+        ::-webkit-scrollbar-button {
+            width: 8px;
+            height: 2px;
         }
 
-        #refresh_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 140px;
-            z-index: 100;
-            cursor: pointer;
+        ::-webkit-scrollbar-track {
+            background: black;
+            border: thin solid black;
+            box-shadow: 0px 0px 3px black inset;
+            border-radius: 12px;
         }
-        #help_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 200px;
-            z-index: 100;
-            cursor: pointer;
+
+        ::-webkit-scrollbar-thumb {
+            background: #565656;
+            border: thin solid #565656;
+            border-radius: 12px;
         }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #7d7d7d;
+            }
+
+        /*not fixed, temp image*/
         #help_panel {
-            max-width: 4000px;
-            max-height: 4000px;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             position: fixed;
-            z-index: 100;
+            z-index: 1;
             display: none;
-            right: 10%;
-            left: 12%;
-            top: 15%;
         }
         /*not complete/draft to make button round background when hovered*/
-        .tooltip{
+        .tooltip {
             color: black;
-            border-radius: 50%;
-        }
-        #help_panel {
-            color: black;
-            border-radius: 30%;
         }
     </style>
 </head>
@@ -118,14 +93,15 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+    <div class="potree_container">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
-        <img id="help_icon" src="../images/question.png" title="Navigation"/>
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-        <img id="handicap_icon" src="../images/arrows.png" title="Help" />
+        <img id="question_icon" src="../images/question.svg" title="Navigation" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+
         <div>
 
             <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -150,267 +126,388 @@
                 <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
             </map>
         </div>
+
+        <!--HOTSPOT CONTROLS-->
+        <div class="controls">
+            <div class="hotspot-controls">
+                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                    <div class="icon fa fa-caret-left"></div>
+                </div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
+                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                    <div class="icon fa fa-caret-right"></div>
+                </div>
+                <div id="lists" class="list hotspots-list visible">
+                    <!--
+                                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+                -->
+                    <ul class="js-scrollable">
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">1</span> Amorino</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Ceiling Mural"><span class="index">2</span>Ceiling Mural</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Hudson River Sturgeons"><span class="index">3</span> Hudson River Sturgeons</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Fountains"><span class="index">4</span>Fountains</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Floor"><span class="index">5</span> Floor</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--END OF HOTSPOT CONTROLS-->
+
         <div class="tooltip">
             <img id="help_panel" src="../images/instructions.png" usemap="#helpPanel" />
         </div>
 
-<!--
-                <!-- The Modal 
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <script>
 
-                    <!-- Modal Header 
-                    <div class="modal-header">
-                        <h4 class="modal-title">How does 3D documentation contribute to the preservation of Vizcaya?</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+            $("#control_icon").click(function () {
 
-                    <!-- Modal body 
-                    <div class="modal-body">
-                        <li>Measures surface loss and how quickly objects change due to environmental conditions.</li>
-                        <li>Predicts rates of deterioration and informs conservation priorities.</li>
-                        <li>Analyzes effects of sea level rise and predicts how this might affect Vizcaya in the future.</li>
-                        <li>Measures objects and structures to provide detailed dimensions used to plan conservation projects and records objects and structures before conservation begins.</li>
-                        <li>Aids expert understanding by examining enlarged highly accurate details on a virtually unlimited scale.</li>
-                        <li>Improves accessibility by enabling visitors to virtually explore spaces and to study collection objects through 3D print models. </li>
-                    </div>
+                $("#control_panel").toggle();
+            });
 
-                    <!-- Modal footer 
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+            $("#question_icon").click(function () {
 
-    </div>
--->
-    <script>
+                $("#help_panel").toggle();
+            });
 
-        $("#handicap_icon").click(function () {
-
-            $("#control_panel").toggle();
-        });
-
-        $("#help_icon").click(function () {
-
-            $("#help_panel").toggle();
-        });
-
-        setup();
-        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+            setup();
+            window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
 
-        viewer.setEDLEnabled(false);
-        viewer.setFOV(60);
+            viewer.setEDLEnabled(false);
+            viewer.setFOV(60);
 
-        viewer.setPointBudget(5 * 1000 * 1000);
-        document.title = "";
-        viewer.setEDLEnabled(false);
-        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-        viewer.loadSettingsFromURL();
+            viewer.setPointBudget(5 * 1000 * 1000);
+            document.title = "";
+            viewer.setEDLEnabled(false);
+            viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+            viewer.loadSettingsFromURL();
 
-        viewer.loadGUI(() => {
-            viewer.setLanguage('en');
-            $("#menu_scene").next().show();
-            //     viewer.toggleSidebar();
-        });
+            viewer.loadGUI(() => {
+                viewer.setLanguage('en');
+                $("#menu_scene").next().show();
+                //     viewer.toggleSidebar();
+            });
 
-        viewer.setDescription(`
+            viewer.setDescription(`
 
-                `);
+                                        `);
 
-        let sceneSG = new Potree.Scene();
-        let sceneSG2 = new Potree.Scene();
-        let sceneSG3 = new Potree.Scene();
-        let sceneLion = new Potree.Scene();
-        viewer.setScene(sceneSG);
+            let sceneSG = new Potree.Scene();
+            let sceneSG2 = new Potree.Scene();
+            let sceneSG3 = new Potree.Scene();
+            let sceneLion = new Potree.Scene();
+            viewer.setScene(sceneSG);
 
-        function getParam(paramName) {
-            var src = document.referrer;
-            var srcSplit = src.split("?");
-            var address = srcSplit[1];
-            var paramArray = address.split('&');
-            //var paramList = window.location.search.substring(1);
-            //var paramArray = paramList.split('&');
-            for (var i = 0; i < paramArray.length; i++) {
-                var pArr = paramArray[i].split('=');
-                if (pArr[0] == paramName)
-                    return pArr[1];
+            function getParam(paramName) {
+                var src = document.referrer;
+                var srcSplit = src.split("?");
+                var address = srcSplit[1];
+                var paramArray = address.split('&');
+                //var paramList = window.location.search.substring(1);
+                //var paramArray = paramList.split('&');
+                for (var i = 0; i < paramArray.length; i++) {
+                    var pArr = paramArray[i].split('=');
+                    if (pArr[0] == paramName)
+                        return pArr[1];
+                }
             }
-        }
 
-        var x_position = parseFloat(getParam('xP'));
-        var y_position = parseFloat(getParam('yP'));
-        var z_position = parseFloat(getParam('zP'));
+            var x_position = parseFloat(getParam('xP'));
+            var y_position = parseFloat(getParam('yP'));
+            var z_position = parseFloat(getParam('zP'));
 
-        var x_lookAt = parseFloat(getParam('xL'));
-        var y_lookAt = parseFloat(getParam('yL'));
-        var z_lookAt = parseFloat(getParam('zL'));
-
-
-        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
-
-            sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(x_position, y_position, z_position);
-            sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+            var x_lookAt = parseFloat(getParam('xL'));
+            var y_lookAt = parseFloat(getParam('yL'));
+            var z_lookAt = parseFloat(getParam('zL'));
 
 
-            let material = e.pointcloud.material;
-            material.size = 1;
-            material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
 
-            {
-                // AMORINO
+                sceneSG.addPointCloud(e.pointcloud);
+                sceneSG.view.position.set(x_position, y_position, z_position);
+                sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+
+
+                let material = e.pointcloud.material;
+                material.size = 1;
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+
                 {
-                    let AMORINO = new Potree.Annotation({
-                        position: [-30.790, 1.353, -2.003], /*- 30.764, 1.304, -2.122*/
-                        title: "AMORINO",
-                        cameraPosition: [-30.474, 2.067, -1.787],
-                        cameraTarget: [-31.354, 1.411, -1.882],
-                        description: `This sculpture, cast in lead, was always intended to be a fountain for this grotto, though it no longer
-                                functions in this way. It has survived flooding from multiple storms because lead generally resists corrosion, and
-                                when exposed, the surface develops a protective, grey patina as seen here.`,
-                    });
-                    AMORINO.domElement.off("mouseenter");
-                    AMORINO.domElement.off("mouseleave");
-                    AMORINO.addEventListener("click", () => {
-                        AMORINO.setHighlighted(!AMORINO.isHighlighted);
-                    });
-                    sceneSG.annotations.add(AMORINO);
+                    // AMORINO
+                    {
+                        let elTitle = $(`
+                            <span>                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                                `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "AMORINO";
+
+                        let aAbout1 = new Potree.Annotation({
+                            position: [-30.790, 1.353, -2.003],
+                            title: elTitle,
+                            cameraPosition: [-30.289, 2.205, -1.767],
+                            cameraTarget: [-31.354, 1.411, -1.882],
+                            description: `AMORINO<hr>This sculpture, cast in lead, was always intended to be a fountain for this grotto, though it no longer
+                                                        functions in this way. It has survived flooding from multiple storms because lead generally resists corrosion, and
+                                                        when exposed, the surface develops a protective, grey patina as seen here.
+                                                        `
+                        });
+
+                        sceneSG.annotations.add(aAbout1);
+                    }
+
+                    // CEILING
+                    {
+                        let elTitle = $(`
+                            <span>                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                                `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "CEILING MURAL";
+
+                        let aAbout2 = new Potree.Annotation({
+                            position: [-34.114, 4.688, -0.122],
+                            title: elTitle,
+                            cameraPosition: [-27.002, 0.944, -2.493],
+                            cameraTarget: [-31.510, 3.114, 0.732],
+                            description: `CEILING MURAL<hr>The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded
+                                                        plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors
+                                                        of the ceiling are now faded and difficult to identify.
+                                                        `
+                        });
+
+                        sceneSG.annotations.add(aAbout2);
+                    }
+                    
+                    //STURGEON
+                    {
+                        let elTitle = $(`
+                            <span>                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                                `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "HUDSON RIVER STURGEONS";
+
+                        let aAbout3 = new Potree.Annotation({
+                            position: [-27.864, 2.535, 0.135],
+                            title: elTitle,
+                            cameraPosition: [-28.826, 1.887, -3.110],
+                            cameraTarget: [-28.826, 1.887, 0.219],
+                            description: `HUDSON RIVER STURGEONS<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of
+                                                        new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was
+                                                        intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for
+                                                        Deering’s guests.
+                                                        `
+                        });
+
+                        sceneSG.annotations.add(aAbout3);
+                    }
+
+                    //FOUNTAINS
+                    {
+                        let elTitle = $(`
+                            <span>                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                                `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "FOUNTAINS";
+
+                        let aAbout4 = new Potree.Annotation({
+                            position: [-26.413, -0.618, -1.323],
+                            title: elTitle,
+                            cameraPosition: [-27.815, 2.041, -1.450],
+                            cameraTarget: [-25.942, 0.084, -1.567],
+                            description: `FOUNTAINS<hr>These coral rock fountains are similar to some of the other fountains found throughout the gardens at
+                                                        Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in
+                                                        the space and better protect the collection of objects in the Swimming Pool Grotto.
+                                                        `
+                        });
+
+                        sceneSG.annotations.add(aAbout4);
+                    }
+
+                    //FLOOR
+                    {
+                        let elTitle = $(`
+                            <span>                                
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                                `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "FLOOR";
+
+                        let aAbout5 = new Potree.Annotation({
+                            position: [-29.326, -2.261, -2.682],
+                            title: elTitle,
+                            cameraPosition: [-35.020, 3.368, -1.354],
+                            cameraTarget: [-33.436, 1.582, -2.699],
+                            description: `FLOOR<hr>Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in
+                                                        an intricate pattern.
+                                                        `
+                        });
+
+                        sceneSG.annotations.add(aAbout5);
+                    }                   
                 }
+            });
 
-                // END AMORINO
+            var timeoutID;
 
-                // CEILING
-                {
-                    let CEILING = new Potree.Annotation({
-                        position: [-34.114, 4.688, -0.122], /*-34.259, 5.022, -0.547*/
-                        title: "CEILING MURAL",
-                        cameraPosition: [-27.002, 0.944, -2.493],
-                        cameraTarget: [-31.510, 3.114, 0.732],
-                        description: `The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded
-                                plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors
-                                of the ceiling are now faded and difficult to identify. `,
-                    });
-                    CEILING.domElement.off("mouseenter");
-                    CEILING.domElement.off("mouseleave");
-                    CEILING.addEventListener("click", () => {
-                        CEILING.setHighlighted(!CEILING.isHighlighted);
-                    });
-                    sceneSG.annotations.add(CEILING);
-                }
+            function setup() {
+                this.addEventListener("mousemove", resetTimer, false);
+                this.addEventListener("touchstart", resetTimer, false);
+                this.addEventListener("mousedown", resetTimer, false);
+                this.addEventListener("mouseover", resetTimer, false);
+                this.addEventListener("mouseout", resetTimer, false);
+                this.addEventListener("keypress", resetTimer, false);
+                this.addEventListener("DOMMouseScroll", resetTimer, false);
+                this.addEventListener("mousewheel", resetTimer, false);
+                this.addEventListener("touchmove", resetTimer, false);
+                this.addEventListener("MSPointerMove", resetTimer, false);
 
-                // END CEILING
+                startTimer();
+            }
 
-                // STURGEON
-                {
-                    let STURGEON = new Potree.Annotation({
-                        position: [-27.864, 2.535, 0.135],
-                        title: "HUDSON RIVER STURGEONS",
-                        cameraPosition: [-28.826, 1.887, -3.110],
-                        cameraTarget: [-28.826, 1.887, 0.219],
-                        description: `Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of
-                                new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was
-                                intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for
-                                Deering’s guests.`,
-                    });
-                    STURGEON.domElement.off("mouseenter");
-                    STURGEON.domElement.off("mouseleave");
-                    STURGEON.addEventListener("click", () => {
-                        STURGEON.setHighlighted(!STURGEON.isHighlighted);
-                    });
-                    sceneSG.annotations.add(STURGEON);
-                }
+            function startTimer() {
 
-                // END STURGEON
-                // FOUNTAINS
-                {
-                    let FOUNTAINS = new Potree.Annotation({
-                        position: [-26.413, -0.618, -1.323], /*-27.074, -1.108, -1.653*/
-                        title: "FOUNTAINS",
-                        cameraPosition: [-27.349, 1.554, -1.479],
-                        cameraTarget: [-25.942, 0.084, -1.567],
-                        description: `These coral rock fountains are similar to some of the other fountains found throughout the gardens at
-                                Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in
-                                the space and better protect the collection of objects in the Swimming Pool Grotto.`,
-                    });
-                    FOUNTAINS.domElement.off("mouseenter");
-                    FOUNTAINS.domElement.off("mouseleave");
-                    FOUNTAINS.addEventListener("click", () => {
-                        FOUNTAINS.setHighlighted(!FOUNTAINS.isHighlighted);
-                    });
-                    sceneSG.annotations.add(FOUNTAINS);
-                }
+                timeoutID = window.setTimeout(goInactive, 300000);
+            }
 
-                // END FOUNTAINS
+            function resetTimer(e) {
+                window.clearTimeout(timeoutID);
 
-                // FLOOR
-                {
-                    let FLOOR = new Potree.Annotation({
-                        position: [-29.326, -2.261, -2.682],
-                        title: "FLOOR",
-                        cameraPosition: [-35.020, 3.368, -1.354],
-                        cameraTarget: [-33.436, 1.582, -2.699],
-                        description: `Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in
-                                an intricate pattern.`,
-                    });
-                    FLOOR.domElement.off("mouseenter");
-                    FLOOR.domElement.off("mouseleave");
-                    FLOOR.addEventListener("click", () => {
-                        FLOOR.setHighlighted(!FLOOR.isHighlighted);
-                    });
-                    sceneSG.annotations.add(FLOOR);
-                }
+                goActive();
+            }
 
-                // END STURGEON
+            function goInactive() {
+
+                window.top.location.href = "../index.html";
+            }
+
+            function goActive() {
+
+
+                startTimer();
+            }
+
+            /*
+             * HOTSPOT CONTROLS FUNCTIONS 
+            */
+
+            $("#hotspots").click(function () {
+                $("#lists").toggle();
+            });
+
+            //Functions for each annotation
+            function item1() {
+                let scene = viewer.scene;
+                scene.view.position.set(-30.289, 2.205, -1.767);
+                scene.view.lookAt(new THREE.Vector3(-31.354, 1.411, -1.882));
+            }
+
+            function item2() {
+                let scene = viewer.scene;
+                scene.view.position.set(-27.002, 0.944, -2.493);
+                scene.view.lookAt(new THREE.Vector3(-31.510, 3.114, 0.732));
+            }
+            function item3() {
+                let scene = viewer.scene;
+                scene.view.position.set(-28.826, 1.887, -3.110);
+                scene.view.lookAt(new THREE.Vector3(-28.826, 1.887, 0.219));
 
             }
-        });
+            function item4() {
+                let scene = viewer.scene;
+                scene.view.position.set(-27.815, 2.041, -1.450);
+                scene.view.lookAt(new THREE.Vector3(-25.942, 0.084, -1.567));
+            }
+            function item5() {
+                let scene = viewer.scene;
+                scene.view.position.set(-35.020, 3.368, -1.354);
+                scene.view.lookAt(new THREE.Vector3(-33.436, 1.582, -2.699));
+            }
 
-        var timeoutID;
+            //Click functions for each annotation within Hotspot Control's List
 
-        function setup() {
-            this.addEventListener("mousemove", resetTimer, false);
-            this.addEventListener("touchstart", resetTimer, false);
-            this.addEventListener("mousedown", resetTimer, false);
-            this.addEventListener("mouseover", resetTimer, false);
-            this.addEventListener("mouseout", resetTimer, false);
-            this.addEventListener("keypress", resetTimer, false);
-            this.addEventListener("DOMMouseScroll", resetTimer, false);
-            this.addEventListener("mousewheel", resetTimer, false);
-            this.addEventListener("touchmove", resetTimer, false);
-            this.addEventListener("MSPointerMove", resetTimer, false);
+            $("#li1").click(function () {
+                item1();
+            });
+            $("#li2").click(function () {
+                item2();
+            });
+            $("#li3").click(function () {
+                item3();
+            });
+            $("#li4").click(function () {
+                item4();
+            });
+            $("#li5").click(function () {
+                item5();
+            });
 
-            startTimer();
-        }
+            //Functions for continuous click on Prev and Next buttons
+            const functions = [];
+            functions.push(item1);
+            functions.push(item2);
+            functions.push(item3);
+            functions.push(item4);
+            functions.push(item5);
 
-        function startTimer() {
+            const length = functions.length;
 
-            timeoutID = window.setTimeout(goInactive, 300000);
-        }
+            const getNextIdx = (idx = 0, length, direction) => {
+                switch (direction) {
+                    case 'next': return (idx + 1) % length;
+                    case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                    default: return idx;
+                }
+            }
 
-        function resetTimer(e) {
-            window.clearTimeout(timeoutID);
+            let idx; // idx is undefined, so getNewScene will take 0 as default       
+            const getNewScene = (direction) => {
+                idx = getNextIdx(idx, length, direction);
+                var sceneFunction = functions[idx];
+                return sceneFunction();
+            }
 
-            goActive();
-        }
+            $("#prev").click(function () {
+                getNewScene('prev');
+            });
 
-        function goInactive() {
+            $("#next").click(function () {
+                getNewScene('next');
+            });
 
-            window.top.location.href = "../index.html";
-        }
+            /*
+             * END OF HOTSPOT CONTROLS FUNCTIONS 
+            */
 
-        function goActive() {
-
-
-            startTimer();
-        }
-
-
-
-    </script>
+        </script>
 
 
 </body>

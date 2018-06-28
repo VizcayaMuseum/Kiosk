@@ -1,30 +1,34 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Vizcaya</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<style>
-		body {
-			font-family: Monospace;
-			background-color: #000;
-			color: #fff;
-			margin: 0px;
-			overflow: hidden;
-		}
-		#page-loader {
-			position: absolute;
-			top: 0;
-			bottom: 0%;
-			left: 0;
-			right: 0%;
-			background-color: white;
-			z-index: 99;
-			display: none;
-			text-align: center;
-			width: 100%;
-			padding-top: 25px;
-		}
+    <title>Vizcaya</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #000;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        #page-loader {
+            position: absolute;
+            top: 0;
+            bottom: 0%;
+            left: 0;
+            right: 0%;
+            background-color: white;
+            z-index: 99;
+            display: none;
+            text-align: center;
+            width: 100%;
+            padding-top: 25px;
+        }
 
         #loader {
             position: absolute;
@@ -59,89 +63,31 @@
                 transform: rotate(360deg);
             }
         }
-
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display: none;
-        }
-
-        #refresh_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 140px;
-            z-index: 100;
-            cursor: pointer;
-        }
-        #menu {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-        }
-
-        button {
-            color: white;
-            background: transparent;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 20px;
-        }
-
-            button:hover {
-                background-color: rgb(63,68,70);
-            }
-
-            button:active {
-                color: white;
-                /*background-color: rgba(0,255,255,0.75);*/
-            }
-	</style>
+    </style>
 </head>
 
 <body>
     <div id="page-loader">
         <img src="../assets/img/Ajax_loader_gray_256.gif" alt="Loading..." />
     </div>
+
+    <script src="build/three.js"></script>
+
+    <script src="js/controls/OrbitControls.js"></script>
+
+    <script src="js/loaders/FBXLoader.js"></script>
+
+    <script src="js/libs/inflate.min.js"></script>
+
+    <script src="../main.js"></script>
+
     <div id="loader"></div>
-    <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
-    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-    <img id="handicap_icon" src="../images/arrows.png" title="Help" />
+
+    <img id="question_icon" src="../images/question.svg" title="Navigation" />
+    <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+
     <div>
 
         <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -167,33 +113,20 @@
 
         </map>
     </div>
-    <script src="build/three.js"></script>
 
-    <script src="js/controls/OrbitControls.js"></script>
-
-    <script src="js/loaders/FBXLoader.js"></script>
-
-    <script src="js/libs/inflate.min.js"></script>
-    <script src="../main.js"></script>
-    <script src="../libs/jquery/jquery-3.1.1.min.js"></script>
-    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
-<!--
-    <div id="menu">
-        <button onclick="returntoBarge()"><b>Regresa a la Barcaza</b></button>
-    </div>
--->
     <script>
 
-        $("#handicap_icon").click(function () {
-
-            $("#control_panel").toggle();
-        });
         var container, stats, controls;
         var camera, scene, renderer, light;
 
         init();
         animate();
+        setup();
 
+        $("#control_icon").click(function () {
+
+            $("#control_panel").toggle();
+        });
         function init() {
 
             container = document.createElement('div');
@@ -205,7 +138,7 @@
 
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 24, 0);
-            controls.update();
+
 
             scene = new THREE.Scene();
 
@@ -244,6 +177,7 @@
                 }
             );
 
+
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -267,10 +201,11 @@
         function animate() {
 
             requestAnimationFrame(animate);
-
+            controls.update();
             renderer.render(scene, camera);
 
         }
+
         function returntoBarge() {
             window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
         }

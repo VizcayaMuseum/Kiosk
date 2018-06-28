@@ -1,84 +1,81 @@
 /*@import url("../../webfonts/OpenSans_Regular/stylesheet.css");
 @import url("../../webfonts/Marcellus_Regular/stylesheet.css");*/
 
-/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
-/*@import url('https://fonts.googleapis.com/css?family=Marcellus');*/
-
 /*MARCELLUS FONT*/
-    /* latin-ext */
-    @font-face {
-        font-family: 'Marcellus';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Marcellus'), local('Marcellus-Regular'), url(../fonts/wEO_EBrOk8hQLDvIAF81WPoK7Es.woff2) format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-    }
-    /* latin */
-    @font-face {
-        font-family: 'Marcellus';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Marcellus'), local('Marcellus-Regular'), url(../fonts/wEO_EBrOk8hQLDvIAF81VvoK.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
+/* latin-ext */
+@font-face {
+    font-family: 'Marcellus';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Marcellus'), local('Marcellus-Regular'), url(../fonts/wEO_EBrOk8hQLDvIAF81WPoK7Es.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Marcellus';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Marcellus'), local('Marcellus-Regular'), url(../fonts/wEO_EBrOk8hQLDvIAF81VvoK.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /*OPENSANS FONT*/
-    /* cyrillic-ext */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-    }
-    /* cyrillic */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFUZ0bbck.woff2) format('woff2');
-        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    }
-    /* greek-ext */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFWZ0bbck.woff2) format('woff2');
-        unicode-range: U+1F00-1FFF;
-    }
-    /* greek */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFVp0bbck.woff2) format('woff2');
-        unicode-range: U+0370-03FF;
-    }
-    /* vietnamese */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFWp0bbck.woff2) format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
-    }
-    /* latin-ext */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFW50bbck.woff2) format('woff2');
-        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-    }
-    /* latin */
-    @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFUZ0bbck.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFWZ0bbck.woff2) format('woff2');
+    unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFVp0bbck.woff2) format('woff2');
+    unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFWp0bbck.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFW50bbck.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(../fonts/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 
 html, body {
@@ -235,7 +232,7 @@ h1, h2, h3, h4 {
 .sidebar-sticky {
     position: relative;
     top: 0;
-    padding-bottom: 0px;
+    /*padding-bottom: 0px;*/
     height: calc(100% - 110px);
     /* height: 90%; */
     padding-top: .5rem;
@@ -372,20 +369,483 @@ a {
         background: #7d7d7d;
     }
 
-/*
-    *Annotation
-    */
+/* 
+*POTREE ANNOTATIONS
+*/
+.annotation {
+    opacity: 1 !important;
+}
+
+.annotation-titlebar {
+    background-color: #3D9FD6;
+    /*border: 2px solid rgba(255, 255, 255, 0.7); /*1px for border thickness*/
+    padding: 5px 8px; /*1px 8px | 2px 13px for roundness*/
+    opacity: 1; /*0 !important could hide annotations*/
+}
+
+    .annotation-titlebar:hover {
+        background-color: #015289 !important;
+    }
+
+.annotation-expand {
+}
+
+.annotation-action-icon {
+}
+
+    .annotation-action-icon:hover {
+        /*filter: unset !important;*/
+    }
+
+.annotation-item {
+    opacity: 1; /*0.5*/
+}
+
+    .annotation-item:hover {
+    }
+
+.annotation-main {
+}
+
+.annotation-label {
+}
 
 .annotation-description {
-    position: relative;
-    color: white;
-    background-color: black;
-    padding: 10px;
-    margin: 5px 0px 0px 0px;
-    border-radius: 12px; /*4px*/
-    display: none;
-    max-width: 250px;
-    width: 500px;
-    font-size: 1em;
-    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px; /*4px*/
+    max-width: 250px; /*500px*/
+    font-family: 'Open Sans', sans-serif; /*new*/
 }
+
+.annotation-description-close {
+}
+
+.annotation-description-content {
+}
+
+.annotation-icon {
+    width: 40px; /*20px*/
+    height: 40px; /*20px*/
+    opacity: 1; /*0.5*/
+}
+
+
+#help_icon, #refresh_icon, #handicap_icon, #fullscreen_icon {
+    max-height: 50px !important;
+    max-width: 50px !important;
+}
+
+/* 
+*POP-UP WINDOWS FOR HERMS AND SCULPTURES
+*/
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* popup Content */
+.popup-content {
+    background-color: black; /*#fefefe*/
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black; /*#888*/
+    width: 80%;
+    border-radius: 20px;
+}
+
+.popup-header {
+    padding: 5px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: white; /*#000*/
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.intrinsic-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+    padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+    padding-bottom: 75%;
+}
+
+.intrinsic-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-color: black;
+    border-radius: 20px;
+}
+
+/*
+* CONTROLS ICONS
+*/
+#question_icon {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 190px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#refresh_icon {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 130px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#control_icon {
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 70px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#fullscreen_icon {
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    z-index: 100;
+    cursor: pointer;
+}
+/*Control Panel image after selecting control icon*/
+#control_panel {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    position: fixed;
+    bottom: 100px;
+    right: 70px;
+    z-index: 100;
+    display: none;
+}
+
+/*
+*Pop-up Windows
+*/
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+/* popup Content */
+.popup-content {
+    background-color: black; /*#fefefe*/
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black; /*#888*/
+    width: 80%;
+    border-radius: 20px;
+}
+
+.popup-header {
+    padding: 5px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: white; /*#000*/
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.intrinsic-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+    padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+    padding-bottom: 75%;
+}
+
+.intrinsic-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-color: black;
+    border-radius: 20px;
+}
+
+
+/*
+*HOTSPOTS CONTROLS
+*/
+/*
+.potree_container:hover .controls {
+    display: flex;
+}
+*/
+.controls {
+    display: flex; /*flex*/
+    min-width: 0;
+    padding: 10px;
+    pointer-events: none;
+    position: absolute;
+    right: 30%; /*from 0 to 30% to align it in the middle*/
+    bottom: 0;
+    left: 30%; /*from 0 to 30% to align it in the middle*/
+    z-index: 2;
+    height: 50px;
+    /*width: 40% my change*/
+    /*inherited*/
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    /*temp*/
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+}
+
+    .controls .hotspot-controls {
+        display: flex;
+        width: 200px;
+        position: relative;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0;
+        pointer-events: all;
+        height: 30px;
+        font-size: 20px; /*13px*/
+        color: #ffffff;
+        background: rgba(0,0,0,0.3);
+        border-radius: 20px;
+    }
+
+        .controls .hotspot-controls [data-action="prev-annotation"] {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .controls .hotspot-controls .hotspot-name {
+            padding: 0 10px;
+            overflow: hidden;
+            line-height: 30px;
+            text-align: center;
+            text-overflow: ellipsis;
+            text-shadow: 0 0 10px #000000;
+            white-space: nowrap;
+            cursor: pointer;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        .controls .hotspot-controls [data-action="next-annotation"] {
+            padding-top: 0px;
+            padding-right: 15px;
+            padding-bottom: 0px;
+            padding-left: 15px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .controls .hotspot-controls .list {
+            overflow: auto;
+            position: absolute;
+            right: 30px;
+            bottom: 40px;
+            left: 30px;
+            display: none; /*set to none if hidden on barge*/
+            max-height: 190px;
+            padding: 4px;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 8px;
+            transition-property: opacity;
+            transition-duration: 250ms;
+            transition-timing-function: ease-in-out;
+            transition-delay: initial;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+            /*
+                       .hotspot-controls:hover .list hotspots-list visible{
+                           display: flex;
+                       }
+                           */
+            .controls .hotspot-controls .list .annotations-visibility,
+            .controls .hotspot-controls .list .annotations-autopilot {
+                display: flex; /*set to none if hidden on barge*/
+                height: 28px;
+                padding-top: 0px;
+                padding-right: 5px;
+                padding-bottom: 0px;
+                padding-left: 5px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border-radius: 2px;
+                align-items: center;
+                justify-content: flex-start;
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: auto;
+            }
+
+                .controls .hotspot-controls .list .annotations-visibility:hover,
+                .controls .hotspot-controls .list .annotations-autopilot:hover {
+                    background-color: #333333;
+                }
+
+            .controls .hotspot-controls .list ul {
+                overflow: auto;
+                border-top-width: 1px;
+                border-top-style: solid;
+                border-top-color: rgb(86, 86, 86);
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: 0%;
+                padding: 10px;
+            }
+
+            .controls .hotspot-controls .list li a {
+                display: flex;
+                width: 100%;
+                height: 28px;
+                box-sizing: border-box;
+                padding: 0 5px;
+                overflow: hidden;
+                color: #cccccc;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border-radius: 2px;
+                align-items: center;
+                justify-content: flex-start;
+                cursor: pointer;
+            }
+
+                .controls .hotspot-controls .list li a:hover {
+                    background-color: #333333;
+                }
+
+            .controls .hotspot-controls .list li .index {
+                margin-right: 8px;
+            }
+
+
+            /*visibility*/
+            .controls .hotspot-controls .list .annotations-visibility.\--hide:before {
+                content: "\F06E";
+            }
+
+            .controls .hotspot-controls .list .annotations-visibility:before {
+                content: "\F070";
+            }
+
+            .controls .hotspot-controls .list .annotations-visibility:before,
+            .controls .hotspot-controls .list .annotations-autopilot:before {
+                margin-right: 8px;
+                font-family: "FontAwesome";
+            }
+
+            .controls .hotspot-controls .list .annotations-visibility.\--hide:after {
+                content: "Show annotations";
+            }
+
+            .controls .hotspot-controls .list .annotations-visibility:after {
+                content: "Hide annotations";
+            }
+
+
+            /*autopilot*/
+            .controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
+                content: "\F04D";
+            }
+
+            .controls .hotspot-controls .list .annotations-autopilot:before {
+                content: "\F04B";
+            }
+
+            .controls .hotspot-controls .list .annotations-visibility:before,
+            .controls .hotspot-controls .list .annotations-autopilot:before {
+                margin-right: 8px;
+                font-family: "FontAwesome";
+            }
+
+            .controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
+                content: "Stop autopilot";
+            }
+
+            .controls .hotspot-controls .list .annotations-autopilot:after {
+                content: "Start autopilot";
+            }
