@@ -556,7 +556,7 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 190px;
+    right: 130px; /*190px*/
     z-index: 100;
     cursor: pointer;
 }
@@ -568,7 +568,7 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 130px;
+    right: 70px; /*130px*/
     z-index: 100;
     cursor: pointer;
 }
@@ -580,7 +580,7 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 70px;
+    right: 70px; /*hidden*/
     z-index: 100;
     cursor: pointer;
 }
