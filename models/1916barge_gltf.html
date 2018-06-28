@@ -15,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="../libs2/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
-    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <style>
 
 
@@ -406,7 +404,7 @@
 
         <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <img id="handicap_icon" src="../images/arrows.png" title="Help" />
         <div>
 
             <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -670,7 +668,7 @@
 
 
             let loader = new THREE.GLTFLoader(manager);
-            loader.load('http://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
+            loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
                 gltf.scene.traverse(function (child) {
                     if (child instanceof THREE.Mesh) {
                         //child.material.map = texture;

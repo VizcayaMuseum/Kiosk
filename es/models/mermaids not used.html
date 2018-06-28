@@ -13,42 +13,17 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
     <style>
-
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
+        body{
+            background-color: #000;
+        }
+        .potree_container {
+            position: absolute;
             width: 100%;
             height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display:none;
+            left: 0px;
+            top: 0px;
         }
     </style>
 </head>
@@ -73,12 +48,15 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+    <div class="potree_container">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+        <img id="question_icon" src="../images/question.svg" title="Navigation" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+
         <div>
 
             <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -90,13 +68,13 @@
                 <!--Home Button-->
                 <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
                 <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
                 <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
                 <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
                 <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
                 <!--Zoom In-->
                 <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
                 <!--Zoom Out-->
@@ -107,7 +85,7 @@
 
     <script>
 
-        $("#handicap_icon").click(function () {
+        $("#control_icon").click(function () {
 
             $("#control_panel").toggle();
         });
@@ -120,19 +98,19 @@
         document.title = "";
         viewer.setEDLEnabled(false);
 
-        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
 
+        /*
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_scene").next().show();
-
             //viewer.toggleSidebar();
         });
-
+        */
         viewer.setDescription(`
 
-            `);
+                `);
 
         let sceneSG = new Potree.Scene();
 
@@ -143,7 +121,7 @@
             sceneSG.addPointCloud(e.pointcloud);
             sceneSG.view.position.set(-162.305, -62.071, 52.959);
             sceneSG.view.lookAt(new THREE.Vector3(-16.377, -11.826, 49.220));
-            
+
 
             let material = e.pointcloud.material;
             material.size = 1;

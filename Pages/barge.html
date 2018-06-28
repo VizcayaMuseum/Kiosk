@@ -13,72 +13,49 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
     <style>
+        body {
+            background-color: black !important;
+        }
 
-
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
+        .potree_container {
+            position: absolute;
             width: 100%;
             height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
+            left: 0px;
+            top: 0px;
+        }
+        /*
+        * Scrollbar for hotspot controls
+        */
+        ::-webkit-scrollbar {
+            width: 9px;
         }
 
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
+        ::-webkit-scrollbar-button {
+            width: 8px;
+            height: 2px;
         }
 
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display:none;
+        ::-webkit-scrollbar-track {
+            background: black;
+            border: thin solid black;
+            box-shadow: 0px 0px 3px black inset;
+            border-radius: 12px;
         }
 
-        #refresh_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 140px;
-            z-index: 100;
-            cursor: pointer;
+        ::-webkit-scrollbar-thumb {
+            background: #565656;
+            border: thin solid #565656;
+            border-radius: 12px;
         }
 
-        .annotation-description {
-            position: relative;
-            color: white;
-            background-color: black;
-            padding: 10px;
-            margin: 5px 0px 0px 0px;
-            border-radius: 4px;
-            display: none;
-            max-width: 430px;
-            width: 500px;
-            font-size: 1em;
-            font-family: 'Open Sans', sans-serif;
-        }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #7d7d7d;
+            }
     </style>
 </head>
 
@@ -101,76 +78,115 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+    <div class="potree_container">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
-        <!--
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-        <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+
+        <img id="question_icon" src="../images/question.svg" title="Navigation" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+
         <div>
 
             <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
 
             <map name="controlPanel">
-
-                
                 <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                
                 <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                
                 <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
-                
                 <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
-                
                 <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                
                 <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                
                 <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                
                 <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
             </map>
         </div>
-            -->
+        <!--HOTSPOT CONTROLS-->
+        <div class="controls">
+            <div class="hotspot-controls">
+                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                    <div class="icon fa fa-caret-left"></div>
+                </div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select point of interest</div>
+                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                    <div class="icon fa fa-caret-right"></div>
+                </div>
+                <div id="lists" class="list hotspots-list visible">
+<!--
+                <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+-->
+                    <ul class="js-scrollable">
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">1</span> Grotesques</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">2</span>Herm </a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">3</span> Sculptures</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">4</span> Mermaids</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--END OF HOTSPOT CONTROLS-->
+
+    <!-- popup 1 -->
+    <div id="mypopup1" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <iframe id="iframe1" class="iframe" src="../2017herm.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- popup 2-->
+    <div id="mypopup2" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <iframe id="iframe2" class="iframe" src="../mermaids.html"></iframe>
+            </div>
+        </div>
     </div>
 
     <script>
 
         //For control panel
 
-        $("#handicap_icon").click(function () {
+        $("#control_icon").click(function () {
 
             $("#control_panel").toggle();
         });
-	   setup();
-		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+        setup();
+        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
-		viewer.setEDLEnabled(false);
-		viewer.setFOV(60);
-		viewer.setPointBudget(5*1000*1000);
-		document.title = "";
+        viewer.setEDLEnabled(false);
+        viewer.setFOV(60);
+        viewer.setPointBudget(5 * 1000 * 1000);
+        document.title = "";
 
-		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		viewer.loadSettingsFromURL();
+        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.loadSettingsFromURL();
 
-		viewer.loadGUI(() => {
-			viewer.setLanguage('en');
-			$("#menu_tools").next().show();
-			//viewer.toggleSidebar();
-		});
+        viewer.loadGUI(() => {
+            viewer.setLanguage('en');
+            $("#menu_tools").next().show();
+            //viewer.toggleSidebar();
+        });
 
         viewer.setDescription(`
 
-		`);
+                `);
 
         let sceneSG = new Potree.Scene();
         let sceneSG2 = new Potree.Scene();
-		let sceneSG3 = new Potree.Scene();
-		let sceneLion = new Potree.Scene();
+        let sceneSG3 = new Potree.Scene();
+        let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
-/*
+
         function getParam(paramName) {
             var src = document.referrer;
             var srcSplit = src.split("?");
@@ -192,13 +208,13 @@
         var x_lookAt = parseFloat(getParam('xL'));
         var y_lookAt = parseFloat(getParam('yL'));
         var z_lookAt = parseFloat(getParam('zL'));
-*/
-	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e){
+
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
 
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-22.189,-58.837,7.413);
-            sceneSG.view.lookAt(new THREE.Vector3(-42.340,-36.309,-0.732));
-            
+            sceneSG.view.position.set(x_position, y_position, z_position);
+            sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+
 
             let material = e.pointcloud.material;
             material.size = 1;
@@ -208,163 +224,207 @@
             {
                 {
                     let elTitle = $(`
-						<span>
-							HERM
-							<img src="${Potree.resourcePath}/icons/goto.svg"
-								name="action_set_scene"
-								class="annotation-action-icon"
-								style="filter: invert(1);" />
-						</span>
-					`);
+                                <span>
+
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        viewer.setScene(sceneSG2);
+                        var popup = document.getElementById('mypopup1');
+                        var span = document.getElementsByClassName("close")[0];
+
+                        popup.style.display = "block";
+                        span.onclick = function () {
+                            popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src; 
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == popup) {
+                                popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup1').attr('src', '');
+                                var iframe = document.getElementById('iframe1');
+                                iframe.src = iframe.src; 
+                            }
+                        }
+                        /*event.stopPropagation();*/
+                        /*viewer.setScene(sceneSG2);*/
                     });
                     elTitle.toString = () => "HERM";
 
                     let aAbout1 = new Potree.Annotation({
-                        position: [-45.632, -27.628, -0.686], /*-45.313, -22.859, -0.641*/
+                        position: [-45.632, -27.628, -0.686],
                         title: elTitle,
-                        cameraPosition: [-47.033, -24.550, 0.708], /*-45.313, -22.859, -0.641*/
-                        cameraTarget: [-44.035, -36.829, -1.740], /*-48.776, -36.047, 0.446*/
+                        cameraPosition: [-47.086, -24.116, 0.709],
+                        cameraTarget: [-42.272, -36.396, -2.128],
+                        /*
                         description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today, the details of the herms are hardly recognizable, and in some cases entirely lost. During Hurricane Wilma in 2005, the female herm on the east side of the Barge toppled into the bay. It was salvaged by a conservation team and after restoration, the figure was placed back onto the Barge in its original location. During Hurricane Irma in 2017, another female herm ravaged by wind and tidal surge broke into three large fragments. In 2018 the pieces were salvaged from the bay and after restoration, the herm will be returned to its original location on the Barge.`
+                        */
                     });
 
                     sceneSG.annotations.add(aAbout1);
                 }
 
-				{
+                {
                     let elTitle = $(`
-						<span>
-							SCULPTURES
-							<img src="${Potree.resourcePath}/icons/goto.svg"
-								name="action_set_scene"
-								class="annotation-action-icon"
-								style="filter: invert(1);" />
-						</span>
-					`);
+                                <span>
+
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        viewer.setScene(sceneLion);
+                        var popup = document.getElementById('mypopup2');
+                        var span = document.getElementsByClassName("close")[1];
+
+                        popup.style.display = "block";
+                        span.onclick = function () {
+                            popup.style.display = "none";
+                            //Reloads the Iframe
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src; 
+                        }
+                        window.onclick = function (event) {
+                            if (event.target == popup) {
+                                popup.style.display = "none";
+                                //Reloads the Iframe
+                                $('#mypopup2').attr('src', '');
+                                var iframe = document.getElementById('iframe2');
+                                iframe.src = iframe.src; 
+                            }
+                        }
+                        /*event.stopPropagation();*/
+                        /*viewer.setScene(sceneSG4);*/
                     });
                     elTitle.toString = () => "SCULPTURES";
 
                     let aAbout3 = new Potree.Annotation({
-                        position: [-62.499, -50.734, 2.004],
+                        position: [-62.707, -50.302, 1.725],
                         title: elTitle,
-                        cameraPosition: [-63.384, -51.399, 2.409],
-                        cameraTarget: [-62.166, -50.460, 2.043],
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`
+                        cameraPosition: [-62.962, -52.057, 2.510],
+                        cameraTarget: [-62.190, -50.457, 1.970],
+                        /*
+                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`*/
                     });
 
                     sceneSG.annotations.add(aAbout3);
                 }
 
-            //   {
-//                    let aAbout2 = new Potree.Annotation({
-//                        position: [-61.216, -49.492, 2.215],
-//                        "cameraPosition": [-61.216, -49.492, 2.215],
-//                        "cameraTarget": [-62.181, -50.463, 1.985],
-//                        "title": "Pleasures and Perils",
-//                        "description": `
-//						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-//						`
-//                    });
-//                    sceneSG.annotations.add(aAbout2);
-//                }
-/*
-			// Statues
                 {
-                    let aStatues = new Potree.Annotation({
-                        position: [-23.590, -23.959, 2.530],
-                        title: "Statues",
-						cameraPosition: [-23.590, -23.959, 2.530],
-                        cameraTarget: [-25.609, -23.231, 1.536],
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`,
-                    });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
-                    aStatues.addEventListener("click", () => {
-                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                    });
-                    sceneSG.annotations.add(aStatues);
-                }
-*/
+                    let elTitle = $(`
+                                <span>
 
-			// Grotesque
-                {
-                    let Grotesque = new Potree.Annotation({
-                        position: [-52.107, -49.002, -2.007],
-                        title: "GROTESQUES",
-                        cameraPosition: [-50.295, -51.055, -1.438],
-                        cameraTarget: [-67.337, -30.449, -0.615],
-                        description: `In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`,
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                            `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    Grotesque.domElement.off("mouseenter");
-                    Grotesque.domElement.off("mouseleave");
-                    Grotesque.addEventListener("click", () => {
-                        Grotesque.setHighlighted(!Grotesque.isHighlighted);
+                    elTitle.toString = () => "GROTESQUES";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [-34.982, -18.500, -0.927],
+                        title: elTitle,
+                        cameraPosition: [-38.793, -16.289, -1.458],
+                        cameraTarget: [-24.277, -32.639, -0.579],
+                        description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`
                     });
-                    sceneSG.annotations.add(Grotesque);
+
+                    sceneSG.annotations.add(aAbout2);
                 }
 
-            // Mermaids
-            {
-                let Mermaids = new Potree.Annotation({
-                    position: [-63.358, -51.438, -1.902],
-                    title: "MERMAIDS",
-                    cameraPosition: [-65.596, -53.536, -1.081],
-                    cameraTarget: [-44.362, -35.946, -6.132],
-                    description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
-                });
-                Mermaids.domElement.off("mouseenter");
-                Mermaids.domElement.off("mouseleave");
-                Mermaids.addEventListener("click", () => {
-                    Mermaids.setHighlighted(!Mermaids.isHighlighted);
-                });
-                sceneSG.annotations.add(Mermaids);
-            }
+                {
+                    let elTitle = $(`
+                                <span>
 
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>
+                            `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "MERMAIDS";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [-63.358, -51.438, -1.902],
+                        title: elTitle,
+                        cameraPosition: [-66.079, -52.591, -1.147],
+                        cameraTarget: [-42.122, -38.767, -4.326],
+                        description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `
+                    });
+
+                    sceneSG.annotations.add(aAbout2);
+                }
+                /*
+                    // Mermaids
+                    {
+                        let Mermaids = new Potree.Annotation({
+                            position: [-63.358, -51.438, -1.902],
+                            title: "MERMAIDS",
+                            cameraPosition: [-65.596, -53.536, -1.081],
+                            cameraTarget: [-44.362, -35.946, -6.132],
+                            description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
+                        });
+                        Mermaids.domElement.off("mouseenter");
+                        Mermaids.domElement.off("mouseleave");
+                        Mermaids.addEventListener("click", () => {
+                            Mermaids.setHighlighted(!Mermaids.isHighlighted);
+                        });
+                        sceneSG.annotations.add(Mermaids);
+                    }
+                    */
             }
         });
+        /*
+                // Herm point cloud in scene 2
+                Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
+                    sceneSG2.addPointCloud(e.pointcloud);
+                    sceneSG2.view.position.set(40.480, -28.044, 52.055);
+                    sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
+                    e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-        // Herm point cloud in scene 2
-		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
-			sceneSG2.addPointCloud(e.pointcloud);
-			sceneSG2.view.position.set(40.480, -28.044, 52.055);
-			sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                    sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
+                        "title": "Return to Barge",
+                        "actions": [{
+                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                            "onclick": function () {
+                                viewer.setScene(sceneSG);
+                            }
+                        }]
+                    });
+                });
 
-			sceneSG2.addAnnotation([31.570, 1.729, 53.886], {
-				"title": "Return to Barge",
-				"actions": [{
-					"icon": Potree.resourcePath + "/icons/goto-w.svg",
-					"onclick": function(){
-						viewer.setScene(sceneSG);
-					}
-				}]
-			});
-		});
+                // Sculptures
+                Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "sculptures", function (e) {
+                    sceneLion.addPointCloud(e.pointcloud);
+                    sceneLion.view.position.set(-148.290, 22.164, 56.452);
+                    sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
+                    e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-		// Sculptures
-		Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "sculptures", function(e)
-{
-			sceneLion.addPointCloud(e.pointcloud);
-			sceneLion.view.position.set(-148.290, 22.164, 56.452);
-			sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
-			e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-			sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
-				"title": "Return to Barge",
-				"actions": [{
-					"icon": Potree.resourcePath + "/icons/goto-w.svg",
-					"onclick": function(){
-						viewer.setScene(sceneSG);
-					}
-				}]
-			});
-		});
-
+                    sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
+                        "title": "Return to Barge",
+                        "actions": [{
+                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                            "onclick": function () {
+                                viewer.setScene(sceneSG);
+                            }
+                        }]
+                    });
+                });
+        */
         var timeoutID;
 
         function setup() {
@@ -403,6 +463,89 @@
 
             startTimer();
         }
+
+        /*
+         * HOTSPOT CONTROLS FUNCTIONS 
+        */
+
+        $("#hotspots").click(function () {
+            $("#lists").toggle();
+        });
+
+        //Functions for each annotation
+        function item1() {
+            let scene = viewer.scene;
+            scene.view.position.set(-38.793, -16.289, -1.458);
+            scene.view.lookAt(new THREE.Vector3(-24.277, -32.639, -0.579));
+        }
+
+        function item2() {
+            let scene = viewer.scene;
+            scene.view.position.set(-47.086, -24.116, 0.709);
+            scene.view.lookAt(new THREE.Vector3(-42.272, -36.396, -2.128));
+        }
+        function item3() {
+            let scene = viewer.scene;
+            scene.view.position.set(-62.962, -52.057, 2.510);
+            scene.view.lookAt(new THREE.Vector3(-62.190, -50.457, 1.970));
+
+        }
+        function item4() {
+            let scene = viewer.scene;
+            scene.view.position.set(-66.079, -52.591, -1.147);
+            scene.view.lookAt(new THREE.Vector3(-42.122, -38.767, -4.326));
+        }
+
+        //Click functions for each annotation within Hotspot Control's List
+
+        $("#li1").click(function () {
+            item1();
+        });
+        $("#li2").click(function () {
+            item2();
+        });
+        $("#li3").click(function () {
+            item3();
+        });
+        $("#li4").click(function () {
+            item4();
+        });
+
+        //Functions for continuous click on Prev and Next buttons
+        const functions = [];
+        functions.push(item1);
+        functions.push(item2);
+        functions.push(item3);
+        functions.push(item4);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = 0, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default       
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+
+        /*
+         * END OF HOTSPOT CONTROLS FUNCTIONS 
+        */
     </script>
 
 

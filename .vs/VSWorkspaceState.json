@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\css",
+    "\\es\\assets",
+    "\\es\\assets\\css",
+    "\\es\\images",
+    "\\es\\images\\works",
+    "\\images\\works",
     "\\Pages"
   ],
-  "SelectedNode": "\\main.js",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\Pages\\1916barge.html",
+  "PreviewInSolutionExplorer": true
 }

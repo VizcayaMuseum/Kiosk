@@ -4,11 +4,13 @@
     <title>1917 Barge Re-imagined</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+
     <style>
         body {
             font-family: Monospace;
             background-color: #000;
-            color: #fff;
+            color: #000;
             margin: 0px;
             overflow: hidden;
         }
@@ -29,14 +31,14 @@
 
         #loader {
             position: absolute;
-            left: 50%;
-            top: 50%;
+            left: 45%;
+            top: 40%;
             border: 16px solid #f3f3f3;
             border-radius: 50%;
             border-top: 16px solid #76ced9;
             border-bottom: 16px solid #76ced9;
-            width: 150px;
-            height: 150px;
+            width: 100px; /*150px*/
+            height: 100px;
             -webkit-animation: spin 2s linear infinite;
             animation: spin 2s linear infinite;
         }
@@ -60,78 +62,6 @@
                 transform: rotate(360deg);
             }
         }
-
-        #fullscreen_icon {
-            max-width: 40px;
-            max-height: 40px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 10px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #handicap_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 70px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #refresh_icon {
-            max-width: 50px;
-            max-height: 50px;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: 140px;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        #control_panel {
-            max-width: 300px;
-            max-height: 300px;
-            width: auto;
-            height: auto;
-            position: fixed;
-            bottom: 100px;
-            right: 70px;
-            z-index: 100;
-            display:none;
-        }
-        #menu {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-        }
-
-        button {
-            color: white;
-            background: transparent;
-            padding: 15px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 20px;
-        }
-
-            button:hover {
-                background-color: rgb(63,68,70);
-            }
-
-            button:active {
-                color: white;
-                /*background-color: rgba(0,255,255,0.75);*/
-            }
     </style>
 
     <link rel="stylesheet" type="text/css" href="../libs/perfect-scrollbar/css/perfect-scrollbar.css">
@@ -148,6 +78,9 @@
 </head>
 
 <body>
+    <div id="page-loader">
+        <img src="../assets/img/Ajax_loader_gray_256.gif" alt="Loading..." />
+    </div>
     <script src="build/three.js"></script>
     <script src="js/controls/OrbitControls.js"></script>
     <script src="js/loaders/GLTFLoader.js"></script>
@@ -155,9 +88,12 @@
     <script src="../main.js"></script>
     <div id="includedContent"></div>
     <div id="loader"></div>
-    <img id="refresh_icon" onclick="refreshButton()" src="../images/Refresh01.png" />
-    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/Arrows_Icon02.png" title="Fullscreen" />
-    <img id="handicap_icon" src="../images/Handicap_Icon.png" title="Help" />
+
+    <img id="question_icon" src="../images/question.svg" title="Navigation" />
+    <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+
     <div>
 
         <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -182,10 +118,6 @@
             <area shape="circle" coords="170,160,20,10" onclick="gltfZoomOut()" />
 
         </map>
-    </div>
-
-    <div id="menu">
-        <button onclick="returntoBarge()"><b>Return to Barge</b></button>
     </div>
 
     <script>
@@ -278,9 +210,6 @@
             controls.update();
             renderer.render(scene, camera);
 
-        }
-        function returntoBarge() {
-            window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
         }
 
     </script>
