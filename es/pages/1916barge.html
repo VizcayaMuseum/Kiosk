@@ -61,14 +61,10 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
-        #prevDiv, #nextDiv {
-
-            position: center;
-        }
 
         #prevIcon, #nextIcon {
-            height: 23px;
-            width: 23px;
+            height: 15px;
+            width: 15px;
             position: center;
 
         }
@@ -103,7 +99,9 @@
         <!--Previously commented out-->
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+      
         <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
         <div>
@@ -122,6 +120,15 @@
             </map>
         </div>
 
+        <!-- navPanel 1 -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
+            </div>
+        </div>
+
         <!--HOTSPOT CONTROLS-->
         <div class="controls">
             <div class="hotspot-controls">
@@ -134,9 +141,9 @@
                 </div>
                 <div id="lists" class="list hotspots-list visible">
                     <!--
-                                        <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                                        <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                    -->
+                                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+                -->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="La Casa de Verano"><span class="index">1</span>La Casa de Verano</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Grotescos"><span class="index">2</span>Grotescos</a></li>
@@ -175,6 +182,17 @@
         //Controls bar
         $("#control_icon").click(function () {
             $("#control_panel").toggle();
+        });
+
+        $("#question_icon").click(function () {
+
+            $("#nav_panel").toggle();
+        });
+
+        //Navigation Panel
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
         });
 
         setup();

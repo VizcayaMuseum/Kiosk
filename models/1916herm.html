@@ -85,7 +85,9 @@
 
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
     <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
+      
     <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
+    
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
     <div>
@@ -114,6 +116,15 @@
         </map>
     </div>
 
+    <!-- navPanel 1 -->
+    <div id="nav_panel" class="navPanel">
+        <div class="navPanel-content">
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <img class="nav_img" src="../images/navigation.png" />
+            </div>
+        </div>
+    </div>
+
     <script>
 
         var container, stats, controls;
@@ -127,6 +138,18 @@
 
             $("#control_panel").toggle();
         });
+
+        $("#question_icon").click(function () {
+
+            $("#nav_panel").toggle();
+        });
+
+        //Navigation Panel
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
+
         function init() {
 
             container = document.createElement('div');
