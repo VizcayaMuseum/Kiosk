@@ -510,7 +510,7 @@ a {
 * NAVIGATION PANEL
 */
 .navPanel {
-    display: none; /* Hidden by default */
+    display: flex; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 3; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -533,12 +533,12 @@ a {
     /*border: 1px solid black; /*#888*/
     width: 80%;
     border-radius: 20px;
+    bottom: 15%;
 }
 
 .nav_img {
+    z-index: 3;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     color: rgba(0,0,0,0.01);
@@ -556,7 +556,7 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 130px; /*190px*/
+    right: 190px; /*190px*/
     z-index: 100;
     cursor: pointer;
 }
@@ -568,7 +568,7 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 70px; /*130px*/
+    right: 130px; /*130px*/
     z-index: 100;
     cursor: pointer;
 }
@@ -580,7 +580,7 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 190px; /*70 px hidden*/
+    right: 70px; /*70 px hidden*/
     z-index: 100;
     cursor: pointer;
 }
