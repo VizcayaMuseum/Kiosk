@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\build",
-    "\\build\\potree"
+    "\\libs",
+    "\\libs\\jstree",
+    "\\Pages"
   ],
-  "SelectedNode": "\\build\\potree\\potree.js",
+  "SelectedNode": "\\main.js",
   "PreviewInSolutionExplorer": false
 }
