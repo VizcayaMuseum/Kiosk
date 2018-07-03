@@ -86,10 +86,8 @@
         <div id="potree_sidebar_container"> </div>
         <!--Previously commented out-->
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-   
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />  
         <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-          
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
         <div>
@@ -121,11 +119,12 @@
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
+                    <!--<div class="icon fa fa-caret-left"></div>-->
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select a point of interest</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
 

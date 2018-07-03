@@ -1,8 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\es"
+    "\\assets",
+    "\\assets\\css",
+    "\\assets\\img",
+    "\\es",
+    "\\es\\assets",
+    "\\es\\assets\\css",
+    "\\es\\images",
+    "\\Pages",
+    "\\webfonts"
   ],
-  "SelectedNode": "\\es\\index.html",
+  "SelectedNode": "\\Pages\\swimmingpoolgrotto.html",
   "PreviewInSolutionExplorer": false
 }
