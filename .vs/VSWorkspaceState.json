@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\libs",
-    "\\libs\\jstree",
-    "\\Pages"
+    "\\es"
   ],
-  "SelectedNode": "\\main.js",
+  "SelectedNode": "\\es\\index.html",
   "PreviewInSolutionExplorer": false
 }
