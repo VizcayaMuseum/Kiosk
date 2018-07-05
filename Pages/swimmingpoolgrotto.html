@@ -21,12 +21,8 @@
         body {
             background-color: black !important;
         }
-        .navPanel {
-            /*display: flex;*/
-        }
 
         /*Scrollbar for hotspot controls*/
-
             :: -webkit-scrollbar {
             width: 9px;
         }
@@ -116,16 +112,7 @@
                 </div>
             </div>
         </div>
-        <!--
-    <div id="nav_panel" class="navPanel">
-        <div class="navPanel-content">
-            <span id="navClose" class="close">&times;</span>
-            <div class="intrinsic-container intrinsic-container-16x9">
-                <img class="nav_img" src="../images/navigation.png"/>
-            </div>
-        </div>
-    </div>
-    -->
+
         <!--HOTSPOT CONTROLS-->
         <div class="controls">
             <div class="hotspot-controls">
@@ -158,43 +145,7 @@
             var navPanel = document.getElementById('nav_panel');
             navPanel.addEventListener('click', function () {
                 navPanel.style.display = "none";
-            });
-
-            //Temp solution to hide list when a hotspot is selected
-            var openLink = document.getElementById('li1');            
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li2');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li3');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li4');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li5');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
+            });            
 
             $("#control_icon").click(function () {
 
@@ -539,10 +490,50 @@
                 getNewScene('next');
             });
 
+            //Temp solution to hide list when a hotspot is selected
+            var openLink = document.getElementById('li1');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li2');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li3');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li4');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li5');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
                                             /*
                                              * END OF HOTSPOT CONTROLS FUNCTIONS
                                             */
 
+            if (x_position == -32.400) {
+                document.getElementById("nav_panel").style.display = "flex";
+            }
+            
         </script>
 
 
