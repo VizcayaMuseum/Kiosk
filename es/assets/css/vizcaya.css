@@ -86,6 +86,10 @@ html, body {
     overflow: hidden;
 }
 
+body {
+    background-color: black !important;
+}
+
 #container {
     width: 100%;
     height: 100%;
@@ -118,6 +122,15 @@ html, body {
 #house-image {
     width: 100%;
     height: 100%;
+}
+
+#testtP {
+    width: 100%;
+    height: 100%;
+    max-height: 30%;
+    max-width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 #footer-div {
@@ -694,7 +707,7 @@ a {
 */
 .controls {
     display: flex; /*flex*/
-    min-width: 0;
+    /*min-width: 0;*/
     padding: 10px;
     pointer-events: none;
     position: absolute;
@@ -706,24 +719,25 @@ a {
     /*width: 40% my change*/
     /*inherited*/
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     /*temp*/
     transition-property: opacity;
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
     transition-delay: initial;
+    width: 450px;
 }
 
     .controls .hotspot-controls {
         display: flex;
-        width: 200px;
+        width: 500px;
         position: relative;
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 0;
         pointer-events: all;
         height: 45px;
-        font-size: 20px; /*13px*/
+        font-size: 24px; /*13px*/
         color: #ffffff;
         background: rgba(0,0,0,0.3);
         border-radius: 20px;
@@ -739,7 +753,7 @@ a {
         }
 
         .controls .hotspot-controls .hotspot-name {
-            /*padding: 0 10px;*/
+            padding: 0 10px;
             overflow: hidden;
             line-height: 40px; /*modifies the height of the text*/
             text-align: center;
@@ -763,12 +777,12 @@ a {
         .controls .hotspot-controls .list {
             overflow: auto;
             position: absolute;
-            right: 30px;
-            bottom: 40px;
-            left: 30px;
+            right: 20px;
+            bottom: 50px; /*change the proximity of bar and list*/
+            left: 20px;
             display: none; /*set to none if hidden on barge*/
-            max-height: 190px;
-            padding: 4px;
+            max-height: 160px; /*160px*/
+            padding: 7px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
             border-radius: 8px;
@@ -780,16 +794,36 @@ a {
             flex-wrap: nowrap;
         }
 
-        #prevIcon, #nextIcon {
-            height: 15px;
-            width: 15px;
-            position: center;
-        }
+#prevDiv, #nextDiv {
+    height: 15px;
+    width: 15px;
+    position: center;
+    position: absolute;
+}
+
+#prevIcon {
+    bottom: -20px;
+    position: absolute;
+    left: 5px;
+}
+
+#nextIcon {
+    bottom: -20px;
+    position: absolute;
+    right: 22px;
+}
+
+.js-scrollable {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 /*
-                       .hotspot-controls:hover .list hotspots-list visible{
-                           display: flex;
-                       }
-                           */
+            .hotspot-controls:hover .list hotspots-list visible{
+                display: flex;
+            }
+*/
+
 .controls .hotspot-controls .list .annotations-visibility,
 .controls .hotspot-controls .list .annotations-autopilot {
     display: none; /*set to none if hidden on barge*/
@@ -844,6 +878,7 @@ a {
     .controls .hotspot-controls .list li a:hover {
         background-color: #333333;
     }
+
 
 .controls .hotspot-controls .list li .index {
     margin-right: 8px;

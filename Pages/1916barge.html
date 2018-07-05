@@ -21,13 +21,8 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
 
-    <style>
-        body {
-            background-color: black !important;
-        }       
-        /*
-        * Scrollbar for hotspot controls
-        */
+    <style>       
+        /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
             width: 9px;
         }
@@ -115,7 +110,7 @@
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                     <!--<div class="icon fa fa-caret-left"></div>-->
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select a point of interest</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Touch to Tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -125,11 +120,11 @@
                     <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
 
                     <ul class="js-scrollable">
-                        <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">1</span> Summer House</a></li>
-                        <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">2</span> Grotesques</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">3</span> Herm</a></li>
-                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">4</span> Sculptures</a></li>
-                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">5</span> Mermaids</a></li>
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Summer House"><span class="index">&sccue;</span> Summer House</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Grotesques"><span class="index">&sccue;</span> Grotesques</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">&sccue;</span> Herm</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
                     </ul>
                 </div>
             </div>
@@ -419,8 +414,8 @@
                                                                 that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was
                                                                 originally landscaped with many potted plants, had functioning fountains as well as electricity.`,
                     });
-                    aStatues.domElement.off("touch"); /*mouseenter*/
-                    aStatues.domElement.off("touch"); /*mouseleave*/
+                    aStatues.domElement.off("mouseenter"); 
+                    aStatues.domElement.off("mouseleave"); 
                     aStatues.addEventListener("click", () => {
                         aStatues.setHighlighted(!aStatues.isHighlighted);
                     });
@@ -454,8 +449,8 @@
                                     `
                     });
 
-                    aAbout2.domElement.off("touch");
-                    aAbout2.domElement.off("touch");
+                    aAbout2.domElement.off("mouseenter");
+                    aAbout2.domElement.off("mouseleave");
                     aAbout2.addEventListener("click", () => {
                         aAbout2.setHighlighted(!aAbout2.isHighlighted);
                     });
@@ -489,8 +484,8 @@
                                                                 the sculptures to a more modest size.`
                     });
 
-                    aAbout4.domElement.off("touch");
-                    aAbout4.domElement.off("touch");
+                    aAbout4.domElement.off("mouseenter");
+                    aAbout4.domElement.off("mouseleave");
                     aAbout4.addEventListener("click", () => {
                         aAbout4.setHighlighted(!aAbout4.isHighlighted);
                     });
@@ -683,6 +678,42 @@
         $("#next").click(function () {
             getNewScene('next');
         });
+
+        //Temp solution to hide list when a hotspot is selected
+        var openLink = document.getElementById('li1');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li2');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li3');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li4');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li5');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
 
         /*
          * END OF HOTSPOT CONTROLS FUNCTIONS 

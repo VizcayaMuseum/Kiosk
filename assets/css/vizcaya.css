@@ -85,6 +85,11 @@ html, body {
     padding: 0;
     overflow: hidden;
 }
+
+body {
+    background-color: black !important;
+}
+
 #container {
     width: 100%;
     height: 100%;
@@ -112,6 +117,8 @@ html, body {
     width: 83.5%;
 }
 
+
+
 #house-image {
     width: 100%;
     height: 100%;
@@ -125,6 +132,7 @@ html, body {
     position:fixed;
     bottom:0;
 }
+
 #footer-div {
     width: 5%;
     height: 6%;
@@ -699,7 +707,7 @@ a {
 */
 .controls {
     display: flex; /*flex*/
-    min-width: 0;
+    /*min-width: 0;*/
     padding: 10px;
     pointer-events: none;
     position: absolute;
@@ -711,24 +719,25 @@ a {
     /*width: 40% my change*/
     /*inherited*/
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     /*temp*/
     transition-property: opacity;
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
     transition-delay: initial;
+    width: 450px;
 }
 
     .controls .hotspot-controls {
         display: flex;
-        width: 200px;
+        width: 500px;
         position: relative;
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 0;
         pointer-events: all;
         height: 45px;
-        font-size: 20px; /*13px*/
+        font-size: 24px; /*13px*/
         color: #ffffff;
         background: rgba(0,0,0,0.3);
         border-radius: 20px;
@@ -744,7 +753,7 @@ a {
         }
 
         .controls .hotspot-controls .hotspot-name {
-            /*padding: 0 10px;*/
+            padding: 0 10px;
             overflow: hidden;
             line-height: 40px; /*modifies the height of the text*/
             text-align: center;
@@ -754,7 +763,6 @@ a {
             cursor: pointer;
             -ms-flex: 1;
             flex: 1;
-
         }
 
         .controls .hotspot-controls [data-action="next-annotation"] {
@@ -769,12 +777,12 @@ a {
         .controls .hotspot-controls .list {
             overflow: auto;
             position: absolute;
-            right: 30px;
+            right: 20px;
             bottom: 50px; /*change the proximity of bar and list*/
-            left: 30px;
+            left: 20px;
             display: none; /*set to none if hidden on barge*/
-            max-height: 160px;
-            padding: 4px;
+            max-height: 160px; /*160px*/
+            padding: 7px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
             border-radius: 8px;
@@ -785,121 +793,141 @@ a {
             flex-direction: column;
             flex-wrap: nowrap;
         }
-        #prevDiv, #nextDiv{
-            height: 18px;
-            width: 18px;
+       
+        #prevDiv, #nextDiv {
+            height: 15px;
+            width: 15px;
             position: center;
-            bottom: 25px;
+            position: absolute;
         }
 
-            /*
-                       .hotspot-controls:hover .list hotspots-list visible{
-                           display: flex;
-                       }
-                           */
-            .controls .hotspot-controls .list .annotations-visibility,
-            .controls .hotspot-controls .list .annotations-autopilot {
-                display: none; /*set to none if hidden on barge*/
-                height: 28px;
-                padding-top: 0px;
-                padding-right: 5px;
-                padding-bottom: 0px;
-                padding-left: 5px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                border-radius: 2px;
-                align-items: center;
-                justify-content: flex-start;
-                flex-grow: 1;
-                flex-shrink: 0;
-                flex-basis: auto;
-            }
+        #prevIcon {
+            bottom: -20px;
+            position: absolute;
+            left: 5px;
+        }
 
-                .controls .hotspot-controls .list .annotations-visibility:hover,
-                .controls .hotspot-controls .list .annotations-autopilot:hover {
-                    background-color: #333333;
-                }
+        #nextIcon {
+            bottom: -20px;
+            position: absolute;
+            right: 22px;
+        }
 
-            .controls .hotspot-controls .list ul {
-                overflow: auto;
-                /*border-top-width: 1px;*/
-                /*border-top-style: solid; to hide line on top */
-                border-top-color: rgb(86, 86, 86);
-                flex-grow: 1;
-                flex-shrink: 1;
-                flex-basis: 0%;
-                padding: 10px;
-            }
+        .js-scrollable {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
 
-            .controls .hotspot-controls .list li a {
+/*
+            .hotspot-controls:hover .list hotspots-list visible{
                 display: flex;
-                width: 100%;
-                height: 28px;
-                box-sizing: border-box;
-                padding: 0 5px;
-                overflow: hidden;
-                color: #cccccc;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                border-radius: 2px;
-                align-items: center;
-                justify-content: flex-start;
-                cursor: pointer;
             }
+*/
 
-                .controls .hotspot-controls .list li a:hover {
-                    background-color: #333333;
-                }
+.controls .hotspot-controls .list .annotations-visibility,
+.controls .hotspot-controls .list .annotations-autopilot {
+    display: none; /*set to none if hidden on barge*/
+    height: 28px;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
 
-            .controls .hotspot-controls .list li .index {
-                margin-right: 8px;
-            }
+    .controls .hotspot-controls .list .annotations-visibility:hover,
+    .controls .hotspot-controls .list .annotations-autopilot:hover {
+        background-color: #333333;
+    }
+
+.controls .hotspot-controls .list ul {
+    overflow: auto;
+    /*border-top-width: 1px;*/
+    /*border-top-style: solid; to hide line on top */
+    border-top-color: rgb(86, 86, 86);
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    padding: 10px;
+}
+
+.controls .hotspot-controls .list li a {
+    display: flex;
+    width: 100%;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 0 5px;
+    overflow: hidden;
+    color: #cccccc;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+    .controls .hotspot-controls .list li a:hover {
+        background-color: #333333;
+    }
+    
+
+.controls .hotspot-controls .list li .index {
+    margin-right: 8px;
+}
 
 
-            /*visibility*/
-            .controls .hotspot-controls .list .annotations-visibility.\--hide:before {
-                content: "\F06E";
-            }
+/*visibility*/
+.controls .hotspot-controls .list .annotations-visibility.\--hide:before {
+    content: "\F06E";
+}
 
-            .controls .hotspot-controls .list .annotations-visibility:before {
-                content: "\F070";
-            }
+.controls .hotspot-controls .list .annotations-visibility:before {
+    content: "\F070";
+}
 
-            .controls .hotspot-controls .list .annotations-visibility:before,
-            .controls .hotspot-controls .list .annotations-autopilot:before {
-                margin-right: 8px;
-                font-family: "FontAwesome";
-            }
+.controls .hotspot-controls .list .annotations-visibility:before,
+.controls .hotspot-controls .list .annotations-autopilot:before {
+    margin-right: 8px;
+    font-family: "FontAwesome";
+}
 
-            .controls .hotspot-controls .list .annotations-visibility.\--hide:after {
-                content: "Show annotations";
-            }
+.controls .hotspot-controls .list .annotations-visibility.\--hide:after {
+    content: "Show annotations";
+}
 
-            .controls .hotspot-controls .list .annotations-visibility:after {
-                content: "Hide annotations";
-            }
+.controls .hotspot-controls .list .annotations-visibility:after {
+    content: "Hide annotations";
+}
 
 
-            /*autopilot*/
-            .controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
-                content: "\F04D";
-            }
+/*autopilot*/
+.controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
+    content: "\F04D";
+}
 
-            .controls .hotspot-controls .list .annotations-autopilot:before {
-                content: "\F04B";
-            }
+.controls .hotspot-controls .list .annotations-autopilot:before {
+    content: "\F04B";
+}
 
-            .controls .hotspot-controls .list .annotations-visibility:before,
-            .controls .hotspot-controls .list .annotations-autopilot:before {
-                margin-right: 8px;
-                font-family: "FontAwesome";
-            }
+.controls .hotspot-controls .list .annotations-visibility:before,
+.controls .hotspot-controls .list .annotations-autopilot:before {
+    margin-right: 8px;
+    font-family: "FontAwesome";
+}
 
-            .controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
-                content: "Stop autopilot";
-            }
+.controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
+    content: "Stop autopilot";
+}
 
-            .controls .hotspot-controls .list .annotations-autopilot:after {
-                content: "Start autopilot";
-            }
+.controls .hotspot-controls .list .annotations-autopilot:after {
+    content: "Start autopilot";
+}
