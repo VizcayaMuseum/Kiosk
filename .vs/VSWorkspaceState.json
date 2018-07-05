@@ -1,15 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
-    "\\assets\\img",
     "\\es",
-    "\\es\\images",
-    "\\es\\images\\works",
     "\\es\\pages",
-    "\\images",
-    "\\images\\works"
+    "\\Pages"
   ],
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\es\\pages\\barge-context.html",
+  "PreviewInSolutionExplorer": true
 }
