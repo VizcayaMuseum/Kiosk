@@ -58,13 +58,13 @@
 
 		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
 		viewer.loadSettingsFromURL();
-
+        /*
 		viewer.loadGUI(() => {
 			viewer.setLanguage('en');
 			$("#menu_tools").next().show();
 			//viewer.toggleSidebar();
 		});
-
+        */
         viewer.setDescription(`
 
 		`);
@@ -77,8 +77,8 @@
 
 	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e){
         sceneSG.addPointCloud(e.pointcloud);
-        sceneSG.view.position.set(-22.893, -59.228, 4.926);
-        sceneSG.view.lookAt(new THREE.Vector3(-42.289, -36.657, 2.585));
+        sceneSG.view.position.set(-30.495, -51.980, 4.219);
+        sceneSG.view.lookAt(new THREE.Vector3(-42.876, -37.135, 2.698));
 
 
             let material = e.pointcloud.material;
