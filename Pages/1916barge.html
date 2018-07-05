@@ -24,13 +24,6 @@
     <style>
         body {
             background-color: black !important;
-        }
-        .potree_container {
-            position: absolute; 
-            width: 100%; 
-            height: 100%; 
-            left: 0px; 
-            top: 0px;
         }       
         /*
         * Scrollbar for hotspot controls
@@ -81,15 +74,13 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container">
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
         <!--Previously commented out-->
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-   
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />  
         <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-          
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
 
         <div>
@@ -121,11 +112,12 @@
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                    <div class="icon fa fa-caret-left"></div>
+                    <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
+                    <!--<div class="icon fa fa-caret-left"></div>-->
                 </div>
                 <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select a point of interest</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                    <div class="icon fa fa-caret-right"></div>
+                    <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
 
@@ -399,8 +391,8 @@
                     let aAbout3 = new Potree.Annotation({
                         position: [590538.041, 231531.105, 864.512],
                         title: elTitle,
-                        cameraPosition: [590625.603, 231519.145, 897.813],
-                        cameraTarget: [589498.722, 231655.070, 606.460],
+                        cameraPosition: [590691.984, 231495.560, 894.852],
+                        cameraTarget: [589488.341, 231747.740, 604.005],
                         /*
                         description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
                                                                 `*/
@@ -505,11 +497,13 @@
 
                     sceneSG.annotations.add(aAbout4);
                 } 
-
-
+                
+                
             }
             
         }
+        
+        
         /*
                 var fbxLoader = new THREE.FBXLoader();
                 fbxLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {
