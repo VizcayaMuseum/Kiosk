@@ -24,9 +24,9 @@
         .navPanel {
             /*display: flex;*/
         }
-            /*
-        * Scrollbar for hotspot controls
-        */
+
+        /*Scrollbar for hotspot controls*/
+
             :: -webkit-scrollbar {
             width: 9px;
         }
@@ -132,28 +132,26 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Select a point of interest</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Touch to Tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-                    <!--
-                                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                -->
+<!--
+                <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
+                <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
+-->
                     <ul class="js-scrollable">
-                        <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">1</span> Amorino</a></li>
-                        <li id="li2" class="link"><a data-hotspot-target="1" title="Ceiling Mural"><span class="index">2</span>Ceiling Mural</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Hudson River Sturgeons"><span class="index">3</span> Hudson River Sturgeons</a></li>
-                        <li id="li4" class="link"><a data-hotspot-target="3" title="Fountains"><span class="index">4</span>Fountains</a></li>
-                        <li id="li5" class="link"><a data-hotspot-target="4" title="Floor"><span class="index">5</span> Floor</a></li>
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">&sccue;</span> Amorino</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Ceiling Mural"><span class="index">&sccue;</span>Ceiling Mural</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Hudson River Sturgeons"><span class="index">&sccue;</span> Hudson River Sturgeons</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Fountains"><span class="index">&sccue;</span>Fountains</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Floor"><span class="index">&sccue;</span> Floor</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <!--END OF HOTSPOT CONTROLS-->
-
-
 
         <script>
             //Navigation Panel
@@ -162,28 +160,41 @@
                 navPanel.style.display = "none";
             });
 
-            /*
-            $("#navClose").click(function () {
-                navPanel.style.display = "none";
-            });
-
-            //Navigation Panel
-
-            function navPanelClose(event) {
-                var navPanel = document.getElementsByClassName('nav_panel');
-                var span = document.getElementsByClassName("close")[0];
-
-                span.onclick = function () {
-                    navPanel.style.display = "none";
-                }
-
-                window.onclick = function (event) {
-                    if (event.target == navPanel) {
-                        navPanel.style.display = "none";
-                    }
-                }
+            //Temp solution to hide list when a hotspot is selected
+            var openLink = document.getElementById('li1');            
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
             }
-            */
+
+            var openLink = document.getElementById('li2');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li3');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li4');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li5');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
 
             $("#control_icon").click(function () {
 

@@ -20,17 +20,7 @@
         body {
             background-color: black !important;
         }
-
-        .potree_container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0px;
-            top: 0px;
-        }
-        /*
-        * Scrollbar for hotspot controls
-        */
+        /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
             width: 9px;
         }
@@ -56,11 +46,7 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
-        #prevIcon, #nextIcon {
-            height: 15px;
-            width: 15px;
-            position: center;
-        }
+
     </style>
 </head>
 
@@ -83,7 +69,7 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container">
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
@@ -124,7 +110,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona un punto de interés</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para iniciar Tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -134,10 +120,10 @@
                                 <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
                 -->
                     <ul class="js-scrollable">
-                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotescos"><span class="index">1</span>Grotescos</a></li>
-                        <li id="li2" class="link"><a data-hotspot-target="1" title="Herma"><span class="index">2</span>Herma</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esculturas"><span class="index">3</span>Esculturas</a></li>
-                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sirenas"><span class="index">4</span>Sirenas</a></li>
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotescos"><span class="index">&sccue;</span>Grotescos</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Herma"><span class="index">&sccue;</span>Herma</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esculturas"><span class="index">&sccue;</span>Esculturas</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Sirenas"><span class="index">&sccue;</span>Sirenas</a></li>
                     </ul>
                 </div>
             </div>
@@ -185,6 +171,35 @@
         navPanel.addEventListener('click', function () {
             navPanel.style.display = "none";
         });
+
+        //Temp solution to hide list when a hotspot is selected
+        var openLink = document.getElementById('li1');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li2');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li3');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li4');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
 
         setup();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
