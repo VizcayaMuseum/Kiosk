@@ -17,9 +17,6 @@
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
     <style>
-        body {
-            background-color: black !important;
-        }
         /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
             width: 9px;
@@ -174,35 +171,6 @@
             navPanel.addEventListener('click', function () {
                 navPanel.style.display = "none";
             });
-
-            //Temp solution to hide list when a hotspot is selected
-            var openLink = document.getElementById('li1');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li2');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li3');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li4');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
 
             setup();
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
@@ -579,6 +547,34 @@
                 getNewScene('next');
             });
 
+            //Temp solution to hide list when a hotspot is selected
+            var openLink = document.getElementById('li1');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li2');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li3');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li4');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
             /*
              * END OF HOTSPOT CONTROLS FUNCTIONS 
             */
