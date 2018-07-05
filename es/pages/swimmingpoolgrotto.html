@@ -18,23 +18,7 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
     <style>
-        body {
-            background-color: black !important;
-        }
-
-        .potree_container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0px;
-            top: 0px;
-        }
-        .navPanel {
-            display: flex;
-        }
-        /*
-        * Scrollbar for hotspot controls
-        */
+        /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
             width: 9px;
         }
@@ -61,24 +45,6 @@
                 background: #7d7d7d;
             }
 
-        /*not fixed, temp image*/
-        #help_panel {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            z-index: 1;
-            display: none;
-        }
-        /*not complete/draft to make button round background when hovered*/
-        .tooltip {
-            color: black;
-        }
-
-        #prevIcon, #nextIcon {
-            height: 15px;
-            width: 15px;
-            position: center;
-        }
     </style>
 </head>
 
@@ -102,7 +68,7 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container">
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
@@ -153,7 +119,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Selecciona un punto de interés</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para iniciar Tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -163,11 +129,11 @@
                                     <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
                 -->
                     <ul class="js-scrollable">
-                        <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">1</span> Amorino</a></li>
-                        <li id="li2" class="link"><a data-hotspot-target="1" title="Techo Mural"><span class="index">2</span>Techo Mural</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones del Rio Hudson"><span class="index">3</span>Esturiones del Rio Hudson</a></li>
-                        <li id="li4" class="link"><a data-hotspot-target="3" title="Fuentes"><span class="index">4</span>Fuentes</a></li>
-                        <li id="li5" class="link"><a data-hotspot-target="4" title="Piso"><span class="index">5</span>Piso</a></li>
+                        <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">&sccue;</span> Amorino</a></li>
+                        <li id="li2" class="link"><a data-hotspot-target="1" title="Techo Mural"><span class="index">&sccue;</span>Techo Mural</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones del Rio Hudson"><span class="index">&sccue;</span>Esturiones del Rio Hudson</a></li>
+                        <li id="li4" class="link"><a data-hotspot-target="3" title="Fuentes"><span class="index">&sccue;</span>Fuentes</a></li>
+                        <li id="li5" class="link"><a data-hotspot-target="4" title="Piso"><span class="index">&sccue;</span>Piso</a></li>
                     </ul>
                 </div>
             </div>
@@ -530,9 +496,48 @@
                 getNewScene('next');
             });
 
-                                            /*
-                                             * END OF HOTSPOT CONTROLS FUNCTIONS
-                                            */
+            //Temp solution to hide list when a hotspot is selected
+            var openLink = document.getElementById('li1');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li2');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li3');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li4');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li5');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            /*
+                * END OF HOTSPOT CONTROLS FUNCTIONS
+            */
+            if (x_position == -32.400) {
+                document.getElementById("nav_panel").style.display = "flex";
+            }
 
         </script>
 

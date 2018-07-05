@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\build",
-    "\\build\\potree"
+    "\\assets",
+    "\\assets\\css",
+    "\\assets\\img",
+    "\\es",
+    "\\es\\images",
+    "\\es\\images\\works",
+    "\\es\\pages",
+    "\\images",
+    "\\images\\works"
   ],
-  "SelectedNode": "\\build\\potree\\potree.js",
   "PreviewInSolutionExplorer": false
 }

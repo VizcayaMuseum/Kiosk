@@ -1,27 +1,28 @@
 ﻿<!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Del huracán Irma</title>
+    <title>Hurricane Irma</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
-	
-  </head>
 
-  <body style="overflow: auto;">
+</head>
+
+<body style="overflow: auto;">
 
     <div class="container-fluid">
-        
+
         <div id="container">
+
 
             <div id="split-container" class="mini-container1">
 
@@ -32,78 +33,86 @@
                             <h1>Huracán Irma</h1><hr />
                             <p>
                                 Este modelo de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2007. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades.<br> <br>
-
                             </p>
-
 
                         </div>
                         <!--sticky footer-->
                         <footer class="footer">
                             <div>
                                 <p align="center">
-                                    <a href="index.html">Inicio</a> | <a href="../irma.html">English</a><br>
-                                    <!-- <p>Este interactivo ha sido posible a través del apoyo de</p>-->
-                                    <a href="index.html"><img src="images/logo.png" style="width:100%" /></a>
+                                    <a href="index.html">Home</a> | <a href="../irma.html">English</a><br>
+                                    <!--<p>This interactive was made possible through the support of</p>-->
+                                    <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
                                 </p>
 
                             </div>
 
                         </footer>
-
-
                     </nav>
                 </div>
 
             </div>
 
-            <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x:hidden;">
+            <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
 
                 <!--Featured Content-->
-                <div class="embed-responsive embed-responsive-16by9">
-                    <video autoplay loop class="embed-responsive-item" controls="controls">
-                        <source src="https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4" type="video/mp4">
+                <div class="embed-responsive embed-responsive-16by9" id="main_video">
+                    <video autoplay loop class="embed-responsive-item" controls="controls" id="video_container">
+                        <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                     </video>
                 </div>
 
-                
                 <div class="row">
-                    <div class="col-sm-4" style="margin:0; padding:0;">
+
+                    <div class="col-sm-3" style="margin:0; padding:0;">
                         <div class="well">
                             <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="firstVideo()">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4" type="video/mp4">
+                                </video>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3" style="margin:0; padding:0;">
+                        <div class="well">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="secondVideo()">
                                     <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4" type="video/mp4">
                                 </video>
                             </div>
-                            <!--<p>Video mostrando daño ocasionado por el huracán Irma a la Barcaza </p>-->
+
                         </div>
                     </div>
-                    <div class="col-sm-4" style="margin:0; padding:0;">
+                    <div class="col-sm-3" style="margin:0; padding:0;">
                         <div class="well">
                             <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="thirdVideo()">
                                     <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                                 </video>
                             </div>
-                            <!--<p>Video del huracán Irma con lapso de tiempo</p>-->
+
                         </div>
                     </div>
-                    <div class="col-sm-4" style="margin:0; padding:0;">
+                    <div class="col-sm-3" style="margin:0; padding:0;">
                         <div align="center" class="embed-responsive embed-responsive-16by9">
-                            <video autoplay loop class="embed-responsive-item" controls="controls">
+                            <video autoplay loop class="embed-responsive-item" controls="controls" onclick="fourthVideo()">
                                 <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
                             </video>
                         </div>
-                        <!--<p>Video mostrando daño ocasionado al puerto por el Huracán Irma</p>-->
+
                     </div>
                 </div>
 
+
             </div>
 
-
         </div>
-      </div>
- 
-	
+
+    </div>
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -112,6 +121,53 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
-    </body>
+
+        function firstVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+        function secondVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+        function thirdVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+        function fourthVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+    </script>
+</body>
 </html>
