@@ -49,21 +49,16 @@
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
-        /*
+        
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
             //viewer.toggleSidebar();
         });
-        */
-        viewer.setDescription(`
-
-            `);
+        
+        viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
-        let sceneSG2 = new Potree.Scene();
-        let sceneSG3 = new Potree.Scene();
-        let sceneLion = new Potree.Scene();
         viewer.setScene(sceneSG);
 
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
@@ -71,194 +66,13 @@
             sceneSG.view.position.set(-30.495, -51.980, 4.219);
             sceneSG.view.lookAt(new THREE.Vector3(-42.876, -37.135, 2.698));
 
-
             let material = e.pointcloud.material;
             material.size = .66;
             material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-            material.shape = Potree.PointShape.CIRCLE;
-
-
-
-            {
-                {
-                    let elTitle = $(`
-                            <span>
-                                HERM
-                                <img src="${Potree.resourcePath}/icons/goto.svg"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                        `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        //viewer.setScene(sceneSG2);
-                    });
-                    elTitle.toString = () => "HERM";
-
-                    let aAbout1 = new Potree.Annotation({
-                        position: [-45.632, -27.628, -0.686],
-                        title: elTitle,
-                        cameraPosition: [-47.033, -24.550, 0.708],
-                        cameraTarget: [-44.035, -36.829, -1.740],
-                        description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today, the details of the herms are hardly recognizable, and in some cases entirely lost. During Hurricane Wilma in 2005, the female herm on the east side of the Barge toppled into the bay. It was salvaged by a conservation team and after restoration, the figure was placed back onto the Barge in its original location. During Hurricane Irma in 2017, another female herm ravaged by wind and tidal surge broke into three large fragments. In 2018 the pieces were salvaged from the bay and after restoration, the herm will be returned to its original location on the Barge.`
-                    });
-
-                    //sceneSG.annotations.add(aAbout1);
-                }
-
-                {
-                    let elTitle = $(`
-                            <span>
-                                SCULPTURES
-                                <img src="${Potree.resourcePath}/icons/goto.svg"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                        `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                        event.stopPropagation();
-                        //viewer.setScene(sceneLion);
-                    });
-                    elTitle.toString = () => "SCULPTURES";
-
-                    let aAbout3 = new Potree.Annotation({
-                        position: [-62.575, -50.716, 1.646],
-                        title: elTitle,
-                        cameraPosition: [-63.384, -51.399, 2.409],
-                        cameraTarget: [-62.166, -50.460, 2.043],
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`
-                    });
-
-                    //sceneSG.annotations.add(aAbout3);
-                }
-
-                //   {
-                //                    let aAbout2 = new Potree.Annotation({
-                //                        position: [-61.216, -49.492, 2.215],
-                //                        "cameraPosition": [-61.216, -49.492, 2.215],
-                //                        "cameraTarget": [-62.181, -50.463, 1.985],
-                //                        "title": "Pleasures and Perils",
-                //                        "description": `
-                //						These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-                //						`
-                //                    });
-                //                    sceneSG.annotations.add(aAbout2);
-                //                }
-
-                // Statues
-                {
-                    let aStatues = new Potree.Annotation({
-                        position: [-23.590, -23.959, 2.530],
-                        title: "Statues",
-                        cameraPosition: [-23.590, -23.959, 2.530],
-                        cameraTarget: [-25.609, -23.231, 1.536],
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.`,
-                    });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
-                    aStatues.addEventListener("click", () => {
-                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                    });
-                    //sceneSG.annotations.add(aStatues);
-                }
-
-                // FemaleHerm
-                {
-                    let aStatues = new Potree.Annotation({
-                        position: [-35.131, -37.530, 0.901],
-                        title: "Female Herm",
-                        cameraPosition: [-35.131, -37.530, 0.901],
-                        cameraTarget: [-42.340, -36.309, -0.732],
-                        description: `This herm was damed during hurricane Irma in 2017.`,
-                    });
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
-                    aStatues.addEventListener("click", () => {
-                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                    });
-                    //sceneSG.annotations.add(aStatues);
-                }
-
-
-                // Grotesque
-                {
-                    let Grotesque = new Potree.Annotation({
-                        position: [-52.107, -49.002, -2.007],
-                        title: "GROTESQUES",
-                        cameraPosition: [-50.295, -51.055, -1.438],
-                        cameraTarget: [-67.337, -30.449, -0.615],
-                        description: `In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`,
-                    });
-                    Grotesque.domElement.off("mouseenter");
-                    Grotesque.domElement.off("mouseleave");
-                    Grotesque.addEventListener("click", () => {
-                        Grotesque.setHighlighted(!Grotesque.isHighlighted);
-                    });
-                    //sceneSG.annotations.add(Grotesque);
-                }
-
-                // Mermaids
-                {
-                    let Mermaids = new Potree.Annotation({
-                        position: [-63.358, -51.438, -1.902],
-                        title: "MERMAIDS",
-                        cameraPosition: [-65.596, -53.536, -1.081],
-                        cameraTarget: [-44.362, -35.946, -6.132],
-                        description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
-                    });
-                    Mermaids.domElement.off("mouseenter");
-                    Mermaids.domElement.off("mouseleave");
-                    Mermaids.addEventListener("click", () => {
-                        Mermaids.setHighlighted(!Mermaids.isHighlighted);
-                    });
-                    //sceneSG.annotations.add(Mermaids);
-                }
-
-
-            }
+            //material.shape = Potree.PointShape.CIRCLE;
         });
-                // Herm point cloud in scene 2
-/*
-                Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function(e){
-                sceneSG2.addPointCloud(e.pointcloud);
-                sceneSG2.view.position.set(53.870, -7.065, 46.968);
-                sceneSG2.view.lookAt(new THREE.Vector3(0.371, 0.700, 41.694));
-                e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-                sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
-                    "title": "Return to Barge",
-                    "actions": [{
-                        "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                        "onclick": function(){
-                            viewer.setScene(sceneSG);
-                        }
-                    }]
-                });
-            });
-
-            // Pleasures and Perils
-            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function(e)
-{
-                sceneLion.addPointCloud(e.pointcloud);
-                sceneLion.view.position.set(-148.290, 22.164, 56.452);
-                sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
-                e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-                sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
-                    "title": "Return to Barge",
-                    "actions": [{
-                        "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                        "onclick": function(){
-                            viewer.setScene(sceneSG);
-                        }
-                    }]
-                });
-            });
-*/
     </script>
-
 
 </body>
 </html>

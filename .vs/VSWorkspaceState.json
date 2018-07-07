@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\css",
+    "\\models"
   ],
-  "SelectedNode": "\\3d-documentation.html",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\models\\1916herm.html",
+  "PreviewInSolutionExplorer": true
 }
