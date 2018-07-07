@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+    
     <style>
         /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
@@ -44,6 +45,7 @@
                 background: #7d7d7d;
             }
     </style>
+
 </head>
 
 <body>
@@ -69,31 +71,14 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
-
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-     
-        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-    
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-        <div>
-
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-
-            <map name="controlPanel">
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
-                <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
-                <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-            </map>
-        </div>
-
-        <!-- navPanel 1 -->
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <!---->
+        <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
                 <div class="intrinsic-container intrinsic-container-16x9">
@@ -102,21 +87,19 @@
             </div>
         </div>
 
-        <!--HOTSPOT CONTROLS-->
+        <!--Hotspots Dropup-->
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Touch to Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-                    <!--
-                                <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                                <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                -->
+                    <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
+                    <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span> Grotesques</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
@@ -126,10 +109,10 @@
                 </div>
             </div>
         </div>
-    </div>  
-    <!--END OF HOTSPOT CONTROLS-->
 
-    <!-- popup 1 -->
+    </div>
+    
+    <!-- Popup 1 -->
     <div id="mypopup1" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -139,7 +122,7 @@
         </div>
     </div>
 
-    <!-- popup 2-->
+    <!-- Popup 2-->
     <div id="mypopup2" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -149,28 +132,27 @@
         </div>
     </div>
 
+    <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
 
     <script>
 
         // initialize page and Potree
         init();
 
-        function init() {
-
-            //For control panel
-            $("#control_icon").click(function () {
-                $("#control_panel").toggle();
-            });
-
-            $("#question_icon").click(function () {
-                $("#nav_panel").toggle();
-            });
-
-            //Navigation Panel
-            var navPanel = document.getElementById('nav_panel');
-            navPanel.addEventListener('click', function () {
-                navPanel.style.display = "none";
-            });
+        function init() {        
 
             setup();
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
@@ -189,22 +171,21 @@
                 //viewer.toggleSidebar();
             });
 
-            viewer.setDescription(`
-                    `);
+            viewer.setDescription(``);
 
             let sceneSG = new Potree.Scene();
-            let sceneSG2 = new Potree.Scene();
-            let sceneSG3 = new Potree.Scene();
-            let sceneLion = new Potree.Scene();
+            //let sceneSG2 = new Potree.Scene();
+            //let sceneSG3 = new Potree.Scene();
+            //let sceneLion = new Potree.Scene();
             viewer.setScene(sceneSG);
 
+            /* Get camera parameters from Index page
+            *****************************************************/
             function getParam(paramName) {
                 var src = document.referrer;
                 var srcSplit = src.split("?");
                 var address = srcSplit[1];
                 var paramArray = address.split('&');
-                //var paramList = window.location.search.substring(1);
-                //var paramArray = paramList.split('&');
                 for (var i = 0; i < paramArray.length; i++) {
                     var pArr = paramArray[i].split('=');
                     if (pArr[0] == paramName)
@@ -230,15 +211,67 @@
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
                 {
+
                     {
+                        /* Annotation: Barge's Openning Transition to
+                        *****************************************************/
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                `);
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "Barge";
+
+                        let aAbout0 = new Potree.Annotation({
+                            position: [-34.982, -18.500, -0.927],
+                            title: elTitle,
+                            cameraPosition: [-30.203, -7.118, 5.658],
+                            cameraTarget: [-35.769, -34.984, -5.137]
+                        });
+
+                        sceneSG.annotations.add(aAbout0);
+                    }
+
+                    {
+                        /* Annotation: 2nd Barge's Openning Transition to
+                        *****************************************************/
+                        let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "Barge";
+
+                        let aAbout10 = new Potree.Annotation({
+                            position: [-43.738, -34.574, -2.621],
+                            title: elTitle,
+                            cameraPosition: [-45.982, -38.192, 0.534],
+                            cameraTarget: [-44.171, -34.177, -0.187]
+                        });
+
+                        sceneSG.annotations.add(aAbout10);
+                    }
+
+                    {
+                        /* Annotation: Herm
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
+
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                             var popup = document.getElementById('mypopup1');
                             var span = document.getElementsByClassName("close")[0];
@@ -246,7 +279,7 @@
                             popup.style.display = "block";
                             span.onclick = function () {
                                 popup.style.display = "none";
-                                //Reloads the Iframe
+                                //Reloads the Popup
                                 $('#mypopup1').attr('src', '');
                                 var iframe = document.getElementById('iframe1');
                                 iframe.src = iframe.src;
@@ -254,7 +287,7 @@
                             window.onclick = function (event) {
                                 if (event.target == popup) {
                                     popup.style.display = "none";
-                                    //Reloads the Iframe
+                                    //Reloads the Popup
                                     $('#mypopup1').attr('src', '');
                                     var iframe = document.getElementById('iframe1');
                                     iframe.src = iframe.src;
@@ -276,14 +309,14 @@
                     }
 
                     {
-                        let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                `);
+                        /* Annotation: Sculptures
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                             var popup = document.getElementById('mypopup2');
                             var span = document.getElementsByClassName("close")[1];
@@ -291,7 +324,7 @@
                             popup.style.display = "block";
                             span.onclick = function () {
                                 popup.style.display = "none";
-                                //Reloads the Iframe
+                                //Reloads the Popup
                                 $('#mypopup2').attr('src', '');
                                 var iframe = document.getElementById('iframe2');
                                 iframe.src = iframe.src;
@@ -299,7 +332,7 @@
                             window.onclick = function (event) {
                                 if (event.target == popup) {
                                     popup.style.display = "none";
-                                    //Reloads the Iframe
+                                    //Reloads the Popup
                                     $('#mypopup2').attr('src', '');
                                     var iframe = document.getElementById('iframe2');
                                     iframe.src = iframe.src;
@@ -321,14 +354,16 @@
                     }
 
                     {
+                        /* Annotation: Grotesques
+                        *****************************************************/
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                `);
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "GROTESQUES";
@@ -338,21 +373,23 @@
                             title: elTitle,
                             cameraPosition: [-38.793, -16.289, -1.458],
                             cameraTarget: [-24.277, -32.639, -0.579],
-                            description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.`
-                        });
+                            description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.
+                        `});
 
                         sceneSG.annotations.add(aAbout2);
                     }
 
                     {
+                        /* Annotation: Mermaids
+                        *****************************************************/
                         let elTitle = $(`
-                                    <span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>
-                                `);
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "MERMAIDS";
@@ -362,76 +399,21 @@
                             title: elTitle,
                             cameraPosition: [-66.079, -52.591, -1.147],
                             cameraTarget: [-42.122, -38.767, -4.326],
-                            description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `
-                        });
+                            description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. 
+                        `});
 
                         sceneSG.annotations.add(aAbout2);
                     }
-                    /*
-                        {
-                            let Mermaids = new Potree.Annotation({
-                                position: [-63.358, -51.438, -1.902],
-                                title: "MERMAIDS",
-                                cameraPosition: [-65.596, -53.536, -1.081],
-                                cameraTarget: [-44.362, -35.946, -6.132],
-                                description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
-                            });
-                            Mermaids.domElement.off("mouseenter");
-                            Mermaids.domElement.off("mouseleave");
-                            Mermaids.addEventListener("click", () => {
-                                Mermaids.setHighlighted(!Mermaids.isHighlighted);
-                            });
-                            sceneSG.annotations.add(Mermaids);
-                        }
-                        */
-                    //alert(viewer.scene.annotations['HERM']);
+
                 }
-                
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 4000);
+                setTimeout(function () {
+                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                }, 9000);
             });
 
-            
-
-            setTimeout(function () {
-                viewer.scene.annotations[0].moveHere(viewer.scene.camera);
-            }, 2000);
-
-            /*
-                    // Herm point cloud in scene 2
-                    Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
-                        sceneSG2.addPointCloud(e.pointcloud);
-                        sceneSG2.view.position.set(40.480, -28.044, 52.055);
-                        sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-                        e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-                        sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
-                            "title": "Return to Barge",
-                            "actions": [{
-                                "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                                "onclick": function () {
-                                    viewer.setScene(sceneSG);
-                                }
-                            }]
-                        });
-                    });
-
-                    // Sculptures
-                    Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "sculptures", function (e) {
-                        sceneLion.addPointCloud(e.pointcloud);
-                        sceneLion.view.position.set(-148.290, 22.164, 56.452);
-                        sceneLion.view.lookAt(new THREE.Vector3(-16.875, -10.208, 41.394));
-                        e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-                        sceneLion.addAnnotation([-36.268, -19.210, -15.277], {
-                            "title": "Return to Barge",
-                            "actions": [{
-                                "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                                "onclick": function () {
-                                    viewer.setScene(sceneSG);
-                                }
-                            }]
-                        });
-                    });
-            */
             var timeoutID;
 
             function setup() {
@@ -466,12 +448,19 @@
                 startTimer();
             }
 
-            
+            /* Navigation Controls Image
+            *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").toggle();
+            });
 
-            /*
-             * HOTSPOT CONTROLS FUNCTIONS 
-            */
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
+            });
 
+            /* Hotspots Control Dropup
+            *****************************************************/
             $("#hotspots").click(function () {
                 $("#lists").toggle();
             });
@@ -482,7 +471,6 @@
                 scene.view.position.set(-38.793, -16.289, -1.458);
                 scene.view.lookAt(new THREE.Vector3(-24.277, -32.639, -0.579));
             }
-
             function item2() {
                 let scene = viewer.scene;
                 scene.view.position.set(-47.086, -24.116, 0.709);
@@ -501,7 +489,6 @@
             }
 
             //Click functions for each annotation within Hotspot Control's List
-
             $("#li1").click(function () {
                 item1();
             });
@@ -532,7 +519,7 @@
                 }
             }
 
-            let idx; // idx is undefined, so getNewScene will take 0 as default       
+            let idx; // idx is undefined, so getNewScene will take 0 as default
             const getNewScene = (direction) => {
                 idx = getNextIdx(idx, length, direction);
                 var sceneFunction = functions[idx];
@@ -575,13 +562,49 @@
                 var submenu = document.getElementById('lists');
                 submenu.style.display = 'none';
             }
-            /*
-             * END OF HOTSPOT CONTROLS FUNCTIONS 
+
+             /*{   //Annotation (Example)  
+                    let Mermaids = new Potree.Annotation({
+                        position: [-63.358, -51.438, -1.902],
+                        title: "MERMAIDS",
+                        cameraPosition: [-65.596, -53.536, -1.081],
+                        cameraTarget: [-44.362, -35.946, -6.132],
+                        description: `Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden. `,
+                    });
+                    Mermaids.domElement.off("mouseenter");
+                    Mermaids.domElement.off("mouseleave");
+                    Mermaids.addEventListener("click", () => {
+                        Mermaids.setHighlighted(!Mermaids.isHighlighted);
+                    });
+                    sceneSG.annotations.add(Mermaids);
+                }*/
+
+            /*// Herm point cloud in scene 2 (Example)
+                    Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
+                        sceneSG2.addPointCloud(e.pointcloud);
+                        sceneSG2.view.position.set(40.480, -28.044, 52.055);
+                        sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
+                        e.pointcloud.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                        sceneSG2.addAnnotation([7.150, -0.112, 20.413], {
+                            "title": "Return to Barge",
+                            "actions": [{
+                                "icon": Potree.resourcePath + "/icons/goto-w.svg",
+                                "onclick": function () {
+                                    viewer.setScene(sceneSG);
+                                }
+                            }]
+                        });
+                    });*/
+
+            /* Control Panel
+            *****************************************************
+            $("#control_icon").click(function () {
+                $("#control_panel").toggle();
+            });
             */
 
         }
     </script>
-
 
 </body>
 </html>

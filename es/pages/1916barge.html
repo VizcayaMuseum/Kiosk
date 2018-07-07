@@ -77,31 +77,14 @@
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
-        <!--Previously commented out-->
+
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-      
-        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-        <div>
-
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-
-            <map name="controlPanel">
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-            </map>
-        </div>
-
-        <!-- navPanel 1 -->
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
                 <div class="intrinsic-container intrinsic-container-16x9">
@@ -110,7 +93,7 @@
             </div>
         </div>
 
-        <!--HOTSPOT CONTROLS-->
+        <!--Hotspots Dropup-->
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
@@ -121,10 +104,8 @@
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-                    <!--
-                                    <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                                    <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
-                -->
+                    <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
+                    <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="La Casa de Verano"><span class="index">&sccue;</span>La Casa de Verano</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Grotescos"><span class="index">&sccue;</span>Grotescos</a></li>
@@ -135,10 +116,10 @@
                 </div>
             </div>
         </div>
-        <!--END OF HOTSPOT CONTROLS-->
+
     </div>
 
-    <!-- popup 1 -->
+    <!-- Popup 1 -->
     <div id="mypopup1" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -148,7 +129,7 @@
         </div>
     </div>
 
-    <!-- popup 2-->
+    <!-- Popup 2-->
     <div id="mypopup2" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -159,58 +140,6 @@
     </div>
 
     <script>
-
-        //Controls bar
-        $("#control_icon").click(function () {
-            $("#control_panel").toggle();
-        });
-
-        $("#question_icon").click(function () {
-
-            $("#nav_panel").toggle();
-        });
-
-        //Navigation Panel
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
-
-        //Temp solution to hide list when a hotspot is selected
-        var openLink = document.getElementById('li1');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-        var openLink = document.getElementById('li2');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-        var openLink = document.getElementById('li3');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-        var openLink = document.getElementById('li4');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-        var openLink = document.getElementById('li5');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
 
         setup();
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
@@ -229,25 +158,21 @@
             //viewer.toggleSidebar();
         });
 
-        viewer.setDescription(`
-
-                                                            `);
+        viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
-        let sceneSG2 = new Potree.Scene();
-        let sceneSG3 = new Potree.Scene();
-        let sceneSG4 = new Potree.Scene();
+        //let sceneSG2 = new Potree.Scene();
+        //let sceneSG3 = new Potree.Scene();
+        //let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-
-
+        /* Get camera parameters from Index page
+        *****************************************************/
         function getParam(paramName) {
             var src = document.referrer;
             var srcSplit = src.split("?");
             var address = srcSplit[1];
             var paramArray = address.split('&');
-            //var paramList = window.location.search.substring(1);
-            //var paramArray = paramList.split('&');
             for (var i = 0; i < paramArray.length; i++) {
                 var pArr = paramArray[i].split('=');
                 if (pArr[0] == paramName)
@@ -258,11 +183,9 @@
         var x_position = parseFloat(getParam('xP'));
         var y_position = parseFloat(getParam('yP'));
         var z_position = parseFloat(getParam('zP'));
-
         var x_lookAt = parseFloat(getParam('xL'));
         var y_lookAt = parseFloat(getParam('yL'));
         var z_lookAt = parseFloat(getParam('zL'));
-
 
         {
             let scene = viewer.scene;
@@ -289,9 +212,7 @@
             //texture.wrapS = THREE.RepeatWrapping;
             //texture.wrapT = THREE.RepeatWrapping;
 
-
             let onError = function (xhr) { };
-
 
             let loader = new THREE.GLTFLoader(manager);
             loader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
@@ -327,19 +248,17 @@
 
 
             }, onProgress, onError);
-            // Herm point cloud in scene 2
 
             {
                 {
-                    let elTitle = $(`
-                                <span>
-
-                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                        name="action_set_scene"
-                                        class="annotation-action-icon"
-                                        style="filter: invert(1);" />
-                                </span>
-                                                    `);
+                    /* Annotation: Herm
+                    *****************************************************/
+                    let elTitle = $(`<span>
+                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                            name="action_set_scene"
+                                            class="annotation-action-icon"
+                                            style="filter: invert(1);" />
+                                    </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         var popup = document.getElementById('mypopup1');
                         var span = document.getElementsByClassName("close")[0];
@@ -347,7 +266,7 @@
                         popup.style.display = "block";
                         span.onclick = function () {
                             popup.style.display = "none";
-                            //Reloads the Iframe
+                            //Reloads the Popup
                             $('#mypopup1').attr('src', '');
                             var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
@@ -355,7 +274,7 @@
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
-                                //Reloads the Iframe
+                                //Reloads the Popup
                                 $('#mypopup1').attr('src', '');
                                 var iframe = document.getElementById('iframe1');
                                 iframe.src = iframe.src;
@@ -372,26 +291,21 @@
                         title: elTitle,
                         cameraPosition: [589641.037, 231210.382, 851.979],
                         cameraTarget: [589841.773, 231481.066, 774.607],
-                        /*
-                        description: `Four herms (squared stone pillars with a carved head on top) represent the tropics, with
-                                                                baskets of bananas and pineapples on their heads, and welcome guests onto the Barge. Today,
-                                                                the details of the herms are hardly recognizable, and in some cases entirely lost.
-                                                    `*/
                     });
 
                     sceneSG.annotations.add(aAbout1);
                 }
 
                 {
-                    let elTitle = $(`
-                                <span>
+                    /* Annotation: Sculptures
+                    *****************************************************/
+                    let elTitle = $(`<span>
 
                                     <img src="${Potree.resourcePath}/icons/i.png"
                                         name="action_set_scene"
                                         class="annotation-action-icon"
                                         style="filter: invert(1);" />
-                                </span>
-                                                `);
+                                </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         var popup = document.getElementById('mypopup2');
                         var span = document.getElementsByClassName("close")[1];
@@ -399,7 +313,7 @@
                         popup.style.display = "block";
                         span.onclick = function () {
                             popup.style.display = "none";
-                            //Reloads the Iframe
+                            //Reloads the Popup
                             $('#mypopup2').attr('src', '');
                             var iframe = document.getElementById('iframe2');
                             iframe.src = iframe.src;
@@ -407,7 +321,7 @@
                         window.onclick = function (event) {
                             if (event.target == popup) {
                                 popup.style.display = "none";
-                                //Reloads the Iframe
+                                //Reloads the Popup
                                 $('#mypopup2').attr('src', '');
                                 var iframe = document.getElementById('iframe2');
                                 iframe.src = iframe.src;
@@ -423,31 +337,28 @@
                         position: [590538.041, 231531.105, 864.512],
                         title: elTitle,
                         cameraPosition: [590691.984, 231495.560, 894.852],
-                        cameraTarget: [589488.341, 231747.740, 604.005],
-                        /*
-                        description: `These figures are nude mythical creations that are half-human and half-fish surrounded by sea motifs such as seaweed and coral. The seated figures are reproductions made in 1982.
-                                                                `*/
+                        cameraTarget: [589488.341, 231747.740, 604.005],                     
                     });
 
                     sceneSG.annotations.add(aAbout3);
                 }
 
-                // Summer House
                 {
+
+                    /* Annotation: Sculptures
+                    *****************************************************/
                     let aStatues = new Potree.Annotation({
                         position: [589367.536, 231407.493, 852.372],
-                        title: $(`
-                                <span>
+                        title: $(`<span>
                                     <img src="${Potree.resourcePath}/icons/i.png"
                                         name="action_set_scene"
                                         class="annotation-action-icon"
                                         style="filter: invert(1);" />
-                                </span>
-                                                `),
+                                </span>`),
                         cameraPosition: [589512.482, 231554.667, 919.268],
                         cameraTarget: [589394.480, 231518.869, 889.558],
-                        description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.`,
-                    });
+                        description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
+                    `});
                     aStatues.domElement.off("mouseenter");
                     aStatues.domElement.off("mouseleave");
                     aStatues.addEventListener("click", () => {
@@ -456,9 +367,9 @@
                     sceneSG.annotations.add(aStatues);
                 }
 
-                // Grotesque
-
                 {
+                    /* Annotation: Grotesques
+                    *****************************************************/
                     let elTitle = $(`
                             <span>
 
@@ -468,8 +379,7 @@
                                     style="filter: invert(1);" />
                             </span>
                                     `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                    });
+                    elTitle.find("img[name=action_set_scene]").click((event) => {});
                     elTitle.toString = () => "GRUTESCOS";
 
                     let aAbout2 = new Potree.Annotation({
@@ -477,10 +387,8 @@
                         title: elTitle,
                         cameraPosition: [589429.177, 231255.717, 767.927],
                         cameraTarget: [589435.471, 231558.942, 795.472],
-                        description: `
-                                    GRUTESCOS<hr>Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
-                                        `
-                    });
+                        description: `GRUTESCOS<hr>Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
+                    `});
 
                     aAbout2.domElement.off("mouseenter");
                     aAbout2.domElement.off("mouseleave");
@@ -491,19 +399,16 @@
                     sceneSG.annotations.add(aAbout2);
                 }
 
-                //Mermaids
                 {
-                    let elTitle = $(`
-                            <span>
-
-                                <img src="${Potree.resourcePath}/icons/i.png"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                                    `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                    });
+                    /* Annotation: Mermaids
+                    *****************************************************/
+                    let elTitle = $(`<span>
+                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                            name="action_set_scene"
+                                            class="annotation-action-icon"
+                                            style="filter: invert(1);" />
+                                    </span>`);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {});
                     elTitle.toString = () => "SIRENAS";
 
                     let aAbout4 = new Potree.Annotation({
@@ -511,8 +416,7 @@
                         title: elTitle,
                         cameraPosition: [590710.354, 231503.486, 769.828],
                         cameraTarget: [589483.126, 231733.839, 872.968],
-                        description: `
-                                    SIRENAS<hr>Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.`
+                        description: `SIRENAS<hr>Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.`
                     });
 
                     aAbout4.domElement.off("mouseenter");
@@ -524,69 +428,10 @@
                     sceneSG.annotations.add(aAbout4);
                 }
 
-
             }
 
         }
-        /*
-                var fbxLoader = new THREE.FBXLoader();
-                fbxLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/fbx/hermes1917_3.fbx', function (object) {
-                    scene.position.set(0,0,0);
-                    scene.scale.multiplyScalar(100);
-                    scene.rotation.set(Math.PI / 2, Math.PI, 0)
-                    // add the model into the scene
-                    viewer.scene.scene.add(object);
-
-                    //object.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
-                    //object.material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-
-                    sceneSG2.addAnnotation([0,0,0], {
-                        "title": "Return to Barge",
-                        "actions": [{
-                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                            "onclick": function () {
-                                viewer.setScene(sceneSG);
-                            }
-                        }]
-                    });
-                });
-        */
-        /*
-                var gltfLoader = new THREE.GLTFLoader();
-                gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/herm1917/scene.gltf', function (gltf) {
-                    sceneSG2.scene.position.set(0,0,0);
-                    sceneSG2.scene.scale.multiplyScalar(100);
-                    sceneSG2.scene.rotation.set(Math.PI / 2, Math.PI, 0)
-
-                    viewer.scene.scene.add(gltf.scene);
-                    sceneSG2.addAnnotation([0, 0, 0], {
-                        "title": "Return to Barge",
-                        "actions": [{
-                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                            "onclick": function () {
-                                viewer.setScene(sceneSG);
-                            }
-                        }]
-                    });
-                });
-
-                gltfLoader.load('https://s3.amazonaws.com/vizcaya/3dmodels/gltf/1916mermaid/scene.gltf', function (gltf) {
-                    sceneSG4.scene.position.set(-10,0,-3500);
-                    sceneSG4.scene.scale.multiplyScalar(100);
-                    sceneSG4.scene.rotation.set(Math.PI / 2, Math.PI, 0)
-
-                    viewer.scene.scene.add(gltf.scene);
-                    sceneSG4.addAnnotation([0,0,0], {
-                        "title": "Return",
-                        "actions": [{
-                            "icon": Potree.resourcePath + "/icons/goto-w.svg",
-                            "onclick": function () {
-                                viewer.setScene(sceneSG);
-                            }
-                        }]
-                    });
-                });
-        */
+        
         var timeoutID;
 
         function setup() {
@@ -620,10 +465,19 @@
             startTimer();
         }
 
-        /*
-         * HOTSPOT CONTROLS FUNCTIONS
-        */
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
 
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
+
+        /* Hotspots Control Dropup
+        *****************************************************/
         $("#hotspots").click(function () {
             $("#lists").toggle();
         });
@@ -708,9 +562,48 @@
             getNewScene('next');
         });
 
-            /*
-             * END OF HOTSPOT CONTROLS FUNCTIONS
-            */
+        //Temp solution to hide list when a hotspot is selected
+        var openLink = document.getElementById('li1');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li2');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li3');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li4');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li5');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        /* Control Panel
+            *****************************************************
+            $("#control_icon").click(function () {
+                $("#control_panel").toggle();
+            });
+        */
     </script>
 
 

@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+
     <style>
         /*Scrollbar for hotspot controls*/
             :: -webkit-scrollbar {
@@ -71,35 +72,14 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-        <div>
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-            <map name="controlPanel">
-
-                <!--Reset Button-->
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                <!--Home Button-->
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-                <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-                <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-                <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-                <!--Zoom In-->
-                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                <!--Zoom Out-->
-                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-            </map>
-        </div>
-
-        <!-- navPanel 1 -->
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        
+        <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
                 <div class="intrinsic-container intrinsic-container-16x9">
@@ -108,7 +88,7 @@
             </div>
         </div>
 
-        <!--HOTSPOT CONTROLS-->
+        <!--Hotspots Dropup-->
         <div class="controls">
             <div class="hotspot-controls">
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
@@ -119,10 +99,8 @@
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
                 <div id="lists" class="list hotspots-list visible">
-<!--
-                <a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>
-                <a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>
--->
+                    <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
+                    <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">&sccue;</span> Amorino</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Ceiling Mural"><span class="index">&sccue;</span>Ceiling Mural</a></li>
@@ -133,28 +111,26 @@
                 </div>
             </div>
         </div>
-        <!--END OF HOTSPOT CONTROLS-->
+
+        <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
 
         <script>
-            //Navigation Panel
-            var navPanel = document.getElementById('nav_panel');
-            navPanel.addEventListener('click', function () {
-                navPanel.style.display = "none";
-            });            
-
-            $("#control_icon").click(function () {
-
-                $("#control_panel").toggle();
-            });
-
-            $("#question_icon").click(function () {
-
-                $("#nav_panel").toggle();
-            });
 
             setup();
             window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-
 
             viewer.setEDLEnabled(false);
             viewer.setFOV(60);
@@ -168,26 +144,21 @@
             viewer.loadGUI(() => {
                 viewer.setLanguage('en');
                 $("#menu_scene").next().show();
-                //     viewer.toggleSidebar();
+                //viewer.toggleSidebar();
             });
 
-            viewer.setDescription(`
-
-                                                                        `);
+            viewer.setDescription(``);
 
             let sceneSG = new Potree.Scene();
-            let sceneSG2 = new Potree.Scene();
-            let sceneSG3 = new Potree.Scene();
-            let sceneLion = new Potree.Scene();
             viewer.setScene(sceneSG);
 
+            /* Get camera parameters from Index page
+            *****************************************************/
             function getParam(paramName) {
                 var src = document.referrer;
                 var srcSplit = src.split("?");
                 var address = srcSplit[1];
                 var paramArray = address.split('&');
-                //var paramList = window.location.search.substring(1);
-                //var paramArray = paramList.split('&');
                 for (var i = 0; i < paramArray.length; i++) {
                     var pArr = paramArray[i].split('=');
                     if (pArr[0] == paramName)
@@ -198,11 +169,9 @@
             var x_position = parseFloat(getParam('xP'));
             var y_position = parseFloat(getParam('yP'));
             var z_position = parseFloat(getParam('zP'));
-
             var x_lookAt = parseFloat(getParam('xL'));
             var y_lookAt = parseFloat(getParam('yL'));
             var z_lookAt = parseFloat(getParam('zL'));
-
 
             Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
 
@@ -210,24 +179,43 @@
                 sceneSG.view.position.set(x_position, y_position, z_position);
                 sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
 
-
                 let material = e.pointcloud.material;
                 material.size = 1;
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
                 {
-                    // AMORINO
                     {
-                        let elTitle = $(`
-                            <span>
-                                <img src="${Potree.resourcePath}/icons/i.png"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                                                                                `);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {
-                        });
+                        /* Annotation: Grotto
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "AMORINO";
+
+                        let aAbout0 = new Potree.Annotation({
+                            position: [-26.819, 6.086, -0.064],
+                            title: elTitle,
+                            cameraPosition: [-31.261, 5.262, -2.133],
+                            cameraTarget: [-31.029, 2.591, -1.508],
+                            });
+
+                        sceneSG.annotations.add(aAbout0);
+                    }
+
+                    {
+                        /* Annotation: Amorino
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
                         elTitle.toString = () => "AMORINO";
 
                         let aAbout1 = new Potree.Annotation({
@@ -235,27 +223,22 @@
                             title: elTitle,
                             cameraPosition: [-30.289, 2.205, -1.767],
                             cameraTarget: [-31.354, 1.411, -1.882],
-                            description: `AMORINO<hr>This sculpture, cast in lead, was always intended to be a fountain for this grotto, though it no longer
-                                                                                        functions in this way. It has survived flooding from multiple storms because lead generally resists corrosion, and
-                                                                                        when exposed, the surface develops a protective, grey patina as seen here.
-                                                                                        `
-                        });
+                            description: `AMORINO<hr>This sculpture, cast in lead, was always intended to be a fountain for this grotto, though it no longerfunctions in this way. It has survived flooding from multiple storms because lead generally resists corrosion, and when exposed, the surface develops a protective, grey patina as seen here.
+                                `});
 
                         sceneSG.annotations.add(aAbout1);
                     }
 
-                    // CEILING
                     {
-                        let elTitle = $(`
-                            <span>
-                                <img src="${Potree.resourcePath}/icons/i.png"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                                                                                `);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {
-                        });
+                        /* Annotation: Ceiling Mural
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
                         elTitle.toString = () => "CEILING MURAL";
 
                         let aAbout2 = new Potree.Annotation({
@@ -263,27 +246,22 @@
                             title: elTitle,
                             cameraPosition: [-27.114, 1.190, -2.820],
                             cameraTarget: [-31.292, 2.889, 1.065],
-                            description: `CEILING MURAL<hr>The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded
-                                                                                        plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors
-                                                                                        of the ceiling are now faded and difficult to identify.
-                                                                                        `
-                        });
+                            description: `CEILING MURAL<hr>The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors of the ceiling are now faded and difficult to identify.
+                                `});
 
                         sceneSG.annotations.add(aAbout2);
                     }
 
-                    //STURGEON
                     {
-                        let elTitle = $(`
-                                                            <span>
-                                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                                    name="action_set_scene"
-                                                                    class="annotation-action-icon"
-                                                                    style="filter: invert(1);" />
-                                                            </span>
-                                                                                `);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {
-                        });
+                        /* Annotation: Sturgeon
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
                         elTitle.toString = () => "HUDSON RIVER STURGEONS";
 
                         let aAbout3 = new Potree.Annotation({
@@ -291,28 +269,22 @@
                             title: elTitle,
                             cameraPosition: [-28.826, 1.887, -3.110],
                             cameraTarget: [-28.826, 1.887, 0.219],
-                            description: `HUDSON RIVER STURGEONS<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of
-                                                                                        new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was
-                                                                                        intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for
-                                                                                        Deering’s guests.
-                                                                                        `
-                        });
+                            description: `HUDSON RIVER STURGEONS<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for Deering’s guests.
+                                `});
 
                         sceneSG.annotations.add(aAbout3);
                     }
 
-                    //FOUNTAINS
                     {
-                        let elTitle = $(`
-                                                            <span>
-                                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                                    name="action_set_scene"
-                                                                    class="annotation-action-icon"
-                                                                    style="filter: invert(1);" />
-                                                            </span>
-                                                                                `);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {
-                        });
+                        /* Annotation: Fountains
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
                         elTitle.toString = () => "FOUNTAINS";
 
                         let aAbout4 = new Potree.Annotation({
@@ -320,27 +292,22 @@
                             title: elTitle,
                             cameraPosition: [-27.815, 2.041, -1.450],
                             cameraTarget: [-25.942, 0.084, -1.567],
-                            description: `FOUNTAINS<hr>These coral rock fountains are similar to some of the other fountains found throughout the gardens at
-                                                                                        Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in
-                                                                                        the space and better protect the collection of objects in the Swimming Pool Grotto.
-                                                                                        `
-                        });
+                            description: `FOUNTAINS<hr>These coral rock fountains are similar to some of the other fountains found throughout the gardens at Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in the space and better protect the collection of objects in the Swimming Pool Grotto.
+                                `});
 
                         sceneSG.annotations.add(aAbout4);
                     }
 
-                    //FLOOR
                     {
-                        let elTitle = $(`
-                                                            <span>
-                                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                                    name="action_set_scene"
-                                                                    class="annotation-action-icon"
-                                                                    style="filter: invert(1);" />
-                                                            </span>
-                                                                                `);
-                        elTitle.find("img[name=action_set_scene]").click((event) => {
-                        });
+                        /* Annotation: Floor
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
                         elTitle.toString = () => "FLOOR";
 
                         let aAbout5 = new Potree.Annotation({
@@ -348,14 +315,19 @@
                             title: elTitle,
                             cameraPosition: [-35.020, 3.368, -1.354],
                             cameraTarget: [-33.436, 1.582, -2.699],
-                            description: `FLOOR<hr>Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in
-                                                                                        an intricate pattern.
-                                                                                        `
-                        });
+                            description: `FLOOR<hr>Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in an intricate pattern.
+                                `});
 
                         sceneSG.annotations.add(aAbout5);
                     }
                 }
+                //write if stats to check from which tile users are coming from
+
+                //Changes initial camera view
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 4000);
+
             });
 
             var timeoutID;
@@ -397,10 +369,19 @@
                 startTimer();
             }
 
-            /*
-             * HOTSPOT CONTROLS FUNCTIONS
-            */
+            /* Navigation Controls Image
+            *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").toggle();
+            });
 
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
+            });
+
+            /* Hotspots Control Dropup
+            *****************************************************/
             $("#hotspots").click(function () {
                 $("#lists").toggle();
             });
@@ -521,16 +502,20 @@
                 submenu.style.display = 'none';
             }
 
-                                            /*
-                                             * END OF HOTSPOT CONTROLS FUNCTIONS
-                                            */
 
+            //Check if users comes from Alligator Tile or Grotto Tile
             if (x_position == -32.400) {
-                document.getElementById("nav_panel").style.display = "flex";
+                //document.getElementById("nav_panel").style.display = "flex";
             }
-            
-        </script>
 
+            /* Control Panel
+            *****************************************************
+            $("#control_icon").click(function () {
+                $("#control_panel").toggle();
+            });
+            */
+
+        </script>
 
 </body>
 </html>
