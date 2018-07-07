@@ -93,7 +93,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Touch to Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -211,6 +211,57 @@
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
                 {
+
+                    {
+                        /* Annotation: Barge's Openning Transition to
+                        *****************************************************/
+                        let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "Barge";
+
+                        let aAbout0 = new Potree.Annotation({
+                            position: [-34.982, -18.500, -0.927],
+                            title: elTitle,
+                            cameraPosition: [-30.203, -7.118, 5.658],
+                            cameraTarget: [-35.769, -34.984, -5.137]
+                        });
+
+                        sceneSG.annotations.add(aAbout0);
+                    }
+
+                    {
+                        /* Annotation: 2nd Barge's Openning Transition to
+                        *****************************************************/
+                        let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                        elTitle.find("img[name=action_set_scene]").click((event) => {
+                        });
+                        elTitle.toString = () => "Barge";
+
+                        let aAbout10 = new Potree.Annotation({
+                            position: [-43.738, -34.574, -2.621],
+                            title: elTitle,
+                            cameraPosition: [-45.982, -38.192, 0.534],
+                            cameraTarget: [-44.171, -34.177, -0.187]
+                        });
+
+                        sceneSG.annotations.add(aAbout10);
+                    }
+
                     {
                         /* Annotation: Herm
                         *****************************************************/
@@ -357,7 +408,10 @@
                 }
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 2000);
+                }, 4000);
+                setTimeout(function () {
+                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                }, 9000);
             });
 
             var timeoutID;

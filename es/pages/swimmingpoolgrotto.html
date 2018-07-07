@@ -188,6 +188,28 @@
 
                 {
                     {
+                        /* Annotation: Grotto
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "AMORINO";
+
+                        let aAbout0 = new Potree.Annotation({
+                            position: [-26.819, 6.086, -0.064],
+                            title: elTitle,
+                            cameraPosition: [-31.261, 5.262, -2.133],
+                            cameraTarget: [-31.029, 2.591, -1.508],
+                        });
+
+                        sceneSG.annotations.add(aAbout0);
+                    }
+
+                    {
                         /* Annotation: Amorino
                         *****************************************************/
                         let elTitle = $(`<span>
@@ -302,6 +324,12 @@
                         sceneSG.annotations.add(aAbout5);
                     }
                 }
+
+                //Changes initial camera view
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 4000);
+
             });
 
             var timeoutID;
@@ -478,7 +506,7 @@
 
             //Check if users comes from Alligator Tile or Grotto Tile
             if (x_position == -32.400) {
-                document.getElementById("nav_panel").style.display = "flex";
+                //document.getElementById("nav_panel").style.display = "flex";
             }
 
             /* Control Panel
