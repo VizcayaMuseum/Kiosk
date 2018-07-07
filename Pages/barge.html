@@ -197,7 +197,7 @@
             let sceneSG3 = new Potree.Scene();
             let sceneLion = new Potree.Scene();
             viewer.setScene(sceneSG);
-
+            
             function getParam(paramName) {
                 var src = document.referrer;
                 var srcSplit = src.split("?");
@@ -218,11 +218,11 @@
             var x_lookAt = parseFloat(getParam('xL'));
             var y_lookAt = parseFloat(getParam('yL'));
             var z_lookAt = parseFloat(getParam('zL'));
-
+            
             Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
 
                 sceneSG.addPointCloud(e.pointcloud);
-                sceneSG.view.position.set(x_position, y_position, z_position);
+                sceneSG.view.position.set(x_position, y_position, z_position); 
                 sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
 
                 let material = e.pointcloud.material;
@@ -230,7 +230,8 @@
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
                 {
-                    {
+                    {  
+
                         let elTitle = $(`
                                     <span>
                                         <img src="${Potree.resourcePath}/icons/i.png"
@@ -367,6 +368,7 @@
 
                         sceneSG.annotations.add(aAbout2);
                     }
+
                     /*
                         {
                             let Mermaids = new Potree.Annotation({
@@ -383,17 +385,13 @@
                             });
                             sceneSG.annotations.add(Mermaids);
                         }
-                        */
-                    //alert(viewer.scene.annotations['HERM']);
+                     */
+                    
                 }
-                
-            });
-
-            
-
-            setTimeout(function () {
-                viewer.scene.annotations[0].moveHere(viewer.scene.camera);
-            }, 2000);
+                setTimeout(function () {
+                    sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+                }, 2000);    
+            });                       
 
             /*
                     // Herm point cloud in scene 2
@@ -465,9 +463,7 @@
             function goActive() {
                 startTimer();
             }
-
             
-
             /*
              * HOTSPOT CONTROLS FUNCTIONS 
             */
