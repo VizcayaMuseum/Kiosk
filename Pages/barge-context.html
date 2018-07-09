@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../libs/openlayers3/ol.css">
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
 
 </head>
 
@@ -31,7 +32,7 @@
     <script src="../libs/jstree/jstree.js"></script>
     <script src="../build/potree/potree.js"></script>
     <script src="../libs/plasio/js/laslaz.js"></script>
-
+    <script src="../main.js"></script>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
@@ -40,39 +41,327 @@
         <div id="potree_sidebar_container"> </div>
     </div>
 
+    <!--Control Icons-->
+    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
+    <img id="question_icon" src="../images/question.svg" title="Navigation" />
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+    <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+    <!---->
+    <!-- Navigation Instructions -->
+    <div id="nav_panel" class="navPanel">
+        <div class="navPanel-content">
+            <div class="intrinsic-container intrinsic-container-16x9">
+                <img class="nav_img" src="../images/navigation.png" />
+            </div>
+        </div>
+    </div>
+
+    <!--Hotspots Dropup-->
+    <div class="controls">
+        <div class="hotspot-controls">
+            <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
+            </div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
+            <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
+            </div>
+            <div id="lists" class="list hotspots-list visible">
+                <!--<a href="#" data-action="toggle-visibility" class="annotations-visibility"></a>-->
+                <!--<a href="#" data-action="toggle-autopilot" class="annotations-autopilot"></a>-->
+                <ul class="js-scrollable">
+                    <li id="li1" class="link"><a data-hotspot-target="0" title="Front View"><span class="index">&sccue;</span> Front View</a></li>
+                    <li id="li2" class="link"><a data-hotspot-target="1" title="Back View"><span class="index">&sccue;</span>Back View </a></li>
+                    <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Left Side View</a></li>
+                    <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Right Side View</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <script>
-		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
-		viewer.setEDLEnabled(false);
-		viewer.setFOV(60);
-		viewer.setPointBudget(5*1000*1000);
-		document.title = "";
+        viewer.setEDLEnabled(false);
+        viewer.setFOV(60);
+        viewer.setPointBudget(5 * 1000 * 1000);
+        document.title = "";
 
-		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		viewer.loadSettingsFromURL();
-        
-		viewer.loadGUI(() => {
-			viewer.setLanguage('en');
-			//$("#menu_tools").next().show();
-			//viewer.toggleSidebar();
-		});
-        
+        viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
+        viewer.loadSettingsFromURL();
+
+        viewer.loadGUI(() => {
+            viewer.setLanguage('en');
+            //$("#menu_tools").next().show();
+            //viewer.toggleSidebar();
+        });
+
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-	Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e){
-        sceneSG.addPointCloud(e.pointcloud);
-        sceneSG.view.position.set(-30.495, -51.980, 4.219);
-        sceneSG.view.lookAt(new THREE.Vector3(-42.876, -37.135, 2.698));
+        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
+            sceneSG.addPointCloud(e.pointcloud);
+            sceneSG.view.position.set(-30.495, -51.980, 4.219);
+            sceneSG.view.lookAt(new THREE.Vector3(-42.876, -37.135, 2.698));
 
             let material = e.pointcloud.material;
             material.size = .66;
             material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-            //material.shape = Potree.PointShape.CIRCLE;     
+            //material.shape = Potree.PointShape.CIRCLE;
+
+            {
+                {
+                    /* Annotation: 1st Opening Transition
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge";
+
+                    let aAbout0 = new Potree.Annotation({
+                        position: [-23.838, 24.749, 18.003],
+                        title: elTitle,
+                        cameraPosition: [-30.203, -7.118, 5.658],
+                        cameraTarget: [-35.769, -34.984, -5.137]
+                    });
+
+                    sceneSG.annotations.add(aAbout0);
+                }
+
+                {
+                    /* Annotation: 2nd Opening Transition/Center of Barge
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge2";
+
+                    let aAbout1 = new Potree.Annotation({
+                        position: [-43.738, -34.574, -2.621],
+                        title: elTitle,
+                        cameraPosition: [-45.982, -38.192, 0.534],
+                        cameraTarget: [-44.171, -34.177, -0.187]
+                    });
+
+                    sceneSG.annotations.add(aAbout1);
+                }
+
+                {
+                    /* Annotation: Right Side
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "GROTESQUES";
+
+                    let aAbout2 = new Potree.Annotation({
+                        position: [17.578, 0.460, 9.349],
+                        title: elTitle,
+                        cameraPosition: [17.578, 0.460, 9.349],
+                        cameraTarget: [-56.350, 1.173, -0.438],
+                        });
+
+                    sceneSG.annotations.add(aAbout2);
+                }
+
+                {
+                    /* Annotation: 
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "MERMAIDS";
+
+                    let aAbout5 = new Potree.Annotation({
+                        position: [-63.358, -51.438, -1.902],
+                        title: elTitle,
+                        cameraPosition: [-65.663, -55.380, -0.535],
+                        cameraTarget: [-46.904, -32.558, -5.605],
+                        });
+
+                    sceneSG.annotations.add(aAbout5);
+                }
+            }
+
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+            /* Opening Transitions
+            *****************************************************/
+            /*
+            if (hotSpot == 0) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 1000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                }, 3500);
+            }
+            //
+            else if (hotSpot == 1) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 1000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                }, 3500);
+            }
+            //
+            else if (hotSpot == 2) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 1000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                }, 3500);
+            }
+            */
+
         });
-			
+
+        /* Hotspots Control Dropup
+            *****************************************************/
+        $("#hotspots").click(function () {
+            $("#lists").toggle();
+        });
+
+        //Functions for each annotation
+        function item1() {
+            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+        }
+        function item2() {
+            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+        }
+        function item3() {
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+        }
+        function item4() {
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+        }
+
+        //Hotspot Dropup's Click Selection
+        $("#li1").click(function () {
+            item1();
+        });
+        $("#li2").click(function () {
+            item2();
+        });
+        $("#li3").click(function () {
+            item3();
+        });
+        $("#li4").click(function () {
+            item4();
+        });
+
+        //Hotspot Dropup's Prev/Next Selection
+        const functions = [];
+        functions.push(item1);
+        functions.push(item2);
+        functions.push(item3);
+        functions.push(item4);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = 0, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+
+        //Temp solution to hide list when a hotspot is selected
+        var openLink = document.getElementById('li1');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li2');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li3');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+        var openLink = document.getElementById('li4');
+        openLink.addEventListener('click', clickHandler, false);
+        function clickHandler() {
+            var submenu = document.getElementById('lists');
+            submenu.style.display = 'none';
+        }
+
+
+
+
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
+
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
     </script>
 
 </body>

@@ -269,15 +269,62 @@
                     });
                     elTitle.toString = () => "Barge2";
 
-                    let aAbout10 = new Potree.Annotation({
+                    let aAbout1 = new Potree.Annotation({
                         position: [589853.363, 231535.379, 752.301],
                         title: elTitle,
                         cameraPosition: [589907.924, 231559.619, 826.160],
                         cameraTarget: [589822.737, 231533.007, 813.775]
                     });
 
-                    sceneSG.annotations.add(aAbout10);
+                    sceneSG.annotations.add(aAbout1);
                 }
+
+                {
+
+                    /* Annotation: Summer House
+                    *****************************************************/
+                    let aAbout2 = new Potree.Annotation({
+                        position: [589367.536, 231407.493, 852.372],
+                        title: $(`<span>
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                </span>`),
+                        cameraPosition: [589607.104, 231616.701, 920.329],
+                        cameraTarget: [589389.183, 231541.292, 877.626],
+                        description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
+                    `});
+
+                    sceneSG.annotations.add(aAbout2);
+                }
+
+                {
+                    /* Annotation: Grotesques
+                    *****************************************************/
+                    let elTitle = $(`
+                            <span>
+
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => { });
+                    elTitle.toString = () => "GRUTESCOS";
+
+                    let aAbout3 = new Potree.Annotation({
+                        position: [589352.418, 231392.350, 795.698],
+                        title: elTitle,
+                        cameraPosition: [589210.869, 231208.791, 759.929],
+                        cameraTarget: [589386.200, 231581.351, 810.098],
+                        description: `GRUTESCOS<hr>Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
+                    `});
+
+                    sceneSG.annotations.add(aAbout3);
+                }
+
 
                 {
                     /* Annotation: Herm
@@ -309,20 +356,18 @@
                                 iframe.src = iframe.src;
                             }
                         }
-                        /*event.stopPropagation();*/
-                        /*window.top.location.href = "../1916Herm.html";*/
-                        /*viewer.setScene(sceneSG2);*/
+
                     });
                     elTitle.toString = () => "HERMAS";
 
-                    let aAbout1 = new Potree.Annotation({
+                    let aAbout4 = new Potree.Annotation({
                         position: [589768.929, 231370.362, 802.951],
                         title: elTitle,
                         cameraPosition: [589641.037, 231210.382, 851.979],
                         cameraTarget: [589841.773, 231481.066, 774.607],
                     });
 
-                    sceneSG.annotations.add(aAbout1);
+                    sceneSG.annotations.add(aAbout4);
                 }
 
                 {
@@ -356,78 +401,21 @@
                                 iframe.src = iframe.src;
                             }
                         }
-                        /*event.stopPropagation();*/
-                        /*window.top.location.href = "../1916Mermaids.html";*/
-                        /*viewer.setScene(sceneSG4);*/
+
                     });
                     elTitle.toString = () => "ESCULTURAS";
 
-                    let aAbout3 = new Potree.Annotation({
+                    let aAbout5 = new Potree.Annotation({
                         position: [590538.041, 231531.105, 864.512],
                         title: elTitle,
                         cameraPosition: [590691.984, 231495.560, 894.852],
                         cameraTarget: [589488.341, 231747.740, 604.005],                     
                     });
 
-                    sceneSG.annotations.add(aAbout3);
+                    sceneSG.annotations.add(aAbout5);
                 }
 
-                {
-
-                    /* Annotation: Sculptures
-                    *****************************************************/
-                    let aStatues = new Potree.Annotation({
-                        position: [589367.536, 231407.493, 852.372],
-                        title: $(`<span>
-                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                        name="action_set_scene"
-                                        class="annotation-action-icon"
-                                        style="filter: invert(1);" />
-                                </span>`),
-                        cameraPosition: [589512.482, 231554.667, 919.268],
-                        cameraTarget: [589394.480, 231518.869, 889.558],
-                        description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
-                    `});
-                    aStatues.domElement.off("mouseenter");
-                    aStatues.domElement.off("mouseleave");
-                    aStatues.addEventListener("click", () => {
-                        aStatues.setHighlighted(!aStatues.isHighlighted);
-                    });
-                    sceneSG.annotations.add(aStatues);
-                }
-
-                {
-                    /* Annotation: Grotesques
-                    *****************************************************/
-                    let elTitle = $(`
-                            <span>
-
-                                <img src="${Potree.resourcePath}/icons/i.png"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                            </span>
-                                    `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {});
-                    elTitle.toString = () => "GRUTESCOS";
-
-                    let aAbout2 = new Potree.Annotation({
-                        position: [589392.007, 231383.248, 795.418],
-                        title: elTitle,
-                        cameraPosition: [589429.177, 231255.717, 767.927],
-                        cameraTarget: [589435.471, 231558.942, 795.472],
-                        description: `GRUTESCOS<hr>Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
-                    `});
-
-                    aAbout2.domElement.off("mouseenter");
-                    aAbout2.domElement.off("mouseleave");
-                    aAbout2.addEventListener("click", () => {
-                        aAbout2.setHighlighted(!aAbout2.isHighlighted);
-                    });
-
-                    sceneSG.annotations.add(aAbout2);
-                }
-
+                
                 {
                     /* Annotation: Mermaids
                     *****************************************************/
@@ -440,21 +428,15 @@
                     elTitle.find("img[name=action_set_scene]").click((event) => {});
                     elTitle.toString = () => "SIRENAS";
 
-                    let aAbout4 = new Potree.Annotation({
+                    let aAbout6 = new Potree.Annotation({
                         position: [590571.616, 231533.355, 759.504],
                         title: elTitle,
-                        cameraPosition: [590710.354, 231503.486, 769.828],
-                        cameraTarget: [589483.126, 231733.839, 872.968],
+                        cameraPosition: [590753.773, 231640.128, 814.432], /*590710.354, 231503.486, 769.828*/
+                        cameraTarget: [589481.784, 231192.420, 599.128], /*589483.126, 231733.839, 872.968*/
                         description: `SIRENAS<hr>Las sirenas de la Barcaza fueron diseñadas por Alexander Calder. James Deering le pidió a Calder que modificara las proporciones de las esculturas porque le parecían demasiado provocativas.`
                     });
 
-                    aAbout4.domElement.off("mouseenter");
-                    aAbout4.domElement.off("mouseleave");
-                    aAbout4.addEventListener("click", () => {
-                        aAbout4.setHighlighted(!aAbout4.isHighlighted);
-                    });
-
-                    sceneSG.annotations.add(aAbout4);
+                    sceneSG.annotations.add(aAbout6);
                 }
 
             }
@@ -464,36 +446,36 @@
             var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
 
             /* Opening Transitions
-            *****************************************************/
+                *****************************************************/
             //Barge
             if (hotSpot == 0) {
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 2000);
+                }, 1000);
 
                 setTimeout(function () {
                     sceneSG.annotations.children[1].moveHere(sceneSG.camera);
-                }, 4500);
+                }, 3500);
             }
             //Herm
             else if (hotSpot == 1) {
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 2000);
+                }, 1000);
 
                 setTimeout(function () {
-                    sceneSG.annotations.children[2].moveHere(sceneSG.camera);
-                }, 4500);
+                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                }, 3500);
             }
             //Sculptures
             else if (hotSpot == 2) {
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 2000);
+                }, 1000);
 
                 setTimeout(function () {
-                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                }, 4500);
+                    sceneSG.annotations.children[5].moveHere(sceneSG.camera);
+                }, 3500);
             }
         }
         
@@ -549,31 +531,19 @@
 
         //Functions for each annotation
         function item1() {
-            let scene = viewer.scene;
-            scene.view.position.set(589512.482, 231554.667, 919.268);
-            scene.view.lookAt(new THREE.Vector3(589394.480, 231518.869, 889.558));
+            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
-
         function item2() {
-            let scene = viewer.scene;
-            scene.view.position.set(589429.177, 231255.717, 767.927);
-            scene.view.lookAt(new THREE.Vector3(589435.471, 231558.942, 795.472));
+            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
         function item3() {
-            let scene = viewer.scene;
-            scene.view.position.set(589641.037, 231210.382, 851.979);
-            scene.view.lookAt(new THREE.Vector3(589841.773, 231481.066, 774.607));
-
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
         }
         function item4() {
-            let scene = viewer.scene;
-            scene.view.position.set(590625.603, 231519.145, 897.813);
-            scene.view.lookAt(new THREE.Vector3(589498.722, 231655.070, 606.460));
+            sceneSG.annotations.children[5].moveHere(sceneSG.camera);
         }
         function item5() {
-            let scene = viewer.scene;
-            scene.view.position.set(590708.145, 231492.013, 769.828);
-            scene.view.lookAt(new THREE.Vector3(589483.126, 231733.839, 872.968));
+            sceneSG.annotations.children[6].moveHere(sceneSG.camera);
         }
 
         //Click functions for each annotation within Hotspot Control's List
