@@ -152,32 +152,11 @@
             let sceneSG = new Potree.Scene();
             viewer.setScene(sceneSG);
 
-            /* Get camera parameters from Index page
-            *****************************************************/
-            function getParam(paramName) {
-                var src = document.referrer;
-                var srcSplit = src.split("?");
-                var address = srcSplit[1];
-                var paramArray = address.split('&');
-                for (var i = 0; i < paramArray.length; i++) {
-                    var pArr = paramArray[i].split('=');
-                    if (pArr[0] == paramName)
-                        return pArr[1];
-                }
-            }
-
-            var x_position = parseFloat(getParam('xP'));
-            var y_position = parseFloat(getParam('yP'));
-            var z_position = parseFloat(getParam('zP'));
-            var x_lookAt = parseFloat(getParam('xL'));
-            var y_lookAt = parseFloat(getParam('yL'));
-            var z_lookAt = parseFloat(getParam('zL'));
-
             Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
 
                 sceneSG.addPointCloud(e.pointcloud);
-                sceneSG.view.position.set(x_position, y_position, z_position);
-                sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+                sceneSG.view.position.set(-17.926, 20.359, 1.667);
+                sceneSG.view.lookAt(new THREE.Vector3(-28.381, 1.060, -1.867));
 
                 let material = e.pointcloud.material;
                 material.size = 1;
@@ -185,14 +164,14 @@
 
                 {
                     {
-                        /* Annotation: Grotto
+                        /* Annotation: Opening transition
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                                        name="action_set_scene"
-                                                        class="annotation-action-icon"
-                                                        style="filter: invert(1);" />
-                                                </span>`);
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
                         elTitle.toString = () => "AMORINO";
 
@@ -320,13 +299,52 @@
 
                         sceneSG.annotations.add(aAbout5);
                     }
-                }
-                //write if stats to check from which tile users are coming from
 
-                //Changes initial camera view
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 4000);
+                    {
+                        /* Annotation: Reptiles
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "FLOOR";
+
+                        let aAbout6 = new Potree.Annotation({
+                            position: [-32.919, -0.397, -0.508],
+                            title: elTitle,
+                            cameraPosition: [-32.291, 0.350, -1.088],
+                            cameraTarget: [-32.757, -0.150, -0.226],
+                            });
+
+                        sceneSG.annotations.add(aAbout6);
+                    }
+                }
+
+                var src = document.referrer;
+                var srcSplit = src.split("?");
+                var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+                /* Opening Transitions
+                *****************************************************/
+                //Grotto
+                if (hotSpot == 0) {
+                    setTimeout(function () {
+                        sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                    }, 2000);
+                }
+                //Reptiles
+                else if (hotSpot == 1) {
+                    setTimeout(function () {
+                        sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                    }, 2000);
+
+                    setTimeout(function () {
+                        sceneSG.annotations.children[6].moveHere(sceneSG.camera);
+                    }, 3100);
+                }
 
             });
 
@@ -369,17 +387,6 @@
                 startTimer();
             }
 
-            /* Navigation Controls Image
-            *****************************************************/
-            $("#question_icon").click(function () {
-                $("#nav_panel").toggle();
-            });
-
-            var navPanel = document.getElementById('nav_panel');
-            navPanel.addEventListener('click', function () {
-                navPanel.style.display = "none";
-            });
-
             /* Hotspots Control Dropup
             *****************************************************/
             $("#hotspots").click(function () {
@@ -388,35 +395,22 @@
 
             //Functions for each annotation
             function item1() {
-                let scene = viewer.scene;
-                scene.view.position.set(-30.289, 2.205, -1.767);
-                scene.view.lookAt(new THREE.Vector3(-31.354, 1.411, -1.882));
+                sceneSG.annotations.children[1].moveHere(sceneSG.camera);
             }
-
             function item2() {
-                let scene = viewer.scene;
-                scene.view.position.set(-27.002, 0.944, -2.493);
-                scene.view.lookAt(new THREE.Vector3(-31.510, 3.114, 0.732));
+                sceneSG.annotations.children[2].moveHere(sceneSG.camera);
             }
             function item3() {
-                let scene = viewer.scene;
-                scene.view.position.set(-28.826, 1.887, -3.110);
-                scene.view.lookAt(new THREE.Vector3(-28.826, 1.887, 0.219));
-
+                sceneSG.annotations.children[3].moveHere(sceneSG.camera);
             }
             function item4() {
-                let scene = viewer.scene;
-                scene.view.position.set(-27.815, 2.041, -1.450);
-                scene.view.lookAt(new THREE.Vector3(-25.942, 0.084, -1.567));
+                sceneSG.annotations.children[4].moveHere(sceneSG.camera);
             }
             function item5() {
-                let scene = viewer.scene;
-                scene.view.position.set(-35.020, 3.368, -1.354);
-                scene.view.lookAt(new THREE.Vector3(-33.436, 1.582, -2.699));
+                sceneSG.annotations.children[5].moveHere(sceneSG.camera);
             }
 
-            //Click functions for each annotation within Hotspot Control's List
-
+            //Hotspot Dropup's Click Selection
             $("#li1").click(function () {
                 item1();
             });
@@ -433,7 +427,7 @@
                 item5();
             });
 
-            //Functions for continuous click on Prev and Next buttons
+            //Hotspot Dropup's Prev/Next Selection
             const functions = [];
             functions.push(item1);
             functions.push(item2);
@@ -502,18 +496,21 @@
                 submenu.style.display = 'none';
             }
 
-
             //Check if users comes from Alligator Tile or Grotto Tile
-            if (x_position == -32.400) {
+            if (hotSpot == 1) {
                 //document.getElementById("nav_panel").style.display = "flex";
             }
 
-            /* Control Panel
-            *****************************************************
-            $("#control_icon").click(function () {
-                $("#control_panel").toggle();
+            /* Navigation Controls Image
+            *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").toggle();
             });
-            */
+
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
+            });
 
         </script>
 

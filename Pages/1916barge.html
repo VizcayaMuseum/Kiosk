@@ -178,32 +178,10 @@
         //let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-        /* Get camera parameters from Index page
-        *****************************************************/
-        function getParam(paramName) {
-            var src = document.referrer;
-            var srcSplit = src.split("?");
-            var address = srcSplit[1];
-            var paramArray = address.split('&');
-            for (var i = 0; i < paramArray.length; i++) {
-                var pArr = paramArray[i].split('=');
-                if (pArr[0] == paramName)
-                    return pArr[1];
-            }
-        }
-
-        var x_position = parseFloat(getParam('xP'));
-        var y_position = parseFloat(getParam('yP'));
-        var z_position = parseFloat(getParam('zP'));
-        var x_lookAt = parseFloat(getParam('xL'));
-        var y_lookAt = parseFloat(getParam('yL'));
-        var z_lookAt = parseFloat(getParam('zL'));
-
-
         {
             let scene = viewer.scene;
-            scene.view.position.set(x_position, y_position, z_position);
-            scene.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+            scene.view.position.set(589833.139, 230641.181, 919.749);
+            scene.view.lookAt(new THREE.Vector3(589851.364, 231440.014, 782.147));
         }
 
         { // Load Textured bunny from obj
@@ -264,6 +242,56 @@
             // Herm point cloud in scene 2
 
             {
+                {
+                    /* Annotation: 1st Openning Transition
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge";
+
+                    let aAbout0 = new Potree.Annotation({
+                        position: [589105.366, 231218.924, 968.219],
+                        title: elTitle,
+                        cameraPosition: [589105.366, 231218.924, 968.219],
+                        cameraTarget: [589609.432, 231679.064, 692.467]
+                    });
+
+                    sceneSG.annotations.add(aAbout0);
+                }
+
+                {
+                    /* Annotation: 2nd Opening Transition/Center of Barge
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge2";
+
+                    let aAbout10 = new Potree.Annotation({
+                        position: [589853.363, 231535.379, 752.301],
+                        title: elTitle,
+                        cameraPosition: [589907.924, 231559.619, 826.160],
+                        cameraTarget: [589822.737, 231533.007, 813.775]
+                    });
+
+                    sceneSG.annotations.add(aAbout10);
+                }
+
                 {
                     /* Annotation: Herm
                     *****************************************************/
@@ -443,6 +471,42 @@
 
             }
 
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+            /* Opening Transitions
+            *****************************************************/
+            //Barge
+            if (hotSpot == 0) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+            //Herm
+            else if (hotSpot == 1) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+            //Sculptures
+            else if (hotSpot == 2) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                }, 4500);
+            }
         }
 
         var timeoutID;
@@ -477,17 +541,6 @@
         function goActive() {
             startTimer();
         }
-
-        /* Navigation Controls Image
-        *****************************************************/
-        $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
-        });
-
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
 
         /* Hotspots Control Dropup
         *****************************************************/
@@ -668,13 +721,16 @@
                     });
                 });
         */
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
 
-        /* Control Panel
-            *****************************************************
-            $("#control_icon").click(function () {
-                $("#control_panel").toggle();
-            });
-        */
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
 
     </script>
 

@@ -46,107 +46,89 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
-        <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
-      
-        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
- 
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-        <div>
-
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-
-            <map name="controlPanel">
-
-                <!--Reset Button-->
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                <!--Home Button-->
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="potreeHermMoveUp()" />
-                <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="potreeHermMoveDown()" />
-                <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                <!--Zoom In-->
-                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                <!--Zoom Out-->
-                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-            </map>
-        </div>
-    </div>
-
-    <!-- navPanel 1 -->
-    <div id="nav_panel" class="navPanel">
-        <div class="navPanel-content">
-            <div class="intrinsic-container intrinsic-container-16x9">
-                <img class="nav_img" src="../images/navigation.png" />
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <!---->
+        <!-- Navigation Instructions -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
+        <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
 
-        $("#question_icon").click(function () {
+        <script>
 
-            $("#nav_panel").toggle();
-        });
+            setup();
+            window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
-        //Navigation Panel
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
+            viewer.setEDLEnabled(false);
+            viewer.setFOV(60);
+            viewer.setPointBudget(5 * 1000 * 1000);
+            document.title = "";
 
-        $("#control_icon").click(function () {
+            viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
+            viewer.loadSettingsFromURL();
 
-            $("#control_panel").toggle();
-        });
-        setup();
-        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+            /*
+            viewer.loadGUI(() => {
+                viewer.setLanguage('en');
+                $("#menu_scene").next().show();
+                //viewer.toggleSidebar();
+            });
+            */
+            viewer.setDescription(``);
 
-        viewer.setEDLEnabled(false);
-        viewer.setFOV(60);
-        viewer.setPointBudget(5 * 1000 * 1000);
-        document.title = "";
+            let sceneSG = new Potree.Scene();
+            let sceneSG2 = new Potree.Scene();
 
-        viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
-        viewer.loadSettingsFromURL();
+            viewer.setScene(sceneSG);
 
-        /*
-        viewer.loadGUI(() => {
-            viewer.setLanguage('en');
-            $("#menu_scene").next().show();
-            //viewer.toggleSidebar();
-        });
-        */
-        viewer.setDescription(`
+            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
 
-                `);
-
-        let sceneSG = new Potree.Scene();
-        let sceneSG2 = new Potree.Scene();
-
-        viewer.setScene(sceneSG);
-
-        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
-
-            sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(37.812, -26.781, 51.178);
-            sceneSG.view.lookAt(new THREE.Vector3(-53.587, 33.834, 28.864));
+                sceneSG.addPointCloud(e.pointcloud);
+                sceneSG.view.position.set(37.812, -26.781, 51.178);
+                sceneSG.view.lookAt(new THREE.Vector3(-53.587, 33.834, 28.864));
 
 
-            let material = e.pointcloud.material;
-            material.size = 1;
-            material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                let material = e.pointcloud.material;
+                material.size = 1;
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-        });
+            });
 
+            /* Navigation Controls Image
+            *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").toggle();
+            });
 
-    </script>
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
+            });
+
+        </script>
 
 
 </body>

@@ -170,40 +170,69 @@
         //let sceneSG2 = new Potree.Scene();
         //let sceneSG3 = new Potree.Scene();
         //let sceneLion = new Potree.Scene();
-        viewer.setScene(sceneSG);
-
-        /* Get camera parameters from Index page
-        *****************************************************/
-        function getParam(paramName) {
-            var src = document.referrer;
-            var srcSplit = src.split("?");
-            var address = srcSplit[1];
-            var paramArray = address.split('&');
-            for (var i = 0; i < paramArray.length; i++) {
-                var pArr = paramArray[i].split('=');
-                if (pArr[0] == paramName)
-                    return pArr[1];
-            }
-        }
-
-        var x_position = parseFloat(getParam('xP'));
-        var y_position = parseFloat(getParam('yP'));
-        var z_position = parseFloat(getParam('zP'));
-        var x_lookAt = parseFloat(getParam('xL'));
-        var y_lookAt = parseFloat(getParam('yL'));
-        var z_lookAt = parseFloat(getParam('zL'));
+        viewer.setScene(sceneSG);       
 
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
 
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(x_position, y_position, z_position);
-            sceneSG.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+            sceneSG.view.position.set(-63.964, -12.356, 2.038);
+            sceneSG.view.lookAt(new THREE.Vector3(-42.831, -36.612, -1.992));
 
             let material = e.pointcloud.material;
             material.size = 1;
             material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
             {
+                {
+                    /* Annotation: 1st Opening Transition
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge";
+
+                    let aAbout0 = new Potree.Annotation({
+                        position: [-34.982, -18.500, -0.927],
+                        title: elTitle,
+                        cameraPosition: [-30.203, -7.118, 5.658],
+                        cameraTarget: [-35.769, -34.984, -5.137]
+                    });
+
+                    sceneSG.annotations.add(aAbout0);
+                }
+
+                {
+                    /* Annotation: 2nd Opening Transition/Center of Barge
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge2";
+
+                    let aAbout10 = new Potree.Annotation({
+                        position: [-43.738, -34.574, -2.621],
+                        title: elTitle,
+                        cameraPosition: [-45.982, -38.192, 0.534],
+                        cameraTarget: [-44.171, -34.177, -0.187]
+                    });
+
+                    sceneSG.annotations.add(aAbout10);
+                }
+                
                 {
                     /* Annotation: Herm
                     *****************************************************/
@@ -286,10 +315,10 @@
                     elTitle.toString = () => "SCULPTURES";
 
                     let aAbout3 = new Potree.Annotation({
-                        position: [-62.707, -50.302, 1.725],
+                        position: [-62.124, -50.110, 1.590],
                         title: elTitle,
-                        cameraPosition: [-62.962, -52.057, 2.510],
-                        cameraTarget: [-62.190, -50.457, 1.970],
+                        cameraPosition: [-61.143, -47.556, 2.299],
+                        cameraTarget: [-62.183, -50.394, 1.669]
                     });
 
                     sceneSG.annotations.add(aAbout3);
@@ -344,6 +373,44 @@
                     sceneSG.annotations.add(aAbout2);
                 }
             }
+
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+            /* Opening Transitions
+            *****************************************************/
+            //Barge
+            if (hotSpot == 0) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+            //Herm
+            else if (hotSpot == 1) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+            //Sculptures
+            else if (hotSpot == 2) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+
         });
         
         var timeoutID;
@@ -379,17 +446,6 @@
         function goActive() {
             startTimer();
         }
-
-        /* Navigation Controls Image
-        *****************************************************/
-        $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
-        });
-
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
 
         /* Hotspots Control Dropup
         *****************************************************/
@@ -495,13 +551,18 @@
             var submenu = document.getElementById('lists');
             submenu.style.display = 'none';
         }
-               
-        /* Control Panel
-            *****************************************************
-            $("#control_icon").click(function () {
-                $("#control_panel").toggle();
-            });
-        */
+
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
+
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
+
     </script>
 
 </body>

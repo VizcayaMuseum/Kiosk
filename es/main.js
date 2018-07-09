@@ -1,3 +1,14 @@
+/* Navigation Controls Image
+*****************************************************/
+$("#question_icon").click(function () {
+    $("#nav_panel").toggle();
+});
+
+var navPanel = document.getElementById('nav_panel');
+navPanel.addEventListener('click', function () {
+    navPanel.style.display = "none";
+});
+
 //Redirect functions
 function redirectFunc() {
 
@@ -10,15 +21,15 @@ function refreshButton() {
     window.top.location.reload();
 }
 
-    function refreshPopup() {
-        location.reload();
-    }
+function refreshPopup() {
+    location.reload();
+}
 
 function redirectHomeFunc() {
 
     window.top.location.href = "../index.html";
 }
-    
+
 
 /* Zoom In
 *****************************************************/
@@ -48,8 +59,8 @@ function tweenFunction(direction, target, currentAmountObject, newAmountObject) 
     const tween = new TWEEN.Tween(currentAmountObject)
         .to(newAmountObject, 1000)
         .easing(TWEEN.Easing.Quintic.Out)
-        .onUpdate(function() {
-            if(direction == 'up' || direction == 'down') {
+        .onUpdate(function () {
+            if (direction == 'up' || direction == 'down') {
                 viewer.scene.view.pitch = currentAmountObject.amount;
             } else if (direction == 'left' || direction == 'right') {
                 viewer.scene.view.yaw = currentAmountObject.amount;
@@ -78,12 +89,12 @@ function moveUp() {
 
     // call tween function
     tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
-    
+
 }
 
 /* Move Down
 *****************************************************/
-function moveDown(){
+function moveDown() {
     // movement direction
     const direction = 'up';
 
@@ -122,7 +133,7 @@ function moveLeft() {
 
     // call tween function
     tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
-    
+
 }
 
 /* Move Right
@@ -254,7 +265,7 @@ function merGltfMoveDown() {
 //Movements for mermaid potree 
 function potreeMerMoveRight() {
 
-    
+
     sceneSG.scenePointCloud.rotation.z += 0.1;
 }
 
@@ -283,3 +294,10 @@ function potreeHermMoveDown() {
 
     sceneSG.scenePointCloud.rotation.y += 0.1;
 }
+
+/* Control Panel
+*****************************************************
+$("#control_icon").click(function () {
+    $("#control_panel").toggle();
+});
+*/

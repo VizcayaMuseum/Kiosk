@@ -9,7 +9,6 @@ navPanel.addEventListener('click', function () {
     navPanel.style.display = "none";
 });
 
-
 //Redirect functions
 function redirectFunc() {
 
@@ -295,3 +294,10 @@ function potreeHermMoveDown() {
 
     sceneSG.scenePointCloud.rotation.y += 0.1;
 }
+
+/* Control Panel
+*****************************************************
+$("#control_icon").click(function () {
+    $("#control_panel").toggle();
+});
+*/
