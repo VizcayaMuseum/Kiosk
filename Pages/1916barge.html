@@ -178,32 +178,10 @@
         //let sceneSG4 = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-        /* Get camera parameters from Index page
-        *****************************************************/
-        function getParam(paramName) {
-            var src = document.referrer;
-            var srcSplit = src.split("?");
-            var address = srcSplit[1];
-            var paramArray = address.split('&');
-            for (var i = 0; i < paramArray.length; i++) {
-                var pArr = paramArray[i].split('=');
-                if (pArr[0] == paramName)
-                    return pArr[1];
-            }
-        }
-
-        var x_position = parseFloat(getParam('xP'));
-        var y_position = parseFloat(getParam('yP'));
-        var z_position = parseFloat(getParam('zP'));
-        var x_lookAt = parseFloat(getParam('xL'));
-        var y_lookAt = parseFloat(getParam('yL'));
-        var z_lookAt = parseFloat(getParam('zL'));
-
-
         {
             let scene = viewer.scene;
-            scene.view.position.set(x_position, y_position, z_position);
-            scene.view.lookAt(new THREE.Vector3(x_lookAt, y_lookAt, z_lookAt));
+            scene.view.position.set(589833.139, 230641.181, 919.749);
+            scene.view.lookAt(new THREE.Vector3(589851.364, 231440.014, 782.147));
         }
 
         { // Load Textured bunny from obj
@@ -265,6 +243,105 @@
 
             {
                 {
+                    /* Annotation: 1st Openning Transition
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge";
+
+                    let aAbout0 = new Potree.Annotation({
+                        position: [589105.366, 231218.924, 968.219],
+                        title: elTitle,
+                        cameraPosition: [589105.366, 231218.924, 968.219],
+                        cameraTarget: [589609.432, 231679.064, 692.467]
+                    });
+
+                    sceneSG.annotations.add(aAbout0);
+                }
+
+                {
+                    /* Annotation: 2nd Opening Transition/Center of Barge
+                    *****************************************************/
+                    let elTitle = $(`
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Barge2";
+
+                    let aAbout1 = new Potree.Annotation({
+                        position: [589853.363, 231535.379, 752.301],
+                        title: elTitle,
+                        cameraPosition: [589907.924, 231559.619, 826.160],
+                        cameraTarget: [589822.737, 231533.007, 813.775]
+                    });
+
+                    sceneSG.annotations.add(aAbout1);
+                }
+
+                {
+                    /* Annotation: Summer House
+                    *****************************************************/
+                    let aAbout2 = new Potree.Annotation({
+                        position: [589367.536, 231407.493, 852.372],
+                        title: $(`<span>
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                  </span>`),
+                        cameraPosition: [589607.104, 231616.701, 920.329],
+                        cameraTarget: [589389.183, 231541.292, 877.626],
+                        description: `SUMMER HOUSE <hr>The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was originally landscaped with many potted plants, had functioning fountains as well as electricity.                                  
+                    `});
+                    /*
+                        aStatues.domElement.off("mouseenter");
+                        aStatues.domElement.off("mouseleave");
+                        aStatues.addEventListener("click", () => {
+                            aStatues.setHighlighted(!aStatues.isHighlighted);
+                        });
+                    */
+                    sceneSG.annotations.add(aAbout2);
+                }
+
+                {
+                    /* Annotation: Grotesques
+                    *****************************************************/
+                    let elTitle = $(`<span>
+                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                            name="action_set_scene"
+                                            class="annotation-action-icon"
+                                            style="filter: invert(1);" />
+                                    </span>`);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "GROTESQUES";
+
+                    let aAbout3 = new Potree.Annotation({
+                        position: [589352.418, 231392.350, 795.698],
+                        title: elTitle,
+                        cameraPosition: [589210.869, 231208.791, 759.929],
+                        cameraTarget: [589386.200, 231581.351, 810.098],
+                        description: `GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and include bearded men, youthful women, and animals.                                
+                    `});
+
+                    sceneSG.annotations.add(aAbout3);
+                }
+                
+                {
                     /* Annotation: Herm
                     *****************************************************/
                     let elTitle = $(`<span>
@@ -300,14 +377,14 @@
                     });
                     elTitle.toString = () => "HERM";
 
-                    let aAbout1 = new Potree.Annotation({
+                    let aAbout4 = new Potree.Annotation({
                         position: [589768.929, 231370.362, 802.951],
                         title: elTitle,
                         cameraPosition: [589641.037, 231210.382, 851.979],
                         cameraTarget: [589841.773, 231481.066, 774.607],
                     });
 
-                    sceneSG.annotations.add(aAbout1);
+                    sceneSG.annotations.add(aAbout4);
                 }
 
                 {
@@ -346,70 +423,15 @@
                     });
                     elTitle.toString = () => "SCULPTURES";
 
-                    let aAbout3 = new Potree.Annotation({
+                    let aAbout5 = new Potree.Annotation({
                         position: [590538.041, 231531.105, 864.512],
                         title: elTitle,
                         cameraPosition: [590691.984, 231495.560, 894.852],
                         cameraTarget: [589488.341, 231747.740, 604.005],
                     });
 
-                    sceneSG.annotations.add(aAbout3);
-                }
-
-                {
-                    /* Annotation: Summer House
-                    *****************************************************/
-                    let aStatues = new Potree.Annotation({
-                        position: [589367.536, 231407.493, 852.372],
-                        title: $(`<span>
-                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                        name="action_set_scene"
-                                        class="annotation-action-icon"
-                                        style="filter: invert(1);" />
-                                  </span>`),
-                        cameraPosition: [589512.482, 231554.667, 919.268],
-                        cameraTarget: [589394.480, 231518.869, 889.558],
-                        description: `SUMMER HOUSE <hr>The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was originally landscaped with many potted plants, had functioning fountains as well as electricity.                                  
-                    `});
-                    /*
-                                aStatues.domElement.off("mouseenter");
-                                aStatues.domElement.off("mouseleave");
-                                aStatues.addEventListener("click", () => {
-                                    aStatues.setHighlighted(!aStatues.isHighlighted);
-                                });
-                    */
-                    sceneSG.annotations.add(aStatues);
-                }
-
-                {
-                    /* Annotation: Grotesques
-                    *****************************************************/
-                    let elTitle = $(`<span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>`);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                    });
-                    elTitle.toString = () => "GROTESQUES";
-
-                    let aAbout2 = new Potree.Annotation({
-                        position: [589392.007, 231383.248, 795.418],
-                        title: elTitle,
-                        cameraPosition: [589429.177, 231255.717, 767.927],
-                        cameraTarget: [589435.471, 231558.942, 795.472],
-                        description: `GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and include bearded men, youthful women, and animals.                                
-                    `});
-
-                    aAbout2.domElement.off("mouseenter");
-                    aAbout2.domElement.off("mouseleave");
-                    aAbout2.addEventListener("click", () => {
-                        aAbout2.setHighlighted(!aAbout2.isHighlighted);
-                    });
-
-                    sceneSG.annotations.add(aAbout2);
-                }
+                    sceneSG.annotations.add(aAbout5);
+                }            
       
                 {
                     /* Annotation: Mermaids
@@ -424,25 +446,55 @@
                     });
                     elTitle.toString = () => "MERMAIDS";
 
-                    let aAbout4 = new Potree.Annotation({
+                    let aAbout6 = new Potree.Annotation({
                         position: [590571.616, 231533.355, 759.504],
                         title: elTitle,
-                        cameraPosition: [590710.354, 231503.486, 769.828],
-                        cameraTarget: [589483.126, 231733.839, 872.968],
+                        cameraPosition: [590803.366, 231533.632, 891.231], /*590710.354, 231503.486, 769.828*/ /*590753.773, 231640.128, 814.432*/
+                        cameraTarget: [589464.078, 231591.976, 420.348], /*589483.126, 231733.839, 872.968*/ /*589481.784, 231192.420, 599.128*/
                         description: `MERMAIDS<hr>The Barge mermaids were designed by Alexander Calder. James Deering initially found the proportions of the Mermaids too provocative and Calder was asked to alter the proportion of the sculptures to a more modest size.
                     `});
 
-                    aAbout4.domElement.off("mouseenter");
-                    aAbout4.domElement.off("mouseleave");
-                    aAbout4.addEventListener("click", () => {
-                        aAbout4.setHighlighted(!aAbout4.isHighlighted);
-                    });
-
-                    sceneSG.annotations.add(aAbout4);
+                    sceneSG.annotations.add(aAbout6);
                 }
 
             }
 
+            var src = document.referrer;
+            var srcSplit = src.split("?");
+            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
+            /* Opening Transitions
+            *****************************************************/
+            //Barge
+            if (hotSpot == 0) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+            //Herm
+            else if (hotSpot == 1) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                }, 4500);
+            }
+            //Sculptures
+            else if (hotSpot == 2) {
+                setTimeout(function () {
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+                }, 2000);
+
+                setTimeout(function () {
+                    sceneSG.annotations.children[5].moveHere(sceneSG.camera);
+                }, 4500);
+            }
         }
 
         var timeoutID;
@@ -478,17 +530,6 @@
             startTimer();
         }
 
-        /* Navigation Controls Image
-        *****************************************************/
-        $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
-        });
-
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
-
         /* Hotspots Control Dropup
         *****************************************************/
         $("#hotspots").click(function () {
@@ -497,29 +538,19 @@
 
         //Functions for each annotation
         function item1() {
-            let scene = viewer.scene;
-            scene.view.position.set(589512.482, 231554.667, 919.268);
-            scene.view.lookAt(new THREE.Vector3(589394.480, 231518.869, 889.558));
+            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
         function item2() {
-            let scene = viewer.scene;
-            scene.view.position.set(589429.177, 231255.717, 767.927);
-            scene.view.lookAt(new THREE.Vector3(589435.471, 231558.942, 795.472));
+            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
         function item3() {
-            let scene = viewer.scene;
-            scene.view.position.set(589641.037, 231210.382, 851.979);
-            scene.view.lookAt(new THREE.Vector3(589841.773, 231481.066, 774.607));
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
         }
         function item4() {
-            let scene = viewer.scene;
-            scene.view.position.set(590625.603, 231519.145, 897.813);
-            scene.view.lookAt(new THREE.Vector3(589498.722, 231655.070, 606.460));
+            sceneSG.annotations.children[5].moveHere(sceneSG.camera);
         }
         function item5() {
-            let scene = viewer.scene;
-            scene.view.position.set(590708.145, 231492.013, 769.828);
-            scene.view.lookAt(new THREE.Vector3(589483.126, 231733.839, 872.968));
+            sceneSG.annotations.children[6].moveHere(sceneSG.camera);
         }
 
         //Click functions for each annotation within Hotspot Control's List
@@ -668,13 +699,16 @@
                     });
                 });
         */
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
 
-        /* Control Panel
-            *****************************************************
-            $("#control_icon").click(function () {
-                $("#control_panel").toggle();
-            });
-        */
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
 
     </script>
 
