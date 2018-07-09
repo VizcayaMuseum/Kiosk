@@ -180,43 +180,6 @@ function toggleFullScreen() {
     }
 }
 
-//Timeout function
-var timeoutID;
-
-function setup() {
-    this.addEventListener("mousemove", resetTimer, false);
-    this.addEventListener("touchstart", resetTimer, false);
-    this.addEventListener("mousedown", resetTimer, false);
-    this.addEventListener("mouseover", resetTimer, false);
-    this.addEventListener("mouseout", resetTimer, false);
-    this.addEventListener("keypress", resetTimer, false);
-    this.addEventListener("DOMMouseScroll", resetTimer, false);
-    this.addEventListener("mousewheel", resetTimer, false);
-    this.addEventListener("touchmove", resetTimer, false);
-    this.addEventListener("MSPointerMove", resetTimer, false);
-
-    startTimer();
-}
-
-function startTimer() {
-
-    timeoutID = window.setTimeout(goInactive, 300000);
-}
-
-function resetTimer(e) {
-    window.clearTimeout(timeoutID);
-
-    goActive();
-}
-
-function goInactive() {
-
-    window.top.location.href = "../index.html";
-}
-
-function goActive() {
-    startTimer();
-}
 
 /* Movements for three.js GLTF models ***************************************/
 
