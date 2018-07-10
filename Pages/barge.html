@@ -70,14 +70,7 @@
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
-
-        <!--Control Icons-->
-        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
-        <img id="question_icon" src="../images/question.svg" title="Navigation" />
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
-        <!---->
+       
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -108,6 +101,24 @@
                     </ul>
                 </div>
             </div>
+
+            <!--Control Icons-->
+            <div class="general-controls">
+                <div>
+                    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
+                </div>
+                <div >
+                    <img id="question_icon" src="../images/question.svg" title="Navigation" />
+                </div>
+                <div >
+                    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+                </div>
+                <div >
+                    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+                </div>
+            </div>
+            <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+
         </div>
 
     </div>
@@ -411,6 +422,7 @@
 
                 /* Opening Transitions
                 *****************************************************/
+                
                 //Barge
                 if (hotSpot == 0) {
                     setTimeout(function () {
@@ -441,6 +453,7 @@
                         sceneSG.annotations.children[4].moveHere(sceneSG.camera);
                     }, 3500);
                 }
+                
                
             });
 

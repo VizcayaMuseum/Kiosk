@@ -42,9 +42,9 @@
     </div>
 
     <!--Control Icons-->
-    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
+    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
-    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
     <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
     <!---->
@@ -147,7 +147,7 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Barge";
+                    elTitle.toString = () => "Front View";
 
                     let aAbout0 = new Potree.Annotation({
                         position: [3.628, -89.366, 46.414],
@@ -172,7 +172,7 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Barge2";
+                    elTitle.toString = () => "Back View";
 
                     let aAbout1 = new Potree.Annotation({
                         position: [-99.343, 25.774, 10.377],
@@ -197,7 +197,7 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "GROTESQUES";
+                    elTitle.toString = () => "Right Side View";
 
                     let aAbout2 = new Potree.Annotation({
                         position: [17.578, 0.460, 9.349],
@@ -222,7 +222,7 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "MERMAIDS";
+                    elTitle.toString = () => "Left Side View";
 
                     let aAbout3 = new Potree.Annotation({
                         position: [-91.149, -79.839, 10.932],

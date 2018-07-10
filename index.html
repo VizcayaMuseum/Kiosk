@@ -91,8 +91,9 @@
                 <!--sticky footer-->
                 <footer class="footer">
                     <div>
-                        <p align="center"><a href="es/index.html">Español</a><br>
-                            <a href="index.html"><img src="images/logo.png"/></a>
+                        <p align="center">
+                            <a id="lang_selected"><b>English</b></a> | <a href="es/index.html" style="font-weight: lighter;">Español</a>
+                            <!--<a href="index.html"><img src="images/logo.png" /></a>-->
                         </p>
                     </div>
                 </footer>
@@ -127,36 +128,6 @@
         </main>
     </div>
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">3D Documentation</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <p>Vizcaya used two methods of 3D documentation: 
-                        <br>Laser scanning captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models.
-                    <br><br>Photogrammetry makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
-                    <br><br>Vizcaya and the project partners combined photogrammetry and laser scanning to maximize the advantages of each technique. The results are unique and highly accurate images and print models that document Vizcaya over time.
-                    </p>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
     <!-- Modal for HOUSE.HTML-->
     <div class="modal fade" id="myHouse">
         <div class="modal-dialog">
@@ -170,16 +141,15 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <p><br>
-                        <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg">
-                        <br><br>Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925.
-                        As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed
-                        in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom.
-                        Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and
-                        hard-to-reach areas of the gardens.
-                        <br /><br />
-                        Select start to begin a virtual access tour.                      
-                    </p>
+                    <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg"><br><br>
+                        <p style="font-weight: lighter;">
+                            Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925.
+                            As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed
+                            in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom.
+                            Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and
+                            hard-to-reach areas of the gardens.
+                            <br /><br />Select start to begin a virtual access tour.
+                        </p>
                 </div>
 
                 <!-- Modal footer -->

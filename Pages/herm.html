@@ -19,13 +19,6 @@
             background-color: #000;
             color: #000;
         }
-        .potree_container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0px;
-            top: 0px;
-        }
     </style>
 </head>
 
@@ -49,14 +42,14 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
-    <div class="potree_container">
+    <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
-        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
-        <img id="question_icon" src="../images/question.svg" title="Navigation" />
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
+        <img id="question_icon" src="../images/question.svg" title="Tutorial" />
+        <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
         <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
         <!---->

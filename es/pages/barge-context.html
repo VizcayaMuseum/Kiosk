@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     <script src="../libs/jstree/jstree.js"></script>
     <script src="../build/potree/potree.js"></script>
     <script src="../libs/plasio/js/laslaz.js"></script>
-
+    <script src="../main.js"></script>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
@@ -41,9 +42,9 @@
     </div>
 
     <!--Control Icons-->
-    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
+    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
-    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
     <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
     <!---->
@@ -62,7 +63,7 @@
             <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                 <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
             </div>
-            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Toque aqui para iniciar Tour</b></div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch here to tour</b></div>
             <div id="next" data-title="Next Annotation" data-action="next-annotation">
                 <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
             </div>
@@ -113,7 +114,7 @@
 
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
-            $("#menu_tools").next().show();
+            //$("#menu_tools").next().show();
             //viewer.toggleSidebar();
         });
 
@@ -124,8 +125,8 @@
 
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-30.495, -51.980, 4.219);
-            sceneSG.view.lookAt(new THREE.Vector3(-42.876, -37.135, 2.698));
+            sceneSG.view.position.set(-135.529, 68.119, 12.095);
+            sceneSG.view.lookAt(new THREE.Vector3(-46.345, -30.284, 6.904));
 
             let material = e.pointcloud.material;
             material.size = .66;
@@ -146,7 +147,7 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Barge";
+                    elTitle.toString = () => "Front View";
 
                     let aAbout0 = new Potree.Annotation({
                         position: [3.628, -89.366, 46.414],
@@ -171,7 +172,7 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Barge2";
+                    elTitle.toString = () => "Back View";
 
                     let aAbout1 = new Potree.Annotation({
                         position: [-99.343, 25.774, 10.377],
@@ -196,7 +197,7 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "GROTESQUES";
+                    elTitle.toString = () => "Right Side View";
 
                     let aAbout2 = new Potree.Annotation({
                         position: [17.578, 0.460, 9.349],
@@ -221,7 +222,7 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "MERMAIDS";
+                    elTitle.toString = () => "Left Side View";
 
                     let aAbout3 = new Potree.Annotation({
                         position: [-91.149, -79.839, 10.932],
@@ -243,6 +244,7 @@
             setTimeout(function () {
                 sceneSG.annotations.children[0].moveHere(sceneSG.camera);
             }, 1000);
+
         });
 
         /* Hotspots Control Dropup
@@ -353,7 +355,6 @@
         navPanel.addEventListener('click', function () {
             navPanel.style.display = "none";
         });
-
     </script>
 
 </body>
