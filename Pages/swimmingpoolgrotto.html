@@ -107,6 +107,10 @@
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Hudson River Sturgeons"><span class="index">&sccue;</span> Hudson River Sturgeons</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Fountains"><span class="index">&sccue;</span>Fountains</a></li>
                         <li id="li5" class="link"><a data-hotspot-target="4" title="Floor"><span class="index">&sccue;</span> Floor</a></li>
+                        <li id="li6" class="link"><a data-hotspot-target="5" title="Reptiles"><span class="index">&sccue;</span> Reptiles</a></li>
+                        <li id="li7" class="link"><a data-hotspot-target="6" title="Octopuses"><span class="index">&sccue;</span> Octopuses</a></li>
+                        <li id="li8" class="link"><a data-hotspot-target="7" title="Lobsters"><span class="index">&sccue;</span> Lobsters</a></li>
+                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Turtles</a></li>
                     </ul>
                 </div>
             </div>
@@ -193,13 +197,13 @@
                                                 style="filter: invert(1);" />
                                         </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "AMORINO";
+                        elTitle.toString = () => "Swimming Pool Grotto";
 
                         let aAbout0 = new Potree.Annotation({
                             position: [-26.819, 6.086, -0.064],
                             title: elTitle,
                             cameraPosition: [-31.261, 5.262, -2.133],
-                            cameraTarget: [-31.029, 2.591, -1.508],
+                            cameraTarget: [-31.029, 2.591, -1.508]
                             });
 
                         sceneSG.annotations.add(aAbout0);
@@ -215,7 +219,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "AMORINO";
+                        elTitle.toString = () => "Amorino";
 
                         let aAbout1 = new Potree.Annotation({
                             position: [-30.790, 1.353, -2.003],
@@ -238,7 +242,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "CEILING MURAL";
+                        elTitle.toString = () => "Ceiling Mural";
 
                         let aAbout2 = new Potree.Annotation({
                             position: [-29.892, 0.542, 0.566],
@@ -261,7 +265,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "HUDSON RIVER STURGEONS";
+                        elTitle.toString = () => "Hudson River Sturgeons";
 
                         let aAbout3 = new Potree.Annotation({
                             position: [-27.864, 2.535, 0.135],
@@ -284,7 +288,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "FOUNTAINS";
+                        elTitle.toString = () => "Fountains";
 
                         let aAbout4 = new Potree.Annotation({
                             position: [-26.413, -0.618, -1.323],
@@ -307,7 +311,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "FLOOR";
+                        elTitle.toString = () => "Floor";
 
                         let aAbout5 = new Potree.Annotation({
                             position: [-29.326, -2.261, -2.682],
@@ -330,7 +334,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => { });
-                        elTitle.toString = () => "FLOOR";
+                        elTitle.toString = () => "Reptiles";
 
                         let aAbout6 = new Potree.Annotation({
                             position: [-32.919, -0.397, -0.508],
@@ -341,6 +345,72 @@
 
                         sceneSG.annotations.add(aAbout6);
                     }
+
+                    {
+                        /* Annotation: Octopuses
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Octopuses";
+
+                        let aAbout7 = new Potree.Annotation({
+                            position: [-33.905, 5.502, -0.552], 
+                            title: elTitle,
+                            cameraPosition: [-33.120, 4.843, -1.314],
+                            cameraTarget: [-33.912, 5.610, 0.163]
+                        });
+
+                        sceneSG.annotations.add(aAbout7);
+                    }
+
+                    {
+                        /* Annotation: Lobsters
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Lobsters";
+
+                        let aAbout8 = new Potree.Annotation({
+                            position: [-28.114, 4.648, -0.540],
+                            title: elTitle,
+                            cameraPosition: [-29.098, 3.604, -1.262],
+                            cameraTarget: [-27.790, 4.910, 0.187]
+                        });
+
+                        sceneSG.annotations.add(aAbout8);
+                    }
+
+                    {
+                        /* Annotation: Turtles
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Turtles";
+
+                        let aAbout9 = new Potree.Annotation({
+                            position: [-27.072, -1.137, -0.620],
+                            title: elTitle,
+                            cameraPosition: [-27.963, -0.408, -1.261],
+                            cameraTarget: [-27.600, -0.731, -0.654]
+                        });
+
+                        sceneSG.annotations.add(aAbout9);
+                    }
                 }
 
                 var src = document.referrer;
@@ -349,6 +419,7 @@
 
                 /* Opening Transitions
                 *****************************************************/
+                
                 //Grotto
                 if (hotSpot == 0) {
                     setTimeout(function () {
@@ -365,7 +436,7 @@
                         sceneSG.annotations.children[6].moveHere(sceneSG.camera);
                     }, 3100);
                 }
-
+                
             });
 
             var timeoutID;
@@ -429,6 +500,18 @@
             function item5() {
                 sceneSG.annotations.children[5].moveHere(sceneSG.camera);
             }
+            function item6() {
+                sceneSG.annotations.children[6].moveHere(sceneSG.camera);
+            }
+            function item7() {
+                sceneSG.annotations.children[7].moveHere(sceneSG.camera);
+            }
+            function item8() {
+                sceneSG.annotations.children[8].moveHere(sceneSG.camera);
+            }
+            function item9() {
+                sceneSG.annotations.children[9].moveHere(sceneSG.camera);
+            }
 
             //Hotspot Dropup's Click Selection
             $("#li1").click(function () {
@@ -446,7 +529,18 @@
             $("#li5").click(function () {
                 item5();
             });
-
+            $("#li6").click(function () {
+                item6();
+            });
+            $("#li7").click(function () {
+                item7();
+            });
+            $("#li8").click(function () {
+                item8();
+            });
+            $("#li9").click(function () {
+                item9();
+            });
             //Hotspot Dropup's Prev/Next Selection
             const functions = [];
             functions.push(item1);
@@ -454,6 +548,10 @@
             functions.push(item3);
             functions.push(item4);
             functions.push(item5);
+            functions.push(item6);
+            functions.push(item7);
+            functions.push(item8);
+            functions.push(item9);
 
             const length = functions.length;
 
@@ -516,10 +614,39 @@
                 submenu.style.display = 'none';
             }
 
+            var openLink = document.getElementById('li6');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li7');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li8');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li9');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
             //Check if users comes from Alligator Tile or Grotto Tile
+            /*
             if (hotSpot == 1) {
                 //document.getElementById("nav_panel").style.display = "flex";
             }
+            */
 
             /* Navigation Controls Image
             *****************************************************/
