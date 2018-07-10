@@ -399,6 +399,7 @@
 
             /* Opening Transitions
                 *****************************************************/
+
             //Barge
             if (hotSpot == 0) {
                 setTimeout(function () {
@@ -418,6 +419,30 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                 }, 3500);
+
+                setTimeout(function () {
+                    var popup = document.getElementById('mypopup1');
+                    var span = document.getElementsByClassName("close")[0];
+
+                    popup.style.display = "block";
+                    span.onclick = function () {
+                        popup.style.display = "none";
+                        //Reloads the Popup
+                        $('#mypopup1').attr('src', '');
+                        var iframe = document.getElementById('iframe1');
+                        iframe.src = iframe.src;
+                    }
+                    window.onclick = function (event) {
+                        if (event.target == popup) {
+                            popup.style.display = "none";
+                            //Reloads the Popup
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src;
+                        }
+                    }
+                }, 7000);
+
             }
             //Sculptures
             else if (hotSpot == 2) {
@@ -428,6 +453,29 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[4].moveHere(sceneSG.camera);
                 }, 3500);
+
+                setTimeout(function () {
+                    var popup = document.getElementById('mypopup2');
+                    var span = document.getElementsByClassName("close")[1];
+
+                    popup.style.display = "block";
+                    span.onclick = function () {
+                        popup.style.display = "none";
+                        //Reloads the Popup
+                        $('#mypopup2').attr('src', '');
+                        var iframe = document.getElementById('iframe2');
+                        iframe.src = iframe.src;
+                    }
+                    window.onclick = function (event) {
+                        if (event.target == popup) {
+                            popup.style.display = "none";
+                            //Reloads the Popup
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src;
+                        }
+                    }
+                }, 7000);
             }
 
         });

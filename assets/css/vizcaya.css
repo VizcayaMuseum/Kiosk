@@ -711,7 +711,7 @@ a {
     border-radius: 20px;
 }
 
-.controls .general-controls .button-control {
+.controls .general-controls {
     display: flex;
     width: 15px;
     position: relative;
@@ -732,6 +732,8 @@ a {
     border-radius: 50%;
 
     right: 190px;
+
+    z-index: 1;
 }
 
 /*
