@@ -1,14 +1,3 @@
-/* Navigation Controls Image
-*****************************************************/
-$("#question_icon").click(function () {
-    $("#nav_panel").toggle();
-});
-
-var navPanel = document.getElementById('nav_panel');
-navPanel.addEventListener('click', function () {
-    navPanel.style.display = "none";
-});
-
 //Redirect functions
 function redirectFunc() {
 
