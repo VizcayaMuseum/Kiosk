@@ -74,7 +74,7 @@
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
-        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
@@ -108,6 +108,10 @@
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones del Rio Hudson"><span class="index">&sccue;</span>Esturiones del Rio Hudson</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Fuentes"><span class="index">&sccue;</span>Fuentes</a></li>
                         <li id="li5" class="link"><a data-hotspot-target="4" title="Piso"><span class="index">&sccue;</span>Piso</a></li>
+                        <li id="li6" class="link"><a data-hotspot-target="5" title="Reptiles"><span class="index">&sccue;</span> Reptiles</a></li>
+                        <li id="li7" class="link"><a data-hotspot-target="6" title="Octopuses"><span class="index">&sccue;</span> Pulpos</a></li>
+                        <li id="li8" class="link"><a data-hotspot-target="7" title="Lobsters"><span class="index">&sccue;</span> Langostas</a></li>
+                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Tortugas</a></li>
                     </ul>
                 </div>
             </div>
@@ -189,7 +193,7 @@
                         /* Annotation: Opening transition
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                    <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                         name="action_set_scene"
                                                         class="annotation-action-icon"
                                                         style="filter: invert(1);" />
@@ -198,7 +202,7 @@
                         elTitle.toString = () => "AMORINO";
 
                         let aAbout0 = new Potree.Annotation({
-                            position: [-26.819, 6.086, -0.064],
+                            position: [-17.926, 20.359, 1.667],
                             title: elTitle,
                             cameraPosition: [-31.261, 5.262, -2.133],
                             cameraTarget: [-31.029, 2.591, -1.508],
@@ -326,7 +330,7 @@
                         /* Annotation: Reptiles
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                    <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                         name="action_set_scene"
                                                         class="annotation-action-icon"
                                                         style="filter: invert(1);" />
@@ -342,6 +346,72 @@
                         });
 
                         sceneSG.annotations.add(aAbout6);
+                    }
+
+                    {
+                        /* Annotation: Octopuses
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Octopuses";
+
+                        let aAbout7 = new Potree.Annotation({
+                            position: [-33.905, 5.502, -0.552],
+                            title: elTitle,
+                            cameraPosition: [-33.120, 4.843, -1.314],
+                            cameraTarget: [-33.912, 5.610, 0.163]
+                        });
+
+                        sceneSG.annotations.add(aAbout7);
+                    }
+
+                    {
+                        /* Annotation: Lobsters
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Lobsters";
+
+                        let aAbout8 = new Potree.Annotation({
+                            position: [-28.114, 4.648, -0.540],
+                            title: elTitle,
+                            cameraPosition: [-29.098, 3.604, -1.262],
+                            cameraTarget: [-27.790, 4.910, 0.187]
+                        });
+
+                        sceneSG.annotations.add(aAbout8);
+                    }
+
+                    {
+                        /* Annotation: Turtles
+                        *****************************************************/
+                        let elTitle = $(`<span>
+                                                    <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
+                        elTitle.find("img[name=action_set_scene]").click((event) => { });
+                        elTitle.toString = () => "Turtles";
+
+                        let aAbout9 = new Potree.Annotation({
+                            position: [-27.072, -1.137, -0.620],
+                            title: elTitle,
+                            cameraPosition: [-27.963, -0.408, -1.261],
+                            cameraTarget: [-27.600, -0.731, -0.654]
+                        });
+
+                        sceneSG.annotations.add(aAbout9);
                     }
                 }
 
@@ -430,6 +500,18 @@
             function item5() {
                 sceneSG.annotations.children[5].moveHere(sceneSG.camera);
             }
+            function item6() {
+                sceneSG.annotations.children[6].moveHere(sceneSG.camera);
+            }
+            function item7() {
+                sceneSG.annotations.children[7].moveHere(sceneSG.camera);
+            }
+            function item8() {
+                sceneSG.annotations.children[8].moveHere(sceneSG.camera);
+            }
+            function item9() {
+                sceneSG.annotations.children[9].moveHere(sceneSG.camera);
+            }
 
             //Click functions for each annotation within Hotspot Control's List
 
@@ -448,6 +530,18 @@
             $("#li5").click(function () {
                 item5();
             });
+            $("#li6").click(function () {
+                item6();
+            });
+            $("#li7").click(function () {
+                item7();
+            });
+            $("#li8").click(function () {
+                item8();
+            });
+            $("#li9").click(function () {
+                item9();
+            });
 
             //Functions for continuous click on Prev and Next buttons
             const functions = [];
@@ -456,6 +550,10 @@
             functions.push(item3);
             functions.push(item4);
             functions.push(item5);
+            functions.push(item6);
+            functions.push(item7);
+            functions.push(item8);
+            functions.push(item9);
 
             const length = functions.length;
 
@@ -512,6 +610,34 @@
             }
 
             var openLink = document.getElementById('li5');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li6');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li7');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li8');
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+
+            var openLink = document.getElementById('li9');
             openLink.addEventListener('click', clickHandler, false);
             function clickHandler() {
                 var submenu = document.getElementById('lists');

@@ -72,7 +72,7 @@
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
-        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
@@ -92,7 +92,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para iniciar Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque aqui para iniciar Tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -208,7 +208,7 @@
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                            <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                 name="action_set_scene"
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
@@ -233,7 +233,7 @@
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                            <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                 name="action_set_scene"
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
@@ -399,6 +399,7 @@
 
             /* Opening Transitions
                 *****************************************************/
+
             //Barge
             if (hotSpot == 0) {
                 setTimeout(function () {
@@ -418,6 +419,30 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                 }, 3500);
+
+                setTimeout(function () {
+                    var popup = document.getElementById('mypopup1');
+                    var span = document.getElementsByClassName("close")[0];
+
+                    popup.style.display = "block";
+                    span.onclick = function () {
+                        popup.style.display = "none";
+                        //Reloads the Popup
+                        $('#mypopup1').attr('src', '');
+                        var iframe = document.getElementById('iframe1');
+                        iframe.src = iframe.src;
+                    }
+                    window.onclick = function (event) {
+                        if (event.target == popup) {
+                            popup.style.display = "none";
+                            //Reloads the Popup
+                            $('#mypopup1').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
+                            iframe.src = iframe.src;
+                        }
+                    }
+                }, 7000);
+
             }
             //Sculptures
             else if (hotSpot == 2) {
@@ -428,6 +453,29 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[4].moveHere(sceneSG.camera);
                 }, 3500);
+
+                setTimeout(function () {
+                    var popup = document.getElementById('mypopup2');
+                    var span = document.getElementsByClassName("close")[1];
+
+                    popup.style.display = "block";
+                    span.onclick = function () {
+                        popup.style.display = "none";
+                        //Reloads the Popup
+                        $('#mypopup2').attr('src', '');
+                        var iframe = document.getElementById('iframe2');
+                        iframe.src = iframe.src;
+                    }
+                    window.onclick = function (event) {
+                        if (event.target == popup) {
+                            popup.style.display = "none";
+                            //Reloads the Popup
+                            $('#mypopup2').attr('src', '');
+                            var iframe = document.getElementById('iframe2');
+                            iframe.src = iframe.src;
+                        }
+                    }
+                }, 7000);
             }
 
         });

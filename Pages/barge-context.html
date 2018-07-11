@@ -42,9 +42,9 @@
     </div>
 
     <!--Control Icons-->
-    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/question.svg" title="Home" />
+    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
-    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
     <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
     <!---->
@@ -63,7 +63,7 @@
             <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                 <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
             </div>
-            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch here to tour</b></div>
             <div id="next" data-title="Next Annotation" data-action="next-annotation">
                 <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
             </div>
@@ -73,8 +73,8 @@
                 <ul class="js-scrollable">
                     <li id="li1" class="link"><a data-hotspot-target="0" title="Front View"><span class="index">&sccue;</span> Front View</a></li>
                     <li id="li2" class="link"><a data-hotspot-target="1" title="Back View"><span class="index">&sccue;</span>Back View </a></li>
-                    <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Left Side View</a></li>
-                    <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Right Side View</a></li>
+                    <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Right Side View</a></li>
+                    <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Left Side View</a></li>
                 </ul>
             </div>
         </div>
@@ -125,8 +125,8 @@
 
         Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
             sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-30.495, -51.980, 4.219);
-            sceneSG.view.lookAt(new THREE.Vector3(-42.876, -37.135, 2.698));
+            sceneSG.view.position.set(-135.529, 68.119, 12.095);
+            sceneSG.view.lookAt(new THREE.Vector3(-46.345, -30.284, 6.904));
 
             let material = e.pointcloud.material;
             material.size = .66;
@@ -135,11 +135,11 @@
 
             {
                 {
-                    /* Annotation: 1st Opening Transition
+                    /* Annotation: Front Opening Transition
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                            <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                 name="action_set_scene"
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
@@ -147,24 +147,24 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Barge";
+                    elTitle.toString = () => "Front View";
 
                     let aAbout0 = new Potree.Annotation({
-                        position: [-23.838, 24.749, 18.003],
+                        position: [3.628, -89.366, 46.414],
                         title: elTitle,
-                        cameraPosition: [-30.203, -7.118, 5.658],
-                        cameraTarget: [-35.769, -34.984, -5.137]
+                        cameraPosition: [-17.717, -66.212, 31.609],
+                        cameraTarget: [-49.188, -28.289, 5.456]
                     });
 
                     sceneSG.annotations.add(aAbout0);
                 }
 
                 {
-                    /* Annotation: 2nd Opening Transition/Center of Barge
+                    /* Annotation: Back
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                            <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                 name="action_set_scene"
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
@@ -172,24 +172,24 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Barge2";
+                    elTitle.toString = () => "Back View";
 
                     let aAbout1 = new Potree.Annotation({
-                        position: [-43.738, -34.574, -2.621],
+                        position: [-99.343, 25.774, 10.377],
                         title: elTitle,
-                        cameraPosition: [-45.982, -38.192, 0.534],
-                        cameraTarget: [-44.171, -34.177, -0.187]
+                        cameraPosition: [-99.343, 25.774, 10.377],
+                        cameraTarget: [-46.345, -30.284, 6.904]
                     });
 
                     sceneSG.annotations.add(aAbout1);
                 }
 
                 {
-                    /* Annotation: Right Side
+                    /* Annotation: Right
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                            <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                 name="action_set_scene"
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
@@ -197,7 +197,7 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "GROTESQUES";
+                    elTitle.toString = () => "Right Side View";
 
                     let aAbout2 = new Potree.Annotation({
                         position: [17.578, 0.460, 9.349],
@@ -210,11 +210,11 @@
                 }
 
                 {
-                    /* Annotation: 
+                    /* Annotation: Left
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                            <img src="${Potree.resourcePath}/icons/search-plus-solid.svg"
                                                 name="action_set_scene"
                                                 class="annotation-action-icon"
                                                 style="filter: invert(1);" />
@@ -222,16 +222,16 @@
                                     `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "MERMAIDS";
+                    elTitle.toString = () => "Left Side View";
 
-                    let aAbout5 = new Potree.Annotation({
-                        position: [-63.358, -51.438, -1.902],
+                    let aAbout3 = new Potree.Annotation({
+                        position: [-91.149, -79.839, 10.932],
                         title: elTitle,
-                        cameraPosition: [-65.663, -55.380, -0.535],
-                        cameraTarget: [-46.904, -32.558, -5.605],
+                        cameraPosition: [-62.880, -102.585, 20.891],
+                        cameraTarget: [-80.264, 10.174, -23.261],
                         });
 
-                    sceneSG.annotations.add(aAbout5);
+                    sceneSG.annotations.add(aAbout3);
                 }
             }
 
@@ -240,38 +240,10 @@
             var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
 
             /* Opening Transitions
-            *****************************************************/
-            /*
-            if (hotSpot == 0) {
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 1000);
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
-                }, 3500);
-            }
-            //
-            else if (hotSpot == 1) {
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 1000);
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                }, 3500);
-            }
-            //
-            else if (hotSpot == 2) {
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 1000);
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-                }, 3500);
-            }
-            */
+            *****************************************************/            
+            setTimeout(function () {
+                sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+            }, 1000);
 
         });
 
@@ -283,16 +255,16 @@
 
         //Functions for each annotation
         function item1() {
-            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[0].moveHere(sceneSG.camera);
         }
         function item2() {
-            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[1].moveHere(sceneSG.camera);
         }
         function item3() {
-            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
         function item4() {
-            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
 
         //Hotspot Dropup's Click Selection
