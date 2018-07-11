@@ -43,7 +43,7 @@
 
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
-            }
+            }       
     </style>
 
 </head>
@@ -70,7 +70,7 @@
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
-       
+
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -101,27 +101,14 @@
                     </ul>
                 </div>
             </div>
-
-            <!--Control Icons-->
-            <div class="general-controls">
-                <div class="button-control">
-                    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
-                </div>
-                <div>
-                    <img id="question_icon" src="../images/question.svg" title="Navigation" />
-                </div>
-                <div>
-                    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-                </div>
-                <div>
-                    <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-                </div>
-            </div>
-            <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
-
         </div>
 
-    </div>
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" /></div>
+        <img id="question_icon" src="../images/question.svg" title="Tutorial" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
     
     <!-- Popup 1 -->
     <div id="mypopup1" class="popup">
@@ -159,7 +146,12 @@
     -->
 
     <script>
+        //Redirect functions
+        function redirectFunc() {
 
+            window.top.location.reload();
+
+        }
         // initialize page and Potree
         init();
 
@@ -235,7 +227,7 @@
                                     `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
-                        elTitle.toString = () => "Barge";
+                        elTitle.toString = () => "Barge1";
 
                         let aAbout0 = new Potree.Annotation({
                             position: [-23.838, 24.749, 18.003],

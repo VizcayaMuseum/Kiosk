@@ -82,11 +82,12 @@
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h1>Virtual Vizcaya</h1> <hr />
-                    <p>For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient.
+                    <p>
+                        For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient.
                         <br /><br />Through the use of 3D documentation and modeling technologies, Vizcaya digitally preserves its most vunerable historic assets to innovate their approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
                         <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
                         <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
-                    </p>                    
+                    </p>
                 </div>
                 <!--sticky footer-->
                 <footer class="footer">
@@ -114,9 +115,9 @@
                     <a href="1916barge.html?1"><img src="images/works/Herm1916.jpg" style="width:100%"></a>
                 </div>
                 <div class="column">
-                    <a href="barge.html?1"><img src="images/works/Herm.gif" style="width:100%"></a>
+                    <a href="barge.html?1"><img src="images/works/Herm.png" style="width:100%"></a>
                     <a href="barge.html?0"><img src="images/works/Barge_English.png" style="width:100%"></a>
-                    <a href="barge-context.html"><img src="images/works/barge-context.jpg" style="width:100%"></a>
+                    <a data-toggle="modal" href="#creditsModal"><img src="images/works/barge-context.jpg" style="width:100%"></a>
                 </div>
                 <div class="column">
                     <a href="1916barge.html?0"><img src="images/works/1916Barge_English.png" style="width:100%"></a>
@@ -142,19 +143,100 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg"><br><br>
-                        <p style="font-weight: lighter;">
-                            Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925.
-                            As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed
-                            in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom.
-                            Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and
-                            hard-to-reach areas of the gardens.
-                            <br /><br />Select start to begin a virtual access tour.
-                        </p>
+                    <p style="font-weight: lighter;">
+                        Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925.
+                        As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed
+                        in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom.
+                        Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and
+                        hard-to-reach areas of the gardens.
+                        <br /><br />Select start to begin a virtual access tour.
+                    </p>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <a href="http://vizcaya.darumatech.com/VAT/kiosk/house.html"><button type="button" class="btn">Start</button></a>
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Credits Modal-->
+    <div class="modal fade" id="creditsModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Credits</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4 col-sm-6">
+                                <img src="images/KF_logo-stacked.png" style="width: 310px; height: 90px;">
+                                <br /><br />
+                            </div>
+                            <div class="col-4 col-sm-12">
+                                <p style="font-weight:lighter;">
+                                    This project was made possible through support from the John S. and James L. Knight Foundation.
+                                    <br /><br />
+                                    Our project partners are:
+                                    <br /><br />
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 col-sm-6">
+                                <img src="images/daruma_logo.png" style="width: 220px; height: 130px;">
+                                <br /><br />
+                            </div>
+                            <div class="col-4 col-sm-12">
+                                <p class="font-weight-bold">Daruma Tech</p>
+                                <p style="font-weight:lighter;">
+                                    Daruma Tech is a full service technology company that specializes in 3D rendering and App development among other digital solutions for the private and public sectors.  Recent projects include an IOS and Android application that featured augmented reality videos and 3D illustrations to immerse the user in the Troy University and the update of an IOS and Android application for Tri-Rail that incorporates a data-driven, dynamic train schedule.  Daruma Tech will be contracted to finalize the 3D models of the Barge and Pool ceiling mural and develop the kiosk interface, VR/AR application and web module virtual online interactive.
+                                    <br /><br />
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 col-sm-6">
+                                <img src="images/fiu_logo.png" style="width: 320px; height: 60px;">
+                                <br /><br />
+                            </div>
+                            <div class="col-4 col-sm-12">
+                                <p class="font-weight-bold">Florida International University – Miami Beach Urban Studios</p>
+                                <p style="font-weight:lighter;">
+                                    The Miami Beach Urban Studios (MBUS) is a unique 16,000sf facility in the 420 Lincoln Road Building that hosts an interdisciplinary array of innovative exhibitions, classes, research laboratories, and events for the College of Communication, Architecture + The Arts (aka “CARTA,” which is comprised of the following departments: Architecture, Landscape Architecture, Interior Architecture, Music, Art/Art History, Theatre, Journalism + Media and Communication).  It also houses affiliated institutions (Sea Level Solution Center, Amernet String Quartet, ARC+, and temporarily, the Miami Urban Future Initiative, and the Ratcliffe Art + Design Incubator). MBUS houses the 3,500sf Knight-sponsored CARTA Innovation Lab, which with over 33 3D printers is one of the largest 3D printing laboratories of its kind in the United States. The lab is proud to have been selected to be a participant in the HP/EDUCAUSE Building the Campus of the Future Project.
+                                    <br /><br />
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 col-sm-6">
+                                <img src="images/uf_logo.png" style="width: 310px; height: 55px;">
+                                <br /><br />
+                            </div>
+                            <div class="col-4 col-sm-12">
+                                <p class="font-weight-bold">The University of Florida, College of Design, Construction & Planning, Envision Heritage Program</p>
+                                <p style="font-weight:lighter;">
+                                    Launched by the Historic Preservation Program in 2012, the University of Florida’s Envision Heritage explores how new and emerging digital technologies can be used to document, preserve, and interpret heritage sites. The research projects utilize laser scanning, photogrammetry and imaging from drones, among other technologies.
+                                    <br /><br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
