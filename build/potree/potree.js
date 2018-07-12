@@ -11332,7 +11332,7 @@ Potree.utils = class {
 
 		let view = scene.view;
 		let camera = scene.getActiveCamera();
-		let animationDuration = 500;
+		let animationDuration = 4000; /*500*/
 		let easing = TWEEN.Easing.Quartic.Out;
 
 		{ // animate camera position

@@ -89,40 +89,14 @@
     <div id="includedContent"></div>
     <div id="loader"></div>
 
+    <!--Control Icons-->
+    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
-    <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
-
-    <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-    <div>
-
-        <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-
-        <map name="controlPanel">
-
-            <!--Reset Button-->
-            <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-            <!--Home Button-->
-            <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-            <!--Up Button-->
-            <area shape="circle" coords="110,62,25,10" onclick="merGltfMoveUp()" />
-            <!--Down Button-->
-            <area shape="circle" coords="110,140,25,10" onclick="merGltfMoveDown()" />
-            <!--left Button-->
-            <area shape="circle" coords="70,105,20,10" onclick="gltfMoveLeft()" />
-            <!--Right Button-->
-            <area shape="circle" coords="150,105,20,10" onclick="gltfMoveRight()" />
-            <!--Zoom In-->
-            <area shape="circle" coords="50,160,20,10" onclick="gltfZoomIn()" />
-            <!--Zoom Out-->
-            <area shape="circle" coords="170,160,20,10" onclick="gltfZoomOut()" />
-
-        </map>
-    </div>
-
-    <!-- navPanel 1 -->
+    <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+    <!---->
+    <!-- Navigation Instructions -->
     <div id="nav_panel" class="navPanel">
         <div class="navPanel-content">
             <div class="intrinsic-container intrinsic-container-16x9">
@@ -131,32 +105,29 @@
         </div>
     </div>
 
+    <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
+
     <script>
 
         var container, stats, controls;
         var camera, scene, renderer, light;
 
-
         init();
         animate();
         setup();
-        //For control panel
-
-        $("#handicap_icon").click(function () {
-
-            $("#control_panel").toggle();
-        });
-
-        $("#question_icon").click(function () {
-
-            $("#nav_panel").toggle();
-        });
-
-        //Navigation Panel
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
 
         function init() {
 
@@ -169,7 +140,6 @@
 
             controls = new THREE.OrbitControls(camera);
             controls.target.set(0, 15, 0);
-
 
             scene = new THREE.Scene();
 
@@ -191,7 +161,6 @@
 
                 scene.add(gltf.scene);
                 //scene.rotation.x = Math.PI / 2;
-
             },
                 function (xhr) {
 
@@ -213,9 +182,6 @@
             container.appendChild(renderer.domElement);
 
             window.addEventListener('resize', onWindowResize, false);
-
-
-
         }
 
         function onWindowResize() {
@@ -224,7 +190,6 @@
             camera.updateProjectionMatrix();
 
             renderer.setSize(window.innerWidth, window.innerHeight);
-
         }
 
         function animate() {
@@ -232,8 +197,18 @@
             requestAnimationFrame(animate);
             controls.update();
             renderer.render(scene, camera);
-
         }
+
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
+
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
 
     </script>
 

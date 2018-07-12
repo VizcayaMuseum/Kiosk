@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Barge</title>
+    <title>Hurricane Irma</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,12 +42,9 @@
                         <footer class="footer">
                             <div>
                                 <p align="center">
-                                    <a href="index.html">Home</a> | <a href="es/irma.html">Español</a><br>
-                                    <!--<p>This interactive was made possible through the support of</p>-->
-                                    <a href="index.html"><img src="images/logo.png" alt="knight and vizcaya logo" style="width:100%" /></a>
-                                </p>
+                                    <a href="index.html">Home</a> | <a id="lang_selected"><b>English</b></a> | <a href="es/irma.html">Español</a>
 
-                            </div>
+</div>
 
                         </footer>
                     </nav>
@@ -58,40 +55,52 @@
             <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
 
                     <!--Featured Content-->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video autoplay loop class="embed-responsive-item" controls="controls">
-                            <source src="https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4" type="video/mp4">
+                    <div class="embed-responsive embed-responsive-16by9" id="main_video">
+                        <video autoplay loop class="embed-responsive-item" controls="controls" id="video_container">
+                            <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                         </video>
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-4" style="margin:0; padding:0;">
+
+                        <div class="col-sm-3" style="margin:0; padding:0;">
                             <div class="well">
                                 <div align="center" class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" controls="controls">
+                                    <video autoplay loop class="embed-responsive-item" controls="controls" onclick="firstVideo()">
+                                        <source src="https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3" style="margin:0; padding:0;">
+                            <div class="well">
+                                <div align="center" class="embed-responsive embed-responsive-16by9">
+                                    <video autoplay loop class="embed-responsive-item" controls="controls" onclick="secondVideo()">
                                         <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4" type="video/mp4">
                                     </video>
                                 </div>
-                               
+
                             </div>
                         </div>
-                        <div class="col-sm-4" style="margin:0; padding:0;">
+                        <div class="col-sm-3" style="margin:0; padding:0;">
                             <div class="well">
                                 <div align="center" class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" controls="controls">
+                                    <video autoplay loop class="embed-responsive-item" controls="controls" onclick="thirdVideo()">
                                         <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                                     </video>
                                 </div>
-                                
+
                             </div>
                         </div>
-                        <div class="col-sm-4" style="margin:0; padding:0;">
+                        <div class="col-sm-3" style="margin:0; padding:0;">
                             <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="fourthVideo()">
                                     <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
                                 </video>
                             </div>
-                            
+
                         </div>
                     </div>
                 
@@ -111,6 +120,73 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
+        function idleTimer() {
+            var t;
+            //window.onload = resetTimer;
+            window.onmousemove = resetTimer; // catches mouse movements
+            window.onmousedown = resetTimer; // catches mouse movements
+            window.ontouchstart = resetTimer;
+            window.ontouchmove = resetTimer;
+            window.onclick = resetTimer;     // catches mouse clicks
+            window.onscroll = resetTimer;    // catches scrolling
+            window.onkeypress = resetTimer;  //catches keyboard actions
+
+            function logout() {
+                window.top.location.href = '../index.html';  //Adapt to actual logout script
+            }
+            function resetTimer() {
+                clearTimeout(t);
+                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
+
+            }
+        }
+        idleTimer();
+        function firstVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+        function secondVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+        function thirdVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+        function fourthVideo() {
+
+            var videoContainer = document.getElementById('video_container');
+            var videoSource = document.getElementById('source_video');
+            var newSource = 'https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4';
+            videoContainer.pause();
+            videoSource.setAttribute('src', newSource);
+            videoContainer.load();
+            videoContainer.play();
+        }
+
+    </script>
 </body>
 </html>

@@ -10,15 +10,15 @@ function refreshButton() {
     window.top.location.reload();
 }
 
-    function refreshPopup() {
-        location.reload();
-    }
+function refreshPopup() {
+    location.reload();
+}
 
 function redirectHomeFunc() {
 
     window.top.location.href = "../index.html";
 }
-    
+
 
 /* Zoom In
 *****************************************************/
@@ -48,8 +48,8 @@ function tweenFunction(direction, target, currentAmountObject, newAmountObject) 
     const tween = new TWEEN.Tween(currentAmountObject)
         .to(newAmountObject, 1000)
         .easing(TWEEN.Easing.Quintic.Out)
-        .onUpdate(function() {
-            if(direction == 'up' || direction == 'down') {
+        .onUpdate(function () {
+            if (direction == 'up' || direction == 'down') {
                 viewer.scene.view.pitch = currentAmountObject.amount;
             } else if (direction == 'left' || direction == 'right') {
                 viewer.scene.view.yaw = currentAmountObject.amount;
@@ -78,12 +78,12 @@ function moveUp() {
 
     // call tween function
     tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
-    
+
 }
 
 /* Move Down
 *****************************************************/
-function moveDown(){
+function moveDown() {
     // movement direction
     const direction = 'up';
 
@@ -122,7 +122,7 @@ function moveLeft() {
 
     // call tween function
     tweenFunction(direction, targetElement, currentPitchObject, newPitchObject);
-    
+
 }
 
 /* Move Right
@@ -169,43 +169,6 @@ function toggleFullScreen() {
     }
 }
 
-//Timeout function
-var timeoutID;
-
-function setup() {
-    this.addEventListener("mousemove", resetTimer, false);
-    this.addEventListener("touchstart", resetTimer, false);
-    this.addEventListener("mousedown", resetTimer, false);
-    this.addEventListener("mouseover", resetTimer, false);
-    this.addEventListener("mouseout", resetTimer, false);
-    this.addEventListener("keypress", resetTimer, false);
-    this.addEventListener("DOMMouseScroll", resetTimer, false);
-    this.addEventListener("mousewheel", resetTimer, false);
-    this.addEventListener("touchmove", resetTimer, false);
-    this.addEventListener("MSPointerMove", resetTimer, false);
-
-    startTimer();
-}
-
-function startTimer() {
-
-    timeoutID = window.setTimeout(goInactive, 300000);
-}
-
-function resetTimer(e) {
-    window.clearTimeout(timeoutID);
-
-    goActive();
-}
-
-function goInactive() {
-
-    window.top.location.href = "../index.html";
-}
-
-function goActive() {
-    startTimer();
-}
 
 /* Movements for three.js GLTF models ***************************************/
 
@@ -254,7 +217,7 @@ function merGltfMoveDown() {
 //Movements for mermaid potree 
 function potreeMerMoveRight() {
 
-    
+
     sceneSG.scenePointCloud.rotation.z += 0.1;
 }
 
@@ -283,3 +246,10 @@ function potreeHermMoveDown() {
 
     sceneSG.scenePointCloud.rotation.y += 0.1;
 }
+
+/* Control Panel
+*****************************************************
+$("#control_icon").click(function () {
+    $("#control_panel").toggle();
+});
+*/

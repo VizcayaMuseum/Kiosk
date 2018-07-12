@@ -86,10 +86,13 @@ html, body {
     overflow: hidden;
 }
 
+body {
+    background-color: black !important;
+}
+
 #container {
     width: 100%;
     height: 100%;
-    /*background-color: red;*/
     position: absolute;
     left: 0;
     right: 0;
@@ -118,6 +121,15 @@ html, body {
 #house-image {
     width: 100%;
     height: 100%;
+}
+
+#testtP {
+    width: 100%;
+    height: 100%;
+    max-height: 30%;
+    max-width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 #footer-div {
@@ -195,14 +207,14 @@ h1, h2, h3, h4 {
 
 .footer {
     width: 100%;
-    height: 100%;
-    max-height: 11%;
+    height: 7%;
+    max-height: 7%;
     max-width: calc(100% - 20px);
     position: absolute;
     bottom: 0%;
     /* Set the fixed height of the footer here */
     /*line-height: 60px; /* Vertically center the text there */
-    /*padding: 20px;*/
+    padding: 1px;
     background-color: #F8F9FA;
     font-size: 20px; /*increase for home | spanish links*/
 }
@@ -233,7 +245,7 @@ h1, h2, h3, h4 {
     position: relative;
     top: 0;
     /*padding-bottom: 0px;*/
-    height: calc(100% - 110px);
+    height: calc(100% - 80px);
     /* height: 90%; */
     padding-top: .5rem;
     overflow-x: hidden;
@@ -380,13 +392,13 @@ a {
     background-color: #3D9FD6;
     border: 2px solid #3D9FD6; /*1px solid rgba(255, 255, 255, 0.7) for border thickness*/
     padding: 6px 9px; /*5px 8px|1px 8px | 2px 13px for roundness*/
-    opacity: 1; /*0 !important could hide annotations*/
+    opacity: 1; /*1 shows icons | 0 !important could hide annotations*/
 }
-
+/*
     .annotation-titlebar:hover {
         background-color: #015289 !important;
     }
-
+    */
 .annotation-expand {
 }
 
@@ -429,11 +441,6 @@ a {
 }
 
 
-#help_icon, #refresh_icon, #handicap_icon, #fullscreen_icon {
-    max-height: 50px !important;
-    max-width: 50px !important;
-}
-
 /* 
 *POP-UP WINDOWS FOR HERMS AND SCULPTURES
 */
@@ -457,7 +464,7 @@ a {
     background-color: black; /*#fefefe*/
     margin: auto;
     padding: 20px;
-    border: 1px solid black; /*#888*/
+    border: 1px solid white; /*#888*/
     width: 80%;
     border-radius: 20px;
 }
@@ -506,6 +513,8 @@ a {
     border-color: black;
     border-radius: 20px;
 }
+
+
 /*
 * NAVIGATION PANEL
 */
@@ -548,32 +557,6 @@ a {
 }
 
 /*
-* CONTROLS ICONS
-*/
-#question_icon {
-    max-width: 50px;
-    max-height: 50px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    bottom: 15px;
-    right: 190px; /*190px*/
-    z-index: 100;
-    cursor: pointer;
-}
-
-#refresh_icon {
-    max-width: 50px;
-    max-height: 50px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    bottom: 15px;
-    right: 130px; /*130px*/
-    z-index: 100;
-    cursor: pointer;
-}
-
 #control_icon {
     max-width: 50px;
     max-height: 50px;
@@ -581,22 +564,12 @@ a {
     height: 100%;
     position: fixed;
     bottom: 15px;
-    right: 70px; /*70 px hidden*/
+    right: 70px;
     z-index: 100;
     cursor: pointer;
 }
+*/
 
-#fullscreen_icon {
-    max-width: 40px;
-    max-height: 40px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    bottom: 15px;
-    right: 10px;
-    z-index: 100;
-    cursor: pointer;
-}
 /*Control Panel image after selecting control icon*/
 #control_panel {
     max-width: 300px;
@@ -683,7 +656,22 @@ a {
 }
 
 /*
-*HOTSPOTS CONTROLS
+//css for background of control buttons
+.controls .general-controls .control-button{
+    display: flex;
+    background: rgba(0,0,0,0.3);
+    border-radius: 30px;
+    height: 20px;
+    width: 20px;
+    right: 1px;
+    z-index: 1;
+    padding: 15px;
+}
+    */
+
+
+/*
+*HOTSPOTS DROPUP
 */
 /*
 .potree_container:hover .controls {
@@ -691,47 +679,51 @@ a {
 }
 */
 .controls {
-    display: flex; /*flex*/
-    min-width: 0;
-    padding: 10px;
+    display: flex; /*none to hide*/
+    /*min-width: 0;*/
+    padding: 20px;
     pointer-events: none;
     position: absolute;
     right: 30%; /*from 0 to 30% to align it in the middle*/
-    bottom: 0;
+    bottom: 10px;
     left: 30%; /*from 0 to 30% to align it in the middle*/
     z-index: 2;
     height: 50px;
     /*width: 40% my change*/
     /*inherited*/
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 30px;
+    font-weight: 900;
     /*temp*/
     transition-property: opacity;
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
     transition-delay: initial;
+    width: 450px; /*changed*/
 }
 
     .controls .hotspot-controls {
         display: flex;
-        width: 200px;
+        width: 400px;
         position: relative;
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 0;
         pointer-events: all;
-        height: 30px;
-        font-size: 20px; /*13px*/
+        height: 60px;
+        font-size: 30px; /*13px*/
         color: #ffffff;
         background: rgba(0,0,0,0.3);
-        border-radius: 20px;
+        border-radius: 25px;
+        border: solid;
+        border-color: #ffffff;
     }
 
         .controls .hotspot-controls [data-action="prev-annotation"] {
             padding-top: 0px;
             padding-bottom: 0px;
-            padding-left: 15px;
-            padding-right: 15px;
+            padding-left: 20px; /*changed*/
+            padding-right: 20px; /*changed*/
             line-height: 30px;
             cursor: pointer;
         }
@@ -739,7 +731,7 @@ a {
         .controls .hotspot-controls .hotspot-name {
             padding: 0 10px;
             overflow: hidden;
-            line-height: 30px;
+            line-height: 55px; /*modifies the height of the text*/
             text-align: center;
             text-overflow: ellipsis;
             text-shadow: 0 0 10px #000000;
@@ -751,9 +743,9 @@ a {
 
         .controls .hotspot-controls [data-action="next-annotation"] {
             padding-top: 0px;
-            padding-right: 15px;
+            padding-right: 20px; /*changed*/
             padding-bottom: 0px;
-            padding-left: 15px;
+            padding-left: 20px; /*changed*/
             line-height: 30px;
             cursor: pointer;
         }
@@ -761,130 +753,262 @@ a {
         .controls .hotspot-controls .list {
             overflow: auto;
             position: absolute;
-            right: 30px;
-            bottom: 40px; 
-            left: 30px;
-            display: none; /*set to none if hidden on barge*/
-            max-height: 190px;
-            padding: 4px;
+            right: 33px;
+            bottom: 70px; /*change the proximity of bar and list*/
+            display: none;
+            max-height: 160px;
+            padding: 7px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
-            border-radius: 8px;
+            border-radius: 10px;
             transition-property: opacity;
             transition-duration: 250ms;
             transition-timing-function: ease-in-out;
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
+            width: 82%
         }
-            /*
-                       .hotspot-controls:hover .list hotspots-list visible{
-                           display: flex;
-                       }
-                           */
-            .controls .hotspot-controls .list .annotations-visibility,
-            .controls .hotspot-controls .list .annotations-autopilot {
-                display: none; /*set to none if hidden on barge*/
-                height: 28px;
-                padding-top: 0px;
-                padding-right: 5px;
-                padding-bottom: 0px;
-                padding-left: 5px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                border-radius: 2px;
-                align-items: center;
-                justify-content: flex-start;
-                flex-grow: 1;
-                flex-shrink: 0;
-                flex-basis: auto;
-            }
 
-                .controls .hotspot-controls .list .annotations-visibility:hover,
-                .controls .hotspot-controls .list .annotations-autopilot:hover {
-                    background-color: #333333;
-                }
+#prevDiv, #nextDiv {
+    height: 20px;
+    width: 20px;
+    position: center;
+    position: absolute;
+}
 
-            .controls .hotspot-controls .list ul {
-                overflow: auto;
-                /*border-top-width: 1px;*/
-                /*border-top-style: solid; to hide line on top */
-                border-top-color: rgb(86, 86, 86);
-                flex-grow: 1;
-                flex-shrink: 1;
-                flex-basis: 0%;
-                padding: 10px;
-            }
+#prevIcon {
+    bottom: -25px;
+    position: absolute;
+    left: -5px;
+}
 
-            .controls .hotspot-controls .list li a {
+#nextIcon {
+    bottom: -25px;
+    position: absolute;
+    right: 12px;
+}
+
+.js-scrollable {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+/*
+            .hotspot-controls:hover .list hotspots-list visible{
                 display: flex;
-                width: 100%;
-                height: 28px;
-                box-sizing: border-box;
-                padding: 0 5px;
-                overflow: hidden;
-                color: #cccccc;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                border-radius: 2px;
-                align-items: center;
-                justify-content: flex-start;
-                cursor: pointer;
             }
+*/
 
-                .controls .hotspot-controls .list li a:hover {
-                    background-color: #333333;
-                }
+.controls .hotspot-controls .list .annotations-visibility,
+.controls .hotspot-controls .list .annotations-autopilot {
+    display: none; /*set to none if hidden on barge*/
+    height: 28px;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+}
 
-            .controls .hotspot-controls .list li .index {
-                margin-right: 8px;
-            }
+    .controls .hotspot-controls .list .annotations-visibility:hover,
+    .controls .hotspot-controls .list .annotations-autopilot:hover {
+        background-color: #333333;
+    }
+
+.controls .hotspot-controls .list ul {
+    overflow: auto;
+    /*border-top-width: 1px;*/
+    /*border-top-style: solid; to hide line on top */
+    border-top-color: rgb(86, 86, 86);
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    padding: 10px;
+}
+
+.controls .hotspot-controls .list li a {
+    display: flex;
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+    padding: 0 5px;
+    overflow: hidden;
+    color: #cccccc;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+    .controls .hotspot-controls .list li a:hover {
+        background-color: #333333;
+    }
 
 
-            /*visibility*/
-            .controls .hotspot-controls .list .annotations-visibility.\--hide:before {
-                content: "\F06E";
-            }
-
-            .controls .hotspot-controls .list .annotations-visibility:before {
-                content: "\F070";
-            }
-
-            .controls .hotspot-controls .list .annotations-visibility:before,
-            .controls .hotspot-controls .list .annotations-autopilot:before {
-                margin-right: 8px;
-                font-family: "FontAwesome";
-            }
-
-            .controls .hotspot-controls .list .annotations-visibility.\--hide:after {
-                content: "Show annotations";
-            }
-
-            .controls .hotspot-controls .list .annotations-visibility:after {
-                content: "Hide annotations";
-            }
+.controls .hotspot-controls .list li .index {
+    margin-right: 8px;
+}
 
 
-            /*autopilot*/
-            .controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
-                content: "\F04D";
-            }
+/*visibility*/
+.controls .hotspot-controls .list .annotations-visibility.\--hide:before {
+    content: "\F06E";
+}
 
-            .controls .hotspot-controls .list .annotations-autopilot:before {
-                content: "\F04B";
-            }
+.controls .hotspot-controls .list .annotations-visibility:before {
+    content: "\F070";
+}
 
-            .controls .hotspot-controls .list .annotations-visibility:before,
-            .controls .hotspot-controls .list .annotations-autopilot:before {
-                margin-right: 8px;
-                font-family: "FontAwesome";
-            }
+.controls .hotspot-controls .list .annotations-visibility:before,
+.controls .hotspot-controls .list .annotations-autopilot:before {
+    margin-right: 8px;
+    font-family: "FontAwesome";
+}
 
-            .controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
-                content: "Stop autopilot";
-            }
+.controls .hotspot-controls .list .annotations-visibility.\--hide:after {
+    content: "Show annotations";
+}
 
-            .controls .hotspot-controls .list .annotations-autopilot:after {
-                content: "Start autopilot";
-            }
+.controls .hotspot-controls .list .annotations-visibility:after {
+    content: "Hide annotations";
+}
+
+
+/*autopilot*/
+.controls .hotspot-controls .list .annotations-autopilot.\--stopped:before {
+    content: "\F04D";
+}
+
+.controls .hotspot-controls .list .annotations-autopilot:before {
+    content: "\F04B";
+}
+
+.controls .hotspot-controls .list .annotations-visibility:before,
+.controls .hotspot-controls .list .annotations-autopilot:before {
+    margin-right: 8px;
+    font-family: "FontAwesome";
+}
+
+.controls .hotspot-controls .list .annotations-autopilot.\--stopped:after {
+    content: "Stop autopilot";
+}
+
+.controls .hotspot-controls .list .annotations-autopilot:after {
+    content: "Start autopilot";
+}
+
+/*
+* CONTROLS ICONS
+*/
+
+#home_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    right: 238px; /*130px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 35px;
+}
+
+#refresh_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    right: 162px; /*130px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 35px;
+}
+
+#question_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    right: 82px; /*70px*/
+    cursor: pointer;
+    max-height: 75px !important;
+    max-width: 75px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 35px;
+}
+
+#fullscreen_icon {
+    /*display: none;*/
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 35px;
+}
+
+/*language link css*/
+#lang_selected {
+    font-weight: 900;
+    border-bottom: #015289 solid 5px;
+}
+
+/*Credits Modal*/
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width: 1200px;
+    }
+}
+
+/*Animation for Finger Instructions*/
+#finger_animation {
+    display: none;
+    width: 10%;
+    height: 80%;
+    position: relative;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 8s;
+    z-index: 2;
+    right: 50%;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
+        @keyframes example {
+            0%   {left:50%; top: 50px;}
+            25%  {left:35%; top: 50px;}
+            75%  {left:50%; top: 50px;}
+            100% {left:35%; top: 50px;}
+        }

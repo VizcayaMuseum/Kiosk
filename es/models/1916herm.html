@@ -72,51 +72,20 @@
     </div>
 
     <script src="build/three.js"></script>
-
     <script src="js/controls/OrbitControls.js"></script>
-
     <script src="js/loaders/FBXLoader.js"></script>
-
     <script src="js/libs/inflate.min.js"></script>
-
     <script src="../main.js"></script>
-
     <div id="loader"></div>
 
+    <!--Control Icons-->
+    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
-    <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
-      
-    <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-
+    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-    <div>
-
-        <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-
-        <map name="controlPanel">
-
-            <!--Reset Button-->
-            <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-            <!--Home Button-->
-            <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-            <!--Up Button-->
-            <area shape="circle" coords="110,62,25,10" onclick="gltfMoveUp()" />
-            <!--Down Button-->
-            <area shape="circle" coords="110,140,25,10" onclick="gltfMoveDown()" />
-            <!--left Button-->
-            <area shape="circle" coords="70,105,20,10" onclick="gltfMoveLeft()" />
-            <!--Right Button-->
-            <area shape="circle" coords="150,105,20,10" onclick="gltfMoveRight()" />
-            <!--Zoom In-->
-            <area shape="circle" coords="50,160,20,10" onclick="gltfZoomIn()" />
-            <!--Zoom Out-->
-            <area shape="circle" coords="170,160,20,10" onclick="gltfZoomOut()" />
-
-        </map>
-    </div>
-
-    <!-- navPanel 1 -->
+    <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+    <!---->
+    <!-- Navigation Instructions -->
     <div id="nav_panel" class="navPanel">
         <div class="navPanel-content">
             <div class="intrinsic-container intrinsic-container-16x9">
@@ -124,6 +93,21 @@
             </div>
         </div>
     </div>
+
+    <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
 
     <script>
 
@@ -133,22 +117,6 @@
         init();
         animate();
         setup();
-
-        $("#control_icon").click(function () {
-
-            $("#control_panel").toggle();
-        });
-
-        $("#question_icon").click(function () {
-
-            $("#nav_panel").toggle();
-        });
-
-        //Navigation Panel
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
 
         function init() {
 
@@ -176,8 +144,6 @@
             // grid
             // var gridHelper = new THREE.GridHelper( 28, 28, 0x303030, 0x303030 );
             // scene.add( gridHelper );
-
-
 
             // model
             var loader = new THREE.FBXLoader();
@@ -232,6 +198,18 @@
         function returntoBarge() {
             window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
         }
+
+        /* Navigation Controls Image
+        *****************************************************/
+        $("#question_icon").click(function () {
+            $("#nav_panel").toggle();
+        });
+
+        var navPanel = document.getElementById('nav_panel');
+        navPanel.addEventListener('click', function () {
+            navPanel.style.display = "none";
+        });
+
     </script>
 
 </body>

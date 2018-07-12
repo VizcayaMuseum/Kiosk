@@ -53,148 +53,132 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
-      
-        <img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />
-   
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-
-        <div>
-
-            <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-
-            <map name="controlPanel">
-
-                <!--Reset Button-->
-                <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                <!--Home Button-->
-                <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                <!--Up Button-->
-                <area shape="circle" coords="110,62,25,10" onclick="moveUp()" />
-                <!--Down Button-->
-                <area shape="circle" coords="110,140,25,10" onclick="moveDown()" />
-                <!--left Button-->
-                <area shape="circle" coords="70,105,20,10" onclick="moveLeft()" />
-                <!--Right Button-->
-                <area shape="circle" coords="150,105,20,10" onclick="moveRight()" />
-                <!--Zoom In-->
-                <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                <!--Zoom Out-->
-                <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-            </map>
-        </div>
-    </div>
-
-    <!-- navPanel 1 -->
-    <div id="nav_panel" class="navPanel">
-        <div class="navPanel-content">
-            <div class="intrinsic-container intrinsic-container-16x9">
-                <img class="nav_img" src="../images/navigation.png" />
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <!---->
+        <!-- Navigation Instructions -->
+        <div id="nav_panel" class="navPanel">
+            <div class="navPanel-content">
+                <div class="intrinsic-container intrinsic-container-16x9">
+                    <img class="nav_img" src="../images/navigation.png" />
+                </div>
             </div>
         </div>
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+        <!--    <div>
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
     </div>
+        <script>
 
-    <script>
+            setup();
+            window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
-        $("#control_icon").click(function () {
+            viewer.setEDLEnabled(false);
+            viewer.setFOV(60);
+            viewer.setPointBudget(5 * 1000 * 1000);
+            document.title = "";
+            viewer.setEDLEnabled(false);
 
-            $("#control_panel").toggle();
-        });
+            viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
+            viewer.loadSettingsFromURL();
 
-        $("#question_icon").click(function () {
+            /*
+            viewer.loadGUI(() => {
+                viewer.setLanguage('en');
+                $("#menu_scene").next().show();
+                //viewer.toggleSidebar();
+            });
+            */
+            viewer.setDescription(``);
 
-            $("#nav_panel").toggle();
-        });
+            let sceneSG = new Potree.Scene();
 
-        //Navigation Panel
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
+            viewer.setScene(sceneSG);
 
+            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function (e) {
 
-        setup();
-        window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-
-        viewer.setEDLEnabled(false);
-        viewer.setFOV(60);
-        viewer.setPointBudget(5 * 1000 * 1000);
-        document.title = "";
-        viewer.setEDLEnabled(false);
-
-        viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
-        viewer.loadSettingsFromURL();
-
-        /*
-        viewer.loadGUI(() => {
-            viewer.setLanguage('en');
-            $("#menu_scene").next().show();
-            //viewer.toggleSidebar();
-        });
-        */
-        viewer.setDescription(`
-
-                `);
-
-        let sceneSG = new Potree.Scene();
-
-        viewer.setScene(sceneSG);
-
-        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/pleasuresandperils/cloud.js", "pleasuresandperils", function (e) {
-
-            sceneSG.addPointCloud(e.pointcloud);
-            sceneSG.view.position.set(-162.305, -62.071, 52.959);
-            sceneSG.view.lookAt(new THREE.Vector3(-16.377, -11.826, 49.220));
+                sceneSG.addPointCloud(e.pointcloud);
+                sceneSG.view.position.set(-162.305, -62.071, 52.959);
+                sceneSG.view.lookAt(new THREE.Vector3(-16.377, -11.826, 49.220));
 
 
-            let material = e.pointcloud.material;
-            material.size = 1;
-            material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+                let material = e.pointcloud.material;
+                material.size = 1;
+                material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-        });
+            });
 
-        var timeoutID;
+            var timeoutID;
 
-        function setup() {
-            this.addEventListener("mousemove", resetTimer, false);
-            this.addEventListener("touchstart", resetTimer, false);
-            this.addEventListener("mousedown", resetTimer, false);
-            this.addEventListener("mouseover", resetTimer, false);
-            this.addEventListener("mouseout", resetTimer, false);
-            this.addEventListener("keypress", resetTimer, false);
-            this.addEventListener("DOMMouseScroll", resetTimer, false);
-            this.addEventListener("mousewheel", resetTimer, false);
-            this.addEventListener("touchmove", resetTimer, false);
-            this.addEventListener("MSPointerMove", resetTimer, false);
+            function setup() {
+                this.addEventListener("mousemove", resetTimer, false);
+                this.addEventListener("touchstart", resetTimer, false);
+                this.addEventListener("mousedown", resetTimer, false);
+                this.addEventListener("mouseover", resetTimer, false);
+                this.addEventListener("mouseout", resetTimer, false);
+                this.addEventListener("keypress", resetTimer, false);
+                this.addEventListener("DOMMouseScroll", resetTimer, false);
+                this.addEventListener("mousewheel", resetTimer, false);
+                this.addEventListener("touchmove", resetTimer, false);
+                this.addEventListener("MSPointerMove", resetTimer, false);
 
-            startTimer();
-        }
+                startTimer();
+            }
 
-        function startTimer() {
+            function startTimer() {
 
-            timeoutID = window.setTimeout(goInactive, 300000);
-        }
+                timeoutID = window.setTimeout(goInactive, 300000);
+            }
 
-        function resetTimer(e) {
-            window.clearTimeout(timeoutID);
+            function resetTimer(e) {
+                window.clearTimeout(timeoutID);
 
-            goActive();
-        }
+                goActive();
+            }
 
-        function goInactive() {
+            function goInactive() {
 
-            window.top.location.href = "../index.html";
-        }
+                window.top.location.href = "../index.html";
+            }
 
-        function goActive() {
-
-
-            startTimer();
-        }
+            function goActive() {
 
 
-    </script>
+                startTimer();
+            }
+
+            setTimeout(function () {
+                document.getElementById("finger_animation").style.display = "flex";
+            }, 1000);
+
+            /* Navigation Controls Image
+            *****************************************************/
+            $("#question_icon").click(function () {
+                $("#nav_panel").toggle();
+            });
+
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
+            });
+
+        </script>
 
 
 </body>

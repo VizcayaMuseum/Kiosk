@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\build",
-    "\\build\\potree"
+    "\\assets",
+    "\\assets\\css",
+    "\\Pages"
   ],
-  "SelectedNode": "\\build\\potree\\potree.js",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\Pages\\swimmingpoolgrotto.html",
+  "PreviewInSolutionExplorer": true
 }
