@@ -93,7 +93,7 @@
             </div>
         </div>
     </div>
-
+    <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -198,6 +198,10 @@
         function returntoBarge() {
             window.top.location.href = "../1916barge.html?xP=589833.139&yP=230641.181&zP=919.749&xL=589851.364&yL=231440.014&zL=782.147";
         }
+
+        setTimeout(function () {
+            document.getElementById("finger_animation").style.display = "flex";
+        }, 1000);
 
         /* Navigation Controls Image
         *****************************************************/

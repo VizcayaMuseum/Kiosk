@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-
+    <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -185,6 +185,8 @@
 
             window.addEventListener('resize', onWindowResize, false);
 
+            
+
         }
 
         function onWindowResize() {
@@ -203,6 +205,10 @@
             renderer.render(scene, camera);
 
         }
+        /*NOT WORKING AT THIS LAYER, IF MOVED TO CONTAINER, IT REMOVES THE MESH
+        setTimeout(function () {
+            document.getElementById("finger_animation").style.display = "flex";
+        }, 1000);
 
         /* Navigation Controls Image
         *****************************************************/
