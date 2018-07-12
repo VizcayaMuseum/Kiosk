@@ -169,7 +169,8 @@
                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
                     if ((xhr.loaded / xhr.total * 100) == 100) {
 
-                        document.getElementById('loader').style.display = "none";
+                        document.getElementById('loader').style.display = "none";                        
+                        
                     }
 
                 },
@@ -184,8 +185,6 @@
             container.appendChild(renderer.domElement);
 
             window.addEventListener('resize', onWindowResize, false);
-
-            
 
         }
 
@@ -205,10 +204,8 @@
             renderer.render(scene, camera);
 
         }
-        /*NOT WORKING AT THIS LAYER, IF MOVED TO CONTAINER, IT REMOVES THE MESH
-        setTimeout(function () {
-            document.getElementById("finger_animation").style.display = "flex";
-        }, 1000);
+        
+        
 
         /* Navigation Controls Image
         *****************************************************/
