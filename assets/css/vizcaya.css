@@ -844,7 +844,7 @@ a {
     box-sizing: border-box;
     padding: 0 5px;
     overflow: hidden;
-    color: #cccccc;
+    color: #ffffff; /*color: #cccccc;*/
     text-overflow: ellipsis;
     white-space: nowrap;
     border-radius: 2px;
