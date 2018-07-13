@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
         <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -76,7 +76,7 @@
                 </map>
             </div>
     -->
-
+    </div>
         <script>
 
             setup();
@@ -155,6 +155,10 @@
 
                 startTimer();
             }
+
+            setTimeout(function () {
+                document.getElementById("finger_animation").style.display = "flex";
+            }, 1000);
 
             /* Navigation Controls Image
             *****************************************************/

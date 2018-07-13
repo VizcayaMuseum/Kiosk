@@ -92,7 +92,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque aqui para iniciar Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para iniciar Tour</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -108,6 +108,7 @@
                 </div>
             </div>
         </div>
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
     </div>
 
     <!-- Popup 1 -->
@@ -409,6 +410,10 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[1].moveHere(sceneSG.camera);
                 }, 3500);
+
+                setTimeout(function () {
+                    document.getElementById("finger_animation").style.display = "flex";
+                }, 8000);
             }
             //Herm
             else if (hotSpot == 1) {

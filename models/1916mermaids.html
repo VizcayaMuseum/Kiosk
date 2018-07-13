@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-
+    <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -169,7 +169,8 @@
                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
                     if ((xhr.loaded / xhr.total * 100) == 100) {
 
-                        document.getElementById('loader').style.display = "none";
+                        document.getElementById('loader').style.display = "none";                        
+                        
                     }
 
                 },
@@ -203,6 +204,8 @@
             renderer.render(scene, camera);
 
         }
+        
+        
 
         /* Navigation Controls Image
         *****************************************************/

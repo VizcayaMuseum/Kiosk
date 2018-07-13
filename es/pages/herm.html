@@ -69,22 +69,22 @@
                 </div>
             </div>
         </div>
-
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
         <!--    <div>
-                    <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-                    <map name="controlPanel">
-                        <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                        <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                        <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
-                        <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
-                        <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                        <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                        <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                        <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-                    </map>
-                </div>
-        -->
-
+                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
+                <map name="controlPanel">
+                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
+                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
+                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
+                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
+                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
+                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
+                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
+                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
+                </map>
+            </div>
+    -->
+    </div>
         <script>
 
             setup();
@@ -164,6 +164,10 @@
 
                 startTimer();
             }
+
+            setTimeout(function () {
+                document.getElementById("finger_animation").style.display = "flex";
+            }, 1000);
 
             /* Navigation Controls Image
             *****************************************************/

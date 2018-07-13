@@ -44,7 +44,8 @@
 
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
-            } 
+            }
+        
     </style>
 </head>
 
@@ -78,7 +79,6 @@
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
         <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
-        
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
         <!--Hotspots Dropup-->
         <div class="controls">
             <div class="hotspot-controls">
@@ -130,7 +130,7 @@
                 </map>
             </div>
     -->
-
+    </div>
         <script>
 
             function idleTimer() {
@@ -418,13 +418,17 @@
                 var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
 
                 /* Opening Transitions
-                *****************************************************/
-                
+                *****************************************************/                
                 //Grotto
                 if (hotSpot == 0) {
                     setTimeout(function () {
                         sceneSG.annotations.children[0].moveHere(sceneSG.camera);
                     }, 2000);
+            
+                    setTimeout(function () {
+                        document.getElementById("finger_animation").style.display = "flex";
+                    }, 6000);
+                    
                 }
                 //Reptiles
                 else if (hotSpot == 1) {
@@ -434,7 +438,7 @@
 
                     setTimeout(function () {
                         sceneSG.annotations.children[6].moveHere(sceneSG.camera);
-                    }, 3100);
+                    }, 7000);
                 }
                 
             });

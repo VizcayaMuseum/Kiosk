@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
     </div>
 
     <!-- Popup 1 -->
@@ -494,6 +494,11 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[1].moveHere(sceneSG.camera);
                 }, 4500);
+                
+                setTimeout(function () {
+                    document.getElementById("finger_animation").style.display = "flex";
+                }, 8500);
+                
             }
             //Herm
             else if (hotSpot == 1) {

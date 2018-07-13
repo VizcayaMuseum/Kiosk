@@ -71,6 +71,12 @@
         <div id="potree_render_area"></div>
         <div id="potree_sidebar_container"> </div>
 
+        <!--Control Icons-->
+        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
+        <img id="question_icon" src="../images/question.svg" title="Tutorial" />
+        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
+        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel">
             <div class="navPanel-content">
@@ -102,13 +108,8 @@
                 </div>
             </div>
         </div>
-
-        <!--Control Icons-->
-        <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" /></div>
-        <img id="question_icon" src="../images/question.svg" title="Tutorial" />
-        <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
-        <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+    </div>        
     
     <!-- Popup 1 -->
     <div id="mypopup1" class="popup">
@@ -424,6 +425,10 @@
                     setTimeout(function () {
                         sceneSG.annotations.children[1].moveHere(sceneSG.camera);
                     }, 3500);
+
+                    setTimeout(function () {
+                        document.getElementById("finger_animation").style.display = "flex";
+                    }, 8000);
                 }
                 //Herm
                 else if (hotSpot == 1) {
