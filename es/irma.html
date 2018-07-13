@@ -31,8 +31,8 @@
                         <div class="sidebar-sticky">
 
                             <h1>Huracán Irma</h1><hr />
-                            <p>
-                                Este modelo de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2007. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades.<br> <br>
+                            <p id="sidebar-text">
+                                Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.<br> <br>
                             </p>
 
                         </div>
@@ -151,6 +151,9 @@
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar."
+            document.getElementById('sidebar-text').innerHTML = changeText;
         }
 
         function secondVideo() {
@@ -162,6 +165,9 @@
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades."
+            document.getElementById('sidebar-text').innerHTML = changeText;
         }
 
         function thirdVideo() {
@@ -173,6 +179,9 @@
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta."
+            document.getElementById('sidebar-text').innerHTML = changeText;
         }
 
         function fourthVideo() {
@@ -184,6 +193,10 @@
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar."
+            document.getElementById('sidebar-text').innerHTML = changeText;
+
         }
 
     </script>
