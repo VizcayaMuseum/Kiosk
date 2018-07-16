@@ -188,8 +188,8 @@
        
         {
             let scene = viewer.scene;
-            scene.view.position.set(589833.139, 230641.181, 919.749);
-            scene.view.lookAt(new THREE.Vector3(589851.364, 231440.014, 782.147));
+            scene.view.position.set(589105.366, 231218.924, 968.219);
+            scene.view.lookAt(new THREE.Vector3(589609.432, 231679.064, 692.467));
         }
 
         { // Load Textured bunny from obj
@@ -248,34 +248,76 @@
 
             }, onProgress, onError);
 
-            {
-                {
-                    /* Annotation: 1st Openning Transition
-                    *****************************************************/
-                    let elTitle = $(`
-                                        <span>
-                                            <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                name="action_set_scene"
-                                                class="annotation-action-icon"
-                                                style="filter: invert(1);" />
-                                        </span>
-                                    `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => {
-                    });
-                    elTitle.toString = () => "Barge";
+            function popupHerm() {
+                var popup = document.getElementById('mypopup1');
+                var span = document.getElementsByClassName("close")[0];
 
-                    let aAbout0 = new Potree.Annotation({
-                        position: [589105.366, 231218.924, 968.219],
-                        title: elTitle,
-                        cameraPosition: [589105.366, 231218.924, 968.219],
-                        cameraTarget: [589609.432, 231679.064, 692.467]
-                    });
+                popup.style.display = "block";
 
-                    sceneSG.annotations.add(aAbout0);
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.4";
+
+                span.onclick = function () {
+                    popup.style.display = "none";
+                    //Reloads the Popup
+                    $('#mypopup1').attr('src', '');
+                    var iframe = document.getElementById('iframe1');
+                    iframe.src = iframe.src;
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
                 }
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = "none";
+                        //Reloads the Popup
+                        $('#mypopup1').attr('src', '');
+                        var iframe = document.getElementById('iframe1');
+                        iframe.src = iframe.src;
+                        //reset opacity of parent page
+                        sidebar.style.opacity = "1";
+                    }
+                }
+            }
+
+            function popupSculptures() {
+                var popup = document.getElementById('mypopup2');
+                var span = document.getElementsByClassName("close")[1];
+
+                popup.style.display = "block";
+
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.4";
+
+                span.onclick = function () {
+                    popup.style.display = "none";
+                    //Reloads the Popup
+                    $('#mypopup2').attr('src', '');
+                    var iframe = document.getElementById('iframe2');
+                    iframe.src = iframe.src;
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = "none";
+                        //Reloads the Popup
+                        $('#mypopup2').attr('src', '');
+                        var iframe = document.getElementById('iframe2');
+                        iframe.src = iframe.src;
+                        //reset opacity of parent page
+                        sidebar.style.opacity = "1";
+                    }
+                }
+            }
+                
+            {
 
                 {
-                    /* Annotation: 2nd Opening Transition/Center of Barge
+                    /* Annotation: Opening Transition/Center of Barge
                     *****************************************************/
                     let elTitle = $(`
                                         <span>
@@ -356,26 +398,7 @@
                                             style="filter: invert(1);" />
                                     </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        var popup = document.getElementById('mypopup1');
-                        var span = document.getElementsByClassName("close")[0];
-
-                        popup.style.display = "block";
-                        span.onclick = function () {
-                            popup.style.display = "none";
-                            //Reloads the Popup
-                            $('#mypopup1').attr('src', '');
-                            var iframe = document.getElementById('iframe1');
-                            iframe.src = iframe.src;
-                        }
-                        window.onclick = function (event) {
-                            if (event.target == popup) {
-                                popup.style.display = "none";
-                                //Reloads the Popup
-                                $('#mypopup1').attr('src', '');
-                                var iframe = document.getElementById('iframe1');
-                                iframe.src = iframe.src;
-                            }
-                        }
+                        popupHerm();
 
                     });
                     elTitle.toString = () => "HERMAS";
@@ -401,35 +424,16 @@
                                         style="filter: invert(1);" />
                                 </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        var popup = document.getElementById('mypopup2');
-                        var span = document.getElementsByClassName("close")[1];
-
-                        popup.style.display = "block";
-                        span.onclick = function () {
-                            popup.style.display = "none";
-                            //Reloads the Popup
-                            $('#mypopup2').attr('src', '');
-                            var iframe = document.getElementById('iframe2');
-                            iframe.src = iframe.src;
-                        }
-                        window.onclick = function (event) {
-                            if (event.target == popup) {
-                                popup.style.display = "none";
-                                //Reloads the Popup
-                                $('#mypopup2').attr('src', '');
-                                var iframe = document.getElementById('iframe2');
-                                iframe.src = iframe.src;
-                            }
-                        }
+                        popupSculptures();
 
                     });
                     elTitle.toString = () => "ESCULTURAS";
 
                     let aAbout5 = new Potree.Annotation({
-                        position: [590538.041, 231531.105, 864.512],
+                        position: [590511.473, 231534.582, 859.841],
                         title: elTitle,
-                        cameraPosition: [590691.984, 231495.560, 894.852],
-                        cameraTarget: [589488.341, 231747.740, 604.005],                     
+                        cameraPosition: [590304.946, 231449.409, 901.212],
+                        cameraTarget: [590415.209, 231495.317, 879.436],                     
                     });
 
                     sceneSG.annotations.add(aAbout5);
@@ -466,86 +470,39 @@
             var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
 
             /* Opening Transitions
-                *****************************************************/
+            *****************************************************/
             //Barge
             if (hotSpot == 0) {
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 1000);
 
                 setTimeout(function () {
-                    sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
                 }, 3500);
-                
+
                 setTimeout(function () {
                     document.getElementById("finger_animation").style.display = "flex";
-                }, 7500);
-                
+                }, 8000);
+
             }
             //Herm
             else if (hotSpot == 1) {
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 2000);
 
                 setTimeout(function () {
-                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-                }, 4500);
+                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                }, 3500);
 
                 setTimeout(function () {
-                    var popup = document.getElementById('mypopup1');
-                    var span = document.getElementsByClassName("close")[0];
-
-                    popup.style.display = "block";
-                    span.onclick = function () {
-                        popup.style.display = "none";
-                        //Reloads the Popup
-                        $('#mypopup1').attr('src', '');
-                        var iframe = document.getElementById('iframe1');
-                        iframe.src = iframe.src;
-                    }
-                    window.onclick = function (event) {
-                        if (event.target == popup) {
-                            popup.style.display = "none";
-                            //Reloads the Popup
-                            $('#mypopup1').attr('src', '');
-                            var iframe = document.getElementById('iframe1');
-                            iframe.src = iframe.src;
-                        }
-                    }
+                    popupHerm();
                 }, 7000);
             }
             //Sculptures
             else if (hotSpot == 2) {
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 2000);
 
                 setTimeout(function () {
-                    sceneSG.annotations.children[5].moveHere(sceneSG.camera);
-                }, 4500);
+                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                }, 3500);
 
                 setTimeout(function () {
-                    var popup = document.getElementById('mypopup2');
-                    var span = document.getElementsByClassName("close")[1];
-
-                    popup.style.display = "block";
-                    span.onclick = function () {
-                        popup.style.display = "none";
-                        //Reloads the Popup
-                        $('#mypopup2').attr('src', '');
-                        var iframe = document.getElementById('iframe2');
-                        iframe.src = iframe.src;
-                    }
-                    window.onclick = function (event) {
-                        if (event.target == popup) {
-                            popup.style.display = "none";
-                            //Reloads the Popup
-                            $('#mypopup2').attr('src', '');
-                            var iframe = document.getElementById('iframe2');
-                            iframe.src = iframe.src;
-                        }
-                    }
+                    popupSculptures();
                 }, 7800);
             }
         }
@@ -602,19 +559,19 @@
 
         //Functions for each annotation
         function item1() {
-            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[1].moveHere(sceneSG.camera);
         }
         function item2() {
-            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
         function item3() {
-            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
         function item4() {
-            sceneSG.annotations.children[5].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
         }
         function item5() {
-            sceneSG.annotations.children[6].moveHere(sceneSG.camera);
+            sceneSG.annotations.children[5].moveHere(sceneSG.camera);
         }
 
         //Click functions for each annotation within Hotspot Control's List
