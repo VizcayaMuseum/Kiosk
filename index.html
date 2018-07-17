@@ -11,6 +11,11 @@
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
@@ -19,16 +24,18 @@
         body {
             background-color: #fff !important;
         }
+
         h1 {
             position: sticky;
             font-size: 3em; /*3em*/ /*60px*/
             /*overflow-y: hidden;*/
             /*overflow-x: auto;*/
         }
+
         * {
             box-sizing: border-box;
         }
-        
+
         .header {
             text-align: center;
             padding: 32px;
@@ -48,6 +55,7 @@
             flex: 25%;
             max-width: 25%;
             padding: 0 4px;
+            height: 100vh;
         }
 
             .column img {
@@ -72,6 +80,7 @@
                 max-width: 100%;
             }
         }
+
         .controls {
             right: 40%; /*from 0 to 30% to align it in the middle*/
             left: 40%; /*from 0 to 30% to align it in the middle*/
@@ -85,7 +94,7 @@
     </style>
 </head>
 
-<body>
+<body style="overflow: auto;">
 
     <div class="container-fluid">
         <div class="row">
@@ -111,7 +120,7 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <!-- Photo Grid -->
             <div class="row">
-                <div class="column">
+                <div class="column" >
                     <a href="3d-documentation.html"><img src="images/works/3DDocumentation_English.png" style="width:100%"></a>
                     <a href="swimmingpoolgrotto.html?1"><img src="images/works/alligators5.gif" style="width:100%"></a>
                     <a href="barge.html?2"><img src="images/works/Mermaids01.jpg" style="width:100%"></a>
