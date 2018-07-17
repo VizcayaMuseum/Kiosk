@@ -90,7 +90,7 @@
     <div id="loader"></div>
 
     <!--Control Icons-->
-    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
+    <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
     <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
@@ -169,8 +169,8 @@
                     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
                     if ((xhr.loaded / xhr.total * 100) == 100) {
 
-                        document.getElementById('loader').style.display = "none";                        
-                        
+                        document.getElementById('loader').style.display = "none";
+
                     }
 
                 },
@@ -204,8 +204,8 @@
             renderer.render(scene, camera);
 
         }
-        
-        
+
+
 
         /* Navigation Controls Image
         *****************************************************/

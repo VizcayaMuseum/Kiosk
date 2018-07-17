@@ -72,6 +72,16 @@
                 max-width: 100%;
             }
         }
+        .controls {
+            right: 40%; /*from 0 to 30% to align it in the middle*/
+            left: 40%; /*from 0 to 30% to align it in the middle*/
+            height: 75px;
+            z-index: 4;
+        }
+
+            .controls .hotspot-controls .list {
+                bottom: 70px;
+            }
     </style>
 </head>
 
@@ -82,20 +92,16 @@
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h1>Virtual Vizcaya</h1> <hr />
-                    <p>
-                        For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient.
-                        <br /><br />Through the use of 3D documentation and modeling technologies, Vizcaya digitally preserves its most vunerable historic assets to innovate their approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
-                        <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
-                        <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
-                    </p>
+                        <p>
+                            This project was made possible by the John S. and James L. Knight Foundation.
+                            <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.                                            
+                            <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
+                        </p>
                 </div>
                 <!--sticky footer-->
                 <footer class="footer">
-                    <div>
-                        <p align="center">
-                            <a id="lang_selected"><b>English</b></a> | <a href="es/index.html" style="font-weight: lighter;">Español</a>
-                            <!--<a href="index.html"><img src="images/logo.png" /></a>-->
-                        </p>
+                    <div align="center">
+                        <div class="lang_div"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
                     </div>
                 </footer>
             </nav>
@@ -129,14 +135,40 @@
 
 
             <!-- End Photo Grid -->
+
             <!--
-            <nav class="navbar navbar-dark fixed-bottom bg-secondary flex-md-nowrap p-0 shadow">
-                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#" style="text-align:center;">Home</a>
-                
-                <ul class="navbar-nav px-3">
-                </ul>
+            <nav id="bottom_nav" class="navbar fixed-bottom bg-secondary flex-md-nowrap p-0 shadow">
+                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+
+                </a>
             </nav>
-                -->
+            -->
+            <!--
+            <nav id="bottom_nav" class="navbar fixed-bottom navbar-dark bg-dark">
+                <a class="navbar-brand" href="#!">
+                </a>
+                <div class="controls">
+                    <div class="hotspot-controls">
+                        <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                            <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                        </div>
+                        <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
+                        <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                            <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                        </div>
+                        <div id="lists" class="list hotspots-list visible">
+                            <ul class="js-scrollable">
+                                <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span> Grotesques</a></li>
+                                <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
+                                <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
+                                <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                                <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            -->
         </main>
        
     </div>
@@ -205,7 +237,7 @@
 
                         <div class="row featurette">
                             <div class="col-md-3 order-md-1">
-                                <img class="featurette-image img-fluid mx-auto" src="images/daruma_logo.png" alt="Generic placeholder image">
+                                <a href="https://www.darumatech.com/"><img class="featurette-image img-fluid mx-auto" src="images/daruma_logo.png" alt="Generic placeholder image"></a>                                
                             </div>
                             <div class="col-md-9 order-md-2">
                                 <h2 class="featurette-heading">Daruma Tech</h2>
@@ -255,6 +287,64 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+        /* Hotspots Control Dropup
+        *****************************************************/
+        $("#hotspots").click(function () {
+            $("#lists").toggle();
+        });
+        //Functions for each annotation
+        function item1() {
+            window.location.href = "3d-documentation.html";
+        }
+        function item2() {
+            window.location.href = "swimmingpoolgrotto.html";
+        }
+        function item3() {
+            window.location.href = "barge.html";
+        }
+        function item4() {
+            window.location.href = "1916barge.html";
+        }
+        function item5() {
+            window.location.href = "irma.html";
+        }
+
+        //Hotspot Dropup's Prev/Next Selection
+        const functions = [];
+        functions.push(item1);
+        functions.push(item2);
+        functions.push(item3);
+        functions.push(item4);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = 0, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+
+    </script>
 
 </body>
 </html>
