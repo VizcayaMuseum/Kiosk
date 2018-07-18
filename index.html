@@ -21,6 +21,18 @@
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
     <style>
+        .tile_selected { 
+            -ms-transform: scale(1.02);
+            -moz-transform: scale(1.02);
+            -webkit-transform: scale(1.02);
+            -o-transform: scale(1.02);
+            transform: scale(1.02);
+            /*box-shadow: 1px 1px 1px 1px #015289;*/
+        }
+        
+        .tile_unselected {
+            transition: all .2s ease-out;
+        }
         body {
             background-color: #fff !important;
         }
@@ -80,24 +92,16 @@
                 max-width: 100%;
             }
         }
-
-        .controls {
-            right: 40%; /*from 0 to 30% to align it in the middle*/
-            left: 40%; /*from 0 to 30% to align it in the middle*/
-            height: 75px;
-            z-index: 4;
+        .controls .hotspot-controls {
+            background: rgba(0,0,0,0.8);
         }
-
-            .controls .hotspot-controls .list {
-                bottom: 70px;
-            }
     </style>
 </head>
 
 <body style="overflow: auto;">
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" >
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h1>Virtual Vizcaya</h1> <hr />
@@ -120,64 +124,55 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <!-- Photo Grid -->
             <div class="row">
-                <div class="column" >
-                    <a href="3d-documentation.html"><img src="images/works/3DDocumentation_English.png" style="width:100%"></a>
-                    <a href="swimmingpoolgrotto.html?1"><img src="images/works/alligators5.gif" style="width:100%"></a>
-                    <a href="barge.html?2"><img src="images/works/Mermaids01.jpg" style="width:100%"></a>
+                <div class="column">
+                    <a  href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a>
+                    <a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a>
+                    <a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a>
                 </div>
                 <div class="column">
-                    <a href="irma.html"><img src="images/works/IrmaFootage.gif" style="width:100%"></a>
-                    <a href="swimmingpoolgrotto.html?0"><img src="images/works/Grotto_English.png" style="width:100%"></a>
-                    <a href="1916barge.html?1"><img src="images/works/Herm1916.jpg" style="width:100%"></a>
+                    <a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a>
+                    <a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a>
+                    <a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a>
                 </div>
                 <div class="column">
-                    <a href="barge.html?1"><img src="images/works/Herm.gif" style="width:100%"></a>
-                    <a href="barge.html?0"><img src="images/works/Barge_English.png" style="width:100%"></a>
-                    <a data-toggle="modal" href="#creditsModal"><img src="images/works/barge-context.jpg" style="width:100%"></a>
+                    <a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a>
+                    <a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a>
+                    <a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a>
                 </div>
                 <div class="column">
-                    <a href="1916barge.html?0"><img src="images/works/1916Barge_English.png" style="width:100%"></a>
-                    <a data-toggle="modal" href="#myHouse"><img src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a>
-                    <a href="1916barge.html?2"><img src="images/works/1916mermaids.png" style="width:100%"></a>
+                    <a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a>
+                    <a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a>
+                    <a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a>
                 </div>
             </div>
-
-
-            <!-- End Photo Grid -->
-
-            <!--
-            <nav id="bottom_nav" class="navbar fixed-bottom bg-secondary flex-md-nowrap p-0 shadow">
-                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-
-                </a>
-            </nav>
-            -->
-            <!--
-            <nav id="bottom_nav" class="navbar fixed-bottom navbar-dark bg-dark">
-                <a class="navbar-brand" href="#!">
-                </a>
-                <div class="controls">
-                    <div class="hotspot-controls">
-                        <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                            <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
-                        </div>
-                        <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
-                        <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                            <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
-                        </div>
-                        <div id="lists" class="list hotspots-list visible">
-                            <ul class="js-scrollable">
-                                <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span> Grotesques</a></li>
-                                <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
-                                <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
-                                <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
-                                <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
-                            </ul>
+            
+            <div class="row">
+                <div class="showcase">
+                    <div class="row no-gutters">
+                        <div class="controls">
+                            <div class="hotspot-controls">
+                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                                </div>
+                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
+                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                                </div>
+                                <div id="lists" class="list hotspots-list visible">
+                                    <ul class="js-scrollable">
+                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span> Grotesques</a></li>
+                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
+                                        <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
+                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-            -->
+            </div>
+                
         </main>
        
     </div>
@@ -296,32 +291,74 @@
 
         /* Hotspots Control Dropup
         *****************************************************/
-        $("#hotspots").click(function () {
-            $("#lists").toggle();
+        $("#hotspots").click(function () {                     
+            
         });
+
         //Functions for each annotation
-        function item1() {
-            window.location.href = "3d-documentation.html";
+        function tile1() {
+            document.getElementById("tile12").className += "tile_unselected";
+            document.getElementById("tile1").className += "tile_selected";
         }
-        function item2() {
-            window.location.href = "swimmingpoolgrotto.html";
+        function tile2() {
+            document.getElementById("tile1").className += "tile_unselected";
+            document.getElementById("tile2").className += "tile_selected";
         }
-        function item3() {
-            window.location.href = "barge.html";
+        function tile3() {
+            document.getElementById("tile2").className += "tile_unselected";
+            document.getElementById("tile3").className += "tile_selected";
         }
-        function item4() {
-            window.location.href = "1916barge.html";
+        function tile4() {
+            document.getElementById("tile3").className += "tile_unselected";
+            document.getElementById("tile4").className += "tile_selected";
         }
-        function item5() {
-            window.location.href = "irma.html";
+        function tile5() {
+            document.getElementById("tile4").className += "tile_unselected";
+            document.getElementById("tile5").className += "tile_selected";
         }
+        function tile6() {
+            document.getElementById("tile5").className += "tile_unselected";
+            document.getElementById("tile6").className += "tile_selected";
+        }
+        function tile7() {
+            document.getElementById("tile6").className += "tile_unselected";
+            document.getElementById("tile7").className += "tile_selected";
+        }
+        function tile8() {
+            document.getElementById("tile7").className += "tile_unselected";
+            document.getElementById("tile8").className += "tile_selected";
+        }
+        function tile9() {
+            document.getElementById("tile8").className += "tile_unselected";
+            document.getElementById("tile9").className += "tile_selected";
+        }
+        function item10() {
+            document.getElementById("tile9").className += "tile_unselected";
+            document.getElementById("tile10").className += "tile_selected";
+        }
+        function tile11() {
+            document.getElementById("tile10").className += "tile_unselected";
+            document.getElementById("tile11").className += "tile_selected";
+        }
+        function tile12() {
+            document.getElementById("tile11").className += "tile_unselected";
+            document.getElementById("tile12").className += "tile_selected";
+        }      
 
         //Hotspot Dropup's Prev/Next Selection
         const functions = [];
-        functions.push(item1);
-        functions.push(item2);
-        functions.push(item3);
-        functions.push(item4);
+        functions.push(tile1);
+        functions.push(tile2);
+        functions.push(tile3);
+        functions.push(tile4);
+        functions.push(tile5);
+        functions.push(tile6);
+        functions.push(tile7);
+        functions.push(tile8);
+        functions.push(tile9);
+        functions.push(tile10);
+        functions.push(tile11);
+        functions.push(tile12);
 
         const length = functions.length;
 
