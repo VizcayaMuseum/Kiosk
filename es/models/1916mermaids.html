@@ -92,7 +92,7 @@
     <!--Control Icons-->
     <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
-    <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
+    <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
     <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
     <!---->
@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-    <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+    <div id="fingeranimation_models"><img src="../images/fingeranimation.svg" /></div>
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -168,6 +168,8 @@
                     if ((xhr.loaded / xhr.total * 100) == 100) {
 
                         document.getElementById('loader').style.display = "none";
+                        document.getElementById("fingeranimation_models").style.display = "flex";
+                        fingerAnimation();
                     }
 
                 },
@@ -176,6 +178,13 @@
                     console.log(error);
                 }
             );
+
+            function fingerAnimation() {
+
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_models").style.display = "none";
+                }, 8000);
+            }
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);

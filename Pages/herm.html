@@ -62,6 +62,7 @@
             </div>
         </div>
         <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+        <img id="gif_loader"src="../assets/img/Ajax_loader_gray_256.gif"/>
         <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -157,10 +158,17 @@
                 startTimer();
             }
 
+            /*
+            setTimeout(function () {
+                document.getElementById("gif_loader").style.display = "flex";
+            }, 1000);
+            */
             setTimeout(function () {
                 document.getElementById("finger_animation").style.display = "flex";
             }, 1000);
 
+
+            
             /* Navigation Controls Image
             *****************************************************/
             $("#question_icon").click(function () {

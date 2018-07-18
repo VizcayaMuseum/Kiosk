@@ -104,7 +104,7 @@
             </div>
         </div>
     </div>
-    <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+    <div id="fingeranimation_models"><img src="../images/fingeranimation.svg" /></div>
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -170,7 +170,8 @@
                     if ((xhr.loaded / xhr.total * 100) == 100) {
 
                         document.getElementById('loader').style.display = "none";
-
+                        document.getElementById("fingeranimation_models").style.display = "flex";
+                        fingerAnimation();
                     }
 
                 },
@@ -179,6 +180,13 @@
                     console.log(error);
                 }
             );
+
+            function fingerAnimation() {
+
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_models").style.display = "none";
+                }, 8000);
+            }
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);

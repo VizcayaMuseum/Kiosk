@@ -969,6 +969,47 @@ a {
             100% {left:35%; top: 50px;}
         }
 
+#fingeranimation_models {
+    display: none;
+    width: 10%;
+    height: 15%;
+    position: absolute;
+    left: 50%; /*50%*/
+    top: 50%;
+    -webkit-animation-name: model; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: model;
+    animation-duration: 8s;
+    z-index: 100;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
+
+@keyframes model {
+    0% {
+        left: 50%;
+        top: 50%;
+    }
+
+    25% {
+        left: 35%;
+        top: 50%;
+    }
+
+    75% {
+        left: 50%;
+        top: 50%;
+    }
+
+    100% {
+        left: 35%;
+        top: 50%;
+    }
+}
+
 #bottom_nav {
     z-index: initial;
     height: 6%; /*10%*/
