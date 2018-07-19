@@ -646,22 +646,28 @@
                 var submenu = document.getElementById('lists');
                 submenu.style.display = 'none';
             }
-            //Check if users comes from Alligator Tile or Grotto Tile
-            /*
-            if (hotSpot == 1) {
-                //document.getElementById("nav_panel").style.display = "flex";
-            }
-            */
 
             /* Navigation Controls Image
             *****************************************************/
             $("#question_icon").click(function () {
                 $("#nav_panel").toggle();
+                /*
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.7";
+                */
             });
 
             var navPanel = document.getElementById('nav_panel');
             navPanel.addEventListener('click', function () {
                 navPanel.style.display = "none";
+                /*
+                //reset opacity of parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "1";
+                */
             });
 
         </script>
