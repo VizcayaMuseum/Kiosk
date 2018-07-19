@@ -962,17 +962,11 @@ a {
     padding: 10px;
         */
 }
-        @keyframes example {
-            0%   {left:50%; top: 50px;}
-            25%  {left:35%; top: 50px;}
-            75%  {left:50%; top: 50px;}
-            100% {left:35%; top: 50px;}
-        }
 
 #fingeranimation_models {
     display: none;
-    width: 10%;
-    height: 15%;
+    width: 20%;
+    height: 20%;
     position: absolute;
     left: 50%; /*50%*/
     top: 50%;
@@ -991,22 +985,85 @@ a {
 @keyframes model {
     0% {
         left: 50%;
-        top: 50%;
+        top: 40%;
     }
 
     25% {
-        left: 35%;
-        top: 50%;
+        left: 30%;
+        top: 40%;
     }
 
     75% {
         left: 50%;
-        top: 50%;
+        top: 40%;
+    }
+
+    100% {
+        left: 30%;
+        top: 40%;
+    }
+}
+
+@keyframes example {
+    0% {
+        left: 50%;
+        top: 50px;
+    }
+
+    25% {
+        left: 35%;
+        top: 50px;
+    }
+
+    75% {
+        left: 50%;
+        top: 50px;
     }
 
     100% {
         left: 35%;
-        top: 50%;
+        top: 50px;
+    }
+}
+
+#fingeranimation_sculptureslmodels {
+    display: none;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    left: 50%; /*50%*/
+    top: 50%;
+    -webkit-animation-name: sculpturesmodel; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: sculpturesmodel;
+    animation-duration: 8s;
+    z-index: 100;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
+
+@keyframes sculpturesmodel {
+    0% {
+        left: 60%;
+        top: 40%;
+    }
+
+    25% {
+        left: 15%;
+        top: 40%;
+    }
+
+    75% {
+        left: 60%;
+        top: 40%;
+    }
+
+    100% {
+        left: 15%;
+        top: 40%;
     }
 }
 
