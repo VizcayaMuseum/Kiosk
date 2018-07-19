@@ -1,0 +1,523 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Virtual Vizcaya</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+
+    <style>
+        .tilediv {
+            /*width: 45%;*/
+            width: 100%;
+            margin: 20px;
+            height: 300px;
+            overflow: hidden;
+            /*position: relative;*/
+            /*float: left;*/
+            /*display: inline-block;*/
+            cursor: pointer;
+        }
+
+        .tile {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+
+        /* Several different images */
+        .bg-one {
+            background-image: url("images/works/3DDocumentation_English.png");
+        }
+
+        .tiletext {
+            display: none;
+            font-size: 25px;
+            color: #ffffff !important;
+            font-family: sans-serif;
+            text-align: center;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 50px;
+            /*text-decoration: none;*/
+        }
+
+        /*EFFECTS*/
+        .tilediv:hover .tile, .tilediv:focus .tile {
+            -ms-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+            .tilediv:hover .tile:before, .tilediv:focus .tile:before {
+                display: block;
+            }
+
+        .tilediv:hover a, .tilediv:focus a {
+            display: block;
+        }
+
+        .tile:before {
+            content: "";
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(52,73,94,0.75);
+        }
+
+       
+        body {
+            background-color: #fff !important;
+        }
+
+        h1 {
+            position: sticky;
+            font-size: 3em; /*3em*/ /*60px*/
+            /*overflow-y: hidden;*/
+            /*overflow-x: auto;*/
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+            height: 100vh;
+        }
+
+            .column img {
+                margin-top: 8px;
+                vertical-align: middle;
+            }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+        .controls .hotspot-controls {
+            background: rgba(0,0,0,0.8);
+        }
+        .controls {
+            right: 20%; /*from 0 to 30% to align it in the middle*/
+            left: 20%;
+            width: 600px; /*changed*/
+        }
+    </style>
+</head>
+
+<body style="overflow: auto;">
+
+    <div class="container-fluid">
+        <div class="row" >
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <h1>Virtual Vizcaya</h1> <hr />
+                        <p>
+                            This project was made possible by the John S. and James L. Knight Foundation.
+                            <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.                                            
+                            <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
+                        </p>
+                </div>
+                <!--sticky footer-->
+                <footer class="footer">
+                    <div align="center">
+                        <div id="langdiv_index"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
+                    </div>
+                </footer>
+            </nav>
+
+        </div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <!-- Photo Grid -->
+            <div class="row">
+                <div class="column">
+                    <div class="tilediv" href="3d-documentation.html">
+                        <div class="tile bg-one">
+                            <a class="tiletext" >
+                                3D Documentation
+                            </a>
+                        </div>
+                    </div>                    
+                    <a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a>
+                    <a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a>
+                </div>
+                <div class="column">
+                    <a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a>
+                    <a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a>
+                    <a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a>
+                </div>
+                <div class="column">
+                    <a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a>
+                    <a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a>
+                    <a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a>
+                </div>
+                <div class="column">
+                    <a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a>
+                    <a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a>
+                    <a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="showcase">
+                    <div class="row no-gutters">
+                        <div class="controls">
+                            <div class="hotspot-controls">
+                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                                </div>
+                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Use the arrows to select pages</b></div>
+                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                                </div>
+                                <div id="lists" class="list hotspots-list visible">
+                                    <ul class="js-scrollable">
+                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span> Grotesques</a></li>
+                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
+                                        <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
+                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+        </main>
+       
+    </div>
+
+    <!-- Modal for HOUSE.HTML-->
+    <div class="modal fade" id="myHouse">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Virtual Access Tour</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg"><br><br>
+                    <p style="font-weight: lighter;">
+                        Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925.
+                        As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed
+                        in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom.
+                        Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and
+                        hard-to-reach areas of the gardens.
+                        <br /><br />Select start to begin a virtual access tour.
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="http://vizcaya.darumatech.com/VAT/kiosk/house.html"><button type="button" class="btn">Start</button></a>
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Credits Modal-->
+    <div class="modal fade" id="creditsModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="container-fluid">
+
+                        <div class="row featurette" style="padding-top: 1%;">
+                            <div class="col-md-12 order-md-1">
+                                <img class="featurette-image img-fluid mx-auto" src="images/KF_logo-stacked.png" alt="Generic placeholder image">
+                                <p class="lead">
+                                    <br />
+                                    This project was made possible through support from the John S. and James L. Knight Foundation.
+                                    <br />
+                                    <h5>Our project partners are:</h5>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" src="images/daruma_logo.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h3>Daruma Tech</h3>
+                                <p style="font-weight:lighter;">Daruma Tech is a full service technology company that specializes in 3D rendering and App development among other digital solutions for the private and public sectors.  Recent projects include an IOS and Android application that featured augmented reality videos and 3D illustrations to immerse the user in the Troy University and the update of an IOS and Android application for Tri-Rail that incorporates a data-driven, dynamic train schedule.  Daruma Tech will be contracted to finalize the 3D models of the Barge and Pool ceiling mural and develop the kiosk interface, VR/AR application and web module virtual online interactive.</p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" src="images/fiu_logo.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h3>Florida International University – Miami Beach Urban Studios</h3>
+                                <p style="font-weight:lighter;">The Miami Beach Urban Studios (MBUS) is a unique 16,000sf facility in the 420 Lincoln Road Building that hosts an interdisciplinary array of innovative exhibitions, classes, research laboratories, and events for the College of Communication, Architecture + The Arts (aka “CARTA,” which is comprised of the following departments: Architecture, Landscape Architecture, Interior Architecture, Music, Art/Art History, Theatre, Journalism + Media and Communication).  It also houses affiliated institutions (Sea Level Solution Center, Amernet String Quartet, ARC+, and temporarily, the Miami Urban Future Initiative, and the Ratcliffe Art + Design Incubator). MBUS houses the 3,500sf Knight-sponsored CARTA Innovation Lab, which with over 33 3D printers is one of the largest 3D printing laboratories of its kind in the United States. The lab is proud to have been selected to be a participant in the HP/EDUCAUSE Building the Campus of the Future Project.</p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" src="images/uf_logo.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h3>The University of Florida, College of Design, Construction & Planning, Envision Heritage Program</h3>
+                                <p style="font-weight:lighter;">Launched by the Historic Preservation Program in 2012, the University of Florida’s Envision Heritage explores how new and emerging digital technologies can be used to document, preserve, and interpret heritage sites. The research projects utilize laser scanning, photogrammetry and imaging from drones, among other technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+        /* Hotspots Control Dropup
+        *****************************************************/
+        $("#hotspots").click(function () {     
+            if (document.getElementById('tilename').innerHTML == "3D Documentation") {
+                window.location.href = "3d-documentation.html";
+            }
+            if (document.getElementById('tilename').innerHTML == "Alligators"){
+                window.location.href = "swimmingpoolgrotto.html?1";
+            }
+            if (document.getElementById('tilename').innerHTML == "2017 Sculptures") {
+                window.location.href = "barge.html?2";
+            }
+            if (document.getElementById('tilename').innerHTML == "Hurricane Irma") {
+                window.location.href = "irma.html";
+            }
+            if (document.getElementById('tilename').innerHTML == "Swimming Pool Grotto") {
+                window.location.href = "swimmingpoolgrotto.html?0";
+            }
+            if (document.getElementById('tilename').innerHTML == "1916 Herm") {
+                window.location.href = "1916barge.html?1";
+            }
+            if (document.getElementById('tilename').innerHTML == "2017 Herm") {
+                window.location.href = "barge.html?1";
+            }
+            if (document.getElementById('tilename').innerHTML == "2017 Barge") {
+                window.location.href = "barge.html?0";
+            }
+            if (document.getElementById('tilename').innerHTML == "Our Partners") {
+                $('#creditsModal').modal('show');  
+            }
+            if (document.getElementById('tilename').innerHTML == "1916 Barge") {
+                window.location.href = "1916barge.html?0";
+            }
+            if (document.getElementById('tilename').innerHTML == "Virtual Access Tour") {
+                $('#myHouse').modal('show'); 
+            }
+            if (document.getElementById('tilename').innerHTML == "1916 Sculptures") {
+                window.location.href = "1916barge.html?2";
+            }
+        });
+
+        //Functions for each annotation
+        function tile1() {
+            document.getElementById("tile12").className += "tile_unselected";
+            document.getElementById("tile1").className += "tile_selected";
+            var newText = "3D Documentation";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile2() {
+            //better procedure:
+            document.getElementById("tile1").classList.remove('tile_selected');            
+            document.getElementById("tile2").className += "tile_selected";
+            var newText = "Alligators";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile3() {
+            document.getElementById("tile2").className += "tile_unselected";
+            document.getElementById("tile3").className += "tile_selected";
+            var newText = "2017 Sculptures";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile4() {
+            document.getElementById("tile3").className += "tile_unselected";
+            document.getElementById("tile4").className += "tile_selected";
+            var newText = "Hurricane Irma";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile5() {
+            document.getElementById("tile4").className += "tile_unselected";
+            document.getElementById("tile5").className += "tile_selected";
+            var newText = "Swimming Pool Grotto";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile6() {
+            document.getElementById("tile5").className += "tile_unselected";
+            document.getElementById("tile6").className += "tile_selected";
+            var newText = "1916 Herm";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile7() {
+            document.getElementById("tile6").className += "tile_unselected";
+            document.getElementById("tile7").className += "tile_selected";
+            var newText = "2017 Herm";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile8() {
+            document.getElementById("tile7").className += "tile_unselected";
+            document.getElementById("tile8").className += "tile_selected";
+            var newText = "2017 Barge";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile9() {
+            document.getElementById("tile8").className += "tile_unselected";
+            document.getElementById("tile9").className += "tile_selected";
+            var newText = "Our Partners";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function item10() {
+            document.getElementById("tile9").className += "tile_unselected";
+            document.getElementById("tile10").className += "tile_selected";
+            var newText = "1916 Barge";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile11() {
+            document.getElementById("tile10").className += "tile_unselected";
+            document.getElementById("tile11").className += "tile_selected";
+            var newText = "Virtual Access Tour";
+            document.getElementById('tilename').innerHTML = newText;
+        }
+        function tile12() {
+            document.getElementById("tile11").className += "tile_unselected";
+            document.getElementById("tile12").className += "tile_selected";
+            var newText = "1916 Sculptures";
+            document.getElementById('tilename').innerHTML = newText;
+        }      
+
+        //Hotspot Dropup's Prev/Next Selection
+        const functions = [];
+        functions.push(tile1);
+        functions.push(tile2);
+        functions.push(tile3);
+        functions.push(tile4);
+        functions.push(tile5);
+        functions.push(tile6);
+        functions.push(tile7);
+        functions.push(tile8);
+        functions.push(tile9);
+        functions.push(tile10);
+        functions.push(tile11);
+        functions.push(tile12);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = -1, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+
+    </script>
+
+</body>
+</html>

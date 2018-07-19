@@ -21,37 +21,22 @@
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
     <style>
-        .tiles{
-            overflow: hidden;
-        }
-        .tile_selected {
-            /*
-            -ms-transform: scale(1.02);
-            -moz-transform: scale(1.02);
-            -webkit-transform: scale(1.02);
-            -o-transform: scale(1.02);
-            transform: scale(1.02);
-            box-shadow
-            -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,1);
-            -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,1);
-            box-shadow: 0px 0px 10px 2px rgba(0,0,0,1);
-            */
-            -moz-transform: scale(1.4);
-            -webkit-transform: scale(1.4);
-            transform: scale(1.4);
-            
-            -webkit-box-shadow: inset 0px 0px 23px 1px rgba(0,0,0,0.53);
-            -moz-box-shadow: inset 0px 0px 23px 1px rgba(0,0,0,0.53);
-            box-shadow: inset 0px 0px 23px 1px rgba(0,0,0,0.53);
-
-
-        }
-
-        .tile_unselected {
+        .tile{
+            overflow: hidden !important;
             -moz-transition: all 0.3s;
             -webkit-transition: all 0.3s;
             transition: all 0.3s;
         }
+        .tile img {
+            /*only for physical kiosk*/
+            /*border: 3px solid #333333;*/
+        }
+        .tile_selected {
+            -moz-transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+     
         body {
             background-color: #fff !important;
         }
@@ -149,27 +134,28 @@
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tiles"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>                    
-                    <a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a>
-                    <a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a>
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a>
-                    <a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a>
-                    <a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a>
+                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a></div>                   
+                    <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>                 
                 </div>
                 <div class="column">
-                    <a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a>
-                    <a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a>
-                    <a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a>
+                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a></div>                    
                 </div>
                 <div class="column">
-                    <a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a>
-                    <a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a>
-                    <a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a>
+                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a></div>
+                    
                 </div>
             </div>
-            
+            <!--
             <div class="row">
                 <div class="showcase">
                     <div class="row no-gutters">
@@ -178,7 +164,7 @@
                                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                                     <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
                                 </div>
-                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Use the arrows to select a page</b></div>
+                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Use the arrows to select pages</b></div>
                                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                                     <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
                                 </div>
@@ -196,7 +182,7 @@
                     </div>
                 </div>
             </div>
-                
+               --> 
         </main>
        
     </div>
@@ -354,80 +340,50 @@
             }
         });
 
+        function tileSelection(newTitle, prevTile, newTile, nextTile) {
+            document.getElementById('tilename').innerHTML = newTitle;
+            document.getElementById(prevTile).classList.remove('tile_selected');           
+            document.getElementById(newTile).className += "tile_selected";
+            document.getElementById(nextTile).classList.remove('tile_selected');
+        }
+
         //Functions for each annotation
         function tile1() {
-            document.getElementById("tile12").className += "tile_unselected";
-            document.getElementById("tile1").className += "tile_selected";
-            var newText = "3D Documentation";
-            document.getElementById('tilename').innerHTML = newText;
+            /*newTitle, prevTile, newTile*/
+            tileSelection("3D Documentation", "tile12", "tile1", "tile2");
         }
         function tile2() {
-            //better procedure:
-            document.getElementById("tile1").classList.remove('tile_selected');
-            /*document.getElementById("tile1").className += "tile_unselected";*/
-            document.getElementById("tile2").className += "tile_selected";
-            var newText = "Alligators";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("Alligators", "tile1", "tile2", "tile3");
         }
         function tile3() {
-            document.getElementById("tile2").className += "tile_unselected";
-            document.getElementById("tile3").className += "tile_selected";
-            var newText = "2017 Sculptures";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("2017 Sculptures", "tile2", "tile3", "tile4");
         }
         function tile4() {
-            document.getElementById("tile3").className += "tile_unselected";
-            document.getElementById("tile4").className += "tile_selected";
-            var newText = "Hurricane Irma";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("Hurricane Irma", "tile3", "tile4", "tile5");
         }
         function tile5() {
-            document.getElementById("tile4").className += "tile_unselected";
-            document.getElementById("tile5").className += "tile_selected";
-            var newText = "Swimming Pool Grotto";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("Swimming Pool Grotto", "tile4", "tile5", "tile6");
         }
         function tile6() {
-            document.getElementById("tile5").className += "tile_unselected";
-            document.getElementById("tile6").className += "tile_selected";
-            var newText = "1916 Herm";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("1916 Herm", "tile5", "tile6", "tile7");
         }
         function tile7() {
-            document.getElementById("tile6").className += "tile_unselected";
-            document.getElementById("tile7").className += "tile_selected";
-            var newText = "2017 Herm";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("2017 Herm", "tile6", "tile7", "tile8");
         }
         function tile8() {
-            document.getElementById("tile7").className += "tile_unselected";
-            document.getElementById("tile8").className += "tile_selected";
-            var newText = "2017 Barge";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("2017 Barge", "tile7", "tile8", "tile9");
         }
         function tile9() {
-            document.getElementById("tile8").className += "tile_unselected";
-            document.getElementById("tile9").className += "tile_selected";
-            var newText = "Our Partners";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("Our Partners", "tile8", "tile9", "tile10");
         }
         function item10() {
-            document.getElementById("tile9").className += "tile_unselected";
-            document.getElementById("tile10").className += "tile_selected";
-            var newText = "1916 Barge";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("1916 Barge", "tile9", "tile10", "tile11");
         }
-        function tile11() {
-            document.getElementById("tile10").className += "tile_unselected";
-            document.getElementById("tile11").className += "tile_selected";
-            var newText = "Virtual Access Tour";
-            document.getElementById('tilename').innerHTML = newText;
+        function tile11() {          
+            tileSelection("Virtual Access Tour", "tile10", "tile11", "tile12");
         }
         function tile12() {
-            document.getElementById("tile11").className += "tile_unselected";
-            document.getElementById("tile12").className += "tile_selected";
-            var newText = "1916 Sculptures";
-            document.getElementById('tilename').innerHTML = newText;
+            tileSelection("1916 Sculptures", "tile11", "tile12", "tile13");
         }      
 
         //Hotspot Dropup's Prev/Next Selection
@@ -447,7 +403,7 @@
 
         const length = functions.length;
 
-        const getNextIdx = (idx = -1, length, direction) => {
+        const getNextIdx = (idx = 0, length, direction) => {
             switch (direction) {
                 case 'next': return (idx + 1) % length;
                 case 'prev': return (idx == 0) && length - 1 || idx - 1;
