@@ -136,6 +136,18 @@
         </div>
     </div>
 
+    <!--Contextual Map-->
+    <div id="contextual-map" class="map-popup">
+        <div class="map-popupcontent">
+            <span class="close">&times;</span>
+            <h1 id="map-header">Location at Vizcaya</h1>
+            <hr />
+
+            <img id="floor-plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
+            <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
+        </div>
+    </div>
+
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -171,7 +183,7 @@
             window.onscroll = resetTimer;    // catches scrolling
             window.onkeypress = resetTimer;  //catches keyboard actions
 
-             //Trouble shoot for time function for popup
+            //Trouble shoot for time function for popup
             /*
             popup.onmousemove = resetTimer; // catches mouse movements
             popup.onmousedown = resetTimer; // catches mouse movements
@@ -181,23 +193,23 @@
             popup.onscroll = resetTimer;    // catches scrolling
             popup.onkeypress = resetTimer;  //catches keyboard actions
             */
-            
+
 
             function logout() {
-               
+
                 window.top.location.href = '../index.html';  //Adapt to actual logout script
             }
             function resetTimer() {
-             
+
                 clearTimeout(t);
                 t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
 
             }
 
-            
+
         }
         idleTimer();
-        
+
 
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
@@ -360,20 +372,20 @@
                     }
                 }
             }
-            
+
             {
 
                 {
                     /* Annotation: Opening Transition/Center of Barge
                     *****************************************************/
                     let elTitle = $(`
-                                        <span>
-                                            <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                name="action_set_scene"
-                                                class="annotation-action-icon"
-                                                style="filter: invert(1);" />
-                                        </span>
-                                    `);
+                                            <span>
+                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>
+                                        `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "Barge2";
@@ -394,15 +406,15 @@
                     let aAbout2 = new Potree.Annotation({
                         position: [589367.536, 231407.493, 852.372],
                         title: $(`<span>
-                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                        name="action_set_scene"
-                                        class="annotation-action-icon"
-                                        style="filter: invert(1);" />
-                                  </span>`),
+                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                            name="action_set_scene"
+                                            class="annotation-action-icon"
+                                            style="filter: invert(1);" />
+                                      </span>`),
                         cameraPosition: [589607.104, 231616.701, 920.329],
                         cameraTarget: [589389.183, 231541.292, 877.626],
-                        description: `SUMMER HOUSE <hr>The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was originally landscaped with many potted plants, had functioning fountains as well as electricity.                                  
-                    `});
+                        description: `SUMMER HOUSE <hr>The Summer House, lost during the great Miami hurricane of 1926, was a wood trellis structure that provided shade for guests visiting the Barge. In addition to the Summer House the Barge was originally landscaped with many potted plants, had functioning fountains as well as electricity.
+                        `});
                     /*
                         aStatues.domElement.off("mouseenter");
                         aStatues.domElement.off("mouseleave");
@@ -417,11 +429,11 @@
                     /* Annotation: Grotesques
                     *****************************************************/
                     let elTitle = $(`<span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>`);
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "GROTESQUES";
@@ -431,21 +443,21 @@
                         title: elTitle,
                         cameraPosition: [589210.869, 231208.791, 759.929],
                         cameraTarget: [589386.200, 231581.351, 810.098],
-                        description: `GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and include bearded men, youthful women, and animals.                                
-                    `});
+                        description: `GROTESQUES<hr>These eight grotesques around the outside of the Barge were designed by Alexander Calder and include bearded men, youthful women, and animals.
+                        `});
 
                     sceneSG.annotations.add(aAbout3);
                 }
-                
+
                 {
                     /* Annotation: Herm
                     *****************************************************/
                     let elTitle = $(`<span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>`);
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         popupHerm();
                         /*event.stopPropagation();*/
@@ -468,11 +480,11 @@
                     /* Annotation: Sculptures
                     *****************************************************/
                     let elTitle = $(`<span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>`);
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         popupSculptures();
                         /*event.stopPropagation();*/
@@ -489,17 +501,17 @@
                     });
 
                     sceneSG.annotations.add(aAbout5);
-                }            
-      
+                }
+
                 {
                     /* Annotation: Mermaids
                     *****************************************************/
                     let elTitle = $(`<span>
-                                <img src="${Potree.resourcePath}/icons/i.png"
-                                    name="action_set_scene"
-                                    class="annotation-action-icon"
-                                    style="filter: invert(1);" />
-                                </span>`);
+                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                        name="action_set_scene"
+                                        class="annotation-action-icon"
+                                        style="filter: invert(1);" />
+                                    </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "MERMAIDS";
@@ -510,7 +522,7 @@
                         cameraPosition: [590803.366, 231533.632, 891.231], /*590710.354, 231503.486, 769.828*/ /*590753.773, 231640.128, 814.432*/
                         cameraTarget: [589464.078, 231591.976, 420.348], /*589483.126, 231733.839, 872.968*/ /*589481.784, 231192.420, 599.128*/
                         description: `MERMAIDS<hr>The Barge mermaids were designed by Alexander Calder. James Deering initially found the proportions of the Mermaids too provocative and Calder was asked to alter the proportion of the sculptures to a more modest size.
-                    `});
+                        `});
 
                     sceneSG.annotations.add(aAbout6);
                 }
@@ -529,11 +541,11 @@
                 setTimeout(function () {
                     sceneSG.annotations.children[0].moveHere(sceneSG.camera);
                 }, 3500);
-                
+
                 setTimeout(function () {
                     document.getElementById("finger_animation").style.display = "flex";
                 }, 8000);
-                
+
             }
             //Herm
             else if (hotSpot == 1) {
@@ -547,7 +559,7 @@
                     var span = document.getElementsByClassName("close")[0];
 
                     popup.style.display = "block";
-                 
+
                     span.onclick = function () {
                         popup.style.display = "none";
                         //Reloads the Popup
@@ -597,7 +609,7 @@
                 }, 7800);
             }
         }
-       
+
 
         /* Hotspots Control Dropup
         *****************************************************/
