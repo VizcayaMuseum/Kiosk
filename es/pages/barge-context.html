@@ -42,7 +42,7 @@
     </div>
 
     <!--Control Icons-->
-    <img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />
+    <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
     <img id="question_icon" src="../images/question.svg" title="Navigation" />
     <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
@@ -138,13 +138,13 @@
                     /* Annotation: Front Opening Transition
                     *****************************************************/
                     let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "Front View";
@@ -163,13 +163,13 @@
                     /* Annotation: Back
                     *****************************************************/
                     let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "Back View";
@@ -188,13 +188,13 @@
                     /* Annotation: Right
                     *****************************************************/
                     let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "Right Side View";
@@ -213,13 +213,13 @@
                     /* Annotation: Left
                     *****************************************************/
                     let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "Left Side View";
