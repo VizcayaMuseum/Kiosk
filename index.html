@@ -8,7 +8,8 @@
     <link rel="icon" href="images/favicon.ico">
 
     <title>Virtual Vizcaya</title>
-
+    <!-- Material Design Bootstrap -->
+    <link href="MDB/css/mdb.min.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="dist/css/bootstrap.css" rel="stylesheet">
@@ -17,26 +18,30 @@
     <link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
     <link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
 
+
+
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
 
     <style>
-        .tile{
+        .tile {
             overflow: hidden !important;
             -moz-transition: all 0.3s;
             -webkit-transition: all 0.3s;
             transition: all 0.3s;
         }
-        .tile img {
-            /*only for physical kiosk*/
-            /*border: 3px solid #333333;*/
-        }
+
+            .tile img {
+                /*only for physical kiosk*/
+                /*border: 3px solid #333333;*/
+            }
+
         .tile_selected {
             -moz-transform: scale(1.2);
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
-     
+
         body {
             background-color: #fff !important;
         }
@@ -96,9 +101,11 @@
                 max-width: 100%;
             }
         }
+
         .controls .hotspot-controls {
             background: rgba(0,0,0,0.8);
         }
+
         .controls {
             right: 20%; /*from 0 to 30% to align it in the middle*/
             left: 20%;
@@ -110,15 +117,15 @@
 <body style="overflow: auto;">
 
     <div class="container-fluid">
-        <div class="row" >
+        <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h1>Virtual Vizcaya</h1> <hr />
-                        <p>
-                            This project was made possible by the John S. and James L. Knight Foundation.
-                            <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.                                            
-                            <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
-                        </p>
+                    <p>
+                        This project was made possible by the John S. and James L. Knight Foundation.
+                        <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
+                        <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
+                    </p>
                 </div>
                 <!--sticky footer-->
                 <footer class="footer">
@@ -134,28 +141,38 @@
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>
                     <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>                    
-                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a></div>                   
-                    <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>                 
+                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>                    
-                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a></div>                    
-                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a></div>                    
-                    <div class="tile"><a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a></div>
-                    
+
+
+                    <div id="tilediv" class="view overlay zoom" > <!--add overlay zoom-->
+                        <a href="3d-documentation.html">
+                            <img src="images/works/3DDocumentation_English.png" class="img-fluid" alt="">
+                            <div id="tiletext" class="mask flex-center rgba-white-slight"> <!--add mask-->         
+                                <p class="white-text" style="word-wrap: break-word; font-size: 20px !important; text-align: center;">3D Documentation</p>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
-            <!--
+
             <div class="row">
                 <div class="showcase">
                     <div class="row no-gutters">
@@ -182,9 +199,9 @@
                     </div>
                 </div>
             </div>
-               --> 
+
         </main>
-       
+
     </div>
 
     <!-- Modal for HOUSE.HTML-->
@@ -297,15 +314,18 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
 
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="MDB/js/mdb.min.js"></script>
+
     <script>
 
         /* Hotspots Control Dropup
         *****************************************************/
-        $("#hotspots").click(function () {     
+        $("#hotspots").click(function () {
             if (document.getElementById('tilename').innerHTML == "3D Documentation") {
                 window.location.href = "3d-documentation.html";
             }
-            if (document.getElementById('tilename').innerHTML == "Alligators"){
+            if (document.getElementById('tilename').innerHTML == "Alligators") {
                 window.location.href = "swimmingpoolgrotto.html?1";
             }
             if (document.getElementById('tilename').innerHTML == "2017 Sculptures") {
@@ -327,13 +347,13 @@
                 window.location.href = "barge.html?0";
             }
             if (document.getElementById('tilename').innerHTML == "Our Partners") {
-                $('#creditsModal').modal('show');  
+                $('#creditsModal').modal('show');
             }
             if (document.getElementById('tilename').innerHTML == "1916 Barge") {
                 window.location.href = "1916barge.html?0";
             }
             if (document.getElementById('tilename').innerHTML == "Virtual Access Tour") {
-                $('#myHouse').modal('show'); 
+                $('#myHouse').modal('show');
             }
             if (document.getElementById('tilename').innerHTML == "1916 Sculptures") {
                 window.location.href = "1916barge.html?2";
@@ -342,7 +362,7 @@
 
         function tileSelection(newTitle, prevTile, newTile, nextTile) {
             document.getElementById('tilename').innerHTML = newTitle;
-            document.getElementById(prevTile).classList.remove('tile_selected');           
+            document.getElementById(prevTile).classList.remove('tile_selected');
             document.getElementById(newTile).className += "tile_selected";
             document.getElementById(nextTile).classList.remove('tile_selected');
         }
@@ -379,12 +399,12 @@
         function item10() {
             tileSelection("1916 Barge", "tile9", "tile10", "tile11");
         }
-        function tile11() {          
+        function tile11() {
             tileSelection("Virtual Access Tour", "tile10", "tile11", "tile12");
         }
         function tile12() {
             tileSelection("1916 Sculptures", "tile11", "tile12", "tile13");
-        }      
+        }
 
         //Hotspot Dropup's Prev/Next Selection
         const functions = [];
