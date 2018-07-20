@@ -27,14 +27,17 @@
             -webkit-transition: all 0.3s;
             transition: all 0.3s;
         }
-        .tile img {
-            /*only for physical kiosk*/
-            /*border: 3px solid #333333;*/
-        }
         .tile_selected {
+            /*
             -moz-transform: scale(1.2);
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
+                */
+            
+            transition: .3s ease;
+            opacity: 0.8;
+            background-color: rgba(0,0,0,0.5);
+            color: #ffffff;
         }
      
         body {
@@ -43,9 +46,7 @@
 
         h1 {
             position: sticky;
-            font-size: 3em; /*3em*/ /*60px*/
-            /*overflow-y: hidden;*/
-            /*overflow-x: auto;*/
+            font-size: 3em; /*3em*/ /*60px*/           
         }
 
         * {
@@ -155,7 +156,7 @@
                     
                 </div>
             </div>
-            <!--
+         
             <div class="row">
                 <div class="showcase">
                     <div class="row no-gutters">
@@ -182,7 +183,7 @@
                     </div>
                 </div>
             </div>
-               --> 
+                
         </main>
        
     </div>
