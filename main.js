@@ -1,12 +1,9 @@
 //Redirect functions
 function redirectFunc() {
-
     window.top.location.reload();
-
 }
 
 function refreshButton() {
-
     window.top.location.reload();
 }
 
@@ -15,10 +12,16 @@ function refreshPopup(){
 }
 
 function redirectHomeFunc() {
-
     window.top.location.href = "../index.html";
 }
-    
+
+function barge1916Button() {
+    window.top.location.assign("../1916barge.html?0");
+} 
+
+function barge2017Button() {
+    window.top.location.assign("../barge.html?0");
+}
 
 /* Zoom In
 *****************************************************/
@@ -246,10 +249,3 @@ function potreeHermMoveDown() {
 
     sceneSG.scenePointCloud.rotation.y += 0.1;
 }
-
-/* Control Panel
-*****************************************************
-$("#control_icon").click(function () {
-    $("#control_panel").toggle();
-});
-*/

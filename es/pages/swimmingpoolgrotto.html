@@ -107,10 +107,10 @@
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones del Rio Hudson"><span class="index">&sccue;</span>Esturiones del Rio Hudson</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Fuentes"><span class="index">&sccue;</span>Fuentes</a></li>
                         <li id="li5" class="link"><a data-hotspot-target="4" title="Piso"><span class="index">&sccue;</span>Piso</a></li>
-                        <li id="li6" class="link"><a data-hotspot-target="5" title="Caimanes"><span class="index">&sccue;</span> Caimanes</a></li>
+                        <li id="li6" class="link"><a data-hotspot-target="5" title="Caimanes"><span class="index">&sccue;</span> Lagartos</a></li>
                         <li id="li7" class="link"><a data-hotspot-target="6" title="Octopuses"><span class="index">&sccue;</span> Pulpos</a></li>
                         <li id="li8" class="link"><a data-hotspot-target="7" title="Lobsters"><span class="index">&sccue;</span> Langostas</a></li>
-                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Tortugas</a></li>
+                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Tortugas de Mar</a></li>
                     </ul>
                 </div>
             </div>
@@ -650,12 +650,12 @@
             /* Navigation Controls Image
             *****************************************************/
             $("#question_icon").click(function () {
-                $("#nav_panel").toggle();
+                $("#nav_panel").fadeIn();
             });
 
             var navPanel = document.getElementById('nav_panel');
             navPanel.addEventListener('click', function () {
-                navPanel.style.display = "none";
+                $("#nav_panel").fadeOut();
             });
 
         </script>

@@ -14,7 +14,17 @@
     <link rel="stylesheet" type="text/css" href="../libs/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
+    <style>
+        @media screen and (max-width: 800px) {
+            .nav_img {
+                -ms-flex: 30%;
+                flex: 30%;
+                max-width: 30%;
+                max-width: 30%;
+            }
+        }
 
+    </style>
 </head>
 
 <body>
@@ -348,12 +358,12 @@
         /* Navigation Controls Image
         *****************************************************/
         $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
+            $("#nav_panel").fadeIn();
         });
 
         var navPanel = document.getElementById('nav_panel');
         navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
+            $("#nav_panel").fadeOut();
         });
     </script>
 

@@ -878,6 +878,36 @@ a {
     border-radius: 40px;
 }
 
+#barge_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    right: 300px; /*1280px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 40px;
+}
+
+#map_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    right: 238px; /*1280px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 40px;
+}
+
 #refresh_icon {
     /*display: none;*/
     width: 110%;
@@ -893,16 +923,17 @@ a {
     border-radius: 40px;
 }
 
+
 #question_icon {
     /*display: none;*/
     width: 110%;
     height: 110%;
     position: fixed;
     bottom: 15px;
-    right: 82px; /*70px*/
+    right: 85px; /*70px*/
     cursor: pointer;
-    max-height: 75px !important;
-    max-width: 75px !important;
+    max-height: 70px !important;
+    max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
     border-radius: 40px;
@@ -1123,4 +1154,3 @@ a {
         -webkit-transform: scale(1.5);
     }
 }
-

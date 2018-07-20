@@ -348,12 +348,12 @@
         /* Navigation Controls Image
         *****************************************************/
         $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
+            $("#nav_panel").fadeIn();
         });
 
         var navPanel = document.getElementById('nav_panel');
         navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
+            $("#nav_panel").fadeOut();
         });
     </script>
 
