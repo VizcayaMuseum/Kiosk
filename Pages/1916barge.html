@@ -136,17 +136,17 @@
         </div>
     </div>
 
-    <!--Contextual Map-->
-    <div id="contextual-map" class="map-popup">
-        <div class="map-popupcontent">
-            <span class="close">&times;</span>
-            <h1 id="map-header">Location at Vizcaya</h1>
-            <hr />
-
-            <img id="floor-plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
-            <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
-        </div>
+    <!--Contextual Map-->    
+    <div id="map_wrapper">
+        <img id="vizcaya_logo" src="../assets/img/logo2.jpg" />
+        <h1>Barge</h1>
+        <img id="floor_plan"src="../assets/img/full-estate_panogroup24_panogroup24.png" />
+        <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
     </div>
+    
+   
+  
+       
 
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
@@ -229,13 +229,13 @@
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
-
+        /*
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
             //viewer.toggleSidebar();
         });
-
+        */
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
@@ -544,6 +544,7 @@
 
                 setTimeout(function () {
                     document.getElementById("finger_animation").style.display = "flex";
+                    $("#map_wrapper").slideDown("slow");
                 }, 8000);
 
             }
