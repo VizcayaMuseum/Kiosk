@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\js",
-    "\\assets\\js\\vendor"
+    "\\assets\\css",
+    "\\es",
+    "\\es\\assets",
+    "\\es\\assets\\css"
   ],
-  "SelectedNode": "\\assets\\js\\vendor",
+  "SelectedNode": "\\es\\assets\\css\\vizcaya.css",
   "PreviewInSolutionExplorer": true
 }
