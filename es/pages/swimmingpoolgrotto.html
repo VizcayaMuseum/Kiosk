@@ -94,7 +94,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para iniciar Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para Explorar</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -104,13 +104,13 @@
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">&sccue;</span> Amorino</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Techo Mural"><span class="index">&sccue;</span>Techo Mural</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones del Rio Hudson"><span class="index">&sccue;</span>Esturiones del Rio Hudson</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Esturiones"><span class="index">&sccue;</span>Esturiones</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Fuentes"><span class="index">&sccue;</span>Fuentes</a></li>
                         <li id="li5" class="link"><a data-hotspot-target="4" title="Piso"><span class="index">&sccue;</span>Piso</a></li>
-                        <li id="li6" class="link"><a data-hotspot-target="5" title="Caimanes"><span class="index">&sccue;</span> Caimanes</a></li>
+                        <li id="li6" class="link"><a data-hotspot-target="5" title="Caimanes"><span class="index">&sccue;</span> Lagartos</a></li>
                         <li id="li7" class="link"><a data-hotspot-target="6" title="Octopuses"><span class="index">&sccue;</span> Pulpos</a></li>
                         <li id="li8" class="link"><a data-hotspot-target="7" title="Lobsters"><span class="index">&sccue;</span> Langostas</a></li>
-                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Tortugas</a></li>
+                        <li id="li9" class="link"><a data-hotspot-target="8" title="Turtles"><span class="index">&sccue;</span> Tortugas de Mar</a></li>
                     </ul>
                 </div>
             </div>
@@ -650,12 +650,12 @@
             /* Navigation Controls Image
             *****************************************************/
             $("#question_icon").click(function () {
-                $("#nav_panel").toggle();
+                $("#nav_panel").fadeIn();
             });
 
             var navPanel = document.getElementById('nav_panel');
             navPanel.addEventListener('click', function () {
-                navPanel.style.display = "none";
+                $("#nav_panel").fadeOut();
             });
 
         </script>

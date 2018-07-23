@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\css",
+    "\\es",
+    "\\es\\assets",
+    "\\es\\assets\\css"
   ],
-  "SelectedNode": "\\index2.html",
+  "SelectedNode": "\\irma.html",
   "PreviewInSolutionExplorer": true
 }

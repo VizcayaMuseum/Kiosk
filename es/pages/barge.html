@@ -73,6 +73,7 @@
 
         <!--Control Icons-->
         <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
+        <img id="barge_icon" onclick="barge1916Button()" src="../images/1916_Barcaza.svg" title="View Barge" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
@@ -92,7 +93,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para iniciar Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para Explorar</div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -576,12 +577,12 @@
         /* Navigation Controls Image
         *****************************************************/
         $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
+            $("#nav_panel").fadeIn();
         });
 
         var navPanel = document.getElementById('nav_panel');
         navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
+            $("#nav_panel").fadeOut();
         });
 
     </script>

@@ -1,125 +1,154 @@
 ﻿<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Hurricane Irma</title>
+    <title>Barge</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/irma.css" rel="stylesheet">
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+	
+    <style>
+        body {
+            background-color:  !important;
+        }
+        .modal-content {
+            width: 115%;
+        }
+        
+    </style>
 
-</head>
+  </head>
 
-<body>
+  <body style="overflow:auto;">
 
-    <main class="d-flex w-100 h-100vh">
-        <aside class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="col h-100vh d-flex flex-column justify-content-between">
-                <div id="header-div">
-                    <h1>3D Documentation</h1><hr>
-                    <p>
-                        Vizcaya and the project partners combined photogrammetry and laser scanning to maximize the advantages of each technique. The results are unique and highly accurate images and print models that document Vizcaya over time.
-                        <br><br>Vizcaya used two methods of 3D documentation:
-                        <br /><br /><b>Laser scanning</b> captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models.
-                        <br /><br /><b>Photogrammetry</b> makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
-                        <br />
-                        <!--Pop-up-->
-                        <a data-toggle="modal" href="#myModal"><br /><u>How does 3D documentation contribute to the preservation of Vizcaya?</u></a>
-                    </p>
-                </div>
-                <!--sticky footer-->
-                <footer class="footer">
-                    <div align="center">
-                        <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" /></a></div>
-                        <div class="lang_div"><a id="lang_selected"><b>English</b></a> | <a href="es/3d-documentation.html">Español</a></div>
-                    </div>
+      <div class="container-fluid">
+          
+          <div id="container">
 
-                </footer>
-            </div>
-        </aside>
-        <section class="workspace bg-dark flex-fill">
-            <div class="main-container h-100vh d-flex flex-column">
-                <!--Featured Content-->
-                <div id="main-video" class="embed-responsive embed-responsive-16by9">
-                    <iframe src="pages/barge-context.html" allowfullscreen></iframe>
-                </div>
+              <div id="split-container" class="mini-container1">
 
-                <div class="video-showcase">
-                    <div class="row no-gutters">
-                        <div class="col-sm-4">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="secondVideo()">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/photogrammetry1.mp4" type="video/mp4">
-                                </video>
+                  <div class="row">
+                      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                          <div class="sidebar-sticky">
+
+                              <h1>3D Documentation</h1><hr>
+                              <p>
+                                  Vizcaya and the project partners combined photogrammetry and laser scanning to maximize the advantages of each technique. The results are unique and highly accurate images and print models that document Vizcaya over time.
+                                  <br><br>Vizcaya used two methods of 3D documentation:
+                                  <br /><br /><b>Laser scanning</b> captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models.
+                                  <br /><br /><b>Photogrammetry</b> makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
+                                  <br />
+                                  <!--Pop-up-->
+                                  <a data-toggle="modal" href="#myModal"><br /><u>How does 3D documentation contribute to the preservation of Vizcaya?</u></a>
+                              </p>
+
+                          </div>
+                          <!--sticky footer-->
+
+                          <footer class="footer">
+                              <div align="center">
+                                  <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
+                                  <div class="lang_div"><a id="lang_selected"><b>English</b></a> | <a href="es/3d-documentation.html">Español</a></div>
+                              </div>
+                          </footer>
+                      </nav>
+                  </div>
+
+              </div>
+
+              <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
+                  <div class="main-container d-flex flex-column">
+                      <!--Featured Content-->
+                      <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
+                          <iframe src="pages/barge-context.html" allowfullscreen></iframe>
+                      </div>
+
+                      <div class="video-showcase">
+                            <div class="row no-gutters">
+                                <div class="col-sm-4 col-xs-12">
+
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="https://s3.amazonaws.com/vizcaya/video/photogrammetry1.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4 col-xs-12">
+
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="https://s3.amazonaws.com/vizcaya/video/bargeIntroShort.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4 col-xs-12">
+
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="thirdVideo()">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/bargeIntroShort.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="fourthVideo()">
-                                    <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+                 </div>
+              </div>
+              
+              <!-- The Modal -->
+              <div class="modal fade" id="myModal">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">How does 3D documentation contribute to the preservation of Vizcaya?</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">How does 3D documentation contribute to the preservation of Vizcaya?</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <ol>
+                                  <li>Measures surface loss and how quickly objects change due to environmental conditions.</li>
+                                  <li>Predicts rates of deterioration and informs conservation priorities.</li>
+                                  <li>Analyzes effects of sea level rise and predicts how this might affect Vizcaya in the future.</li>
+                                  <li>Measures objects and structures to provide detailed dimensions used to plan conservation projects and records objects and structures before conservation begins.</li>
+                                  <li>Aids expert understanding by examining enlarged highly accurate details on a virtually unlimited scale.</li>
+                                  <li>Improves accessibility by enabling visitors to virtually explore spaces and to study collection objects through 3D print models. </li>
+                              </ol>
+                          </div>
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <ol>
-                        <li>Measures surface loss and how quickly objects change due to environmental conditions.</li>
-                        <li>Predicts rates of deterioration and informs conservation priorities.</li>
-                        <li>Analyzes effects of sea level rise and predicts how this might affect Vizcaya in the future.</li>
-                        <li>Measures objects and structures to provide detailed dimensions used to plan conservation projects and records objects and structures before conservation begins.</li>
-                        <li>Aids expert understanding by examining enlarged highly accurate details on a virtually unlimited scale.</li>
-                        <li>Improves accessibility by enabling visitors to virtually explore spaces and to study collection objects through 3D print models. </li>
-                    </ol>
-                </div>
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
-                </div>
+                      </div>
+                  </div>
 
-            </div>
-        </div>
+              </div>
 
-    </div>
 
-    <!-- Bootstrap core JavaScript
+          </div>
+      </div>
+
+      <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+      <!-- Placed at the end of the document so the pages load faster -->
 
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
+      <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="assets/js/vendor/popper.min.js"></script>
+      <script src="dist/js/bootstrap.min.js"></script>
 
-</body>
+  </body>
 </html>
