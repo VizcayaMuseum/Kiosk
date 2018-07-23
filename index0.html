@@ -103,9 +103,10 @@
             bottom: 0;
         }
         .controls {
-            right: 30%; /*from 0 to 30% to align it in the middle*/
-            left: 30%;
-            width: 500px; /*changed*/            
+            right: 22%; /*from 0 to 30% to align it in the middle*/
+            left: 22%;
+            width: 500px; /*changed*/       
+            bottom: 55%;
         }
 
         .controls .hotspot-controls .list {
@@ -127,10 +128,15 @@
             flex-wrap: nowrap;
             width: 90%
         }
+        #side_footer{
+            bottom: 0%;
+            background-color: #ffffff;
+        }
+        
     </style>
 </head>
 
-<body style="overflow: auto;">
+<body>
 
     <div class="container-fluid">
         <div class="row" >
@@ -157,9 +163,9 @@
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>                                            
-                    <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a></div>
-                    <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a></div>
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%; height: 80%;"></a></div>                                            
+                    <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%; height: 80%;"></a></div>
+                    <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%; height: 80%;"></a></div>
                 </div>
                 <div class="column">
                     <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>                    
@@ -178,47 +184,47 @@
                     
                 </div>
             </div>
-         
-            <div class="row">
-                <div class="showcase">
-                    <div class="row no-gutters">
-                        <div class="controls">
-                            <div class="hotspot-controls">
-                                
-                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
-                                </div>
-                                    
-                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch to Tour</b></div>
-                                
-                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
-                                </div>
-                                    
-                                <div id="lists" class="list hotspots-list visible">
-                                    <ul class="js-scrollable">
-                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
-                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
-                                        <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
-                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
-                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
-                                        <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
-                                        <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
-                                        <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
-                                        <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
-                                        <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
-                                        <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Virtual Access Tour</a></li>
-                                        <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
-                                    </ul>
-                                </div>
+            <div class="row" id="bottom_row">
+                <div class="footer" id="side_footer">
+                    <!--<div class="showcase">-->
+                    <!--<div class="row">-->
+                    <div class="controls">
+                        <div class="hotspot-controls">
+
+                            <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                            </div>
+
+                            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch to Tour</b></div>
+
+                            <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                            </div>
+
+                            <div id="lists" class="list hotspots-list visible">
+                                <ul class="js-scrollable">
+                                    <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
+                                    <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
+                                    <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
+                                    <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
+                                    <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
+                                    <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
+                                    <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
+                                    <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
+                                    <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
+                                    <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
+                                    <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Virtual Access Tour</a></li>
+                                    <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
+                                </ul>
                             </div>
                         </div>
+                        <!--</div>-->
+                        <!--</div>-->
                     </div>
                 </div>
-            </div>
-                
-        </main>
-       
+                </div>
+</main>
+        
     </div>
 
     <!-- Modal for HOUSE.HTML-->

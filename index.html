@@ -108,9 +108,10 @@
             bottom: 0;
         }
         .controls {
-            right: 30%; /*from 0 to 30% to align it in the middle*/
-            left: 30%;
-            width: 500px; /*changed*/            
+            right: 22%; /*from 0 to 30% to align it in the middle*/
+            left: 22%;
+            width: 500px; /*changed*/
+            bottom: 55%;
         }
 
         .controls .hotspot-controls .list {
@@ -132,21 +133,27 @@
             flex-wrap: nowrap;
             width: 90%
         }
+        #side_footer {
+            bottom: 0%;
+            background-color: #ffffff;
+        }
+        
     </style>
 </head>
 
-<body style="overflow: auto;">
+<body >
+    <!--style="overflow: auto;"-->
 
     <div class="container-fluid">
-        <div class="row" >
+        <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <h1>Virtual Vizcaya</h1> <hr />
-                        <p>
-                            This project was made possible by the John S. and James L. Knight Foundation.
-                            <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.                                            
-                            <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
-                        </p>
+                    <p>
+                        This project was made possible by the John S. and James L. Knight Foundation.
+                        <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
+                        <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
+                    </p>
                 </div>
                 <!--sticky footer-->
                 <footer class="footer">
@@ -162,68 +169,69 @@
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>
                     <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>                    
-                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a></div>                   
-                    <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>                 
+                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>                    
-                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a></div>                    
-                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a></div>                    
-                    <div class="tile"><a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a></div>                    
+                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#myHouse"><img id="tile11" src="images/works/VirtualAccessTour_English.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a></div>
-                    
+
                 </div>
             </div>
-         
-            <div class="row">
-                <div class="showcase">
-                    <div class="row no-gutters">
-                        <div class="controls">
-                            <div class="hotspot-controls">
-                                <!--
-                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
-                                </div>
-                                    -->
-                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch to Tour</b></div>
-                                <!--
-                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
-                                </div>
-                                    -->
-                                <div id="lists" class="list hotspots-list visible">
-                                    <ul class="js-scrollable">
-                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
-                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
-                                        <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
-                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
-                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
-                                        <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
-                                        <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
-                                        <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
-                                        <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
-                                        <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
-                                        <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Virtual Access Tour</a></li>
-                                        <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
-                                    </ul>
-                                </div>
+
+            <div class="row" id="bottom_row">
+                <div class="footer" id="side_footer">
+                    <!--<div class="showcase">-->
+                    <!--<div class="row">-->
+                    <div class="controls">
+                        <div class="hotspot-controls">
+                            <!--
+                            <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                            </div>
+                                -->
+                            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch to Tour</b></div>
+                            <!--
+                            <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                            </div>
+                                -->
+                            <div id="lists" class="list hotspots-list visible">
+                                <ul class="js-scrollable">
+                                    <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
+                                    <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
+                                    <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
+                                    <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
+                                    <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
+                                    <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
+                                    <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
+                                    <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
+                                    <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
+                                    <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
+                                    <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Virtual Access Tour</a></li>
+                                    <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-                
+
+
         </main>
-       
+
     </div>
 
     <!-- Modal for HOUSE.HTML-->
@@ -340,7 +348,7 @@
 
         /* Hotspots Control Dropup
         *****************************************************/
-        $("#hotspots").click(function () {     
+        $("#hotspots").click(function () {
             $("#lists").toggle();
             /*
             if (document.getElementById('tilename').innerHTML == "3D Documentation") {
@@ -368,13 +376,13 @@
                 window.location.href = "barge.html?0";
             }
             if (document.getElementById('tilename').innerHTML == "Our Partners") {
-                $('#creditsModal').modal('show');  
+                $('#creditsModal').modal('show');
             }
             if (document.getElementById('tilename').innerHTML == "1916 Barge") {
                 window.location.href = "1916barge.html?0";
             }
             if (document.getElementById('tilename').innerHTML == "Virtual Access Tour") {
-                $('#myHouse').modal('show'); 
+                $('#myHouse').modal('show');
             }
             if (document.getElementById('tilename').innerHTML == "1916 Sculptures") {
                 window.location.href = "1916barge.html?2";
@@ -384,20 +392,20 @@
 
         function tileSelection(newTitle, newTile) {
             document.getElementById('tilename').innerHTML = newTitle;
-       
+
             document.getElementById(newTile).className += "tile_selected";
 
             const tileArray = ["tile1", "tile2", "tile3", "tile4", "tile5", "tile6",
                 "tile7", "tile8", "tile9", "tile10", "tile11", "tile12"];
-            
+
             var index = tileArray.indexOf(newTile);
-            
-            tileArray.splice(index, 1);                     
+
+            tileArray.splice(index, 1);
 
             for (i = 0; i < tileArray.length; i++) {
                 var tileName = tileArray[i];
                 document.getElementById(tileName).classList.remove('tile_selected');
-            }            
+            }
         }
 
         //Functions for each annotation
@@ -442,13 +450,13 @@
             /*tileSelection("1916 Barge", "tile10");*/
         }
         function tile11() {
-            $('#myHouse').modal('show'); 
+            $('#myHouse').modal('show');
             /*tileSelection("Virtual Access Tour", "tile11");*/
         }
         function tile12() {
             window.location.href = "1916barge.html?2";
             /*tileSelection("1916 Sculptures", "tile12");*/
-        }      
+        }
 
         //Hotspot Dropup's Click Selection
         $("#li1").click(function () {

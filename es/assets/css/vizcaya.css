@@ -647,7 +647,7 @@ a {
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
     transition-delay: initial;
-    width: 450px; /*changed*/
+    width: 300px; /*changed*/
 }
 
     .controls .hotspot-controls {
@@ -701,11 +701,11 @@ a {
         .controls .hotspot-controls .list {
             overflow: auto;
             position: absolute;
-            right: 33px;
+            right: 7%;
             bottom: 70px; /*change the proximity of bar and list*/
             display: none;
             max-height: 160px;
-            padding: 7px;
+            padding: 1px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
             border-radius: 10px;
@@ -715,7 +715,7 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            width: 82%
+            width: 85%
         }
 
 #prevDiv, #nextDiv {
@@ -788,7 +788,7 @@ a {
 .controls .hotspot-controls .list li a {
     display: flex;
     width: 100%;
-    height: 35px;
+    height: 38px;
     box-sizing: border-box;
     padding: 0 5px;
     overflow: hidden;
@@ -883,7 +883,22 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    right: 238px; /*1280px*/
+    left: 10px; /*300px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 40px;
+}
+
+#map_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    left: 85px; /*238px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
