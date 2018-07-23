@@ -13,104 +13,72 @@
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/vizcaya.css" rel="stylesheet">
+    <link href="assets/css/irma.css" rel="stylesheet">
 
 </head>
 
 <body style="overflow: auto;">
 
-    <div class="container-fluid">
-
-        <div id="container">
-
-
-            <div id="split-container" class="mini-container1">
-
-                <div class="row">
-                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                        <div class="sidebar-sticky">
-
-                            <h1>Huracán Irma</h1><hr />
-                            <p>
-                                Este modelo de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2007. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades.<br> <br>
-                            </p>
-
-                        </div>
-                        <!--sticky footer-->
-                        <footer class="footer">
-                            <div>
-                                <p align="center">
-                                    <a href="index.html">Inicio</a> | <a href="../irma.html">English</a> | <a id="lang_selected"><b>Español</b></a>
-                                </p>
-
-                            </div>
-
-                        </footer>
-                    </nav>
+    <main class="d-flex w-100 h-100vh">
+        <aside class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="col h-100vh d-flex flex-column justify-content-between">
+                <div id="header-div">
+                    <h1>Huracán Irma</h1><hr />
+                    <p id="sidebar-text">
+                        Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.<br> <br>
+                    </p>
                 </div>
-
+                <!--sticky footer-->
+                <!--sticky footer-->
+                <footer class="footer">
+                    <div align="center">
+                        <div class="home_div"><a href="index.html"><img id="homeicon" src="images/home-solid.svg" title="Home" /></a></div>
+                        <div class="lang_div"><a href="../irma.html">English</a> | <a id="lang_selected"><b>Español</b></a></div>
+                    </div>
+                </footer>
             </div>
+        </aside>
+        <section class="workspace bg-dark flex-fill">
+            <div class="video-container h-100vh d-flex flex-column">
+                <video autoplay loop id="main-video" controls="controls">
+                    <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                </video>
 
-            <div id="split-container" class="mini-container2" style="overflow:auto; overflow-x: hidden;">
-
-                <!--Featured Content-->
-                <div class="embed-responsive embed-responsive-16by9" id="main_video">
-                    <video autoplay loop class="embed-responsive-item" controls="controls" id="video_container">
-                        <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
-                    </video>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-sm-3" style="margin:0; padding:0;">
-                        <div class="well">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="firstVideo()">
+                <div class="video-showcase">
+                    <div class="row no-gutters">
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="firstVideo();">
                                     <source src="https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4" type="video/mp4">
                                 </video>
                             </div>
-
                         </div>
-                    </div>
-
-                    <div class="col-sm-3" style="margin:0; padding:0;">
-                        <div class="well">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="secondVideo()">
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="secondVideo();">
                                     <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4" type="video/mp4">
                                 </video>
                             </div>
-
                         </div>
-                    </div>
-                    <div class="col-sm-3" style="margin:0; padding:0;">
-                        <div class="well">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="thirdVideo()">
+                        <div class="col-sm-3">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="thirdVideo();">
                                     <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                                 </video>
                             </div>
-
                         </div>
-                    </div>
-                    <div class="col-sm-3" style="margin:0; padding:0;">
-                        <div align="center" class="embed-responsive embed-responsive-16by9">
-                            <video autoplay loop class="embed-responsive-item" controls="controls" onclick="fourthVideo()">
-                                <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
-                            </video>
+                        <div class="col-sm-3">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item" controls="controls" onclick="fourthVideo();">
+                                    <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
-
-        </div>
-
-    </div>
-
-
+        </section>
+    </main>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -133,7 +101,7 @@
             window.onkeypress = resetTimer;  //catches keyboard actions
 
             function logout() {
-                window.top.location.href = '../index.html';  //Adapt to actual logout script
+                window.top.location.href = 'index.html';  //Adapt to actual logout script
             }
             function resetTimer() {
                 clearTimeout(t);
@@ -144,46 +112,59 @@
         idleTimer();
         function firstVideo() {
 
-            var videoContainer = document.getElementById('video_container');
+            var videoContainer = document.getElementById('main-video');
             var videoSource = document.getElementById('source_video');
             var newSource = 'https://s3.amazonaws.com/vizcaya/video/hurricane_Irma_Ghosting.mp4';
             videoContainer.pause();
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar."
+            document.getElementById('sidebar-text').innerHTML = changeText;
         }
 
         function secondVideo() {
 
-            var videoContainer = document.getElementById('video_container');
+            var videoContainer = document.getElementById('main-video');
             var videoSource = document.getElementById('source_video');
             var newSource = 'https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4';
             videoContainer.pause();
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades."
+            document.getElementById('sidebar-text').innerHTML = changeText;
         }
 
         function thirdVideo() {
 
-            var videoContainer = document.getElementById('video_container');
+            var videoContainer = document.getElementById('main-video');
             var videoSource = document.getElementById('source_video');
             var newSource = 'https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
             videoContainer.pause();
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta."
+            document.getElementById('sidebar-text').innerHTML = changeText;
         }
 
         function fourthVideo() {
 
-            var videoContainer = document.getElementById('video_container');
+            var videoContainer = document.getElementById('main-video');
             var videoSource = document.getElementById('source_video');
             var newSource = 'https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4';
             videoContainer.pause();
             videoSource.setAttribute('src', newSource);
             videoContainer.load();
             videoContainer.play();
+
+            var changeText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar."
+            document.getElementById('sidebar-text').innerHTML = changeText;
+
         }
 
     </script>

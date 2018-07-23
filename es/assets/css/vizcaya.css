@@ -123,15 +123,6 @@ body {
     height: 100%;
 }
 
-#testtP {
-    width: 100%;
-    height: 100%;
-    max-height: 30%;
-    max-width: 100%;
-    position: fixed;
-    bottom: 0;
-}
-
 #footer-div {
     width: 5%;
     height: 6%;
@@ -207,8 +198,8 @@ h1, h2, h3, h4 {
 
 .footer {
     width: 100%;
-    height: 7%;
-    max-height: 7%;
+    height: 12%;
+    max-height: 12%;
     max-width: calc(100% - 20px);
     position: absolute;
     bottom: 0%;
@@ -223,11 +214,38 @@ h1, h2, h3, h4 {
         width: 100%;
     }
 
+#homeicon {
+    width: 100%;
+    height: 100%;
+    max-height: 40px !important;
+    max-width: 40px !important;
+}
+
+.lang_div {
+    bottom: 0;
+    left: 0%;
+    top: 0;
+    right: 0;
+    position: relative;
+}
+
+#langdiv_index {
+    bottom: 0;
+    left: 0%;
+    top: 40px;
+    right: 0;
+    position: relative;
+}
+
+#lang_selected {
+    font-weight: 900;
+    border-bottom: #015289 solid 5px;
+}
+
 
 /*
  * Sidebar
  */
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -245,8 +263,8 @@ h1, h2, h3, h4 {
     position: relative;
     top: 0;
     /*padding-bottom: 0px;*/
-    height: calc(100% - 80px);
-    /* height: 90%; */
+    height: calc(100% - 8px);
+    height: 85%;
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
@@ -448,7 +466,7 @@ a {
 .popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
+    z-index: 4; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -464,7 +482,7 @@ a {
     background-color: black; /*#fefefe*/
     margin: auto;
     padding: 20px;
-    border: 1px solid white; /*#888*/
+    border: 1px solid black; /*#888*/
     width: 80%;
     border-radius: 20px;
 }
@@ -583,77 +601,7 @@ a {
     display: none;
 }
 
-/*
-*Pop-up Windows
-*/
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-}
 
-/* popup Content */
-.popup-content {
-    background-color: black; /*#fefefe*/
-    margin: auto;
-    padding: 20px;
-    border: 1px solid black; /*#888*/
-    width: 80%;
-    border-radius: 20px;
-}
-
-.popup-header {
-    padding: 5px;
-}
-
-/* The Close Button */
-.close {
-    color: white; /*#aaaaaa for web*/
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-    .close:hover,
-    .close:focus {
-        color: white; /*#000*/
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-.intrinsic-container {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-}
-
-/* 16x9 Aspect Ratio */
-.intrinsic-container-16x9 {
-    padding-bottom: 56.25%;
-}
-
-/* 4x3 Aspect Ratio */
-.intrinsic-container-4x3 {
-    padding-bottom: 75%;
-}
-
-.intrinsic-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-color: black;
-    border-radius: 20px;
-}
 
 /*
 //css for background of control buttons
@@ -699,7 +647,7 @@ a {
     transition-duration: 250ms;
     transition-timing-function: ease-in-out;
     transition-delay: initial;
-    width: 450px; /*changed*/
+    width: 300px; /*changed*/
 }
 
     .controls .hotspot-controls {
@@ -753,11 +701,11 @@ a {
         .controls .hotspot-controls .list {
             overflow: auto;
             position: absolute;
-            right: 33px;
+            right: 7%;
             bottom: 70px; /*change the proximity of bar and list*/
             display: none;
             max-height: 160px;
-            padding: 7px;
+            padding: 1px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
             border-radius: 10px;
@@ -767,7 +715,7 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            width: 82%
+            width: 85%
         }
 
 #prevDiv, #nextDiv {
@@ -840,11 +788,11 @@ a {
 .controls .hotspot-controls .list li a {
     display: flex;
     width: 100%;
-    height: 35px;
+    height: 38px;
     box-sizing: border-box;
     padding: 0 5px;
     overflow: hidden;
-    color: #cccccc;
+    color: #ffffff; /*color: #cccccc;*/
     text-overflow: ellipsis;
     white-space: nowrap;
     border-radius: 2px;
@@ -926,7 +874,37 @@ a {
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    border-radius: 40px;
+}
+
+#barge_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    left: 10px; /*300px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 40px;
+}
+
+#map_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    left: 85px; /*238px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 40px;
 }
 
 #refresh_icon {
@@ -941,22 +919,23 @@ a {
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    border-radius: 40px;
 }
+
 
 #question_icon {
     /*display: none;*/
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     position: fixed;
     bottom: 15px;
-    right: 86px; /*70px*/
+    right: 85px; /*70px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    border-radius: 40px;
 }
 
 #fullscreen_icon {
@@ -971,14 +950,10 @@ a {
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 35px;
+    border-radius: 40px;
 }
 
-/*language link css*/
-#lang_selected {
-    font-weight: 900;
-    border-bottom: #015289 solid 5px;
-}
+
 
 /*Credits Modal*/
 @media (min-width: 768px) {
@@ -991,7 +966,7 @@ a {
 /*Animation for Finger Instructions*/
 #finger_animation {
     display: none;
-    width: 80%;
+    width: 10%;
     height: 80%;
     position: relative;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
@@ -1006,9 +981,190 @@ a {
     padding: 10px;
         */
 }
-        @keyframes example {
-            0%   {left:50%; top: 50px;}
-            25%  {left:35%; top: 50px;}
-            75%  {left:50%; top: 50px;}
-            100% {left:35%; top: 50px;}
-        }
+
+#fingeranimation_models {
+    display: none;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    left: 50%; /*50%*/
+    top: 50%;
+    -webkit-animation-name: model; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: model;
+    animation-duration: 8s;
+    z-index: 100;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
+
+@keyframes model {
+    0% {
+        left: 50%;
+        top: 40%;
+    }
+
+    25% {
+        left: 30%;
+        top: 40%;
+    }
+
+    75% {
+        left: 50%;
+        top: 40%;
+    }
+
+    100% {
+        left: 30%;
+        top: 40%;
+    }
+}
+
+@keyframes example {
+    0% {
+        left: 50%;
+        top: 50px;
+    }
+
+    25% {
+        left: 35%;
+        top: 50px;
+    }
+
+    75% {
+        left: 50%;
+        top: 50px;
+    }
+
+    100% {
+        left: 35%;
+        top: 50px;
+    }
+}
+
+#fingeranimation_sculptureslmodels {
+    display: none;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    left: 50%; /*50%*/
+    top: 50%;
+    -webkit-animation-name: sculpturesmodel; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: sculpturesmodel;
+    animation-duration: 8s;
+    z-index: 100;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
+
+@keyframes sculpturesmodel {
+    0% {
+        left: 60%;
+        top: 40%;
+    }
+
+    25% {
+        left: 15%;
+        top: 40%;
+    }
+
+    75% {
+        left: 60%;
+        top: 40%;
+    }
+
+    100% {
+        left: 15%;
+        top: 40%;
+    }
+}
+
+#gif_loader {
+    width: 10%;
+    height: 15%;
+    position: absolute;
+    right: 45%;
+    top: 50%;
+    display: none;
+    z-index: 2;
+}
+
+#bottom_nav {
+    z-index: initial;
+    height: 6%; /*10%*/
+    z-index: 4;
+    background-color: lightgray;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#vizcaya_logo {
+    width: 280px;
+    max-width: 280px;
+    height: 108px;
+    max-height: 108px;
+    z-index: 3;
+    display:;
+}
+
+#floor_plan {
+    width: 280px;
+    max-width: 280px;
+    height: 180px;
+    /*max-height: 108px;*/
+    z-index: 3;
+    display:;
+}
+
+#map_wrapper {
+    width: 280px;
+    max-width: 280px;
+    height: auto;
+    position: absolute;
+    z-index: 3;
+    background-color: rgb(1, 82, 137);
+    display: none;
+}
+
+    #map_wrapper h1 {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+#barge-location {
+    max-height: 34px;
+    width: 34px;
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 0;
+    top: 48%;
+    z-index: 100;
+    animation: barge 1s ease-in-out infinite alternate;
+    -webkit-animation-name: barge;
+    animation-name: barge;
+}
+
+
+@keyframes barge {
+
+    0% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+
+    100% {
+        transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+    }
+}
