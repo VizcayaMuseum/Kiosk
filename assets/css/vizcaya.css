@@ -77,7 +77,9 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-
+::-webkit-scrollbar {
+    width: 0px !important;
+} 
 html, body {
     height: 100%;
     width: 100%;
@@ -1089,6 +1091,7 @@ a {
     background-color: lightgray;
     background-color: rgba(0,0,0,0.5);
 }
+/*
 #vizcaya_logo {
     width: 280px;
     max-width: 280px;
@@ -1097,25 +1100,28 @@ a {
     z-index: 3;
     display:;
 }
-
+*/
 #floor_plan {
     width: 280px;
     max-width: 280px;
     height: 180px;
     /*max-height: 108px;*/
     z-index: 3;
-    display:;
+   
+
 }
 #map_wrapper {
     width: 280px;
     max-width: 280px;
     height: auto;
     position: absolute;
+    right:0;
     z-index: 3;
     background-color: rgb(1, 82, 137);
     display:none;
+    
 }
-
+/*
 #map_wrapper h1{
 
     margin:0;
@@ -1123,7 +1129,7 @@ a {
     color: #fff;
     text-align:center;
 }
-
+    */
 #barge-location {
     max-height: 34px;
     width: 34px;
@@ -1133,7 +1139,7 @@ a {
     bottom: 0;
     left: 20%;
     right: 0;
-    top: 48%;
+    top: 10%;
     z-index: 100;
     animation: barge 1s ease-in-out infinite alternate;
     -webkit-animation-name: barge;
@@ -1141,9 +1147,22 @@ a {
     
 }
 
-
+#grotto-location {
+    max-height: 34px;
+    width: 34px;
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    top: 50%;
+    z-index: 100;
+    animation: barge 1s ease-in-out infinite alternate;
+    -webkit-animation-name: barge;
+    animation-name: barge;
+}
 @keyframes barge {
-
     0% {
         transform: scale(1.0);
         -webkit-transform: scale(1.0);

@@ -73,7 +73,8 @@
 
         <!--Control Icons-->
         <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
-        <img id="barge_icon" onclick="barge1916Button()" src="../images/1916_Barge.svg" title="View Barge" />       
+        <img id="barge_icon" onclick="barge1916Button()" src="../images/1916_Barge.svg" title="View Barge" />
+        <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="question_icon" onclick="tutorialButton()" src="../images/question.svg" title="Tutorial" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
@@ -131,7 +132,12 @@
             </div>
         </div>
     </div>
+    <!--Contextual Map-->
+    <div id="map_wrapper">
 
+        <img id="floor_plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
+        <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
+    </div>
     <!--Herm Modal
     <div class="modal fade" id="hermModal">
         <div class="modal-dialog modal-xl">
@@ -164,7 +170,7 @@
                                 <p style="font-weight:lighter;">Daruma Tech is a full service technology company that specializes in 3D rendering and App development among other digital solutions for the private and public sectors.  Recent projects include an IOS and Android application that featured augmented reality videos and 3D illustrations to immerse the user in the Troy University and the update of an IOS and Android application for Tri-Rail that incorporates a data-driven, dynamic train schedule.  Daruma Tech will be contracted to finalize the 3D models of the Barge and Pool ceiling mural and develop the kiosk interface, VR/AR application and web module virtual online interactive.</p>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
 
@@ -175,7 +181,6 @@
         </div>
     </div>
     -->
-
     <!--    <div>
                 <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
                 <map name="controlPanel">
@@ -193,6 +198,10 @@
 
     <script>
 
+        function toggleMap() {
+
+            $("#map_wrapper").slideToggle("slow");
+        }
         // initialize page and Potree
         init();
 
@@ -327,13 +336,13 @@
                         /* Annotation: Opening Transition/Center of Barge
                         *****************************************************/
                         let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "Barge2";
@@ -352,13 +361,13 @@
                         /* Annotation: Grotesques
                         *****************************************************/
                         let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "GROTESQUES";
@@ -369,7 +378,7 @@
                             cameraPosition: [-32.413, -12.729, -1.322],
                             cameraTarget: [-28.856, -27.701, -0.699],
                             description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.
-                            `});
+                                `});
 
                         sceneSG.annotations.add(aAbout2);
                     }
@@ -378,14 +387,14 @@
                         /* Annotation: Herm
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>`);
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
 
                         elTitle.find("img[name=action_set_scene]").click((event) => {
-                            popupHerm(); 
+                            popupHerm();
                             /*$('#hermModal').modal('show'); testing to apply modal instead of popup*/
                             /*event.stopPropagation();*/
                             /*viewer.setScene(sceneSG2);*/
@@ -406,11 +415,11 @@
                         /* Annotation: Sculptures
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>`);
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                             popupSculptures();
                         });
@@ -430,13 +439,13 @@
                         /* Annotation: Mermaids
                         *****************************************************/
                         let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/i.png"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/i.png"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "MERMAIDS";
@@ -447,7 +456,7 @@
                             cameraPosition: [-65.663, -55.380, -0.535],
                             cameraTarget: [-46.904, -32.558, -5.605],
                             description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden.
-                            `});
+                                `});
 
                         sceneSG.annotations.add(aAbout5);
                     }

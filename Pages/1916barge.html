@@ -140,8 +140,7 @@
 
     <!--Contextual Map-->    
     <div id="map_wrapper">
-        <img id="vizcaya_logo" src="../assets/img/logo2.jpg" />
-        <h1>Barge</h1>
+  
         <img id="floor_plan"src="../assets/img/full-estate_panogroup24_panogroup24.png" />
         <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
     </div>
@@ -167,6 +166,10 @@
 
     <script>
 
+        function toggleMap() {
+
+            $("#map_wrapper").slideToggle("slow");
+        }
         function idleTimer() {
             var t;
             //Trouble shoot for time function for popup
@@ -546,7 +549,7 @@
 
                 setTimeout(function () {
                     document.getElementById("finger_animation").style.display = "flex";
-                    $("#map_wrapper").slideDown("slow");
+                    
                 }, 8000);
 
             }
