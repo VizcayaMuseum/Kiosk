@@ -1154,3 +1154,79 @@ a {
         -webkit-transform: scale(1.5);
     }
 }
+/*
+*   INDEX.HTML CSS
+*/
+
+
+/* Create four equal columns that sits next to each other */
+.column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+    }
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }  
+}
+
+/*
+*   REPOSIVENESS FOR SITES OUTSIDE OF INDEX.HTML
+*/
+
+
+@media screen and (max-width: 800px){
+    .mini-container1 {
+        display: none;
+    }
+    .mini-container2 {
+        -ms-flex: 100% !important;
+        flex: 100% !important;
+        width: 100% !important;
+    }
+    .potree_container {
+        -ms-flex: 100%;
+        flex: 100%;
+        width: 100%;
+    }
+}
+
+/*
+* FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE
+*/
+
+#main-canvas {
+    width: 100% !important;
+    object-fit: fill;
+    flex: 1 0 0;
+}
+
+.main-container {
+    height: 125vh;
+}
+
+@media screen and (max-width: 575px) {
+    #main-canvas {
+        flex: 0 0 56.25%;
+    }
+}

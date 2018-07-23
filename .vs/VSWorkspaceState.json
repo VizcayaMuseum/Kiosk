@@ -3,8 +3,10 @@
     "",
     "\\assets",
     "\\assets\\css",
-    "\\Pages"
+    "\\es",
+    "\\es\\assets",
+    "\\es\\assets\\css"
   ],
-  "SelectedNode": "\\assets\\css\\vizcaya.css",
+  "SelectedNode": "\\irma.html",
   "PreviewInSolutionExplorer": true
 }
