@@ -886,7 +886,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 10px; /*300px*/
+    left: 85px; /*300px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -901,7 +901,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 85px; /*238px*/
+    left: 10px; /*238px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -1231,9 +1231,11 @@ a {
 }
 
 /*
-* FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE
+* FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE AND IRMA PAGE
 */
-
+#main-video {
+    object-fit: fill;
+}
 #main-canvas {
     width: 100% !important;
     object-fit: fill;

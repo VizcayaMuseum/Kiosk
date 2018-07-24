@@ -77,6 +77,9 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+::-webkit-scrollbar {
+    width: 0px !important;
+}
 
 html, body {
     height: 100%;
@@ -883,7 +886,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 10px; /*300px*/
+    left: 85px; /*300px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -898,7 +901,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 85px; /*238px*/
+    left: 10px; /*238px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -1103,6 +1106,16 @@ a {
     background-color: lightgray;
     background-color: rgba(0,0,0,0.5);
 }
+/*
+#vizcaya_logo {
+    width: 280px;
+    max-width: 280px;
+    height: 108px;
+    max-height: 108px;
+    z-index: 3;
+    display:;
+}
+*/
 #floor_plan {
     width: 280px;
     max-width: 280px;
@@ -1233,8 +1246,11 @@ a {
 }
 
 /*
-* FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE
+* FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE AND IRMA PAGE
 */
+#main-video {
+    object-fit: fill;
+}
 
 #main-canvas {
     width: 100% !important;
