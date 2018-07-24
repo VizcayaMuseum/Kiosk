@@ -15,20 +15,28 @@ function redirectHomeFunc() {
     window.top.location.href = "../index.html";
 }
 
+/*Barge Toggles*/
 function barge1916Button() {
     window.top.location.assign("../1916barge.html?0");
-} 
-
+}
 function barge2017Button() {
     window.top.location.assign("../barge.html?0");
 }
 
-function herm1916Buttom() {
-    window.top.location.assign("../barge.html?0");
+/*Herm Toggles*/ /*DON'T USE WINDOW.TOP*/
+function herm1916Button() {
+    window.parent.location.replace("../1916Herm.html");
+}
+function herm2017Button() {
+    window.parent.location.replace("../2017herm.html");
 }
 
-function herm2017Button() {
-    window.top.locaiton.assign("../2017herm.html")
+/*Sculptures Toggles*/
+function sculptures1916Button() {
+    window.parent.location.assign("../1916Herm.html");
+}
+function sculptures2017Button() {
+    window.parent.location.assign("../2017herm.html");
 }
 
 /* Zoom In
