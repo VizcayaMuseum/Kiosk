@@ -1,12 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
-    "\\es",
-    "\\es\\assets",
-    "\\es\\assets\\css"
+    "\\build",
+    "\\build\\potree",
+    "\\build\\potree\\resources",
+    "\\build\\potree\\resources\\icons",
+    "\\Pages"
   ],
-  "SelectedNode": "\\es\\assets\\css\\vizcaya.css",
+  "SelectedNode": "\\build\\potree\\resources\\icons\\i.png",
   "PreviewInSolutionExplorer": true
 }

@@ -466,7 +466,7 @@ a {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 4; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 80px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -879,7 +879,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 10px; /*300px*/
+    right: 310px; /*left: 10px;*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -894,7 +894,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 125px; /*300px*/
+    right: 238px; /*left: 125px;*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -909,7 +909,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    right: 238px; /*238px*/
+    right: 235px; /*238px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
@@ -924,7 +924,7 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    right: 162px; /*130px*/
+    right: 160px; /*130px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;

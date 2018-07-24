@@ -22,7 +22,10 @@
         .modal-content {
             width: 115%;
         }
-        
+        #infoDiv{         
+            z-index: 4;           
+            top: 0px;
+        }
     </style>
 
   </head>
@@ -45,7 +48,7 @@
                                   <br /><br /><b>Photogrammetry</b> makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
                                   <br />
                                   <!--Pop-up-->
-                                  <a data-toggle="modal" href="#myModal"><br /><u>How does 3D documentation contribute to the preservation of Vizcaya?</u></a>
+                                  <a data-toggle="modal" href="#photogrammetryModal"><br /><u>How does 3D documentation contribute to the preservation of Vizcaya?</u></a>
                               </p>
 
                           </div>
@@ -73,9 +76,10 @@
                             <div class="row no-gutters">
                                 <div class="col-sm-4 col-xs-12">
                                     <div class="embed-responsive embed-responsive-16by9">
+                                        <div id="infoDiv" src="build/potree/resources/icons/i.png"></div>
                                         <video autoplay loop class="embed-responsive-item">
                                             <source src="https://s3.amazonaws.com/vizcaya/video/photogrammetry1.mp4" type="video/mp4">
-                                        </video>
+                                        </video> 
                                     </div>
                                 </div>
 
@@ -120,6 +124,34 @@
                                   <li>Aids expert understanding by examining enlarged highly accurate details on a virtually unlimited scale.</li>
                                   <li>Improves accessibility by enabling visitors to virtually explore spaces and to study collection objects through 3D print models. </li>
                               </ol>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+
+              <!-- The Modal -->
+              <div class="modal fade" id="photogrammetryModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content ">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">Photogrammetry</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>
+                                  Photogrammetry makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
+                              </p>
                           </div>
 
                           <!-- Modal footer -->
