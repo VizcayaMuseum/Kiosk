@@ -23,6 +23,14 @@ function barge2017Button() {
     window.top.location.assign("../barge.html?0");
 }
 
+function herm1916Buttom() {
+    window.top.location.assign("../barge.html?0");
+}
+
+function herm2017Button() {
+    window.top.locaiton.assign("../2017herm.html")
+}
+
 /* Zoom In
 *****************************************************/
 function zoomIn() {

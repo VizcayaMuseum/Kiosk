@@ -883,13 +883,28 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 85px; /*300px*/
+    left: 10px; /*300px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 40px;
+    border-radius: 35px;
+}
+
+#popups_icon {
+    /*display: none;*/
+    width: 110%;
+    height: 110%;
+    position: fixed;
+    bottom: 15px;
+    left: 125px; /*300px*/
+    cursor: pointer;
+    max-height: 70px !important;
+    max-width: 70px !important;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    border-radius: 35px;
 }
 
 #map_icon {
@@ -898,13 +913,13 @@ a {
     height: 110%;
     position: fixed;
     bottom: 15px;
-    left: 10px; /*238px*/
+    right: 238px; /*238px*/
     cursor: pointer;
     max-height: 70px !important;
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 40px;
+    border-radius: 35px;
 }
 
 #refresh_icon {
@@ -919,7 +934,7 @@ a {
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 40px;
+    border-radius: 35px;
 }
 
 
@@ -935,7 +950,7 @@ a {
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 40px;
+    border-radius: 35px;
 }
 
 #fullscreen_icon {
@@ -950,7 +965,7 @@ a {
     max-width: 70px !important;
     z-index: 2;
     background: rgba(0,0,0,0.3);
-    border-radius: 40px;
+    border-radius: 35px;
 }
 
 

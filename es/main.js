@@ -14,13 +14,29 @@ function refreshPopup() {
 function redirectHomeFunc() {
     window.top.location.href = "../index.html";
 }
-
+/*Barge Toggles*/
 function barge1916Button() {
     window.top.location.assign("../1916barge.html?0");
 }
 
 function barge2017Button() {
     window.top.location.assign("../barge.html?0");
+}
+/*Herm Toggles*/
+function herm1916Button() {
+    window.location.href("../1916Herm.html");
+}
+
+function herm2017Button() {
+    window.location.href("../2017herm.html");
+}
+/*Sculptures Toggles*/
+function sculptures1916Button() {
+    window.location.href("../1916Herm.html");
+}
+
+function sculptures2017Button() {
+    window.location.href("../2017herm.html");
 }
 
 /* Zoom In
