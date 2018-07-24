@@ -543,9 +543,8 @@ a {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 3; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 5%; /* Location of the box */
     left: 0;
-    top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -574,7 +573,6 @@ a {
     color: rgba(0,0,0,0.01);
     background-color: rgba(0,0,0,0.01); /*rgba(255,255,255,0.01)*/
     border-radius: 22px;
-    top: 0px;
 }
 
 /*
@@ -598,7 +596,6 @@ a {
     width: auto;
     height: auto;
     position: fixed;
-    bottom: 100px;
     right: 70px;
     z-index: 100;
     display: none;

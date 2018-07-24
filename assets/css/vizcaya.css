@@ -79,7 +79,8 @@
 
 ::-webkit-scrollbar {
     width: 0px !important;
-} 
+}
+
 html, body {
     height: 100%;
     width: 100%;
@@ -100,7 +101,6 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    
 }
 
 #split-container {
@@ -226,9 +226,9 @@ h1, h2, h3, h4 {
 
 .lang_div {
     bottom: 0;
-    left:0%;
-    top:0;
-    right:0;
+    left: 0%;
+    top: 0;
+    right: 0;
     position: relative;
 }
 
@@ -267,8 +267,8 @@ h1, h2, h3, h4 {
     top: 0;
     /*padding-bottom: 0px;*/
     height: calc(100% - 8px);
-    height: 85%; 
-    padding-top: .5rem; 
+    height: 85%;
+    padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     padding: 5%;
@@ -543,9 +543,8 @@ a {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 3; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 5%; /* Location of the box */
     left: 0;
-    top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -574,7 +573,6 @@ a {
     color: rgba(0,0,0,0.01);
     background-color: rgba(0,0,0,0.01); /*rgba(255,255,255,0.01)*/
     border-radius: 22px;
-    top: 0px;
 }
 
 /*
@@ -598,7 +596,6 @@ a {
     width: auto;
     height: auto;
     position: fixed;
-    bottom: 100px;
     right: 70px;
     z-index: 100;
     display: none;
@@ -1026,12 +1023,27 @@ a {
     }
 }
 
-        @keyframes example {
-            0%   {left:50%; top: 50px;}
-            25%  {left:35%; top: 50px;}
-            75%  {left:50%; top: 50px;}
-            100% {left:35%; top: 50px;}
-        }
+@keyframes example {
+    0% {
+        left: 50%;
+        top: 50px;
+    }
+
+    25% {
+        left: 35%;
+        top: 50px;
+    }
+
+    75% {
+        left: 50%;
+        top: 50px;
+    }
+
+    100% {
+        left: 35%;
+        top: 50px;
+    }
+}
 
 #fingeranimation_sculptureslmodels {
     display: none;
@@ -1107,19 +1119,17 @@ a {
     height: 180px;
     /*max-height: 108px;*/
     z-index: 3;
-   
-
 }
+
 #map_wrapper {
     width: 280px;
     max-width: 280px;
     height: auto;
     position: absolute;
-    right:0;
+    right: 0;
     z-index: 3;
     background-color: rgb(1, 82, 137);
-    display:none;
-    
+    display: none;
 }
 /*
 #map_wrapper h1{
@@ -1144,7 +1154,6 @@ a {
     animation: barge 1s ease-in-out infinite alternate;
     -webkit-animation-name: barge;
     animation-name: barge;
-    
 }
 
 #grotto-location {
@@ -1162,6 +1171,7 @@ a {
     -webkit-animation-name: barge;
     animation-name: barge;
 }
+
 @keyframes barge {
     0% {
         transform: scale(1.0);
@@ -1206,7 +1216,7 @@ a {
         -ms-flex: 100%;
         flex: 100%;
         max-width: 100%;
-    }  
+    }
 }
 
 /*
@@ -1214,15 +1224,17 @@ a {
 */
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .mini-container1 {
         display: none;
     }
+
     .mini-container2 {
         -ms-flex: 100% !important;
         flex: 100% !important;
         width: 100% !important;
     }
+
     .potree_container {
         -ms-flex: 100%;
         flex: 100%;
@@ -1236,6 +1248,7 @@ a {
 #main-video {
     object-fit: fill;
 }
+
 #main-canvas {
     width: 100% !important;
     object-fit: fill;
