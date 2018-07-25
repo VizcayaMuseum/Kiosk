@@ -3,10 +3,8 @@
     "",
     "\\build",
     "\\build\\potree",
-    "\\build\\potree\\resources",
-    "\\build\\potree\\resources\\icons",
     "\\Pages"
   ],
-  "SelectedNode": "\\build\\potree\\resources\\icons\\i.png",
+  "SelectedNode": "\\Pages\\barge.html",
   "PreviewInSolutionExplorer": true
 }
