@@ -1275,3 +1275,43 @@ a {
         flex: 0 0 56.25%;
     }
 }
+
+/*
+* 3D Doc info buttons on videos
+*/
+
+#infoDiv {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    z-index: 4;
+    top: 4%;
+    right: 4%;
+    border-radius: 25px;
+    background-color: #3D9FD6;
+}
+
+#ainfoDiv {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    z-index: 4;
+    top: 4%;
+    right: 4%;
+    border-radius: 25px;
+}
+
+#info_img {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    z-index: 4;
+    top: 16%;
+    right: 16%;
+    filter: invert(1);
+}
+
+/*3D Doc modal*/
+.modal-content {
+    width: 115%;
+}

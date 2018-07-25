@@ -19,10 +19,6 @@
         body {
             background-color:  !important;
         }
-        .modal-content {
-            width: 115%;
-        }
-        
     </style>
 
   </head>
@@ -75,6 +71,11 @@
                               <div class="col-sm-4 col-xs-12">
 
                                   <div class="embed-responsive embed-responsive-16by9">
+                                      <div id="infoDiv">
+                                          <a id="ainfoDiv" data-toggle="modal" href="#laserModal">
+                                              <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                          </a>
+                                      </div>
                                       <video autoplay loop class="embed-responsive-item">
                                           <source src="https://s3.amazonaws.com/vizcaya/video/photogrammetry1.mp4" type="video/mp4">
                                       </video>
@@ -84,6 +85,11 @@
                               <div class="col-sm-4 col-xs-12">
 
                                   <div class="embed-responsive embed-responsive-16by9">
+                                      <div id="infoDiv">
+                                          <a id="ainfoDiv" data-toggle="modal" href="#photogrammetryModal">
+                                              <img id="info_img" src="build/potree/resources/icons/i.png" />
+                                          </a>
+                                      </div>
                                       <video autoplay loop class="embed-responsive-item">
                                           <source src="https://s3.amazonaws.com/vizcaya/video/bargeIntroShort.mp4" type="video/mp4">
                                       </video>
@@ -137,7 +143,61 @@
 
               </div>
 
+              <!-- Laser Modal -->
+              <div class="modal fade" id="laserModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content ">
 
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">Laser Scanning</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>
+                                  Laser scanning captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models.
+                              </p>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+
+              <!-- Photogrammetry Modal -->
+              <div class="modal fade" id="photogrammetryModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content ">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">Photogrammetry</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>
+                                  Photogrammetry makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
+                              </p>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
           </div>
       </div>
 
