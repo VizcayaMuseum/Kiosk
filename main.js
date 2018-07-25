@@ -33,10 +33,10 @@ function herm2017Button() {
 
 /*Sculptures Toggles*/
 function sculptures1916Button() {
-    window.parent.location.assign("../1916Herm.html");
+    window.parent.location.assign("../1916Mermaids.html");
 }
 function sculptures2017Button() {
-    window.parent.location.assign("../2017herm.html");
+    window.parent.location.assign("../mermaids.html");
 }
 
 /* Zoom In

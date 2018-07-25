@@ -1315,3 +1315,8 @@ a {
 .modal-content {
     width: 115%;
 }
+
+/*Sidebar-Sticky for Popups*/
+#popups_sidebar-sticky {
+    height: 100%;
+}
