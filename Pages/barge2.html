@@ -192,6 +192,42 @@
         <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
     </div>
 
+    <!--Herm Modal-->
+    <div class="modal fade " id="hermModal">
+        <div class="modal-dialog modal-lg ">
+            <!--modal-xl-->
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="iframe1" class="iframe" src="../2017herm.html"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Sculptures Modal-->
+    <div class="modal fade " id="sculpturesModal">
+        <div class="modal-dialog modal-lg ">
+            <!--modal-xl-->
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="iframe1" class="iframe" src="../mermaids.html"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script>
 
         function toggleMap() {
@@ -262,34 +298,46 @@
 
                 function popupHerm() {
 
-                    var popup = document.getElementById('mypopup1');
+                    var popup = document.getElementById('hermModal');
                     var span = document.getElementsByClassName("close")[0];
 
-                    popup.style.display = "block";
+                    $('#hermModal').modal('show');
 
                     //Applying opacity to parent page
-                    parentWin = window.parent;
-                    var sidebar = parentWin.document.getElementById('split-container');
-                    sidebar.style.opacity = "0.4";
+                    setTimeout(function () {
+                        parentWin = window.parent;
+                        var sidebar = parentWin.document.getElementById('split-container');
+                        sidebar.style.opacity = "0.4";
+                    }, 100);
 
                     span.onclick = function () {
-                        popup.style.display = "none";
+                        $('#hermModal').fadeOut();
                         //Reloads the Popup
-                        $('#mypopup1').attr('src', '');
+                        $('#hermModal').attr('src', '');
                         var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
+
                         //reset opacity of parent page
-                        sidebar.style.opacity = "1";
+                        setTimeout(function () {
+                            parentWin = window.parent;
+                            var sidebar = parentWin.document.getElementById('split-container');
+                            sidebar.style.opacity = "1";
+                        }, 100);
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
-                            popup.style.display = "none";
+                            $('#hermModal').fadeOut();
+                            //reset opacity of parent page
+                            setTimeout(function () {
+                                parentWin = window.parent;
+                                var sidebar = parentWin.document.getElementById('split-container');
+                                sidebar.style.opacity = "1";
+                            }, 100);
                             //Reloads the Popup
-                            $('#mypopup1').attr('src', '');
+                            $('#hermModal').attr('src', '');
                             var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
-                            //reset opacity of parent page
-                            sidebar.style.opacity = "1";
+
                         }
                     }
 
@@ -297,36 +345,46 @@
 
                 function popupSculptures() {
 
-                    var popup = document.getElementById('mypopup2');
-                    var span = document.getElementsByClassName("close")[1];
+                    var popup = document.getElementById('sculpturesModal');
+                    var span = document.getElementsByClassName("close")[0];
 
-                    popup.style.display = "block";
+                    $('#sculpturesModal').modal('show');
 
                     //Applying opacity to parent page
-                    parentWin = window.parent;
-                    var sidebar = parentWin.document.getElementById('split-container');
-                    sidebar.style.opacity = "0.4";
+                    setTimeout(function () {
+                        parentWin = window.parent;
+                        var sidebar = parentWin.document.getElementById('split-container');
+                        sidebar.style.opacity = "0.4";
+                    }, 100);
 
                     span.onclick = function () {
-                        popup.style.display = "none";
+                        $('#sculpturesModal').fadeOut();
                         //Reloads the Popup
-                        $('#mypopup2').attr('src', '');
-                        var iframe = document.getElementById('iframe2');
+                        $('#sculpturesModal').attr('src', '');
+                        var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
 
                         //reset opacity of parent page
-                        sidebar.style.opacity = "1";
+                        setTimeout(function () {
+                            parentWin = window.parent;
+                            var sidebar = parentWin.document.getElementById('split-container');
+                            sidebar.style.opacity = "1";
+                        }, 100);
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
-                            popup.style.display = "none";
+                            $('#sculpturesModal').fadeOut();
+                            //reset opacity of parent page
+                            setTimeout(function () {
+                                parentWin = window.parent;
+                                var sidebar = parentWin.document.getElementById('split-container');
+                                sidebar.style.opacity = "1";
+                            }, 100);
                             //Reloads the Popup
-                            $('#mypopup2').attr('src', '');
-                            var iframe = document.getElementById('iframe2');
+                            $('#sculpturesModal').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
 
-                            //reset opacity of parent page
-                            sidebar.style.opacity = "1";
                         }
                     }
                 }
@@ -678,7 +736,7 @@
             //Applying opacity to parent page
             parentWin = window.parent;
             var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.5";
+            sidebar.style.opacity = "0.4";
         });
 
         var navPanel = document.getElementById('nav_panel');
