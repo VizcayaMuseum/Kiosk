@@ -658,14 +658,26 @@
             }          
 
             /* Navigation Controls Image
-            *****************************************************/
+        *****************************************************/
             $("#question_icon").click(function () {
+                /*$("#nav_panel").toggle();*/
                 $("#nav_panel").fadeIn();
+
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.8";
             });
 
             var navPanel = document.getElementById('nav_panel');
             navPanel.addEventListener('click', function () {
                 $("#nav_panel").fadeOut();
+                /*navPanel.style.display = "none";*/
+                //reset opacity of parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "1";
+
             });
 
         </script>

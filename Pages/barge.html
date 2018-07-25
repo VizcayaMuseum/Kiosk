@@ -15,8 +15,12 @@
     <link rel="stylesheet" type="text/css" href="../libs/jstree/themes/mixed/style.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../libs/font-awesome/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.min.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vizcaya.css">
-    
+
     <style>
         /*Scrollbar for hotspot controls*/
         ::-webkit-scrollbar {
@@ -44,19 +48,19 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
-    /*
+        /*
         @media screen and (max-width: 1222px) {
             .sidebar-sticky {
                 display: none;
             }
             .popup{
-                padding-top: 10px !important;                
+                padding-top: 10px !important;
             }
             #iframe1, #iframe2{
                 height: 80%;
             }
             .popup-content{
-                height: 80%; 
+                height: 80%;
             }
             .intrinsic-container, .intrinsic-container-16x9{
                 height: 60%;
@@ -77,7 +81,7 @@
             }
 
             .popup-content {
-                height: 80%; 
+                height: 80%;
             }
 
             .intrinsic-container, .intrinsic-container-16x9 {
@@ -85,6 +89,13 @@
             }
         }
         */
+        .modal-content{
+            background-color: #000000;
+            border-radius: 15px;
+            width: 120%;
+            right: 10%;
+        }
+        
     </style>
 
 </head>
@@ -104,6 +115,8 @@
     <script src="../libs/jstree/jstree.js"></script>
     <script src="../build/potree/potree.js"></script>
     <script src="../libs/plasio/js/laslaz.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../dist/js/bootstrap.min.js"></script>
     <script src="../main.js"></script>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
@@ -118,7 +131,7 @@
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="question_icon" onclick="tutorialButton()" src="../images/question.svg" title="Tutorial" />
         <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
-        <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
+
         <!-- Navigation Instructions -->
         <div id="nav_panel" class="navPanel w3-center w3-animate-opacity">
             <div class="navPanel-content">
@@ -172,76 +185,48 @@
             </div>
         </div>
     </div>
+
     <!--Contextual Map-->
     <div id="map_wrapper">
         <img id="floor_plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
         <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
     </div>
 
-    <!--Herm Modal
-        <div class="modal fade" id="hermModal">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
+    <!--Herm Modal-->
+    <div class="modal fade " id="hermModal">
+        <div class="modal-dialog modal-lg ">
+            <!--modal-xl-->
+            <div class="modal-content">
 
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div class="container-fluid">
-
-                            <div class="row featurette" style="padding-top: 1%;">
-                                <div class="col-md-12 order-md-1">
-                                    <img class="featurette-image img-fluid mx-auto" src="images/KF_logo-stacked.png" alt="Generic placeholder image">
-                                    <p class="lead">
-                                        <br />
-                                        This project was made possible through support from the John S. and James L. Knight Foundation.
-                                        <br />
-                                        <h5>Our project partners are:</h5>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <hr class="featurette-divider" />
-
-                            <div class="row featurette">
-                                <div class="col-md-3 order-md-1" style="padding-top:2%;">
-                                    <img class="featurette-image img-fluid mx-auto" src="images/daruma_logo.png" alt="Generic placeholder image">
-                                </div>
-                                <div class="col-md-9 order-md-2" style="padding-top:1%;">
-                                    <h3>Daruma Tech</h3>
-                                    <p style="font-weight:lighter;">Daruma Tech is a full service technology company that specializes in 3D rendering and App development among other digital solutions for the private and public sectors.  Recent projects include an IOS and Android application that featured augmented reality videos and 3D illustrations to immerse the user in the Troy University and the update of an IOS and Android application for Tri-Rail that incorporates a data-driven, dynamic train schedule.  Daruma Tech will be contracted to finalize the 3D models of the Barge and Pool ceiling mural and develop the kiosk interface, VR/AR application and web module virtual online interactive.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">Close</button>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="iframe1" class="iframe" src="../2017herm.html"></iframe>
                     </div>
                 </div>
+
             </div>
         </div>
-    -->
-    <!--    <div>
-                <img id="control_panel" src="../images/Control_Panel.png" usemap="#controlPanel" />
-                <map name="controlPanel">
-                    <area shape="circle" coords="50,55,20,10" onclick="redirectFunc()" />
-                    <area shape="circle" coords="170,55,20,10" onclick="redirectHomeFunc()" />
-                    <area shape="circle" coords="110,62,25,10" onclick="potreeMerMoveUp()" />
-                    <area shape="circle" coords="110,140,25,10" onclick="potreeMerMoveDown()" />
-                    <area shape="circle" coords="70,105,20,10" onclick="potreeMerMoveLeft()" />
-                    <area shape="circle" coords="150,105,20,10" onclick="potreeMerMoveRight()" />
-                    <area shape="circle" coords="50,160,20,10" onclick="zoomIn()" />
-                    <area shape="circle" coords="170,160,20,10" onclick="zoomOut()" />
-                </map>
-            </div>
-    -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    </div>
 
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
+    <!--Sculptures Modal-->
+    <div class="modal fade " id="sculpturesModal">
+        <div class="modal-dialog modal-lg ">
+            <!--modal-xl-->
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="iframe1" class="iframe" src="../mermaids.html"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <script>
 
@@ -249,6 +234,7 @@
 
             $("#map_wrapper").slideToggle("slow");
         }
+
         // initialize page and Potree
         init();
 
@@ -309,73 +295,96 @@
                 material.size = 1;
                 material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
+
                 function popupHerm() {
-                    $('#hermModal').show();
-                    /*
-                    var popup = document.getElementById('mypopup1');
+
+                    var popup = document.getElementById('hermModal');
                     var span = document.getElementsByClassName("close")[0];
 
-                    popup.style.display = "block";
+                    $('#hermModal').modal('show');
 
                     //Applying opacity to parent page
-                    parentWin = window.parent;
-                    var sidebar = parentWin.document.getElementById('split-container');
-                    sidebar.style.opacity = "0.4";
+                    setTimeout(function () {
+                        parentWin = window.parent;
+                        var sidebar = parentWin.document.getElementById('split-container');
+                        sidebar.style.opacity = "0.4";
+                    }, 100);
 
                     span.onclick = function () {
-                        popup.style.display = "none";
+                        $('#hermModal').fadeOut();
                         //Reloads the Popup
-                        $('#mypopup1').attr('src', '');
+                        $('#hermModal').attr('src', '');
                         var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
+
                         //reset opacity of parent page
-                        sidebar.style.opacity = "1";
+                        setTimeout(function () {
+                            parentWin = window.parent;
+                            var sidebar = parentWin.document.getElementById('split-container');
+                            sidebar.style.opacity = "1";
+                        }, 100);
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
-                            popup.style.display = "none";
+                            $('#hermModal').fadeOut();
+                            //reset opacity of parent page
+                            setTimeout(function () {
+                                parentWin = window.parent;
+                                var sidebar = parentWin.document.getElementById('split-container');
+                                sidebar.style.opacity = "1";
+                            }, 100);
                             //Reloads the Popup
-                            $('#mypopup1').attr('src', '');
+                            $('#hermModal').attr('src', '');
                             var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
-                            //reset opacity of parent page
-                            sidebar.style.opacity = "1";
+
                         }
                     }
-                    */
+
                 }
 
                 function popupSculptures() {
-                    var popup = document.getElementById('mypopup2');
-                    var span = document.getElementsByClassName("close")[1];
 
-                    popup.style.display = "block";
+                    var popup = document.getElementById('sculpturesModal');
+                    var span = document.getElementsByClassName("close")[0];
+
+                    $('#sculpturesModal').modal('show');
 
                     //Applying opacity to parent page
-                    parentWin = window.parent;
-                    var sidebar = parentWin.document.getElementById('split-container');
-                    sidebar.style.opacity = "0.4";
+                    setTimeout(function () {
+                        parentWin = window.parent;
+                        var sidebar = parentWin.document.getElementById('split-container');
+                        sidebar.style.opacity = "0.4";
+                    }, 100);
 
                     span.onclick = function () {
-                        popup.style.display = "none";
+                        $('#sculpturesModal').fadeOut();
                         //Reloads the Popup
-                        $('#mypopup2').attr('src', '');
-                        var iframe = document.getElementById('iframe2');
+                        $('#sculpturesModal').attr('src', '');
+                        var iframe = document.getElementById('iframe1');
                         iframe.src = iframe.src;
 
                         //reset opacity of parent page
-                        sidebar.style.opacity = "1";
+                        setTimeout(function () {
+                            parentWin = window.parent;
+                            var sidebar = parentWin.document.getElementById('split-container');
+                            sidebar.style.opacity = "1";
+                        }, 100);
                     }
                     window.onclick = function (event) {
                         if (event.target == popup) {
-                            popup.style.display = "none";
+                            $('#sculpturesModal').fadeOut();
+                            //reset opacity of parent page
+                            setTimeout(function () {
+                                parentWin = window.parent;
+                                var sidebar = parentWin.document.getElementById('split-container');
+                                sidebar.style.opacity = "1";
+                            }, 100);
                             //Reloads the Popup
-                            $('#mypopup2').attr('src', '');
-                            var iframe = document.getElementById('iframe2');
+                            $('#sculpturesModal').attr('src', '');
+                            var iframe = document.getElementById('iframe1');
                             iframe.src = iframe.src;
 
-                            //reset opacity of parent page
-                            sidebar.style.opacity = "1";
                         }
                     }
                 }
@@ -386,13 +395,13 @@
                         /* Annotation: Opening Transition/Center of Barge
                         *****************************************************/
                         let elTitle = $(`
-                                                                    <span>
-                                                                        <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                                            name="action_set_scene"
-                                                                            class="annotation-action-icon"
-                                                                            style="filter: invert(1);" />
-                                                                    </span>
-                                                                `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "Barge2";
@@ -411,13 +420,13 @@
                         /* Annotation: Grotesques
                         *****************************************************/
                         let elTitle = $(`
-                                                <span>
-                                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                                        name="action_set_scene"
-                                                        class="annotation-action-icon"
-                                                        style="filter: invert(1);" />
-                                                </span>
-                                                                `);
+                                                        <span>
+                                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                                name="action_set_scene"
+                                                                class="annotation-action-icon"
+                                                                style="filter: invert(1);" />
+                                                        </span>
+                                                                        `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "GROTESQUES";
@@ -428,7 +437,7 @@
                             cameraPosition: [-32.413, -12.729, -1.322],
                             cameraTarget: [-28.856, -27.701, -0.699],
                             description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.
-                                                    `});
+                                                            `});
 
                         sceneSG.annotations.add(aAbout2);
                     }
@@ -437,15 +446,14 @@
                         /* Annotation: Herm
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                                                            name="action_set_scene"
-                                                                            class="annotation-action-icon"
-                                                                            style="filter: invert(1);" />
-                                                                    </span>`);
+                                <img src="${Potree.resourcePath}/icons/i.png"
+                                    name="action_set_scene"
+                                    class="annotation-action-icon"
+                                    style="filter: invert(1);" />
+                            </span>`);
 
                         elTitle.find("img[name=action_set_scene]").click((event) => {
-                            popupHerm();
-                            /*$('#hermModal').modal('show'); /*testing to apply modal instead of popup*/
+                            popupHerm();                            
                             /*event.stopPropagation();*/
                             /*viewer.setScene(sceneSG2);*/
                         });
@@ -465,11 +473,11 @@
                         /* Annotation: Sculptures
                         *****************************************************/
                         let elTitle = $(`<span>
-                                                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                                                            name="action_set_scene"
-                                                                            class="annotation-action-icon"
-                                                                            style="filter: invert(1);" />
-                                                                    </span>`);
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                             popupSculptures();
                         });
@@ -489,13 +497,13 @@
                         /* Annotation: Mermaids
                         *****************************************************/
                         let elTitle = $(`
-                                                                    <span>
-                                                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                                                            name="action_set_scene"
-                                                                            class="annotation-action-icon"
-                                                                            style="filter: invert(1);" />
-                                                                    </span>
-                                                                `);
+                                        <span>
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>
+                                    `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
                         elTitle.toString = () => "MERMAIDS";
@@ -506,7 +514,7 @@
                             cameraPosition: [-65.663, -55.380, -0.535],
                             cameraTarget: [-46.904, -32.558, -5.605],
                             description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden.
-                                                    `});
+                                                            `});
 
                         sceneSG.annotations.add(aAbout5);
                     }
@@ -552,7 +560,6 @@
                         popupSculptures;
                     }, 6100);
                 }
-
 
             });
 
@@ -718,8 +725,6 @@
                         });
                     });*/
 
-
-
         }
 
         /* Navigation Controls Image
@@ -727,19 +732,25 @@
         $("#question_icon").click(function () {
             /*$("#nav_panel").toggle();*/
             $("#nav_panel").fadeIn();
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
         });
 
         var navPanel = document.getElementById('nav_panel');
         navPanel.addEventListener('click', function () {
             $("#nav_panel").fadeOut();
             /*navPanel.style.display = "none";*/
+            //reset opacity of parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "1";
 
         });
 
-
     </script>
-
-
 
 </body>
 </html>
