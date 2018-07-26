@@ -213,6 +213,7 @@ h1, h2, h3, h4 {
     padding: 1px;
     background-color: #F8F9FA;
     font-size: 20px; /*increase for home | spanish links*/
+    overflow: auto;
 }
 
     .footer img {
@@ -237,8 +238,9 @@ h1, h2, h3, h4 {
 #langdiv_index {
     bottom: 0;
     left: 0%;
-    top: 40px;
+    top: 0;
     right: 0;
+    padding-top: 10%;
     position: relative;
 }
 
@@ -251,6 +253,11 @@ h1, h2, h3, h4 {
 /*
  * Sidebar
  */
+
+#header-div {
+    word-wrap: break-word;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -1149,7 +1156,6 @@ a {
     height: 180px;
     /*max-height: 108px;*/
     z-index: 2;
-    
 }
 
 #map_wrapper {
@@ -1158,7 +1164,7 @@ a {
     height: auto;
     position: absolute;
     right: 0;
-    z-index: 2;    
+    z-index: 2;
     display: none;
 }
 
@@ -1330,44 +1336,4 @@ a {
 /*Sidebar-Sticky for Popups*/
 #popups_sidebar-sticky {
     height: 100%;
-}
-
-/*
-* Responsiveness to Popups
-*/
-
-@media screen and (max-width: 1300px) {
-    .popup {
-        padding-top: 10px !important;
-    }
-
-    #iframe1, #iframe2 {
-        height: 80%;
-    }
-
-    .popup-content {
-        height: 90%;
-    }
-
-    #popup_container {
-        height: 60%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .popup {
-        padding-top: 10px !important;
-    }
-
-    #iframe1, #iframe2 {
-        height: 100%;
-    }
-
-    .popup-content {
-        max-height: 80%;
-    }
-
-    #popup_container {
-        max-height: 55%;
-    }
 }
