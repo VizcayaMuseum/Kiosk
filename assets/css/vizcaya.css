@@ -1336,7 +1336,7 @@ a {
 * Responsiveness to Popups
 */
 
-@media screen and (max-width: 1222px) {
+@media screen and (max-width: 1300px) {
     .popup {
         padding-top: 10px !important;
     }
@@ -1346,7 +1346,7 @@ a {
     }
 
     .popup-content {
-        height: 80%;
+        height: 90%;
     }
 
     #popup_container {
@@ -1364,10 +1364,10 @@ a {
     }
 
     .popup-content {
-        max-height: 70%;
+        max-height: 80%;
     }
 
     #popup_container {
-        max-height: 60%;
+        max-height: 55%;
     }
 }
