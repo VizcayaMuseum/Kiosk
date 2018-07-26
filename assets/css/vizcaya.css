@@ -708,12 +708,11 @@ a {
         }
 
         .controls .hotspot-controls .list {
-            overflow: auto;
             position: absolute;
             right: 7%;
             bottom: 70px; /*change the proximity of bar and list*/
             display: none;
-            max-height: 160px;
+            min-height: 160px;
             padding: 1px;
             color: #ffffff;
             background: rgba(0, 0, 0, 0.75);
@@ -724,7 +723,7 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            width: 85%
+            min-width: 90%;
         }
 
 #prevDiv, #nextDiv {

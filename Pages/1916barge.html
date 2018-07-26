@@ -44,6 +44,10 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
+        .controls .hotspot-controls .list {
+            right: 5% !important;
+            width: 92%;
+        }
     </style>
 </head>
 <body>
@@ -621,6 +625,7 @@
         *****************************************************/
         $("#hotspots").click(function () {
             $("#lists").toggle();
+            document.getElementById("#lists").style.display = "flex";
         });
 
         //Functions for each annotation

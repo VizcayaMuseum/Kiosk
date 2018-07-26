@@ -121,15 +121,15 @@
                 <div class="sidebar-sticky">
                     <h1 id="header-div">Virtual Vizcaya</h1> <hr />
                     <p>
-                        This project was made possible by the John S. and James L. Knight Foundation.
-                        <br /><br />For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
+                        For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
+                        <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
                         <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
                     </p>
                 </div>
                 <!--sticky footer-->
                 <footer class="footer">
                     <div align="center">
-                        <div id="langdiv_index"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
+                        <div id="langdiv_index" style="font-weight: lighter;"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
                     </div>
                 </footer>
             </nav>
@@ -138,7 +138,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <!-- Photo Grid -->
-            <div class="row" >
+            <div class="row">
                 <div class="column">
                     <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>
                     <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/alligators5.gif" style="width:100%"></a></div>
@@ -265,6 +265,32 @@
             </div>
         </div>
     </div>
+    <!-- Modal for Video-->
+    <div class="modal fade" id="myVideo">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video autoplay loop class="embed-responsive-item">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--
             <div class="row" id="bottom_row">
                 <div class="footer" id="side_footer">
@@ -304,33 +330,6 @@
                 </div>
             </div>
         -->
-    <!-- Modal for Video-->
-    <div class="modal fade" id="myVideo">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Vizcaya Museum and Gardens</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video autoplay loop class="embed-responsive-item">
-                            <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
-                        </video>
-                    </div>                    
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">                    
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
