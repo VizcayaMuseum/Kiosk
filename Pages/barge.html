@@ -45,50 +45,7 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #7d7d7d;
             }
-        
-        @media screen and (max-width: 1222px) {
-            .sidebar-sticky {
-                display: none;
-            }
-            .popup{
-                padding-top: 10px !important;
-            }
-            #iframe1, #iframe2{
-                height: 80%;
-            }
-            .popup-content{
-                height: 80%;
-            }
-            .intrinsic-container, .intrinsic-container-16x9{
-                height: 60%;
-            }
-            
-        }
 
-        @media screen and (max-width: 600px) {
-
-            .popup {
-                padding-top: 10px !important;
-            }
-
-            #iframe1, #iframe2 {
-                height: 100%;
-            }
-
-            .popup-content {
-                height: 80%;
-            }
-
-            .intrinsic-container, .intrinsic-container-16x9 {
-                height: 60%;
-            }            
-        }
-
-        @media (max-width: 10px) {
-            #fullscreen_icon, #question_icon {
-                display: none;
-            }
-        }
     </style>
 
 </head>
@@ -161,7 +118,7 @@
     <div id="mypopup1" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
-            <div class="intrinsic-container intrinsic-container-16x9">
+            <div id="popup_container" class="intrinsic-container intrinsic-container-16x9">
                 <iframe id="iframe1" class="iframe" src="../2017herm.html"></iframe>
             </div>
         </div>
@@ -171,7 +128,7 @@
     <div id="mypopup2" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
-            <div class="intrinsic-container intrinsic-container-16x9">
+            <div id="popup_container" class="intrinsic-container intrinsic-container-16x9">
                 <iframe id="iframe2" class="iframe" src="../mermaids.html"></iframe>
             </div>
         </div>

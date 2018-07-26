@@ -1331,3 +1331,43 @@ a {
 #popups_sidebar-sticky {
     height: 100%;
 }
+
+/*
+* Responsiveness to Popups
+*/
+
+@media screen and (max-width: 1222px) {
+    .popup {
+        padding-top: 10px !important;
+    }
+
+    #iframe1, #iframe2 {
+        height: 80%;
+    }
+
+    .popup-content {
+        height: 80%;
+    }
+
+    #popup_container {
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .popup {
+        padding-top: 10px !important;
+    }
+
+    #iframe1, #iframe2 {
+        height: 100%;
+    }
+
+    .popup-content {
+        max-height: 70%;
+    }
+
+    #popup_container {
+        max-height: 60%;
+    }
+}
