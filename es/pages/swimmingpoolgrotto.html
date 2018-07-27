@@ -595,68 +595,24 @@
             });
 
             //Temp solution to hide list when a hotspot is selected
-            var openLink = document.getElementById('li1');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
+            function hideList(listItem) {
+                var openLink = document.getElementById(listItem);
+                openLink.addEventListener('click', clickHandler, false);
+                function clickHandler() {
+                    var submenu = document.getElementById('lists');
+                    submenu.style.display = 'none';
+                }
             }
 
-            var openLink = document.getElementById('li2');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li3');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li4');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li5');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li6');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li7');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li8');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li9');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }          
+            hideList('li1');
+            hideList('li2');
+            hideList('li3');
+            hideList('li4');
+            hideList('li5');
+            hideList('li6');
+            hideList('li7');
+            hideList('li8');
+            hideList('li9');
 
             /* Navigation Controls Image
         *****************************************************/

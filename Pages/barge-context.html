@@ -23,7 +23,9 @@
                 max-width: 30%;
             }
         }
-
+        .controls .hotspot-controls .list {
+            right: 4.5% !important;
+        }
     </style>
 </head>
 
@@ -85,6 +87,7 @@
                     <li id="li2" class="link"><a data-hotspot-target="1" title="Back View"><span class="index">&sccue;</span>Back View </a></li>
                     <li id="li3" class="link"><a data-hotspot-target="2" title="Left Side View"><span class="index">&sccue;</span> Right Side View</a></li>
                     <li id="li4" class="link"><a data-hotspot-target="3" title="Right Side View"><span class="index">&sccue;</span> Left Side View</a></li>
+                    <li id="li5" class="link"><a data-hotspot-target="4" title="Terrestrial Laser Scanner"><span class="index">&sccue;</span> Faro Scanner</a></li>
                 </ul>
             </div>
         </div>
@@ -243,13 +246,13 @@
 
                     sceneSG.annotations.add(aAbout3);
                 }
-                /*-45.344, -34.589, -2.644*/
+                
                 {
-                    /* Annotation: Faro Scanner
+                    /* Annotation: Terrestrial Laser Scanners
                     *****************************************************/
                     let elTitle = $(`
                                             <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                <img src="${Potree.resourcePath}/icons/i.png"
                                                     name="action_set_scene"
                                                     class="annotation-action-icon"
                                                     style="filter: invert(1);" />
@@ -257,13 +260,13 @@
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
-                    elTitle.toString = () => "Faro Scanner";
+                    elTitle.toString = () => "Terrestrial Laser Scanner";
 
                     let aAbout4 = new Potree.Annotation({
-                        position: [-45.344, -34.589, -2.644],
+                        position: [-42.190, -35.949, -2.656],
                         title: elTitle,
-                        cameraPosition: [-62.880, -102.585, 20.891],
-                        cameraTarget: [-80.264, 10.174, -23.261],
+                        cameraPosition: [-37.266, -41.622, 6.171],
+                        cameraTarget: [-44.730, -33.141, -7.074],
                         description: `Faro Scanner`
                             
                     });
@@ -303,6 +306,9 @@
         function item4() {
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
+        function item5() {
+            sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+        }
 
         //Hotspot Dropup's Click Selection
         $("#li1").click(function () {
@@ -317,6 +323,9 @@
         $("#li4").click(function () {
             item4();
         });
+        $("#li5").click(function () {
+            item5();
+        });
 
         //Hotspot Dropup's Prev/Next Selection
         const functions = [];
@@ -324,6 +333,7 @@
         functions.push(item2);
         functions.push(item3);
         functions.push(item4);
+        functions.push(item5);
 
         const length = functions.length;
 
@@ -351,36 +361,20 @@
         });
 
         //Temp solution to hide list when a hotspot is selected
-        var openLink = document.getElementById('li1');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
+        function hideList(listItem) {
+            var openLink = document.getElementById(listItem);
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
         }
 
-        var openLink = document.getElementById('li2');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-        var openLink = document.getElementById('li3');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-        var openLink = document.getElementById('li4');
-        openLink.addEventListener('click', clickHandler, false);
-        function clickHandler() {
-            var submenu = document.getElementById('lists');
-            submenu.style.display = 'none';
-        }
-
-
-
+        hideList('li1');
+        hideList('li2');
+        hideList('li3');
+        hideList('li4');
+        hideList('li5');
 
         /* Navigation Controls Image
         *****************************************************/

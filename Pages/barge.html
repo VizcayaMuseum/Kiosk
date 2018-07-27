@@ -555,33 +555,19 @@
             });
 
             //Temp solution to hide list when a hotspot is selected
-            var openLink = document.getElementById('li1');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
+            function hideList(listItem) {
+                var openLink = document.getElementById(listItem);
+                openLink.addEventListener('click', clickHandler, false);
+                function clickHandler() {
+                    var submenu = document.getElementById('lists');
+                    submenu.style.display = 'none';
+                }
             }
 
-            var openLink = document.getElementById('li2');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li3');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
-
-            var openLink = document.getElementById('li4');
-            openLink.addEventListener('click', clickHandler, false);
-            function clickHandler() {
-                var submenu = document.getElementById('lists');
-                submenu.style.display = 'none';
-            }
+            hideList('li1');
+            hideList('li2');
+            hideList('li3');
+            hideList('li4');
 
             /*{   //Annotation (Example)
                    let Mermaids = new Potree.Annotation({
