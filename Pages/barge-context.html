@@ -243,6 +243,33 @@
 
                     sceneSG.annotations.add(aAbout3);
                 }
+                /*-45.344, -34.589, -2.644*/
+                {
+                    /* Annotation: Faro Scanner
+                    *****************************************************/
+                    let elTitle = $(`
+                                            <span>
+                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>
+                                        `);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+                    });
+                    elTitle.toString = () => "Faro Scanner";
+
+                    let aAbout4 = new Potree.Annotation({
+                        position: [-45.344, -34.589, -2.644],
+                        title: elTitle,
+                        cameraPosition: [-62.880, -102.585, 20.891],
+                        cameraTarget: [-80.264, 10.174, -23.261],
+                        description: `Faro Scanner`
+                            
+                    });
+
+                    sceneSG.annotations.add(aAbout4);
+                }
             }
 
             var src = document.referrer;
