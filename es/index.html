@@ -20,12 +20,38 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
     <style>
+        .tile {
+            overflow: hidden !important;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .tile_selected {
+            /*
+            -moz-transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+                */
+            transition: .3s ease;
+            opacity: 0.7;
+            background-color: rgba(0,0,0,0.5);
+            color: #ffffff;
+        }
+        /*
+        .icon3d {
+            background-image: url("../images/question.svg");
+            top: 50%;
+            left: 50%;
+        }
+        */
         body {
             background-color: #fff !important;
         }
 
         h1 {
-            font-size: 3em;
+            position: sticky;
+            font-size: 3em; /*3em*/ /*60px*/
         }
 
         * {
@@ -45,36 +71,21 @@
             padding: 0 4px;
         }
 
-        /* Create four equal columns that sits next to each other */
-        .column {
-            -ms-flex: 25%; /* IE10 */
-            flex: 25%;
-            max-width: 25%;
-            padding: 0 4px;
+        .controls {
+            right: 35%;
+            width: 500px;
+            bottom: -40px;
         }
 
-            .column img {
-                margin-top: 8px;
-                vertical-align: middle;
+            .controls .hotspot-controls {
+                background: rgba(0,0,0,9);
+                bottom: 0;
             }
 
-        /* Responsive layout - makes a two column-layout instead of four columns */
-        @media screen and (max-width: 800px) {
-            .column {
-                -ms-flex: 50%;
-                flex: 50%;
-                max-width: 50%;
-            }
-        }
-
-        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 600px) {
-            .column {
-                -ms-flex: 100%;
-                flex: 100%;
-                max-width: 100%;
-            }
-        }
+                .controls .hotspot-controls .list {
+                    background: rgba(0,0,0,1);
+                    right: 5%;
+                }       
     </style>
 </head>
 
@@ -105,30 +116,70 @@
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <a href="3d-documentation.html"><img src="images/works/3D_Documentation_Spanish.png" style="width:100%"></a>
-                    <a href="swimmingpoolgrotto.html?1"><img src="images/works/Alligator03.gif" style="width:100%"></a>
-                    <a href="barge.html?2"><img src="images/works/Mermaids01.jpg" style="width:100%"></a>
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3D_Documentation_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/Alligator03.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <a href="irma.html"><img src="images/works/IrmaFootage.gif" style="width:100%"></a>
-                    <a href="swimmingpoolgrotto.html?0"><img src="images/works/Grotto_Spanish.png" style="width:100%"></a>
-                    <a href="1916barge.html?1"><img src="images/works/Herm1916.jpg" style="width:100%"></a>
+                    <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <a href="barge.html?1"><img src="images/works/Herm.gif" style="width:100%"></a>
-                    <a href="barge.html?0"><img src="images/works/Barge_Spanish.png" style="width:100%"></a>
-                    <a data-toggle="modal" href="#creditsModal"><img src="images/works/OurPartners_Spanish.png" style="width:100%"></a>
+                    <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_Spanish.png" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <a href="1916barge.html?0"><img src="images/works/1916Barge_Spanish.png" style="width:100%"></a>
-                    <div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile.png" style="width:100%"></a></div>
-                    <a href="1916barge.html?2"><img src="images/works/1916mermaids.png" style="width:100%"></a>
+                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a></div>
 
                 </div>
             </div>
             <!-- End Photo Grid -->
+            <div class="row" id="bottom_row">
+                <div class="showcase" id="showcase_row">
+                    <div class="row" id="controls_row">
+                        <div class="controls">
+                            <div class="hotspot-controls">
 
+                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                                </div>
+
+                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Toque Para Explorar</b></div>
+
+                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                                </div>
+
+                                <div id="lists" class="list hotspots-list visible">
+                                    <ul class="js-scrollable">
+                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>Documentacion 3D</a></li>
+                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Lagartos </a></li>
+                                        <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Esculturas</a></li>
+                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Huracán Irma</a></li>
+                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>La Gruta De La Piscina</a></li>
+                                        <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herma</a></li>
+                                        <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herma</a></li>
+                                        <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barcaza</a></li>
+                                        <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Nuestros Socios</a></li>
+                                        <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barcaza</a></li>
+                                        <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Imágenes de Drone</a></li>
+                                        <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Esculturas</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        
         </main>
+
+
     </div>
 
     <!--My House-->
@@ -264,6 +315,224 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+        /* Hotspots Control Dropup
+        *****************************************************/
+        $("#hotspots").click(function () {
+            /*$("#lists").toggle('show');*/
+
+
+            if (document.getElementById('tilename').innerHTML == "Documentacion 3D") {
+                window.location.href = "3d-documentation.html";
+            }
+            if (document.getElementById('tilename').innerHTML == "Lagartos") {
+                window.location.href = "swimmingpoolgrotto.html?1";
+            }
+            if (document.getElementById('tilename').innerHTML == "2017 Esculturas") {
+                window.location.href = "barge.html?2";
+            }
+            if (document.getElementById('tilename').innerHTML == "Huracán Irma") {
+                window.location.href = "irma.html";
+            }
+            if (document.getElementById('tilename').innerHTML == "La Gruta De La Piscina") {
+                window.location.href = "swimmingpoolgrotto.html?0";
+            }
+            if (document.getElementById('tilename').innerHTML == "1916 Herma") {
+                window.location.href = "1916barge.html?1";
+            }
+            if (document.getElementById('tilename').innerHTML == "2017 Herma") {
+                window.location.href = "barge.html?1";
+            }
+            if (document.getElementById('tilename').innerHTML == "2017 Barcaza") {
+                window.location.href = "barge.html?0";
+            }
+            if (document.getElementById('tilename').innerHTML == "Nuestros Socios") {
+                $('#creditsModal').modal('show');
+            }
+            if (document.getElementById('tilename').innerHTML == "1916 Barcaza") {
+                window.location.href = "1916barge.html?0";
+            }
+            if (document.getElementById('tilename').innerHTML == "Imágenes de Drone") {
+                $('#myVideo').modal('show');
+            }
+            if (document.getElementById('tilename').innerHTML == "1916 Esculturas") {
+                window.location.href = "1916barge.html?2";
+            }
+
+        });
+
+        function tileSelection(newTitle, newTile) {
+            document.getElementById('tilename').innerHTML = newTitle;
+
+            document.getElementById(newTile).className += "tile_selected";
+
+            const tileArray = ["tile1", "tile2", "tile3", "tile4", "tile5", "tile6",
+                "tile7", "tile8", "tile9", "tile10", "tile11", "tile12"];
+
+            var index = tileArray.indexOf(newTile);
+
+            tileArray.splice(index, 1);
+
+            for (i = 0; i < tileArray.length; i++) {
+                var tileName = tileArray[i];
+                document.getElementById(tileName).classList.remove('tile_selected');
+            }
+        }
+
+        //Functions for each annotation
+        function tile1() {
+            /*window.location.href = "3d-documentation.html";*/
+            tileSelection("Documentacion 3D", "tile1");
+        }
+        function tile2() {
+            /*window.location.href = "swimmingpoolgrotto.html?1";*/
+            tileSelection("Lagartos", "tile2");
+        }
+        function tile3() {
+            /*window.location.href = "barge.html?2";*/
+            tileSelection("2017 Esculturas", "tile3");
+        }
+        function tile4() {
+            /*window.location.href = "irma.html";*/
+            tileSelection("Huracán Irma", "tile4");
+        }
+        function tile5() {
+            /*window.location.href = "swimmingpoolgrotto.html?0";*/
+            tileSelection("La Gruta De La Piscina", "tile5");
+        }
+        function tile6() {
+            /*window.location.href = "1916barge.html?1";*/
+            tileSelection("1916 Herma", "tile6");
+        }
+        function tile7() {
+            /*window.location.href = "barge.html?1";*/
+            tileSelection("2017 Herma", "tile7");
+        }
+        function tile8() {
+            /*window.location.href = "barge.html?0";*/
+            tileSelection("2017 Barcaza", "tile8");
+        }
+        function tile9() {
+            /*$('#creditsModal').modal('show');*/
+            tileSelection("Nuestros Socios", "tile9");
+        }
+        function tile10() {
+            /*window.location.href = "1916barge.html?0";*/
+            tileSelection("1916 Barcaza", "tile10");
+        }
+        function tile11() {
+            /*$('#myVideo').modal('show');*/
+            tileSelection("Imágenes de Drone", "tile11");
+        }
+        function tile12() {
+            /*window.location.href = "1916barge.html?2";*/
+            tileSelection("1916 Esculturas", "tile12");
+        }
+
+        //Hotspot Dropup's Click Selection
+        $("#li1").click(function () {
+            tile1();
+        });
+        $("#li2").click(function () {
+            tile2();
+        });
+        $("#li3").click(function () {
+            tile3();
+        });
+        $("#li4").click(function () {
+            tile4();
+        });
+        $("#li5").click(function () {
+            tile5();
+        });
+        $("#li6").click(function () {
+            tile6();
+        });
+        $("#li7").click(function () {
+            tile7();
+        });
+        $("#li8").click(function () {
+            tile8();
+        });
+        $("#li9").click(function () {
+            tile9();
+        });
+        $("#li10").click(function () {
+            tile10();
+        });
+        $("#li11").click(function () {
+            tile11();
+        });
+        $("#li12").click(function () {
+            tile12();
+        });
+
+        //Hotspot Dropup's Prev/Next Selection
+        const functions = [];
+        functions.push(tile1);
+        functions.push(tile2);
+        functions.push(tile3);
+        functions.push(tile4);
+        functions.push(tile5);
+        functions.push(tile6);
+        functions.push(tile7);
+        functions.push(tile8);
+        functions.push(tile9);
+        functions.push(tile10);
+        functions.push(tile11);
+        functions.push(tile12);
+
+        const length = functions.length;
+
+        const getNextIdx = (idx = 0, length, direction) => {
+            switch (direction) {
+                case 'next': return (idx + 1) % length;
+                case 'prev': return (idx == 0) && length - 1 || idx - 1;
+                default: return idx;
+            }
+        }
+
+        let idx; // idx is undefined, so getNewScene will take 0 as default
+        const getNewScene = (direction) => {
+            idx = getNextIdx(idx, length, direction);
+            var sceneFunction = functions[idx];
+            return sceneFunction();
+        }
+
+        $("#prev").click(function () {
+            getNewScene('prev');
+        });
+
+        $("#next").click(function () {
+            getNewScene('next');
+        });
+            /*
+            //Temp solution to hide list when a hotspot is selected
+            function hideList(listItem) {
+                var openLink = document.getElementById(listItem);
+                openLink.addEventListener('click', clickHandler, false);
+                function clickHandler() {
+                    var submenu = document.getElementById('lists');
+                    submenu.style.display = 'none';
+                }
+            }
+
+            hideList('li1');
+            hideList('li2');
+            hideList('li3');
+            hideList('li4');
+            hideList('li5');
+            hideList('li6');
+            hideList('li7');
+            hideList('li8');
+            hideList('li9');
+            hideList('li10');
+            hideList('li11');
+            hideList('li12');
+            */
+    </script>
 
 </body>
 </html>

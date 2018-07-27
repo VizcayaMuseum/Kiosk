@@ -1,0 +1,269 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Vizcaya Virtual</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-reboot.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/vizcaya.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff !important;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+        }
+
+            .column img {
+                margin-top: 8px;
+                vertical-align: middle;
+            }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body style="overflow: auto;">
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <h1 id="header-div">Virtual Vizcaya</h1> <hr />
+                    <p>
+                        Durante más de cien años, Vizcaya ha resistido el clima tropical de Miami y las condiciones que prevalecen a orillas de la bahía de Biscayne. Hoy día, aunque Vizcaya se enfrenta a las amenazas del cambio climático y la subida del nivel del mar, se mantiene resistente. Mediante el uso de escaneo y modelado 3D, Vizcaya documenta sus activos históricos más vulnerables para avanzar en enfoques innovadores de conservación y cuidado preventivo. Estas innovadoras estrategias de conservación ofrecen a nuestros visitantes una nueva oportunidad para reflexionar sobre el pasado, presente y futuro de Vizcaya.
+                        <br /><br />Este proyecto se realizó con el apoyo de John S. and James L. Knight Foundation.
+                        <br /><br /><b>Toque las images en la derecha para iniciar una gira virtual.</b>
+                    </p>
+
+                </div>
+                <!--sticky footer-->
+                <footer class="footer">
+                    <div align="center">
+                        <div id="langdiv_index"><a href="../index.html"> English </a> | <a id="lang_selected"><b>Español</b></a></div>
+                    </div>
+                </footer>
+            </nav>
+        </div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <!-- Photo Grid -->
+            <div class="row">
+                <div class="column">
+                    <a href="3d-documentation.html"><img src="images/works/3D_Documentation_Spanish.png" style="width:100%"></a>
+                    <a href="swimmingpoolgrotto.html?1"><img src="images/works/Alligator03.gif" style="width:100%"></a>
+                    <a href="barge.html?2"><img src="images/works/Mermaids01.jpg" style="width:100%"></a>
+                </div>
+                <div class="column">
+                    <a href="irma.html"><img src="images/works/IrmaFootage.gif" style="width:100%"></a>
+                    <a href="swimmingpoolgrotto.html?0"><img src="images/works/Grotto_Spanish.png" style="width:100%"></a>
+                    <a href="1916barge.html?1"><img src="images/works/Herm1916.jpg" style="width:100%"></a>
+                </div>
+                <div class="column">
+                    <a href="barge.html?1"><img src="images/works/Herm.gif" style="width:100%"></a>
+                    <a href="barge.html?0"><img src="images/works/Barge_Spanish.png" style="width:100%"></a>
+                    <a data-toggle="modal" href="#creditsModal"><img src="images/works/OurPartners_Spanish.png" style="width:100%"></a>
+                </div>
+                <div class="column">
+                    <a href="1916barge.html?0"><img src="images/works/1916Barge_Spanish.png" style="width:100%"></a>
+                    <div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile.png" style="width:100%"></a></div>
+                    <a href="1916barge.html?2"><img src="images/works/1916mermaids.png" style="width:100%"></a>
+
+                </div>
+            </div>
+            <!-- End Photo Grid -->
+
+        </main>
+    </div>
+
+    <!--My House-->
+    <div class="modal fade" id="myHouse">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Tour de Acceso Virtual</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg"><br><br>
+                    <p>
+                        Vizcaya era la casa de James Deering, quien la ocupó cada invierno desde 1916 hasta su muerte en 1925.
+                        Al envejecer, Deering usaba una silla de ruedas para pasar de un piso al otro en el elevador.
+                        Desafortunadamente, el sistema del elevador fue destruido en el huracán del 1926, y la cabina se encuentra
+                        permanentemente estacionada en el segundo piso junto a la habitación de Deering. Hoy en día, nuevas
+                        tecnologías y la fotografía de 360 grados permiten que los visitantes exploren de manera virtual las
+                        habitaciones decoradas y las áreas de los jardines que son difíciles de acceder.
+                        <br /><br />Seleccione continuar para iniciar una gira virtual.
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="http://vizcaya.darumatech.com/VAT/kiosk/house.html"><button type="button" class="btn">Continuar</button></a>
+                    <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Credits Modal-->
+    <div class="modal fade" id="creditsModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="container-fluid">
+
+                        <div class="row featurette" style="padding: 1%;">
+                            <div class="col-md-12 order-md-1">
+                                <img class="featurette-image img-fluid mx-auto" src="images/KF_logo-stacked.png" alt="Generic placeholder image">
+                                <p class="lead">
+                                    <br />
+                                    Este proyecto fue hecho posible gracias al apoyo de la Fundación John S. y James L. Knight.
+                                    <br />
+                                    <h5>Nuestros socios del proyecto son:</h5>
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" src="images/daruma_logo.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h3>Daruma Tech</h3>
+                                <p style="font-weight:lighter;">Daruma Tech es una empresa tecnológica de servicio completo que se especializa en el desarrollo de imágenes 3D y de aplicaciones entre otras soluciones digitales para el sector público y privado.  Proyectos recientes incluyen una aplicación de IOS y Android que presentan vídeos de realidad aumentada e ilustraciones 3D para sumergir al usuario en la Universidad de Troy y la actualización de una aplicación de IOS y Android para Tri-Rail que incorpora el horario del tren en una manera dinámica.  Daruma Tech será contratado para finalizar los modelos 3D de la barcaza y el mural en el techo de la piscina con el desarrolló del interfaz de quiosco, aplicación de VR/AR y modulo virtual para ser interactivo en línea.</p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" src="images/fiu_logo.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h3>Florida International University – Miami Beach Urban Studios</h3>
+                                <p style="font-weight:lighter;">Los Estudios Urbanos de Miami Beach (MBUS) es una instalación única de edificios con 16,000sf en el 420 Lincoln Road que alberga un conjunto interdisciplinario de exposiciones innovadoras, clases, laboratorios de investigación y eventos para el Colegio de la Comunicación, Arquitectura + Las Artes (aka “CARTA,” que se compone de los siguientes departamentos: Arquitectura, Arquitectura Paisajista, Arquitectura Interior, Música, Historia del Arte/Arte, Teatro, Periodismo + Medios y Comunicación).  También alberga instituciones afiliadas (Centro de Soluciones para el Nivel de Mar, Amernet Serie de Cuarteto, ARC+, y temporalmente, La Iniciativa del Futuro Urbano de Miami y el Arte Ratcliffe + Incubadora de Diseño). MBUS alberga 3,500sf patrocinado por Knight CARTA Laboratorio Innovador, que con más de 33 impresoras 3D es uno de los laboratorios de impresión 3D más grande de su tipo en los Estados Unidos. El laboratorio está orgulloso por haber sido seleccionado para ser un participante en el Proyecto HP/EDUCAUSE Construyendo el Campus del Futuro.</p>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider" />
+
+                        <div class="row featurette">
+                            <div class="col-md-3 order-md-1" style="padding-top:2%;">
+                                <img class="featurette-image img-fluid mx-auto" src="images/uf_logo.png" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-9 order-md-2" style="padding-top:1%;">
+                                <h3>University of Florida, Escuela de Diseño, Construcción y Planificación, Envision Programa de Patrimonio</h3>
+                                <p style="font-weight:lighter;">Lanzado por el Programa de Preservación Histórico en 2012, la Universidad de la Florida y el Programa Envision explora cómo las nuevas y emergentes tecnologías digitales pueden utilizarse para documentar, preservar e interpretar el patrimonio de sitios históricos. Los proyectos de investigación utilizan escaneo láser, fotogrametría y proyección de imagen de drones, entre otras tecnologías.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Video-->
+    <div class="modal fade" id="myVideo">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video autoplay loop class="embed-responsive-item">
+                            <source src="https://s3.amazonaws.com/vizcaya/video/Drone_Vizcaya.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
