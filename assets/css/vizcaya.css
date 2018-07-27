@@ -1271,13 +1271,10 @@ a {
 /*
 * FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE AND IRMA PAGE
 */
-#main-video {
-    object-fit: fill;
-}
 
 #main-canvas {
     width: 100% !important;
-    object-fit: fill;
+    
     flex: 1 0 0;
 }
 
