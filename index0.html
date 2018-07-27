@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
 
-    <title>Vizcaya Virtual</title>
+    <title>Virtual Vizcaya</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,20 +19,21 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/vizcaya.css" rel="stylesheet">
+
     <style>
-        .tile {
+        .tile{
             overflow: hidden !important;
             -moz-transition: all 0.3s;
             -webkit-transition: all 0.3s;
             transition: all 0.3s;
         }
-
         .tile_selected {
             /*
             -moz-transform: scale(1.2);
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
                 */
+            
             transition: .3s ease;
             opacity: 0.7;
             background-color: rgba(0,0,0,0.5);
@@ -51,7 +52,7 @@
 
         h1 {
             position: sticky;
-            font-size: 3em; /*3em*/ /*60px*/
+            font-size: 3em; /*3em*/ /*60px*/           
         }
 
         * {
@@ -76,12 +77,10 @@
             width: 500px;
             bottom: -40px;
         }
-
             .controls .hotspot-controls {
                 background: rgba(0,0,0,9);
                 bottom: 0;
             }
-
                 .controls .hotspot-controls .list {
                     background: rgba(0,0,0,1);
                     right: 5%;
@@ -90,6 +89,7 @@
 </head>
 
 <body style="overflow: auto;">
+    <!--style="overflow: auto;"-->
 
     <div class="container-fluid">
         <div class="row">
@@ -97,120 +97,116 @@
                 <div class="sidebar-sticky">
                     <h1 id="header-div">Virtual Vizcaya</h1> <hr />
                     <p>
-                        Durante más de cien años, Vizcaya ha resistido el clima tropical de Miami y las condiciones que prevalecen a orillas de la bahía de Biscayne. Hoy día, aunque Vizcaya se enfrenta a las amenazas del cambio climático y la subida del nivel del mar, se mantiene resistente. Mediante el uso de escaneo y modelado 3D, Vizcaya documenta sus activos históricos más vulnerables para avanzar en enfoques innovadores de conservación y cuidado preventivo. Estas innovadoras estrategias de conservación ofrecen a nuestros visitantes una nueva oportunidad para reflexionar sobre el pasado, presente y futuro de Vizcaya.
-                        <br /><br />Este proyecto se realizó con el apoyo de John S. and James L. Knight Foundation.
-                        <br /><br /><b>Toque las images en la derecha para iniciar una gira virtual.</b>
+                        For over 100 years, Vizcaya has endured Miami’s tropical climate and conditions along the shoreline of Biscayne Bay. Today, Vizcaya is vulnerable to sea level rise and climate change yet remains resilient. Through the use of 3D modeling and scanning Vizcaya documents its  most vulnerable historic assets to advance innovative approaches to conservation and preventive care. The resulting 3D images provide visitors a new opportunity and perspective to consider Vizcaya’s past, present and future.
+                        <br /><br />This project was made possible by the John S. and James L. Knight Foundation.
+                        <br /><br /><b>Touch the tiles to the right to begin a virtual experience.
                     </p>
-
                 </div>
                 <!--sticky footer-->
                 <footer class="footer">
                     <div align="center">
-                        <div id="langdiv_index"><a href="../index.html"> English </a> | <a id="lang_selected"><b>Español</b></a></div>
+                        <div id="langdiv_index" style="font-weight: lighter;"><a id="lang_selected"><b>English</b></a> | <a href="es/index.html">Español</a></div>
                     </div>
                 </footer>
             </nav>
-        </div>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
+        </div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main">
             <!-- Photo Grid -->
             <div class="row">
                 <div class="column">
-                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3D_Documentation_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="3d-documentation.html"><img id="tile1" src="images/works/3DDocumentation_English.png" style="width:100%"></a></div>
                     <div class="tile"><a href="swimmingpoolgrotto.html?1"><img id="tile2" src="images/works/Alligator03.gif" style="width:100%"></a></div>
                     <div class="tile"><a href="barge.html?2"><img id="tile3" src="images/works/Mermaids01.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
                     <div class="tile"><a href="irma.html"><img id="tile4" src="images/works/IrmaFootage.gif" style="width:100%"></a></div>
-                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="swimmingpoolgrotto.html?0"><img id="tile5" src="images/works/Grotto_English.png" style="width:100%"></a></div>
                     <div class="tile"><a href="1916barge.html?1"><img id="tile6" src="images/works/Herm1916.jpg" style="width:100%"></a></div>
                 </div>
                 <div class="column">
                     <div class="tile"><a href="barge.html?1"><img id="tile7" src="images/works/Herm.gif" style="width:100%"></a></div>
-                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_Spanish.png" style="width:100%"></a></div>
-                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_Spanish.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="barge.html?0"><img id="tile8" src="images/works/Barge_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#creditsModal"><img id="tile9" src="images/works/OurPartners_English.png" style="width:100%"></a></div>
                 </div>
                 <div class="column">
-                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_Spanish.png" style="width:100%"></a></div>
-                    <div class="tile"><div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile.png" style="width:100%"></a></div>
+                    <div class="tile"><a href="1916barge.html?0"><img id="tile10" src="images/works/1916Barge_English.png" style="width:100%"></a></div>
+                    <div class="tile"><a data-toggle="modal" href="#myVideo"><img id="tile11" src="images/works/videoTile.png" style="width:100%"></a></div>
                     <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a></div>
-
                 </div>
             </div>
-            <!-- End Photo Grid -->
             <div class="row" id="bottom_row">
-                <div class="showcase" id="showcase_row">
-                    <div class="row" id="controls_row">
-                        <div class="controls">
-                            <div class="hotspot-controls">
-
-                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
-                                </div>
-
-                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Toque Para Explorar</b></div>
-
-                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
-                                </div>
-
-                                <div id="lists" class="list hotspots-list visible">
-                                    <ul class="js-scrollable">
-                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>Documentacion 3D</a></li>
-                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Lagartos </a></li>
-                                        <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Esculturas</a></li>
-                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Huracán Irma</a></li>
-                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>La Gruta De La Piscina</a></li>
-                                        <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herma</a></li>
-                                        <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herma</a></li>
-                                        <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barcaza</a></li>
-                                        <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Nuestros Socios</a></li>
-                                        <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barcaza</a></li>
-                                        <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Imágenes de Drone</a></li>
-                                        <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Esculturas</a></li>
-                                    </ul>
+                    <div class="showcase" id="showcase_row">
+                        <div class="row" id="controls_row">
+                            <div class="controls">
+                                <div class="hotspot-controls">
+                                    <!--
+                        <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                            <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                        </div>
+                        -->
+                                    <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch to Tour</b></div>
+                                    <!--
+                        <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                            <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                        </div>
+                        -->
+                                    <div id="lists" class="list hotspots-list visible">
+                                        <ul class="js-scrollable">
+                                            <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
+                                            <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
+                                            <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
+                                            <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
+                                            <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
+                                            <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
+                                            <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
+                                            <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
+                                            <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
+                                            <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
+                                            <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Drone Footage</a></li>
+                                            <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                 </div>
             </div>
-        
+
         </main>
-
-
+        
     </div>
-
-    <!--My House-->
+    
+    <!-- Modal for HOUSE.HTML-->
     <div class="modal fade" id="myHouse">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Tour de Acceso Virtual</h4>
+                    <h4 class="modal-title">Virtual Access Tour</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
                     <img id="house-image" src="images/VirtualAcessTour_Pop-Up_Image.jpg"><br><br>
-                    <p>
-                        Vizcaya era la casa de James Deering, quien la ocupó cada invierno desde 1916 hasta su muerte en 1925.
-                        Al envejecer, Deering usaba una silla de ruedas para pasar de un piso al otro en el elevador.
-                        Desafortunadamente, el sistema del elevador fue destruido en el huracán del 1926, y la cabina se encuentra
-                        permanentemente estacionada en el segundo piso junto a la habitación de Deering. Hoy en día, nuevas
-                        tecnologías y la fotografía de 360 grados permiten que los visitantes exploren de manera virtual las
-                        habitaciones decoradas y las áreas de los jardines que son difíciles de acceder.
-                        <br /><br />Seleccione continuar para iniciar una gira virtual.
+                    <p style="font-weight: lighter;">
+                        Vizcaya was originally the private home of James Deering who spent winter seasons here from 1916 until his death in 1925.
+                        As Deering aged, he used a wheelchair to move between floors on an elevator. Unfortunately, the elevator system was destroyed
+                        in the 1926 hurricane and the elevator car is permanently parked on the second floor, located next to Deering’s bedroom.
+                        Today, new technologies and 360 degree photography allow all visitors to virtually enter and explore decorated rooms and
+                        hard-to-reach areas of the gardens.
+                        <br /><br />Select start to begin a virtual access tour.
                     </p>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a href="http://vizcaya.darumatech.com/VAT/kiosk/house.html"><button type="button" class="btn">Continuar</button></a>
-                    <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                    <a href="http://vizcaya.darumatech.com/VAT/kiosk/house.html"><button type="button" class="btn">Start</button></a>
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -225,14 +221,14 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <div class="container-fluid">
 
-                        <div class="row featurette" style="padding: 1%;">
+                        <div class="row featurette" style="padding-top: 1%;">
                             <div class="col-md-12 order-md-1">
                                 <img class="featurette-image img-fluid mx-auto" src="images/KF_logo-stacked.png" alt="Generic placeholder image">
                                 <p class="lead">
                                     <br />
-                                    Este proyecto fue hecho posible gracias al apoyo de la Fundación John S. y James L. Knight.
+                                    This project was made possible through support from the John S. and James L. Knight Foundation.
                                     <br />
-                                    <h5>Nuestros socios del proyecto son:</h5>
+                                    <h5>Our project partners are:</h5>
                                 </p>
                             </div>
                         </div>
@@ -245,7 +241,7 @@
                             </div>
                             <div class="col-md-9 order-md-2" style="padding-top:1%;">
                                 <h3>Daruma Tech</h3>
-                                <p style="font-weight:lighter;">Daruma Tech es una empresa tecnológica de servicio completo que se especializa en el desarrollo de imágenes 3D y de aplicaciones entre otras soluciones digitales para el sector público y privado.  Proyectos recientes incluyen una aplicación de IOS y Android que presentan vídeos de realidad aumentada e ilustraciones 3D para sumergir al usuario en la Universidad de Troy y la actualización de una aplicación de IOS y Android para Tri-Rail que incorpora el horario del tren en una manera dinámica.  Daruma Tech será contratado para finalizar los modelos 3D de la barcaza y el mural en el techo de la piscina con el desarrolló del interfaz de quiosco, aplicación de VR/AR y modulo virtual para ser interactivo en línea.</p>
+                                <p style="font-weight:lighter;">Daruma Tech is a full service technology company that specializes in 3D rendering and App development among other digital solutions for the private and public sectors.  Recent projects include an IOS and Android application that featured augmented reality videos and 3D illustrations to immerse the user in the Troy University and the update of an IOS and Android application for Tri-Rail that incorporates a data-driven, dynamic train schedule.  Daruma Tech will be contracted to finalize the 3D models of the Barge and Pool ceiling mural and develop the kiosk interface, VR/AR application and web module virtual online interactive.</p>
                             </div>
                         </div>
 
@@ -257,7 +253,7 @@
                             </div>
                             <div class="col-md-9 order-md-2" style="padding-top:1%;">
                                 <h3>Florida International University – Miami Beach Urban Studios</h3>
-                                <p style="font-weight:lighter;">Los Estudios Urbanos de Miami Beach (MBUS) es una instalación única de edificios con 16,000sf en el 420 Lincoln Road que alberga un conjunto interdisciplinario de exposiciones innovadoras, clases, laboratorios de investigación y eventos para el Colegio de la Comunicación, Arquitectura + Las Artes (aka “CARTA,” que se compone de los siguientes departamentos: Arquitectura, Arquitectura Paisajista, Arquitectura Interior, Música, Historia del Arte/Arte, Teatro, Periodismo + Medios y Comunicación).  También alberga instituciones afiliadas (Centro de Soluciones para el Nivel de Mar, Amernet Serie de Cuarteto, ARC+, y temporalmente, La Iniciativa del Futuro Urbano de Miami y el Arte Ratcliffe + Incubadora de Diseño). MBUS alberga 3,500sf patrocinado por Knight CARTA Laboratorio Innovador, que con más de 33 impresoras 3D es uno de los laboratorios de impresión 3D más grande de su tipo en los Estados Unidos. El laboratorio está orgulloso por haber sido seleccionado para ser un participante en el Proyecto HP/EDUCAUSE Construyendo el Campus del Futuro.</p>
+                                <p style="font-weight:lighter;">The Miami Beach Urban Studios (MBUS) is a unique 16,000sf facility in the 420 Lincoln Road Building that hosts an interdisciplinary array of innovative exhibitions, classes, research laboratories, and events for the College of Communication, Architecture + The Arts (aka “CARTA,” which is comprised of the following departments: Architecture, Landscape Architecture, Interior Architecture, Music, Art/Art History, Theatre, Journalism + Media and Communication).  It also houses affiliated institutions (Sea Level Solution Center, Amernet String Quartet, ARC+, and temporarily, the Miami Urban Future Initiative, and the Ratcliffe Art + Design Incubator). MBUS houses the 3,500sf Knight-sponsored CARTA Innovation Lab, which with over 33 3D printers is one of the largest 3D printing laboratories of its kind in the United States. The lab is proud to have been selected to be a participant in the HP/EDUCAUSE Building the Campus of the Future Project.</p>
                             </div>
                         </div>
 
@@ -268,8 +264,8 @@
                                 <img class="featurette-image img-fluid mx-auto" src="images/uf_logo.png" alt="Generic placeholder image">
                             </div>
                             <div class="col-md-9 order-md-2" style="padding-top:1%;">
-                                <h3>University of Florida, Escuela de Diseño, Construcción y Planificación, Envision Programa de Patrimonio</h3>
-                                <p style="font-weight:lighter;">Lanzado por el Programa de Preservación Histórico en 2012, la Universidad de la Florida y el Programa Envision explora cómo las nuevas y emergentes tecnologías digitales pueden utilizarse para documentar, preservar e interpretar el patrimonio de sitios históricos. Los proyectos de investigación utilizan escaneo láser, fotogrametría y proyección de imagen de drones, entre otras tecnologías.</p>
+                                <h3>The University of Florida, College of Design, Construction & Planning, Envision Heritage Program</h3>
+                                <p style="font-weight:lighter;">Launched by the Historic Preservation Program in 2012, the University of Florida’s Envision Heritage explores how new and emerging digital technologies can be used to document, preserve, and interpret heritage sites. The research projects utilize laser scanning, photogrammetry and imaging from drones, among other technologies.</p>
                             </div>
                         </div>
                     </div>
@@ -308,6 +304,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -321,46 +319,46 @@
         /* Hotspots Control Dropup
         *****************************************************/
         $("#hotspots").click(function () {
-            /*$("#lists").toggle('show');*/
+            $("#lists").toggle('show');
 
-
-            if (document.getElementById('tilename').innerHTML == "Documentacion 3D") {
+            /*
+            if (document.getElementById('tilename').innerHTML == "3D Documentation") {
                 window.location.href = "3d-documentation.html";
             }
-            if (document.getElementById('tilename').innerHTML == "Lagartos") {
+            if (document.getElementById('tilename').innerHTML == "Alligators"){
                 window.location.href = "swimmingpoolgrotto.html?1";
             }
-            if (document.getElementById('tilename').innerHTML == "2017 Esculturas") {
+            if (document.getElementById('tilename').innerHTML == "2017 Sculptures") {
                 window.location.href = "barge.html?2";
             }
-            if (document.getElementById('tilename').innerHTML == "Huracán Irma") {
+            if (document.getElementById('tilename').innerHTML == "Hurricane Irma") {
                 window.location.href = "irma.html";
             }
-            if (document.getElementById('tilename').innerHTML == "La Gruta De La Piscina") {
+            if (document.getElementById('tilename').innerHTML == "Swimming Pool Grotto") {
                 window.location.href = "swimmingpoolgrotto.html?0";
             }
-            if (document.getElementById('tilename').innerHTML == "1916 Herma") {
+            if (document.getElementById('tilename').innerHTML == "1916 Herm") {
                 window.location.href = "1916barge.html?1";
             }
-            if (document.getElementById('tilename').innerHTML == "2017 Herma") {
+            if (document.getElementById('tilename').innerHTML == "2017 Herm") {
                 window.location.href = "barge.html?1";
             }
-            if (document.getElementById('tilename').innerHTML == "2017 Barcaza") {
+            if (document.getElementById('tilename').innerHTML == "2017 Barge") {
                 window.location.href = "barge.html?0";
             }
-            if (document.getElementById('tilename').innerHTML == "Nuestros Socios") {
+            if (document.getElementById('tilename').innerHTML == "Our Partners") {
                 $('#creditsModal').modal('show');
             }
-            if (document.getElementById('tilename').innerHTML == "1916 Barcaza") {
+            if (document.getElementById('tilename').innerHTML == "1916 Barge") {
                 window.location.href = "1916barge.html?0";
             }
-            if (document.getElementById('tilename').innerHTML == "Imágenes de Drone") {
-                $('#myVideo').modal('show');
+            if (document.getElementById('tilename').innerHTML == "Virtual Access Tour") {
+                $('#myHouse').modal('show');
             }
-            if (document.getElementById('tilename').innerHTML == "1916 Esculturas") {
+            if (document.getElementById('tilename').innerHTML == "1916 Sculptures") {
                 window.location.href = "1916barge.html?2";
             }
-
+            */
         });
 
         function tileSelection(newTitle, newTile) {
@@ -383,52 +381,52 @@
 
         //Functions for each annotation
         function tile1() {
-            /*window.location.href = "3d-documentation.html";*/
-            tileSelection("Documentacion 3D", "tile1");
+            window.location.href = "3d-documentation.html";
+            /*tileSelection("3D Documentation", "tile1");*/
         }
         function tile2() {
-            /*window.location.href = "swimmingpoolgrotto.html?1";*/
-            tileSelection("Lagartos", "tile2");
+            window.location.href = "swimmingpoolgrotto.html?1";
+            /*tileSelection("Alligators", "tile2");*/
         }
         function tile3() {
-            /*window.location.href = "barge.html?2";*/
-            tileSelection("2017 Esculturas", "tile3");
+            window.location.href = "barge.html?2";
+            /*tileSelection("2017 Sculptures", "tile3");*/
         }
         function tile4() {
-            /*window.location.href = "irma.html";*/
-            tileSelection("Huracán Irma", "tile4");
+            window.location.href = "irma.html";
+            /*tileSelection("Hurricane Irma", "tile4");*/
         }
         function tile5() {
-            /*window.location.href = "swimmingpoolgrotto.html?0";*/
-            tileSelection("La Gruta De La Piscina", "tile5");
+            window.location.href = "swimmingpoolgrotto.html?0";
+            /*tileSelection("Swimming Pool Grotto", "tile5");*/
         }
         function tile6() {
-            /*window.location.href = "1916barge.html?1";*/
-            tileSelection("1916 Herma", "tile6");
+            window.location.href = "1916barge.html?1";
+            /*tileSelection("1916 Herm", "tile6");*/
         }
         function tile7() {
-            /*window.location.href = "barge.html?1";*/
-            tileSelection("2017 Herma", "tile7");
+            window.location.href = "barge.html?1";
+            /*tileSelection("2017 Herm", "tile7");*/
         }
         function tile8() {
-            /*window.location.href = "barge.html?0";*/
-            tileSelection("2017 Barcaza", "tile8");
+            window.location.href = "barge.html?0";
+            /*tileSelection("2017 Barge", "tile8");*/
         }
         function tile9() {
-            /*$('#creditsModal').modal('show');*/
-            tileSelection("Nuestros Socios", "tile9");
+            $('#creditsModal').modal('show');
+            /*tileSelection("Our Partners", "tile9");*/
         }
         function tile10() {
-            /*window.location.href = "1916barge.html?0";*/
-            tileSelection("1916 Barcaza", "tile10");
+            window.location.href = "1916barge.html?0";
+            /*tileSelection("1916 Barge", "tile10");*/
         }
         function tile11() {
-            /*$('#myVideo').modal('show');*/
-            tileSelection("Imágenes de Drone", "tile11");
+            $('#myVideo').modal('show');
+            /*tileSelection("Virtual Access Tour", "tile11");*/
         }
         function tile12() {
-            /*window.location.href = "1916barge.html?2";*/
-            tileSelection("1916 Esculturas", "tile12");
+            window.location.href = "1916barge.html?2";
+            /*tileSelection("1916 Sculptures", "tile12");*/
         }
 
         //Hotspot Dropup's Click Selection
@@ -508,30 +506,30 @@
         $("#next").click(function () {
             getNewScene('next');
         });
-            /*
-            //Temp solution to hide list when a hotspot is selected
-            function hideList(listItem) {
-                var openLink = document.getElementById(listItem);
-                openLink.addEventListener('click', clickHandler, false);
-                function clickHandler() {
-                    var submenu = document.getElementById('lists');
-                    submenu.style.display = 'none';
-                }
-            }
 
-            hideList('li1');
-            hideList('li2');
-            hideList('li3');
-            hideList('li4');
-            hideList('li5');
-            hideList('li6');
-            hideList('li7');
-            hideList('li8');
-            hideList('li9');
-            hideList('li10');
-            hideList('li11');
-            hideList('li12');
-            */
+        //Temp solution to hide list when a hotspot is selected
+        function hideList(listItem) {
+            var openLink = document.getElementById(listItem);
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+        }
+
+        hideList('li1');
+        hideList('li2');
+        hideList('li3');
+        hideList('li4');
+        hideList('li5');
+        hideList('li6');
+        hideList('li7');
+        hideList('li8');
+        hideList('li9');
+        hideList('li10');
+        hideList('li11');
+        hideList('li12');
+
     </script>
 
 </body>
