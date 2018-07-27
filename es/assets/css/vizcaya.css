@@ -996,6 +996,7 @@ a {
     animation-duration: 8s;
     z-index: 2;
     right: 50%;
+    top: 50%;
     /*
     background: rgba(0,0,0,0.3);
     border-radius: 50px;
@@ -1040,28 +1041,6 @@ a {
         */
 }
 
-@keyframes grotto {
-    0% {
-        left: 50%;
-        top: 50%;
-    }
-
-    25% {
-        left: 35%;
-        top: 50%;
-    }
-
-    75% {
-        left: 50%;
-        top: 50%;
-    }
-
-    100% {
-        left: 35%;
-        top: 50%;
-    }
-}
-
 @keyframes model {
     0% {
         left: 50%;
@@ -1103,6 +1082,28 @@ a {
     100% {
         left: 35%;
         top: 50px;
+    }
+}
+
+@keyframes grotto {
+    0% {
+        left: 50%;
+        top: 50%;
+    }
+
+    25% {
+        left: 35%;
+        top: 50%;
+    }
+
+    75% {
+        left: 50%;
+        top: 50%;
+    }
+
+    100% {
+        left: 35%;
+        top: 50%;
     }
 }
 
@@ -1199,9 +1200,9 @@ a {
     width: 280px;
     max-width: 280px;
     height: auto;
-    position: absolute;
-    right: 0;
-    z-index: 2;
+    position: relative;
+    float: right;
+    z-index: 1;
     display: none;
 }
 
@@ -1311,14 +1312,14 @@ a {
 * FIXING BOTTOM ROW OF VIDEOS IN 3D DOC PAGE AND IRMA PAGE
 */
 
-
 #main-canvas {
     width: 100% !important;
-    object-fit: fill;
     flex: 1 0 0;
 }
 
-
+.main-container {
+    height: 125vh;
+}
 
 @media screen and (max-width: 575px) {
     #main-canvas {

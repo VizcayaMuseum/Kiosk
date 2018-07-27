@@ -84,7 +84,7 @@
                 .controls .hotspot-controls .list {
                     background: rgba(0,0,0,1);
                     right: 5%;
-                }       
+                }                    
     </style>
 </head>
 
@@ -136,45 +136,89 @@
                     <div class="tile"><a href="1916barge.html?2"><img id="tile12" src="images/works/1916mermaids.png" style="width:100%"></a></div>
                 </div>
             </div>
+            <div class="row" style="height: 20%;"></div>
             <!-- End Photo Grid -->
-            <div class="row" id="bottom_row">
-                <div class="showcase" id="showcase_row">
-                    <div class="row" id="controls_row">
-                        <div class="controls">
-                            <div class="hotspot-controls">
+            <nav class="navbar navbar-dark fixed-bottom bg-dark flex-md-nowrap p-0 shadow" style="height: 8%;">
+                <nav class="navbar-brand col-sm-3 col-md-2 mr-0">
+                </nav>
+                <div class="row" id="bottom_row">
+                    <div class="showcase" id="showcase_row">
+                        <div class="row" id="controls_row">
+                            <div class="controls">
+                                <div class="hotspot-controls">
 
-                                <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
-                                    <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
-                                </div>
+                                    <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                        <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                                    </div>
 
-                                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch To Tour</b></div>
+                                    <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch To Tour</b></div>
 
-                                <div id="next" data-title="Next Annotation" data-action="next-annotation">
-                                    <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
-                                </div>
+                                    <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                        <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                                    </div>
 
-                                <div id="lists" class="list hotspots-list visible">
-                                    <ul class="js-scrollable">
-                                        <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
-                                        <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
-                                        <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
-                                        <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
-                                        <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
-                                        <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
-                                        <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
-                                        <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
-                                        <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
-                                        <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
-                                        <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Drone Footage</a></li>
-                                        <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
-                                    </ul>
+                                    <div id="lists" class="list hotspots-list visible">
+                                        <ul class="js-scrollable">
+                                            <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
+                                            <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
+                                            <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
+                                            <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
+                                            <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
+                                            <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
+                                            <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
+                                            <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
+                                            <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
+                                            <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
+                                            <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Drone Footage</a></li>
+                                            <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+            </nav>
+            <div class="row" id="bottom_row">
+                    <div class="showcase" id="showcase_row">
+                        <div class="row" id="controls_row">
+                            <div class="controls">
+                                <div class="hotspot-controls">
+
+                                    <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
+                                        <div id="prevDiv"><img id="prevIcon" src="images/caret-left.svg" /></div>
+                                    </div>
+
+                                    <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="tilename">Touch To Tour</b></div>
+
+                                    <div id="next" data-title="Next Annotation" data-action="next-annotation">
+                                        <div id="nextDiv"><img id="nextIcon" src="images/caret-right.svg" /></div>
+                                    </div>
+
+                                    <div id="lists" class="list hotspots-list visible">
+                                        <ul class="js-scrollable">
+                                            <li id="li1" class="link"><a data-hotspot-target="0" title="Grotesques"><span class="index">&sccue;</span>3D Documentation</a></li>
+                                            <li id="li2" class="link"><a data-hotspot-target="1" title="Alligators"><span class="index">&sccue;</span>Alligators </a></li>
+                                            <li id="li3" class="link"><a data-hotspot-target="2" title="2017 Sculptures"><span class="index">&sccue;</span>2017 Sculptures</a></li>
+                                            <li id="li4" class="link"><a data-hotspot-target="3" title="Hurricane Irma"><span class="index">&sccue;</span>Hurricane Irma</a></li>
+                                            <li id="li5" class="link"><a data-hotspot-target="4" title="Swimming Pool Grotto"><span class="index">&sccue;</span>Swimming Pool Grotto</a></li>
+                                            <li id="li6" class="link"><a data-hotspot-target="5" title="1916 Herm"><span class="index">&sccue;</span>1916 Herm</a></li>
+                                            <li id="li7" class="link"><a data-hotspot-target="6" title="2017 Herm"><span class="index">&sccue;</span>2017 Herm</a></li>
+                                            <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
+                                            <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
+                                            <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
+                                            <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Drone Footage</a></li>
+                                            <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
             </div>
+                
 
         </main>
         
@@ -305,7 +349,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
