@@ -81,8 +81,9 @@
                 background: rgba(0,0,0,9);
                 bottom: 0;
             }
-                .controls .hotspot-controls .list {                    
+                .controls .hotspot-controls .list {
                     background: rgba(0,0,0,1);
+                    right: 5%;
                 }       
     </style>
 </head>
@@ -163,7 +164,7 @@
                                             <li id="li8" class="link"><a data-hotspot-target="7" title="2017 Barge"><span class="index">&sccue;</span>2017 Barge</a></li>
                                             <li id="li9" class="link"><a data-hotspot-target="8" title="Our Partners"><span class="index">&sccue;</span>Our Partners</a></li>
                                             <li id="li10" class="link"><a data-hotspot-target="9" title="1916 Barge"><span class="index">&sccue;</span>1916 Barge</a></li>
-                                            <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Virtual Access Tour</a></li>
+                                            <li id="li11" class="link"><a data-hotspot-target="10" title="Virtual Access Tour"><span class="index">&sccue;</span>Drone Footage</a></li>
                                             <li id="li12" class="link"><a data-hotspot-target="11" title="1916 Sculptures"><span class="index">&sccue;</span>1916 Sculptures</a></li>
                                         </ul>
                                     </div>
@@ -420,7 +421,7 @@
             /*tileSelection("1916 Barge", "tile10");*/
         }
         function tile11() {
-            $('#myHouse').modal('show');
+            $('#myVideo').modal('show');
             /*tileSelection("Virtual Access Tour", "tile11");*/
         }
         function tile12() {
@@ -442,28 +443,28 @@
             tile4();
         });
         $("#li5").click(function () {
-            tile4();
+            tile5();
         });
         $("#li6").click(function () {
-            tile4();
+            tile6();
         });
         $("#li7").click(function () {
-            tile4();
+            tile7();
         });
         $("#li8").click(function () {
-            tile4();
+            tile8();
         });
         $("#li9").click(function () {
-            tile4();
+            tile9();
         });
         $("#li10").click(function () {
-            tile4();
+            tile10();
         });
         $("#li11").click(function () {
-            tile4();
+            tile11();
         });
         $("#li12").click(function () {
-            tile4();
+            tile12();
         });
 
         //Hotspot Dropup's Prev/Next Selection
@@ -506,7 +507,28 @@
             getNewScene('next');
         });
 
+        //Temp solution to hide list when a hotspot is selected
+        function hideList(listItem) {
+            var openLink = document.getElementById(listItem);
+            openLink.addEventListener('click', clickHandler, false);
+            function clickHandler() {
+                var submenu = document.getElementById('lists');
+                submenu.style.display = 'none';
+            }
+        }
 
+        hideList('li1');
+        hideList('li2');
+        hideList('li3');
+        hideList('li4');
+        hideList('li5');
+        hideList('li6');
+        hideList('li7');
+        hideList('li8');
+        hideList('li9');
+        hideList('li10');
+        hideList('li11');
+        hideList('li12');
 
     </script>
 
