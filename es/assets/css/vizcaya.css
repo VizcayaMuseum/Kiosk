@@ -1003,6 +1003,24 @@ a {
         */
 }
 
+#fingeranimation_grotto {
+    display: none;
+    width: 10%;
+    height: 20%;
+    position: absolute;
+    -webkit-animation-name: grotto; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: grotto;
+    animation-duration: 8s;
+    z-index: 100;
+    right: 50%;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
+
 #fingeranimation_models {
     display: none;
     width: 20%;
@@ -1020,6 +1038,28 @@ a {
     border-radius: 50px;
     padding: 10px;
         */
+}
+
+@keyframes grotto {
+    0% {
+        left: 50%;
+        top: 50%;
+    }
+
+    25% {
+        left: 35%;
+        top: 50%;
+    }
+
+    75% {
+        left: 50%;
+        top: 50%;
+    }
+
+    100% {
+        left: 35%;
+        top: 50%;
+    }
 }
 
 @keyframes model {

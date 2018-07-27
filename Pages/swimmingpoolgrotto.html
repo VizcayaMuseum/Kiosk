@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div id="finger_animation"><img src="../images/fingeranimation.svg" /></div>
+        <img id="fingeranimation_grotto" src="../images/fingeranimation.svg" />
         <!--Hotspots Dropup-->
         <div class="controls">
             <div class="hotspot-controls">
@@ -142,7 +142,15 @@
             function toggleMap() {
 
             $("#map_wrapper").slideToggle("slow");
-        }
+            }
+
+            function fingerAnimation() {
+
+                document.getElementById("fingeranimation_grotto").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_grotto").style.display = "none";
+                }, 7500);
+            }
             function idleTimer() {
                 var t;
                 //window.onload = resetTimer;
@@ -436,7 +444,7 @@
                     }, 2000);
             
                     setTimeout(function () {
-                        document.getElementById("finger_animation").style.display = "flex";
+                        fingerAnimation();
                     }, 6000);
                     
                 }

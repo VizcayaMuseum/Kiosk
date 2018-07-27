@@ -997,6 +997,7 @@ a {
     animation-duration: 8s;
     z-index: 2;
     right: 50%;
+    top:50%;
     /*
     background: rgba(0,0,0,0.3);
     border-radius: 50px;
@@ -1004,6 +1005,24 @@ a {
         */
 }
 
+#fingeranimation_grotto {
+    display: none;
+    width: 10%;
+    height: 20%;
+    position: absolute;
+    -webkit-animation-name: grotto; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
+    animation-name: grotto;
+    animation-duration: 8s;
+    
+    z-index: 100;
+    right: 50%;
+    /*
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    padding: 10px;
+        */
+}
 #fingeranimation_models {
     display: none;
     width: 20%;
@@ -1064,6 +1083,28 @@ a {
     100% {
         left: 35%;
         top: 50px;
+    }
+}
+
+@keyframes grotto {
+    0% {
+        left: 50%;
+        top: 50%;
+    }
+
+    25% {
+        left: 35%;
+        top: 50%;
+    }
+
+    75% {
+        left: 50%;
+        top: 50%;
+    }
+
+    100% {
+        left: 35%;
+        top: 50%;
     }
 }
 
@@ -1160,10 +1201,11 @@ a {
     width: 280px;
     max-width: 280px;
     height: auto;
-    position: absolute;
-    right: 0;
-    z-index: 2;
+    position: relative;
+    float:right;
+    z-index: 1;
     display: none;
+    
 }
 
 #barge-location {
