@@ -81,7 +81,7 @@
     <!--Control Icons-->
     <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
     <img id="popups_icon" onclick="herm2017Button()" src="../images/2017_Herm.svg" title="View Herm" />
-    <img id="question_icon" src="../images/question.svg" title="Navigation" />
+    <img id="question_icon" onclick="questionpopup()" src="../images/question.svg" title="Navigation" />
     <img id="refresh_icon" onclick="refreshPopup()" src="../images/refresh.svg" title="Refresh Page" />
     <img id="fullscreen_icon" onclick="toggleFullScreen()" src="../images/fullscreen.svg" title="Fullscreen" />
     <!--<img id="control_icon" src="../images/arrows.svg" title="Access Control Panel" />-->
@@ -215,14 +215,19 @@
 
         /* Navigation Controls Image
         *****************************************************/
-        $("#question_icon").click(function () {
-            $("#nav_panel").toggle();
-        });
+        
 
-        var navPanel = document.getElementById('nav_panel');
-        navPanel.addEventListener('click', function () {
-            navPanel.style.display = "none";
-        });
+        function questionpopup() {
+
+            $("#question_icon").click(function () {
+                $("#nav_panel").toggle();
+            });
+
+            var navPanel = document.getElementById('nav_panel');
+            navPanel.addEventListener('click', function () {
+                navPanel.style.display = "none";
+            });
+        }
 
     </script>
 
