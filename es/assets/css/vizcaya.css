@@ -640,9 +640,8 @@ a {
     padding: 20px;
     pointer-events: none;
     position: absolute;
-    right: 30%; /*from 0 to 30% to align it in the middle*/
+    right: 700px;
     bottom: 10px;
-    left: 30%; /*from 0 to 30% to align it in the middle*/
     z-index: 2;
     height: 50px;
     /*width: 40% my change*/
@@ -722,7 +721,7 @@ a {
             transition-delay: initial;
             flex-direction: column;
             flex-wrap: nowrap;
-            width: 85%
+            min-width: 90%;
         }
 
 #prevDiv, #nextDiv {
