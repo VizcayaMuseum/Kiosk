@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
     "\\es",
-    "\\es\\assets",
-    "\\es\\assets\\css"
+    "\\es\\pages",
+    "\\Pages"
   ],
-  "SelectedNode": "\\es\\index.html",
+  "SelectedNode": "\\Pages\\barge.html",
   "PreviewInSolutionExplorer": true
 }
