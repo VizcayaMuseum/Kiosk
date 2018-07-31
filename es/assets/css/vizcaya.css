@@ -490,10 +490,9 @@ a {
 
 /* popup Content */
 .popup-content {
-    background-color: black; /*#fefefe*/
+    background-color: #000000; /*#fefefe*/
     margin: auto;
     padding: 20px;
-    border: 1px solid black; /*#888*/
     width: 80%;
     border-radius: 20px;
 }
@@ -994,7 +993,7 @@ a {
     -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
     animation-name: example;
     animation-duration: 8s;
-    z-index: 2;
+    z-index: 1;
     right: 50%;
     top: 50%;
     /*
@@ -1187,13 +1186,24 @@ a {
     color: #fff;
     text-align:center;
 }
-    */
+    
 #floor_plan {
     width: 280px;
     max-width: 280px;
     height: 180px;
-    /*max-height: 108px;*/
+    /*max-height: 108px;
     z-index: 2;
+}    
+    */
+#floor_plan {
+    border-radius: 20px;
+    z-index: 2;
+    right: 10%;
+    /*width: 850px;*/
+    /*height: 500px;*/
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
 }
 
 #map_wrapper {
@@ -1206,6 +1216,19 @@ a {
     display: none;
 }
 
+#map_marker {
+    max-height: 34px;
+    width: 34px;
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    right: 30%;
+    top: 55%;
+    z-index: 100;
+    color: #EB1E23;
+}
+
 #barge-location {
     max-height: 34px;
     width: 34px;
@@ -1213,9 +1236,9 @@ a {
     width: auto;
     position: absolute;
     bottom: 0;
-    left: 20%;
+    left: 24.2%;
     right: 0;
-    top: 10%;
+    top: 19%;
     z-index: 100;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
@@ -1229,9 +1252,9 @@ a {
     width: auto;
     position: absolute;
     bottom: 0;
-    left: 10%;
+    left: 13%;
     right: 0;
-    top: 50%;
+    top: 56%;
     z-index: 100;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;

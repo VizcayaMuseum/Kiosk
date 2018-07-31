@@ -484,17 +484,15 @@ a {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
 /* popup Content */
 .popup-content {
-    background-color: black; /*#fefefe*/
+    background-color: #000000; /*#fefefe*/
     margin: auto;
     padding: 20px;
-    border: 1px solid black; /*#888*/
     width: 80%;
     border-radius: 20px;
 }
@@ -995,9 +993,9 @@ a {
     -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
     animation-name: example;
     animation-duration: 8s;
-    z-index: 2;
+    z-index: 1;
     right: 50%;
-    top:50%;
+    top: 50%;
     /*
     background: rgba(0,0,0,0.3);
     border-radius: 50px;
@@ -1014,7 +1012,6 @@ a {
     -webkit-animation-duration: 8s; /* Safari 4.0 - 8.0 */
     animation-name: grotto;
     animation-duration: 8s;
-    
     z-index: 100;
     right: 50%;
     /*
@@ -1023,6 +1020,7 @@ a {
     padding: 10px;
         */
 }
+
 #fingeranimation_models {
     display: none;
     width: 20%;
@@ -1213,27 +1211,22 @@ a {
     max-width: 280px;
     height: auto;
     position: relative;
-    float:right;
+    float: right;
     z-index: 1;
     display: none;
-    
 }
 
 #map_marker {
-    max-height: 24px;
-    width: 24px;
+    max-height: 34px;
+    width: 34px;
     height: auto;
     width: auto;
     position: absolute;
     bottom: 0;
-    right: 29%;
-    top: 58%;
+    right: 30%;
+    top: 55%;
     z-index: 100;
-    animation: mapAnimation 1s ease-in-out infinite alternate;
-    -webkit-animation-name: mapAnimation;
-    animation-name: mapAnimation;
-    filter: contrast(0) sepia(100%) hue-rotate(116deg) brightness(1.4) saturate(1);
-    color: #FF0000;
+    color: #EB1E23;
 }
 
 #barge-location {
@@ -1259,9 +1252,9 @@ a {
     width: auto;
     position: absolute;
     bottom: 0;
-    left: 10%;
+    left: 13%;
     right: 0;
-    top: 50%;
+    top: 56%;
     z-index: 100;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
@@ -1344,7 +1337,6 @@ a {
 
 #main-canvas {
     width: 100% !important;
-    
     flex: 1 0 0;
 }
 

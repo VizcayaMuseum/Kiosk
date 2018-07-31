@@ -141,19 +141,48 @@
         </div>
     </div>
 
-    <!--Contextual Map-->
-    <div id="map_wrapper">
-
-        <img id="floor_plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
-        <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
+    <!-- Popup 3-->
+    <div id="myMap" class="popup">
+        <div class="popup-content" style="background-color: #ffffff;">
+            <span class="close">&times;</span>
+            <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
+                <div id="iframe3">
+                    <img id="floor_plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
+                    <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
+                    <img id="map_marker" src="../assets/img/map_marker.svg" />
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <script>
 
         function toggleMap() {
+            $("#myMap").slideToggle("slow");
 
-            $("#map_wrapper").slideToggle("slow");
+            var popup = document.getElementById('myMap');
+            var span = document.getElementsByClassName("close")[2];
+
+            popup.style.display = "block";
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
+
+            span.onclick = function () {
+                popup.style.display = "none";
+                //reset opacity of parent page
+                sidebar.style.opacity = "1";
+            }
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+            }
         }
 
         function idleTimer() {
@@ -335,13 +364,13 @@
                     /* Annotation: Opening Transition/Center of Barge
                     *****************************************************/
                     let elTitle = $(`
-                                            <span>
-                                                <img src="${Potree.resourcePath}/icons/eye-solid.svg"
-                                                    name="action_set_scene"
-                                                    class="annotation-action-icon"
-                                                    style="filter: invert(1);" />
-                                            </span>
-                                        `);
+                                                <span>
+                                                    <img src="${Potree.resourcePath}/icons/eye-solid.svg"
+                                                        name="action_set_scene"
+                                                        class="annotation-action-icon"
+                                                        style="filter: invert(1);" />
+                                                </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                     });
                     elTitle.toString = () => "Barge2";
@@ -363,15 +392,15 @@
                     let aAbout2 = new Potree.Annotation({
                         position: [589367.536, 231407.493, 852.372],
                         title: $(`<span>
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>`),
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`),
                         cameraPosition: [589607.104, 231616.701, 920.329],
                         cameraTarget: [589389.183, 231541.292, 877.626],
                         description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
-                        `});
+                            `});
 
                     sceneSG.annotations.add(aAbout2);
                 }
@@ -380,14 +409,14 @@
                     /* Annotation: Grotesques
                     *****************************************************/
                     let elTitle = $(`
-                                <span>
+                                    <span>
 
-                                    <img src="${Potree.resourcePath}/icons/i.png"
-                                        name="action_set_scene"
-                                        class="annotation-action-icon"
-                                        style="filter: invert(1);" />
-                                </span>
-                                        `);
+                                        <img src="${Potree.resourcePath}/icons/i.png"
+                                            name="action_set_scene"
+                                            class="annotation-action-icon"
+                                            style="filter: invert(1);" />
+                                    </span>
+                                            `);
                     elTitle.find("img[name=action_set_scene]").click((event) => { });
                     elTitle.toString = () => "GRUTESCOS";
 
@@ -397,7 +426,7 @@
                         cameraPosition: [589210.869, 231208.791, 759.929],
                         cameraTarget: [589386.200, 231581.351, 810.098],
                         description: `GRUTESCOS<hr>Los ocho grutescos alrededor del exterior de la Barcaza fueron diseñados por Alexander Calder e incluyen hombres barbudos, mujeres jóvenes y animales.
-                        `});
+                            `});
 
                     sceneSG.annotations.add(aAbout3);
                 }
@@ -407,11 +436,11 @@
                     /* Annotation: Herm
                     *****************************************************/
                     let elTitle = $(`<span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
-                                                name="action_set_scene"
-                                                class="annotation-action-icon"
-                                                style="filter: invert(1);" />
-                                        </span>`);
+                                                <img src="${Potree.resourcePath}/icons/i.png"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         popupHerm();
 
@@ -433,11 +462,11 @@
                     *****************************************************/
                     let elTitle = $(`<span>
 
-                                        <img src="${Potree.resourcePath}/icons/i.png"
-                                            name="action_set_scene"
-                                            class="annotation-action-icon"
-                                            style="filter: invert(1);" />
-                                    </span>`);
+                                            <img src="${Potree.resourcePath}/icons/i.png"
+                                                name="action_set_scene"
+                                                class="annotation-action-icon"
+                                                style="filter: invert(1);" />
+                                        </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
                         popupSculptures();
 
@@ -459,11 +488,11 @@
                     /* Annotation: Mermaids
                     *****************************************************/
                     let elTitle = $(`<span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
-                                                name="action_set_scene"
-                                                class="annotation-action-icon"
-                                                style="filter: invert(1);" />
-                                        </span>`);
+                                                <img src="${Potree.resourcePath}/icons/i.png"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => { });
                     elTitle.toString = () => "SIRENAS";
 

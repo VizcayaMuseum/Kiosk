@@ -136,7 +136,7 @@
 
     <!-- Popup 3-->
     <div id="myMap" class="popup">
-        <div class="popup-content">
+        <div class="popup-content" style="background-color: #ffffff;">
             <span class="close">&times;</span>
             <div id="popup_container" class="intrinsic-container intrinsic-container-16x9" style="padding-top: 3%;">
                 <div id="iframe3">
@@ -148,21 +148,13 @@
         </div>
     </div>
 
-    <!--Contextual Map-->
-    <div id="map_wrapper">
-        <img id="floor_plan" src="../assets/img/full-estate_panogroup24_panogroup24.png" />
-        <img id="barge-location" src="../assets/img/2_user_defaultmap0.png" />
-        
-    </div>
-
     <script>
 
         function toggleMap() {
-            /*$("#map_wrapper").slideToggle("slow");*/
             $("#myMap").slideToggle("slow");
 
             var popup = document.getElementById('myMap');
-            var span = document.getElementsByClassName("close")[0];
+            var span = document.getElementsByClassName("close")[2];
 
             popup.style.display = "block";
 
@@ -173,20 +165,12 @@
 
             span.onclick = function () {
                 popup.style.display = "none";
-                //Reloads the Popup
-                $('#myMap').attr('src', '');
-                var iframe = document.getElementById('iframe3');
-                iframe.src = iframe.src;
                 //reset opacity of parent page
                 sidebar.style.opacity = "1";
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
                     popup.style.display = "none";
-                    //Reloads the Popup
-                    $('#myMap').attr('src', '');
-                    var iframe = document.getElementById('iframe3');
-                    iframe.src = iframe.src;
                     //reset opacity of parent page
                     sidebar.style.opacity = "1";
                 }
