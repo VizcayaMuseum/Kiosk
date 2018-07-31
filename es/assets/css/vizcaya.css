@@ -1226,7 +1226,7 @@ a {
     right: 30%;
     top: 55%;
     z-index: 100;
-    color: #EB1E23;
+    filter: contrast(0) sepia(100%) hue-rotate(116deg) brightness(1.4) saturate(1);
 }
 
 #barge-location {
