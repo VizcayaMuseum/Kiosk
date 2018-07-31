@@ -457,6 +457,15 @@
                     setTimeout(function () {
                         sceneSG.annotations.children[6].moveHere(sceneSG.camera);
                     }, 4500);
+
+                    setTimeout(function () {
+                        $("#nav_panel").fadeIn();
+
+                        //Applying opacity to parent page
+                        parentWin = window.parent;
+                        var sidebar = parentWin.document.getElementById('split-container');
+                        sidebar.style.opacity = "0.8";
+                    }, 8500);
                 }
                 
             });
@@ -623,7 +632,7 @@
             hideList('li9');
 
             /* Navigation Controls Image
-        *****************************************************/
+            *****************************************************/
             $("#question_icon").click(function () {
                 /*$("#nav_panel").toggle();*/
                 $("#nav_panel").fadeIn();
