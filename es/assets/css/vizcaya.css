@@ -1217,14 +1217,14 @@ a {
 }
 
 #map_marker {
-    max-height: 30px;
-    width: 30px;
+    max-height: 34px;
+    width: 34px;
     height: auto;
     width: auto;
     position: absolute;
     bottom: 0;
     right: 30%;
-    top: 56%;
+    top: 55%;
     z-index: 100;
 }
 
@@ -1270,6 +1270,16 @@ a {
         transform: scale(1.5);
         -webkit-transform: scale(1.5);
     }
+}
+
+.titlebarAnimation {
+    background-color: #3D9FD6;
+    border: 2px solid #3D9FD6; /*1px solid rgba(255, 255, 255, 0.7) for border thickness*/
+    padding: 6px 9px; /*5px 8px|1px 8px | 2px 13px for roundness*/
+    opacity: 1; /*1 shows icons | 0 !important could hide annotations*/
+    animation: mapAnimation 1s ease-in-out infinite alternate;
+    -webkit-animation-name: mapAnimation;
+    animation-name: mapAnimation;
 }
 /*
 *   INDEX.HTML CSS

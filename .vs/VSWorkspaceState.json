@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\build\\potree",
-    "\\es\\build",
-    "\\es\\build\\potree",
-    "\\es\\pages",
-    "\\Pages"
+    "\\assets",
+    "\\assets\\css",
+    "\\es",
+    "\\es\\assets",
+    "\\es\\assets\\css",
+    "\\es\\pages"
   ],
-  "SelectedNode": "\\Pages\\swimmingpoolgrotto.html",
+  "SelectedNode": "\\assets\\css\\vizcaya.css",
   "PreviewInSolutionExplorer": false
 }
