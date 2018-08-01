@@ -159,12 +159,10 @@
     <script>
 
         function toggleMap() {
-            $("#myMap").slideToggle("slow");
+            $("#myMap").fadeIn();
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-
-            popup.style.display = "block";
 
             //Applying opacity to parent page
             parentWin = window.parent;
@@ -172,13 +170,13 @@
             sidebar.style.opacity = "0.4";
 
             span.onclick = function () {
-                popup.style.display = "none";
+                $("#myMap").fadeOut();
                 //reset opacity of parent page
                 sidebar.style.opacity = "1";
             }
             window.onclick = function (event) {
                 if (event.target == popup) {
-                    popup.style.display = "none";
+                    $("#myMap").fadeOut();
                     //reset opacity of parent page
                     sidebar.style.opacity = "1";
                 }
@@ -244,7 +242,7 @@
 
         viewer.setEDLEnabled(false);
         viewer.setFOV(60);
-        viewer.setPointBudget(5 * 1000 * 1000);
+        viewer.setPointBudget(1 * 100 * 1000);
         document.title = "";
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
@@ -328,10 +326,10 @@
             // Herm point cloud in scene 2
 
             function popupHerm() {
+                $("#mypopup1").fadeIn();
+
                 var popup = document.getElementById('mypopup1');
                 var span = document.getElementsByClassName("close")[0];
-
-                popup.style.display = "block";
 
                 //Applying opacity to parent page
                 parentWin = window.parent;
@@ -339,7 +337,7 @@
                 sidebar.style.opacity = "0.5";
 
                 span.onclick = function () {
-                    popup.style.display = "none";
+                    $("#mypopup1").hide();
                     //Reloads the Popup
                     $('#mypopup1').attr('src', '');
                     var iframe = document.getElementById('iframe1');
@@ -349,7 +347,7 @@
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
-                        popup.style.display = "none";
+                        $("#mypopup1").hide();
                         //Reloads the Popup
                         $('#mypopup1').attr('src', '');
                         var iframe = document.getElementById('iframe1');
@@ -361,10 +359,10 @@
             }
 
             function popupSculptures() {
+                $("#mypopup2").fadeIn();
+
                 var popup = document.getElementById('mypopup2');
                 var span = document.getElementsByClassName("close")[1];
-
-                popup.style.display = "block";
 
                 //Applying opacity to parent page
                 parentWin = window.parent;
@@ -372,7 +370,7 @@
                 sidebar.style.opacity = "0.5";
 
                 span.onclick = function () {
-                    popup.style.display = "none";
+                    $("#mypopup2").hide();
                     //Reloads the Popup
                     $('#mypopup2').attr('src', '');
                     var iframe = document.getElementById('iframe2');
@@ -382,7 +380,7 @@
                 }
                 window.onclick = function (event) {
                     if (event.target == popup) {
-                        popup.style.display = "none";
+                        $("#mypopup2").hide();
                         //Reloads the Popup
                         $('#mypopup2').attr('src', '');
                         var iframe = document.getElementById('iframe2');
@@ -746,7 +744,6 @@
         /* Navigation Controls Image
         *****************************************************/
         $("#question_icon").click(function () {
-            /*$("#nav_panel").toggle();*/
             $("#nav_panel").fadeIn();
 
             //Applying opacity to parent page
@@ -758,7 +755,6 @@
         var navPanel = document.getElementById('nav_panel');
         navPanel.addEventListener('click', function () {
             $("#nav_panel").fadeOut();
-            /*navPanel.style.display = "none";*/
             //reset opacity of parent page
             parentWin = window.parent;
             var sidebar = parentWin.document.getElementById('split-container');

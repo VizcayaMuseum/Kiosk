@@ -150,12 +150,10 @@
     <script>
 
         function toggleMap() {
-            $("#myMap").slideToggle("slow");
+            $("#myMap").fadeIn();
 
             var popup = document.getElementById('myMap');
             var span = document.getElementsByClassName("close")[2];
-
-            popup.style.display = "block";
 
             //Applying opacity to parent page
             parentWin = window.parent;
@@ -201,7 +199,7 @@
 
         viewer.setEDLEnabled(false);
         viewer.setFOV(60);
-        viewer.setPointBudget(5 * 1000 * 1000);
+        viewer.setPointBudget(1 * 100 * 1000);
         document.title = "";
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];

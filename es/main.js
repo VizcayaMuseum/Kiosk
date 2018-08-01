@@ -39,6 +39,11 @@ function sculptures2017Button() {
     window.parent.location.assign("../mermaids.html");
 }
 
+//Slow down video on 3D Doc
+var vid = document.getElementById("mySlideshow");
+vid.playbackRate = 0.5;
+
+
 /* Zoom In
 *****************************************************/
 function zoomIn() {

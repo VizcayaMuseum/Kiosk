@@ -1217,16 +1217,15 @@ a {
 }
 
 #map_marker {
-    max-height: 34px;
-    width: 34px;
+    max-height: 30px;
+    width: 30px;
     height: auto;
     width: auto;
     position: absolute;
     bottom: 0;
     right: 30%;
-    top: 55%;
+    top: 56%;
     z-index: 100;
-    filter: contrast(0) sepia(100%) hue-rotate(116deg) brightness(1.4) saturate(0.28);
 }
 
 #barge-location {
