@@ -167,6 +167,13 @@
                 setTimeout(function () {
                     document.getElementById("fingeranimation_grotto").style.display = "none";
                 }, 7500);
+
+                window.onclick = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
             }
             function idleTimer() {
                 var t;

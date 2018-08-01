@@ -524,6 +524,13 @@
                     document.getElementById("finger_animation").style.display = "flex";
                 }, 8000);
 
+                window.onclick = function (event) {
+                    $("#finger_animation").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#finger_animation").fadeOut();
+                }
+
             }
             //Herm
             else if (hotSpot == 1) {

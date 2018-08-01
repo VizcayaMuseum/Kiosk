@@ -185,6 +185,13 @@
                 setTimeout(function () {
                     document.getElementById("fingeranimation_sculptureslmodels").style.display = "none";
                 }, 8000);
+
+                window.onclick = function (event) {
+                    $("#fingeranimation_sculptureslmodels").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#fingeranimation_sculptureslmodels").fadeOut();
+                }
             }
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);

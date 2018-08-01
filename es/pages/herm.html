@@ -168,7 +168,16 @@
 
             setTimeout(function () {
                 document.getElementById("finger_animation").style.display = "flex";
+
+                window.onclick = function (event) {
+                    $("#finger_animation").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#finger_animation").fadeOut();
+                }
             }, 1000);
+
+            
 
             /* Navigation Controls Image
             *****************************************************/
