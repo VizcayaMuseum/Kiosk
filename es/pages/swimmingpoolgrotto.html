@@ -135,12 +135,10 @@
         <script>
 
             function toggleMap() {
-                $("#myMap").slideToggle("slow");
+                $("#myMap").fadeIn();
 
                 var popup = document.getElementById('myMap');
                 var span = document.getElementsByClassName("close")[0];
-
-                popup.style.display = "block";
 
                 //Applying opacity to parent page
                 parentWin = window.parent;
@@ -658,7 +656,6 @@
             /* Navigation Controls Image
         *****************************************************/
             $("#question_icon").click(function () {
-                /*$("#nav_panel").toggle();*/
                 $("#nav_panel").fadeIn();
 
                 //Applying opacity to parent page
@@ -670,7 +667,6 @@
             var navPanel = document.getElementById('nav_panel');
             navPanel.addEventListener('click', function () {
                 $("#nav_panel").fadeOut();
-                /*navPanel.style.display = "none";*/
                 //reset opacity of parent page
                 parentWin = window.parent;
                 var sidebar = parentWin.document.getElementById('split-container');
