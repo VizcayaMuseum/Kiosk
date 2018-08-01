@@ -171,7 +171,7 @@
                     popup.style.display = "none";
                     //reset opacity of parent page
                     sidebar.style.opacity = "1";
-                }
+                }                
             }
         }
 
@@ -318,7 +318,7 @@
                                                     `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
                         });
-                        elTitle.toString = () => "Barge2";
+                        elTitle.toString = () => "CENTER OF BARGE";
 
                         let aAbout1 = new Potree.Annotation({
                             position: [-45.344, -34.589, -2.644],/*-43.738, -34.574, -2.621*/
@@ -433,7 +433,7 @@
                         sceneSG.annotations.add(aAbout5);
                     }
                 }
-
+                
                 var src = document.referrer;
                 var srcSplit = src.split("?");
                 var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
@@ -448,7 +448,7 @@
                     }, 1500);
 
                     setTimeout(function () {
-                        document.getElementById("finger_animation").style.display = "flex";
+                        document.getElementById("finger_animation").style.display = "flex";                     
                     }, 4800);
 
                     window.onclick = function (event) {                        
@@ -525,9 +525,17 @@
 
             });
 
+            function showDescription(annotationNum) {
+                var descriptions = document.getElementsByClassName("annotation-description");
+                var description = descriptions[annotationNum];
+                description.style.display = "block";
+            }
+
             //Functions for each annotation
             function item1() {
-                sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+                sceneSG.annotations.children[1].moveHere(sceneSG.camera);               
+                showDescription(1);
+                
             }
             function item2() {
                 sceneSG.annotations.children[2].moveHere(sceneSG.camera);
@@ -537,6 +545,7 @@
             }
             function item4() {
                 sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+                showDescription(4);
             }
 
             //Hotspot Dropup's Click Selection
