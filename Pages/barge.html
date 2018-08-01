@@ -525,27 +525,51 @@
 
             });
 
+            //Functions to show and hide annotations' descriptions
             function showDescription(annotationNum) {
                 var descriptions = document.getElementsByClassName("annotation-description");
                 var description = descriptions[annotationNum];
                 description.style.display = "block";
             }
 
+            function hideDescription(annotationNum) {   
+                var descriptions = document.getElementsByClassName("annotation-description");
+                var description = descriptions[annotationNum];
+                description.style.display = "none";
+                /*
+                var descriptions = document.getElementsByClassName("annotation-description");
+                var descriptLength = descriptions.length;
+
+                var index = descriptions.indexOf(annotationNum);
+                descriptions.splice(index, 1);
+
+                for (i = 0; i < descriptions.length; i++) {
+                    var description = descriptions[i];
+                    description.style.display = "none";
+                } 
+                */
+            }
+
             //Functions for each annotation
             function item1() {
                 sceneSG.annotations.children[1].moveHere(sceneSG.camera);               
                 showDescription(1);
-                
+                hideDescription(4);
             }
             function item2() {
                 sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(4);
             }
             function item3() {
                 sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+                hideDescription(1);
+                hideDescription(4);
             }
             function item4() {
                 sceneSG.annotations.children[4].moveHere(sceneSG.camera);
                 showDescription(4);
+                hideDescription(1);
             }
 
             //Hotspot Dropup's Click Selection
@@ -587,11 +611,11 @@
             }
 
             $("#prev").click(function () {
-                getNewScene('prev');
+                getNewScene('prev');                
             });
 
             $("#next").click(function () {
-                getNewScene('next');
+                getNewScene('next');                
             });
 
             //Temp solution to hide list when a hotspot is selected

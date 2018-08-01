@@ -518,18 +518,39 @@
             document.getElementById("#lists").style.display = "flex";
         });
 
+        //Functions to show and hide annotations' descriptions
+        function showDescription(annotationNum) {
+            var descriptions = document.getElementsByClassName("annotation-description");
+            var description = descriptions[annotationNum];
+            description.style.display = "block";
+        }
+
+        function hideDescription(annotationNum) {
+            var descriptions = document.getElementsByClassName("annotation-description");
+            var description = descriptions[annotationNum];
+            description.style.display = "none";
+        }
+
         //Functions for each annotation
         function item1() {
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
+            showDescription(1);
+            hideDescription(4);
         }
         function item2() {
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
+            hideDescription(1);
+            hideDescription(4);
         }
         function item3() {
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+            hideDescription(1);
+            hideDescription(4);
         }
         function item4() {
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+            showDescription(4);
+            hideDescription(1);
         }
 
         //Click functions for each annotation within Hotspot Control's List
