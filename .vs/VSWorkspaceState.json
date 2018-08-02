@@ -3,10 +3,8 @@
     "",
     "\\assets",
     "\\assets\\css",
-    "\\es",
-    "\\es\\assets",
-    "\\es\\assets\\css",
-    "\\es\\pages"
+    "\\es\\pages",
+    "\\Pages"
   ],
   "SelectedNode": "\\assets\\css\\vizcaya.css",
   "PreviewInSolutionExplorer": false

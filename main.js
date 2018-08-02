@@ -39,11 +39,6 @@ function sculptures2017Button() {
     window.parent.location.assign("../mermaids.html");
 }
 
-//Slow down video on 3D Doc
-var vid = document.getElementById("mySlideshow");
-vid.playbackRate = 0.5;
-
-
 /* Zoom In
 *****************************************************/
 function zoomIn() {
@@ -269,31 +264,4 @@ function potreeHermMoveUp() {
 function potreeHermMoveDown() {
 
     sceneSG.scenePointCloud.rotation.y += 0.1;
-}
-
-function toggleMap() {
-    $("#myMap").slideToggle("slow");
-
-    var popup = document.getElementById('myMap');
-    var span = document.getElementsByClassName("close")[2];
-
-    popup.style.display = "block";
-
-    //Applying opacity to parent page
-    parentWin = window.parent;
-    var sidebar = parentWin.document.getElementById('split-container');
-    sidebar.style.opacity = "0.4";
-
-    span.onclick = function () {
-        popup.style.display = "none";
-        //reset opacity of parent page
-        sidebar.style.opacity = "1";
-    }
-    window.onclick = function (event) {
-        if (event.target == popup) {
-            popup.style.display = "none";
-            //reset opacity of parent page
-            sidebar.style.opacity = "1";
-        }
-    }
 }

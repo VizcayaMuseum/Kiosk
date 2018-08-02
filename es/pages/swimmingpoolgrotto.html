@@ -64,7 +64,7 @@
     <script src="../libs/jstree/jstree.js"></script>
     <script src="../build/potree/potree.js"></script>
     <script src="../libs/plasio/js/laslaz.js"></script>
-    <script src="../libs2/other/OrbitControls.js"></script>
+    <script src="../libs/other/OrbitControls.js"></script>
     <script src="../main.js"></script>
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
@@ -205,13 +205,13 @@
             viewer.setEDLEnabled(false);
             viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
             viewer.loadSettingsFromURL();
-
+            /*
             viewer.loadGUI(() => {
                 viewer.setLanguage('en');
                 $("#menu_scene").next().show();
                 //viewer.toggleSidebar();
             });
-
+            */
             viewer.setDescription(``);
 
             let sceneSG = new Potree.Scene();
