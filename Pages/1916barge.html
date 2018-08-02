@@ -115,6 +115,7 @@
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Herm"><span class="index">&sccue;</span> Herm</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
                         <li id="li5" class="link"><a data-hotspot-target="4" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
+                        <li id="li6" class="link"><a data-hotspot-target="5" title="Center of Barge"><span class="index">&sccue;</span> Center of Barge</a></li>
                     </ul>
                 </div>
             </div>
@@ -648,6 +649,12 @@
             hideDescription(1);
             hideDescription(2);
         }
+        function item6() {
+            sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+            hideDescription(1);
+            hideDescription(2);
+            hideDescription(5);
+        }
 
         //Click functions for each annotation within Hotspot Control's List
         $("#li1").click(function () {
@@ -665,6 +672,9 @@
         $("#li5").click(function () {
             item5();
         });
+        $("#li6").click(function () {
+            item6();
+        });
 
         //Functions for continuous click on Prev and Next buttons
         const functions = [];
@@ -673,6 +683,7 @@
         functions.push(item3);
         functions.push(item4);
         functions.push(item5);
+        functions.push(item6);
 
         const length = functions.length;
 
@@ -714,7 +725,7 @@
         hideList('li3');
         hideList('li4');
         hideList('li5');
-
+        hideList('li6');
 
         /*
                 var fbxLoader = new THREE.FBXLoader();
