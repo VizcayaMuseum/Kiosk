@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\css",
-    "\\es\\pages",
-    "\\Pages"
+    "\\es",
+    "\\es\\pages"
   ],
-  "SelectedNode": "\\assets\\css\\vizcaya.css",
+  "SelectedNode": "\\2017herm.html",
   "PreviewInSolutionExplorer": false
 }
