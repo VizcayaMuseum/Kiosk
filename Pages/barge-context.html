@@ -136,7 +136,7 @@
         let sceneSG = new Potree.Scene();
         viewer.setScene(sceneSG);
 
-        Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
+        Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/combined/cloud.js", "barge", function (e) {
             sceneSG.addPointCloud(e.pointcloud);
             sceneSG.view.position.set(-135.529, 68.119, 12.095);
             sceneSG.view.lookAt(new THREE.Vector3(-46.345, -30.284, 6.904));

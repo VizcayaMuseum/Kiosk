@@ -109,7 +109,7 @@
 
             viewer.setScene(sceneSG);
 
-            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "pleasuresandperils", function (e) {
+            Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/herm/cloud.js", "pleasuresandperils", function (e) {
 
                 sceneSG.addPointCloud(e.pointcloud);
                 sceneSG.view.position.set(48.582, -6.237, 52.951);

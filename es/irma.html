@@ -47,7 +47,7 @@
                     <!--Featured Content-->
                     <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
                         <video autoplay loop id="main-video">
-                            <source id="source_video" src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                            <source id="source_video" src="http://localhost/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                         </video>
                     </div>
 
@@ -56,28 +56,28 @@
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="firstVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
+                                        <source src="http://localhost/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4" type="video/mp4">
+                                        <source src="http://localhost/vizcaya/video/DJI_0295.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="thirdVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                                        <source src="http://localhost/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div align="center" class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="fourthVideo();">
-                                        <source src="https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
+                                        <source src="http://localhost/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
@@ -133,28 +133,28 @@
 
         function firstVideo() {
 
-            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4';
+            var newVideo = 'http://localhost/vizcaya/video/barge_ghosting.mp4';
             var newText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.";
             updateMainVideo(newVideo, newText);
         }
 
         function secondVideo() {
 
-            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/DJI_0295.mp4';
+            var newVideo = 'http://localhost/vizcaya/video/DJI_0295.mp4';
             var newText = "El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades.";
             updateMainVideo(newVideo, newText);
         }
 
         function thirdVideo() {
 
-            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
+            var newVideo = 'http://localhost/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
             var newText = "Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.";
             updateMainVideo(newVideo, newText);
         }
 
         function fourthVideo() {
 
-            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4';
+            var newVideo = 'http://localhost/vizcaya/video/DJI_0284_2.mp4';
             var newText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.";
             updateMainVideo(newVideo, newText);
         }

@@ -216,7 +216,7 @@
             let sceneSG = new Potree.Scene();
             viewer.setScene(sceneSG);
 
-            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
+            Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/grotto/cloud.js", "swimmingpoolgrotto", function (e) {
 
                 sceneSG.addPointCloud(e.pointcloud);
                 sceneSG.view.position.set(-17.926, 20.359, 1.667);

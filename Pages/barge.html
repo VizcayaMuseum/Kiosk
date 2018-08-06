@@ -225,7 +225,7 @@
             //let sceneLion = new Potree.Scene();
             viewer.setScene(sceneSG);
 
-            Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
+            Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/barge/cloud.js", "barge", function (e) {
 
                 sceneSG.addPointCloud(e.pointcloud);
                 sceneSG.view.position.set(-30.203, -7.118, 5.658);
@@ -650,7 +650,7 @@
                }*/
 
             /*// Herm point cloud in scene 2 (Example)
-                    Potree.loadPointCloud("https://s3.amazonaws.com/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
+                    Potree.loadPointCloud("http://localhost/vizcaya/pointclouds/herm/cloud.js", "herm", function (e) {
                         sceneSG2.addPointCloud(e.pointcloud);
                         sceneSG2.view.position.set(40.480, -28.044, 52.055);
                         sceneSG2.view.lookAt(new THREE.Vector3(-1.311, -0.328, 41.852));
