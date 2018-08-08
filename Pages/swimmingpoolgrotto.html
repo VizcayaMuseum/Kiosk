@@ -134,45 +134,7 @@
     </div>
         <script>
 
-            function toggleMap() {
-                $("#myMap").fadeIn();
-
-                var popup = document.getElementById('myMap');
-                var span = document.getElementsByClassName("close")[0];
-
-                //Applying opacity to parent page
-                parentWin = window.parent;
-                var sidebar = parentWin.document.getElementById('split-container');
-                sidebar.style.opacity = "0.4";
-
-                span.onclick = function () {
-                    popup.style.display = "none";
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }
-                window.onclick = function (event) {
-                    if (event.target == popup) {
-                        popup.style.display = "none";
-                        //reset opacity of parent page
-                        sidebar.style.opacity = "1";
-                    }
-                }
-            }
-
-            function fingerAnimation() {
-
-                document.getElementById("fingeranimation_grotto").style.display = "block";
-                setTimeout(function () {
-                    document.getElementById("fingeranimation_grotto").style.display = "none";
-                }, 7500);
-
-                window.onclick = function (event) {
-                    $("#fingeranimation_grotto").fadeOut();
-                }
-                window.ontouchstart = function (event) {
-                    $("#fingeranimation_grotto").fadeOut();
-                }
-            }
+            
             function idleTimer() {
                 var t;
                 //window.onload = resetTimer;
@@ -266,7 +228,7 @@
                             title: elTitle,
                             cameraPosition: [-30.289, 2.205, -1.767], /*-28.736, 2.561, -1.752*/
                             cameraTarget: [-31.354, 1.411, -1.882], /*-31.303, 2.365, -1.465*/
-                            description: `AMORINO<hr>This sculpture, cast in lead, was always intended to be a fountain for this grotto, though it no longerfunctions in this way. It has survived flooding from multiple storms because lead generally resists corrosion, and when exposed, the surface develops a protective, grey patina as seen here.
+                            description: `AMORINO<hr>This lead sculpture represents a cupid figure, symbolizing love and desire; it was originally a fountain. It has survived flooding from multiple storms. Lead generally resists corrosion and, when exposed, the surface develops a protective, grey patina as seen here.
                                 `});
 
                         sceneSG.annotations.add(aAbout1);
@@ -289,7 +251,7 @@
                             title: elTitle,
                             cameraPosition: [-27.114, 1.190, -2.820],
                             cameraTarget: [-31.292, 2.889, 1.065],
-                            description: `CEILING MURAL<hr>The sculptural mural that decorates the vaulted ceiling depicts a marine fantasy framed with molded plaster shells and coral. Look out for sea turtles, seahorses, octopi, alligators and fish. The original colors of the ceiling are now faded and difficult to identify.
+                            description: `CEILING MURAL<hr>The sculptural marine fantasy mural is framed with molded plaster shells and coral. Look for sea turtles, seahorses, octopi, alligators and fish. The original colors of the ceiling are faded and difficult to identify. 
                                 `});
 
                         sceneSG.annotations.add(aAbout2);
@@ -312,7 +274,7 @@
                             title: elTitle,
                             cameraPosition: [-28.826, 1.887, -3.110],
                             cameraTarget: [-28.826, 1.887, 0.219],
-                            description: `HUDSON RIVER STURGEONS<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several layers of new non-metallic paint used by former museum staff in attempts to preserve the mural. The use of metallic was intended to mimic the iridescence of fish scales glimmering in the water and to create an immersive experience for Deering’s guests.
+                            description: `HUDSON RIVER STURGEONS<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several preservation attempts. This was intended to mimic the iridescence of fish scales glimmering in the water. Sturgeon are not native to Miami, but rather to artist Robert Winthrop Chanler’s New York home.
                                 `});
 
                         sceneSG.annotations.add(aAbout3);
@@ -335,7 +297,7 @@
                             title: elTitle,
                             cameraPosition: [-27.815, 2.041, -1.450],
                             cameraTarget: [-25.942, 0.084, -1.567],
-                            description: `FOUNTAINS<hr>These coral rock fountains are similar to some of the other fountains found throughout the gardens at Vizcaya. Vizcaya has learned that restoration of the fountains can help moderate the high levels of humidity in the space and better protect the collection of objects in the Swimming Pool Grotto.
+                            description: `FOUNTAINS<hr>These coral rock fountains are similar in design to other fountains in Vizcaya’s gardens. Restoration of these fountains can moderate the high levels of humidity and better protect the Swimming Pool Grotto by cooling the temperature of the space. 
                                 `});
 
                         sceneSG.annotations.add(aAbout4);
@@ -358,7 +320,7 @@
                             title: elTitle,
                             cameraPosition: [-35.020, 3.368, -1.354],
                             cameraTarget: [-33.436, 1.582, -2.699],
-                            description: `FLOOR<hr>Like those inside the house, the marble floor is made of rare imported stones, carefully cut and laid in an intricate pattern.
+                            description: `FLOOR<hr>The marble floor is made of rare imported stones, carefully cut and laid in an intricate pattern. Located below sea level, the floor is vulnerable to storm surge.
                                 `});
 
                         sceneSG.annotations.add(aAbout5);
@@ -732,6 +694,45 @@
 
             });
 
+			function toggleMap() {
+                $("#myMap").fadeIn();
+
+                var popup = document.getElementById('myMap');
+                var span = document.getElementsByClassName("close")[0];
+
+                //Applying opacity to parent page
+                parentWin = window.parent;
+                var sidebar = parentWin.document.getElementById('split-container');
+                sidebar.style.opacity = "0.4";
+
+                span.onclick = function () {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }
+                window.onclick = function (event) {
+                    if (event.target == popup) {
+                        popup.style.display = "none";
+                        //reset opacity of parent page
+                        sidebar.style.opacity = "1";
+                    }
+                }
+            }
+
+            function fingerAnimation() {
+
+                document.getElementById("fingeranimation_grotto").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("fingeranimation_grotto").style.display = "none";
+                }, 7500);
+
+                window.onclick = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+                window.ontouchstart = function (event) {
+                    $("#fingeranimation_grotto").fadeOut();
+                }
+            }
         </script>
 
 </body>

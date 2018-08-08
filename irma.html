@@ -27,10 +27,11 @@
                     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                         <div class="sidebar-sticky">
                             <h1>Hurricane Irma</h1><hr />
-                                                   <p id="sidebar-text">
-                                                       This time lapse video of the Barge was taken during Hurricane Irma in 2017. The red circles indicate some of the elements of the Barge that were damaged from the storm."
-                                                       
-                                                   </p>
+								<!--Time Lapse Video of Hurricane Irma-->
+                                <p id="sidebar-text">
+                                    This video of the Barge shows the significant damage that resulted from Hurricane Irma in 2017. The elements that are circled in red were damaged or swept into Biscayne Bay by the powerful storm surge and wind.
+									<br><br>The 3D documentation project helps staff design for resiliency. Fragments from the Barge were salvaged in 2018 and, after restoration, will return to their original locations. 
+                                </p>
                         </div>
                         <!--sticky footer-->
                         <footer class="footer">
@@ -54,6 +55,7 @@
 
                     <div class="video-showcase">
                         <div class="row no-gutters">
+							<!--Flyover of the Barge-->
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="firstVideo();">
@@ -61,6 +63,8 @@
                                     </video>
                                 </div>
                             </div>
+
+							<!--2018 Salvage Video-->
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
@@ -68,6 +72,8 @@
                                     </video>
                                 </div>
                             </div>
+
+							<!--Time Lapse Video of Hurricane Irma-->
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="thirdVideo();">
@@ -75,6 +81,8 @@
                                     </video>
                                 </div>
                             </div>
+
+							<!--Flyover of the Boat Landing-->
                             <div class="col-sm-3">
                                 <div align="center" class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="fourthVideo();">
@@ -131,31 +139,31 @@
             document.getElementById('sidebar-text').innerHTML = newText;
         }
 
+		//Flyover of the Barge
         function firstVideo() {
-
             var newVideo = 'http://localhost/vizcaya/video/barge_ghosting.mp4';
-            var newText = "This video of the Barge shows some of the significant damage that resulted from Hurricane Irma in 2017. The elements that appear in red represent features that were damaged or swept into Biscayne Bay by the powerful storm surge and wind. The 3D documentation completed through this project continues to help staff explore ways to design for resiliency. Fragments from the Barge were salvaged in 2018 and after restoration, will be returned to their original locations.";
+            var newText = "This animated video of the Barge shows some of the damage from Hurricane Irma. These elements will eventually be restored and returned to their original locations.";            
             updateMainVideo(newVideo, newText);
         }
 
+		//2018 Salvage Video
         function secondVideo() {
-
             var newVideo = 'http://localhost/vizcaya/video/DJI_0295.mp4';
-            var newText = "The 3D documentation completed through this project continues to help staff explore ways to design for resiliency. Fragments from the Barge were salvaged in 2018 and after restoration, will be returned to their original locations. The conservation work on the Barge in particular is funded by the National Endowment for the Humanities.";
+            var newText = "This video depicts the salvage operation to retrieve fragments from the Barge and Boat Landing that were swept into Biscayne Bay during Hurricane Irma.";           
             updateMainVideo(newVideo, newText);
         }
 
+		//Time Lapse Video of Hurricane Irma
         function thirdVideo() {
-
             var newVideo = 'http://localhost/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
-            var newText = "This time lapse video of the Barge was taken during Hurricane Irma in 2017. The red circles indicate some of the elements of the Barge that were damaged from the storm.";
+            var newText = "This video of the Barge shows the significant damage that resulted from Hurricane Irma in 2017. The elements that are circled in red were damaged or swept into Biscayne Bay by the powerful storm surge and wind. <br><br> The 3D documentation project helps staff design for resiliency. Fragments from the Barge were salvaged in 2018 and, after restoration, will return to their original locations.";           
             updateMainVideo(newVideo, newText);
         }
 
+		//Flyover of the Boat Landing
         function fourthVideo() {
-
             var newVideo = 'http://localhost/vizcaya/video/DJI_0284_2.mp4';
-            var newText = "This video of the Barge shows some of the significant damage that resulted from Hurricane Irma in 2017. The 3D documentation completed through this project continues to help staff explore ways to design for resiliency. Fragments from the Barge were salvaged in 2018 and after restoration, will be returned to their original locations.";
+            var newText = "This video of the Boat Landing shows the significant damage that resulted from Hurricane Irma in 2017.";            
             updateMainVideo(newVideo, newText);
         }
 

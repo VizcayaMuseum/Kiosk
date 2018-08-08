@@ -150,31 +150,6 @@
 
     <script>
 
-        function toggleMap() {
-            $("#myMap").fadeIn();
-
-            var popup = document.getElementById('myMap');
-            var span = document.getElementsByClassName("close")[2];
-
-            //Applying opacity to parent page
-            parentWin = window.parent;
-            var sidebar = parentWin.document.getElementById('split-container');
-            sidebar.style.opacity = "0.4";
-
-            span.onclick = function () {
-                popup.style.display = "none";
-                //reset opacity of parent page
-                sidebar.style.opacity = "1";
-            }
-            window.onclick = function (event) {
-                if (event.target == popup) {
-                    popup.style.display = "none";
-                    //reset opacity of parent page
-                    sidebar.style.opacity = "1";
-                }                
-            }
-        }
-
         // initialize page and Potree
         init();
 
@@ -350,7 +325,7 @@
                             title: elTitle,
                             cameraPosition: [-32.413, -12.729, -1.322],
                             cameraTarget: [-28.856, -27.701, -0.699],
-                            description: `GROTESQUES<hr>In architecture, a grotesque is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side is almost completely lost, the other seven remain intact.
+                            description: `GROTESQUES<hr>A “grotesque” is a fantastic or mythical figure used for decorative purposes. One grotesque on the west side of the Barge is almost completely lost; the other seven remain intact.
                                                                     `});
 
                         sceneSG.annotations.add(aAbout2);
@@ -427,7 +402,7 @@
                             title: elTitle,
                             cameraPosition: [-65.663, -55.380, -0.535],
                             cameraTarget: [-46.904, -32.558, -5.605],
-                            description: `MERMAIDS<hr>Much of the original detail of the Barge Mermaids has been lost over the past century due to storms and the subtropical environmental conditions. Depictions of aquatic life, real and imagined, are found throughout Vizcaya, including a group of “Merboy” sculptures located in the Fountain Garden.
+                            description: `MERMAIDS<hr>Much of the original detail of the Barge’s Mermaids has been lost over the past century due to natural erosion. Mermaids are imaginary sea creatures, generally shown with a woman’s head and body and a fish’s tail.
                                                                     `});
 
                         sceneSG.annotations.add(aAbout5);
@@ -721,6 +696,31 @@
                     //reset opacity of parent page
                     sidebar.style.opacity = "1";
                 }
+            }
+        }
+
+		function toggleMap() {
+            $("#myMap").fadeIn();
+
+            var popup = document.getElementById('myMap');
+            var span = document.getElementsByClassName("close")[2];
+
+            //Applying opacity to parent page
+            parentWin = window.parent;
+            var sidebar = parentWin.document.getElementById('split-container');
+            sidebar.style.opacity = "0.4";
+
+            span.onclick = function () {
+                popup.style.display = "none";
+                //reset opacity of parent page
+                sidebar.style.opacity = "1";
+            }
+            window.onclick = function (event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                    //reset opacity of parent page
+                    sidebar.style.opacity = "1";
+                }                
             }
         }
     </script>
