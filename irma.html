@@ -55,29 +55,21 @@
 
                     <div class="video-showcase">
                         <div class="row no-gutters">
-							<!--Flyover of the Barge-->
-                            <div class="col-sm-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="firstVideo();">
-                                        <source src="http://localhost/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-
-							<!--2018 Salvage Video-->
-                            <div class="col-sm-3">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
-                                        <source src="http://localhost/vizcaya/video/DJI_0295.mp4" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-
+							
 							<!--Time Lapse Video of Hurricane Irma-->
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <video autoplay loop class="embed-responsive-item" onclick="thirdVideo();">
                                         <source src="http://localhost/vizcaya/video/Timelapse+Barge+Irma+2017.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
+							<!--Flyover of the Barge-->
+                            <div class="col-sm-3">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video autoplay loop class="embed-responsive-item" onclick="firstVideo();">
+                                        <source src="http://localhost/vizcaya/video/barge_ghosting.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
@@ -90,6 +82,16 @@
                                     </video>
                                 </div>
                             </div>
+
+							<!--2018 Salvage Video-->
+                            <div class="col-sm-3">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
+                                        <source src="http://localhost/vizcaya/video/salvage.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 
@@ -127,6 +129,7 @@
         }
         idleTimer();
 
+		//Function used to update videos on the main-canvas
         function updateMainVideo(newVideo, newText) {
             var videoContainer = document.getElementById('main-video');
             var videoSource = document.getElementById('source_video');
@@ -148,7 +151,7 @@
 
 		//2018 Salvage Video
         function secondVideo() {
-            var newVideo = 'http://localhost/vizcaya/video/DJI_0295.mp4';
+            var newVideo = 'http://localhost/vizcaya/video/salvage.mp4';
             var newText = "This video depicts the salvage operation to retrieve fragments from the Barge and Boat Landing that were swept into Biscayne Bay during Hurricane Irma.";           
             updateMainVideo(newVideo, newText);
         }
