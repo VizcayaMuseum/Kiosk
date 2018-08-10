@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\es",
+    "\\es\\models",
+    "\\es\\pages",
+    "\\models",
+    "\\pages"
   ],
+  "SelectedNode": "\\models\\1916mermaids.html",
   "PreviewInSolutionExplorer": false
 }
