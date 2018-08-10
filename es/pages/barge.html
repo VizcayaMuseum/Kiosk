@@ -94,7 +94,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para Explorar</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Toque para Explorar</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -106,7 +106,8 @@
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Herma"><span class="index">&sccue;</span>Herma</a></li>
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Esculturas"><span class="index">&sccue;</span>Esculturas</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Sirenas"><span class="index">&sccue;</span>Sirenas</a></li>
-                    </ul>
+						<li id="li5" class="link"><a data-hotspot-target="4" title="Center of Barge"><span class="index">&sccue;</span> Centro de la Barcaza</a></li>
+					</ul>
                 </div>
             </div>
         </div>
@@ -204,13 +205,13 @@
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
-
+		/*
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
             //viewer.toggleSidebar();
         });
-
+		*/
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
@@ -312,6 +313,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Centro de la Barcaza");
                     });
                     elTitle.toString = () => "CENTRO DE LA BARCAZA";
 
@@ -336,6 +338,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Grutescos");
                     });
                     elTitle.toString = () => "GROTESQUES";
 
@@ -360,6 +363,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Herma");
                         popupHerm();
                         /*event.stopPropagation();*/
                         /*viewer.setScene(sceneSG2);*/
@@ -387,6 +391,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Esculturas");
                         popupSculptures();
 
                     });
@@ -412,6 +417,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Sirenas");
                     });
                     elTitle.toString = () => "MERMAIDS";
 
@@ -533,11 +539,13 @@
 
         //Functions for each annotation
         function item1() {
+			changeHotspotName("Grotescos");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
             showDescription(1);
             hideDescription(4);
         }
         function item2() {
+			changeHotspotName("Herma");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(4);
@@ -548,14 +556,22 @@
             */
         }
         function item3() {
+			changeHotspotName("Esculturas");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(4);
         }
         function item4() {
+			changeHotspotName("Sirenas");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
             showDescription(4);
             hideDescription(1);
+        }
+		function item5() {
+			changeHotspotName("Centro de la Barcaza");
+            sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+            hideDescription(1);
+            hideDescription(4);
         }
 
         //Click functions for each annotation within Hotspot Control's List
@@ -571,6 +587,9 @@
         $("#li4").click(function () {
             item4();
         });
+		$("#li5").click(function () {
+            item5();
+        });
 
         //Functions for continuous click on Prev and Next buttons
         const functions = [];
@@ -578,6 +597,7 @@
         functions.push(item2);
         functions.push(item3);
         functions.push(item4);
+		functions.push(item5);
 
         const length = functions.length;
 
@@ -618,6 +638,7 @@
         hideList('li2');
         hideList('li3');
         hideList('li4');
+		hideList('li5');
 
         /* Navigation Controls Image
         *****************************************************/

@@ -75,7 +75,7 @@
             <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                 <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
             </div>
-            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to tour</b></div>
+            <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Touch to tour</b></div>
             <div id="next" data-title="Next Annotation" data-action="next-annotation">
                 <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
             </div>
@@ -159,6 +159,7 @@
                                             </span>
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Front View");
                     });
                     elTitle.toString = () => "Front View";
 
@@ -184,6 +185,7 @@
                                             </span>
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Back View");
                     });
                     elTitle.toString = () => "Back View";
 
@@ -209,6 +211,7 @@
                                             </span>
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Right Side View");
                     });
                     elTitle.toString = () => "Right Side View";
 
@@ -234,6 +237,7 @@
                                             </span>
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Left Side View");
                     });
                     elTitle.toString = () => "Left Side View";
 
@@ -259,6 +263,7 @@
                                             </span>
                                         `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Laser Scanner");
                     });
                     elTitle.toString = () => "Terrestrial Laser Scanner";
 
@@ -293,18 +298,23 @@
 
         //Functions for each annotation
         function item1() {
+			changeHotspotName("Front View");
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
         }
         function item2() {
+			changeHotspotName("Back View");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
         }
         function item3() {
+			changeHotspotName("Right Side View");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
         }
         function item4() {
+			changeHotspotName("Left Side View");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
         }
         function item5() {
+			changeHotspotName("Laser Scanner");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
         }
 

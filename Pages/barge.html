@@ -74,7 +74,7 @@
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
-        <img id="barge_icon" onclick="barge1916Button()" src="../images/GIF/TimeWarp_1916Barge_BlackText.gif" title="View Barge" />
+        <img id="barge_icon" onclick="barge1916Button()" src="../images/GIF/TimeWarp_1916Barge_Border.gif" title="View Barge" />
         <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="View Map" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
         <img id="question_icon" onclick="tutorialButton()" src="../images/question.svg" title="Tutorial" />
@@ -95,7 +95,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b>Touch to Tour</b></div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Touch to Tour</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -107,7 +107,8 @@
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Herm"><span class="index">&sccue;</span>Herm </a></li>
                         <li id="li3" class="link"><a data-hotspot-target="2" title="Sculptures"><span class="index">&sccue;</span> Sculptures</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Mermaids"><span class="index">&sccue;</span> Mermaids</a></li>
-                    </ul>
+						<li id="li5" class="link"><a data-hotspot-target="4" title="Center of Barge"><span class="index">&sccue;</span> Center of Barge</a></li>
+					</ul>
                 </div>
             </div>
         </div>
@@ -292,6 +293,7 @@
                                                         </span>
                                                     `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Center of Barge");
                         });
                         elTitle.toString = () => "CENTER OF BARGE";
 
@@ -317,6 +319,7 @@
                                                                 </span>
                                                                                 `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Grotesques");
                         });
                         elTitle.toString = () => "GROTESQUES";
 
@@ -342,6 +345,7 @@
                                     </span>`);
 
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Herm");
                             popupHerm();
                             /*event.stopPropagation();*/
                             /*viewer.setScene(sceneSG2);*/
@@ -368,6 +372,7 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Sculptures");
                             popupSculptures();
                         });
                         elTitle.toString = () => "SCULPTURES";
@@ -394,6 +399,7 @@
                                                 </span>
                                             `);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
+							changeHotspotName("Mermaids");
                         });
                         elTitle.toString = () => "MERMAIDS";
 
@@ -527,26 +533,35 @@
 
             //Functions for each annotation
             function item1() {
+				changeHotspotName("Grotesques");
                 sceneSG.annotations.children[1].moveHere(sceneSG.camera);               
                 showDescription(1);
                 hideDescription(4);
             }
             function item2() {
+				changeHotspotName("Herm");
                 sceneSG.annotations.children[2].moveHere(sceneSG.camera);
                 hideDescription(1);
                 hideDescription(4);
             }
             function item3() {
+				changeHotspotName("Sculptures");
                 sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                 hideDescription(1);
                 hideDescription(4);
             }
             function item4() {
+				changeHotspotName("Mermaids");
                 sceneSG.annotations.children[4].moveHere(sceneSG.camera);
                 showDescription(4);
                 hideDescription(1);
             }
-
+			function item5(){
+				changeHotspotName("Center of Barge");
+				sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+				hideDescription(1);
+                hideDescription(4);
+			}
             //Hotspot Dropup's Click Selection
             $("#li1").click(function () {
                 item1();
@@ -560,13 +575,16 @@
             $("#li4").click(function () {
                 item4();
             });
-
+			$("#li5").click(function () {
+                item5();
+            });
             //Hotspot Dropup's Prev/Next Selection
             const functions = [];
             functions.push(item1);
             functions.push(item2);
             functions.push(item3);
             functions.push(item4);
+			functions.push(item5);
 
             const length = functions.length;
 
@@ -607,6 +625,7 @@
             hideList('li2');
             hideList('li3');
             hideList('li4');
+			hideList('li5');
 
             /*{   //Annotation (Example)
                    let Mermaids = new Potree.Annotation({

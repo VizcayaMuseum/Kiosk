@@ -265,3 +265,8 @@ function potreeHermMoveDown() {
 
     sceneSG.scenePointCloud.rotation.y += 0.1;
 }
+
+//Function to change Touch to HotspotName
+function changeHotspotName(newName){
+	document.getElementById('hotspotName').innerHTML = newName;
+}

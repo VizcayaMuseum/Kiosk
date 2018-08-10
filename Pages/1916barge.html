@@ -79,7 +79,7 @@
 
         <!--Control Icons-->
         <!--<img id="home_icon" onclick="redirectHomeFunc()" src="../images/home.svg" title="Home" />-->
-        <img id="barge_icon" onclick="barge2017Button()" src="../images/GIF/TimeWarp_2017Barge.gif" title="View Barge" />
+        <img id="barge_icon" onclick="barge2017Button()" src="../images/GIF/TimeWarp_1916Barge_W&B.gif" title="View Barge" />
         <img id="map_icon" onclick="toggleMap()" src="../images/map.svg" title="Map" />
         <img id="question_icon" src="../images/question.svg" title="Navigation" />
         <img id="refresh_icon" onclick="refreshButton()" src="../images/refresh.svg" title="Refresh Page" />
@@ -101,7 +101,7 @@
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                     <!--<div class="icon fa fa-caret-left"></div>-->
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Touch to Tour</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Touch to Tour</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -406,6 +406,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Center of Barge");
                     });
                     elTitle.toString = () => "CENTER OF BARGE";
 
@@ -422,25 +423,25 @@
                 {
                     /* Annotation: Summer House
                     *****************************************************/
+                    let elTitle = $(`<span>
+                                                <img src="${Potree.resourcePath}/icons/i.png"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>`);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Summer House");
+                    });
+                    elTitle.toString = () => "SUMMER HOUSE";
+
                     let aAbout2 = new Potree.Annotation({
                         position: [589367.536, 231407.493, 852.372],
-                        title: $(`<span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
-                                                name="action_set_scene"
-                                                class="annotation-action-icon"
-                                                style="filter: invert(1);" />
-                                          </span>`),
+                        title: elTitle,
                         cameraPosition: [589607.104, 231616.701, 920.329],
                         cameraTarget: [589389.183, 231541.292, 877.626],
-                        description: `SUMMER HOUSE <hr>The Summer House was a wood trellis structure that provided shade for guests visiting the Barge. It was lost during the great Miami hurricane of 1926. The Barge was originally landscaped with potted plants, had functioning fountains and electricity. 
+                        description: `SUMMER HOUSE <hr>The Summer House was a wood trellis structure that provided shade for guests visiting the Barge. It was lost during the great Miami hurricane of 1926. The Barge was originally landscaped with potted plants, had functioning fountains and electricity.
                             `});
-                    /*
-                        aStatues.domElement.off("mouseenter");
-                        aStatues.domElement.off("mouseleave");
-                        aStatues.addEventListener("click", () => {
-                            aStatues.setHighlighted(!aStatues.isHighlighted);
-                        });
-                    */
+
                     sceneSG.annotations.add(aAbout2);
                 }
 
@@ -454,6 +455,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Grotesques");
                     });
                     elTitle.toString = () => "GROTESQUES";
 
@@ -478,6 +480,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Herm");
                         popupHerm();
                         /*event.stopPropagation();*/
                         /*window.top.location.href = "../1916Herm.html";*/
@@ -505,6 +508,7 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Sculptures");
                         popupSculptures();
                         /*event.stopPropagation();*/
                         /*window.top.location.href = "../1916Mermaids.html";*/
@@ -532,6 +536,7 @@
                                             style="filter: invert(1);" />
                                         </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Mermaids");
                     });
                     elTitle.toString = () => "MERMAIDS";
 
@@ -620,36 +625,42 @@
 
         //Functions for each annotation
         function item1() {
+			changeHotspotName("Summer House");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
             showDescription(1);
             hideDescription(2);
             hideDescription(5);
         }
         function item2() {
+			changeHotspotName("Grotesques");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
             showDescription(2);
             hideDescription(1);
             hideDescription(5);
         }
         function item3() {
+			changeHotspotName("Herm");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(2);
             hideDescription(5);           
         }
         function item4() {
+			changeHotspotName("Sculptures");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(2);
             hideDescription(5);            
         }
         function item5() {
+			changeHotspotName("Mermaids");
             sceneSG.annotations.children[5].moveHere(sceneSG.camera);
             showDescription(5);
             hideDescription(1);
             hideDescription(2);
         }
         function item6() {
+			changeHotspotName("Center of Barge");
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(2);

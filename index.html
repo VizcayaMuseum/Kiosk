@@ -39,13 +39,7 @@
             background-color: rgba(0,0,0,0.5);
             color: #ffffff;
         }
-        /*
-        .icon3d {
-            background-image: url("../images/question.svg");
-            top: 50%;
-            left: 50%;
-        }
-        */
+
         body {
             background-color: #fff !important;
         }
@@ -90,7 +84,6 @@
 </head>
 
 <body>
-    <!--style="overflow: auto;"-->
 
     <div class="container-fluid">
         <div class="row">
@@ -322,7 +315,6 @@
         *****************************************************/
         $("#hotspots").click(function () {
             /*$("#lists").toggle('show');*/
-
             
             if (document.getElementById('tilename').innerHTML == "3D Documentation") {
                 window.location.href = "3d-documentation.html";
@@ -508,6 +500,7 @@
         $("#next").click(function () {
             getNewScene('next');
         });
+
         /*
         //Temp solution to hide list when a hotspot is selected
         function hideList(listItem) {

@@ -101,7 +101,7 @@
                 <div id="prev" data-title="Previous Annotation" data-action="prev-annotation">
                     <div id="prevDiv"><img id="prevIcon" src="../images/caret-left.svg" /></div>
                 </div>
-                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list">Toque para Explorar</div>
+                <div id="hotspots" class="hotspot-name" data-action="toggle-annotation-list"><b id="hotspotName">Toque para Explorar</b></div>
                 <div id="next" data-title="Next Annotation" data-action="next-annotation">
                     <div id="nextDiv"><img id="nextIcon" src="../images/caret-right.svg" /></div>
                 </div>
@@ -214,13 +214,13 @@
 
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
-
+		/*
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
             //viewer.toggleSidebar();
         });
-
+		*/
         viewer.setDescription(``);
 
         let sceneSG = new Potree.Scene();
@@ -371,6 +371,7 @@
                                                 </span>
                                             `);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Centro de la Barcaza");
                     });
                     elTitle.toString = () => "CENTRO DE LA BARCAZA";
 
@@ -385,17 +386,22 @@
                 }
 
                 {
-
                     /* Annotation: Summer House
                     *****************************************************/
+                    let elTitle = $(`<span>
+                                                <img src="${Potree.resourcePath}/icons/i.png"
+                                                    name="action_set_scene"
+                                                    class="annotation-action-icon"
+                                                    style="filter: invert(1);" />
+                                            </span>`);
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("La Casa de Verano");
+                    });
+                    elTitle.toString = () => "SUMMER HOUSE";
+
                     let aAbout2 = new Potree.Annotation({
                         position: [589367.536, 231407.493, 852.372],
-                        title: $(`<span>
-                                            <img src="${Potree.resourcePath}/icons/i.png"
-                                                name="action_set_scene"
-                                                class="annotation-action-icon"
-                                                style="filter: invert(1);" />
-                                        </span>`),
+                        title: elTitle,
                         cameraPosition: [589607.104, 231616.701, 920.329],
                         cameraTarget: [589389.183, 231541.292, 877.626],
                         description: `LA CASA DE VERANO<hr>La Casa de Verano, destruida por el gran huracán de Miami en 1926, era un enrejado de madera que proporcionaba sombra a los visitantes de la Barcaza. La Barcaza también contaba con fuentes, electricidad y muchas plantas en macetas.
@@ -416,7 +422,9 @@
                                             style="filter: invert(1);" />
                                     </span>
                                             `);
-                    elTitle.find("img[name=action_set_scene]").click((event) => { });
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Grutescos");
+					});
                     elTitle.toString = () => "GRUTESCOS";
 
                     let aAbout3 = new Potree.Annotation({
@@ -441,10 +449,10 @@
                                                     style="filter: invert(1);" />
                                             </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
-                        popupHerm();
-
+						changeHotspotName("Herma");
+						popupHerm();
                     });
-                    elTitle.toString = () => "HERMAS";
+                    elTitle.toString = () => "HERMA";
 
                     let aAbout4 = new Potree.Annotation({
                         position: [589768.929, 231370.362, 802.951],
@@ -467,6 +475,7 @@
                                                 style="filter: invert(1);" />
                                         </span>`);
                     elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Esculturas");
                         popupSculptures();
 
                     });
@@ -492,7 +501,9 @@
                                                     class="annotation-action-icon"
                                                     style="filter: invert(1);" />
                                             </span>`);
-                    elTitle.find("img[name=action_set_scene]").click((event) => { });
+                    elTitle.find("img[name=action_set_scene]").click((event) => {
+						changeHotspotName("Sirenas");
+					});
                     elTitle.toString = () => "SIRENAS";
 
                     let aAbout6 = new Potree.Annotation({
@@ -614,36 +625,42 @@
 
         //Functions for each annotation
         function item1() {
+			changeHotspotName("La Casa de Verano");
             sceneSG.annotations.children[1].moveHere(sceneSG.camera);
             showDescription(1);
             hideDescription(2);
             hideDescription(5);
         }
         function item2() {
+			changeHotspotName("Grotescos");
             sceneSG.annotations.children[2].moveHere(sceneSG.camera);
             showDescription(2);
             hideDescription(1);
             hideDescription(5);
         }
         function item3() {
+			changeHotspotName("Herma");
             sceneSG.annotations.children[3].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(2);
             hideDescription(5);
         }
         function item4() {
+			changeHotspotName("Esculturas");
             sceneSG.annotations.children[4].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(2);
             hideDescription(5);
         }
         function item5() {
+			changeHotspotName("Sirenas");
             sceneSG.annotations.children[5].moveHere(sceneSG.camera);
             showDescription(5);
             hideDescription(1);
             hideDescription(2);
         }
         function item6() {
+			changeHotspotName("Centro de la Barcaza");
             sceneSG.annotations.children[0].moveHere(sceneSG.camera);
             hideDescription(1);
             hideDescription(2);
