@@ -1222,10 +1222,12 @@ a {
     height: auto;
     width: auto;
     position: absolute;
-    bottom: 0;
-    right: 30%;
-    top: 55%;
+	top: 12.7%;
+	right: 23.7%;
     z-index: 100;
+	animation: mapAnimation 1s ease-in-out infinite alternate;
+    -webkit-animation-name: mapAnimation;
+    animation-name: mapAnimation;
 }
 
 #barge-location {
@@ -1234,14 +1236,9 @@ a {
     height: auto;
     width: auto;
     position: absolute;
-    bottom: 0;
-    left: 24.2%;
-    right: 0;
-    top: 19%;
+	top: 59%;
+	left: 18%;
     z-index: 100;
-    animation: mapAnimation 1s ease-in-out infinite alternate;
-    -webkit-animation-name: mapAnimation;
-    animation-name: mapAnimation;
 }
 
 #grotto-location {
@@ -1250,14 +1247,9 @@ a {
     height: auto;
     width: auto;
     position: absolute;
-    bottom: 0;
-    left: 13%;
-    right: 0;
-    top: 56%;
+	top: 58%;
+	left: 18%;
     z-index: 100;
-    animation: mapAnimation 1s ease-in-out infinite alternate;
-    -webkit-animation-name: mapAnimation;
-    animation-name: mapAnimation;
 }
 
 @keyframes mapAnimation {
@@ -1267,20 +1259,11 @@ a {
     }
 
     100% {
-        transform: scale(1.5);
-        -webkit-transform: scale(1.5);
+        transform: scale(1.3);
+        -webkit-transform: scale(1.3);
     }
 }
 
-.titlebarAnimation {
-    background-color: #3D9FD6;
-    border: 2px solid #3D9FD6; /*1px solid rgba(255, 255, 255, 0.7) for border thickness*/
-    padding: 6px 9px; /*5px 8px|1px 8px | 2px 13px for roundness*/
-    opacity: 1; /*1 shows icons | 0 !important could hide annotations*/
-    animation: mapAnimation 1s ease-in-out infinite alternate;
-    -webkit-animation-name: mapAnimation;
-    animation-name: mapAnimation;
-}
 /*
 *   INDEX.HTML CSS
 */
