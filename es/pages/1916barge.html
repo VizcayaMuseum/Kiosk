@@ -74,8 +74,9 @@
     <!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
     <!-- INCLUDE SETTINGS HERE -->
 
+	<div id="loader"></div>
     <div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
-        <div id="potree_render_area"></div>
+        <div id="potree_render_area" style="display: none"></div>
         <div id="potree_sidebar_container"> </div>
 
         <!--Control Icons-->
@@ -235,10 +236,62 @@
             scene.view.lookAt(new THREE.Vector3(589609.432, 231679.064, 692.467));
         }
 
+		//Reading address
+		var src = document.referrer;
+        var srcSplit = src.split("?");
+        var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
+
         { // Load Textured bunny from obj
             let manager = new THREE.LoadingManager();
             manager.onProgress = function (item, loaded, total) {
                 console.log(item, loaded, total);
+				if (loaded == 10) {
+					document.getElementById('potree_render_area').style.display = "block";
+					document.getElementById('loader').style.display = "none";
+
+					/* Opening Transitions
+					*****************************************************/
+					//Barge
+					if (hotSpot == 0){
+						setTimeout(function () {
+							sceneSG.annotations.children[0].moveHere(sceneSG.camera);
+						}, 2000);
+
+						setTimeout(function () {
+							document.getElementById("finger_animation").style.display = "flex";
+						}, 8000);
+
+							window.onclick = function (event) {
+								$("#finger_animation").fadeOut();
+							}
+							window.ontouchstart = function (event) {
+								$("#finger_animation").fadeOut();
+							}
+					}
+
+					//Herm
+					else if (hotSpot == 1) {
+						setTimeout(function () {
+							sceneSG.annotations.children[3].moveHere(sceneSG.camera);
+						}, 2000);
+
+						setTimeout(function () {
+							popupHerm();
+						}, 6000);
+					}
+
+					//Sculptures
+					else if (hotSpot == 2) {
+						setTimeout(function () {
+							sceneSG.annotations.children[4].moveHere(sceneSG.camera);
+						}, 2000);
+
+						setTimeout(function () {
+							popupSculptures();
+						}, 8000);
+					}
+
+                 }
             };
 
             //let textureLoader = new THREE.TextureLoader(manager);
@@ -519,53 +572,6 @@
 
             }
 
-            var src = document.referrer;
-            var srcSplit = src.split("?");
-            var hotSpot = parseFloat(srcSplit[1]); //0 for barge, 1 for herm, 2 for sculptures
-
-            /* Opening Transitions
-            *****************************************************/
-            //Barge
-            if (hotSpot == 0) {
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[0].moveHere(sceneSG.camera);
-                }, 3500);
-
-                setTimeout(function () {
-                    document.getElementById("finger_animation").style.display = "flex";
-                }, 8000);
-
-                window.onclick = function (event) {
-                    $("#finger_animation").fadeOut();
-                }
-                window.ontouchstart = function (event) {
-                    $("#finger_animation").fadeOut();
-                }
-
-            }
-            //Herm
-            else if (hotSpot == 1) {
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[3].moveHere(sceneSG.camera);
-                }, 3500);
-
-                setTimeout(function () {
-                    popupHerm();
-                }, 7000);
-            }
-            //Sculptures
-            else if (hotSpot == 2) {
-
-                setTimeout(function () {
-                    sceneSG.annotations.children[4].moveHere(sceneSG.camera);
-                }, 3500);
-
-                setTimeout(function () {
-                    popupSculptures();
-                }, 7800);
-            }
         }
 
         var timeoutID;
