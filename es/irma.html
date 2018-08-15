@@ -29,7 +29,8 @@
                             <h1>Huracán Irma</h1><hr />
 							<!--Time Lapse Video of Hurricane Irma-->
                             <p id="sidebar-text">
-                                Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.<br> <br>
+                                Este video de la Barcaza muestra los graves daños causados por el Huracán Irma en el 2017. Los elementos en círculos rojos sufrieron daños o fueron lanzados a la bahía de Biscayne por el viento y la marejada. 
+                                <br><br>El proyecto de documentación 3D ayuda a nuestro personal a diseñar obras resilientes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.
                             </p>
                         </div>
                         <!--sticky footer-->                       
@@ -76,16 +77,16 @@
 							<!--Flyover of the Boat Landing-->
                             <div class="col-sm-3">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
-                                        <source src="http://localhost/vizcaya/video/DJI_0295.mp4" type="video/mp4">
+                                    <video autoplay loop class="embed-responsive-item" onclick="fourthVideo();">
+                                        <source src="http://localhost/vizcaya/video/DJI_0284_2.mp4" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
 
 							<!--2018 Salvage Video-->
                             <div class="col-sm-3">
-                                <div align="center" class="embed-responsive embed-responsive-16by9">
-                                    <video autoplay loop class="embed-responsive-item" onclick="fourthVideo();">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <video autoplay loop class="embed-responsive-item" onclick="secondVideo();">
                                         <source src="http://localhost/vizcaya/video/salvage.mp4" type="video/mp4">
                                     </video>
                                 </div>
@@ -144,23 +145,23 @@
 		//Flyover of the Barge
         function firstVideo() {
 
-            var newVideo = 'http://localhost/vizcaya/video/barge_ghosting.mp4';
-            var newText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. Los elementos de color rojo representan aquellas partes que sufrieron daños o fueron lanzadas a la bahía de Biscayne por el viento y las olas de tormenta. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.";
+            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/barge_ghosting.mp4';
+            var newText = "Este video animado muestra algunos de los daños que sufrió la Barcaza a causa del Huracán Irma. Estos elementos serán restaurados y devueltos a su lugar.";
             updateMainVideo(newVideo, newText);
         }
 
 		//2018 Salvage Video
         function secondVideo() {
 
-            var newVideo = 'http://localhost/vizcaya/video/salvage.mp4';
-            var newText = "El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar. El trabajo de conservación de la Barcaza es financiado por el Fondo Nacional para las Humanidades.";
+            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/salvage.mp4';
+            var newText = "Esta presentación de diapositivas describe la operación de salvamento para rescatar los fragmentos de la Barcaza y el Muelle que fueron lanzados a la bahía de Biscayne por el Huracán Irma.";
             updateMainVideo(newVideo, newText);
         }
 
 		//Time Lapse Video of Hurricane Irma
         function thirdVideo() {
 
-            var newVideo = 'http://localhost/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
+            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/Timelapse+Barge+Irma+2017.mp4';
             var newText = "Este video del huracán Irma con lapso de tiempo de la barcaza fue tomada durante el huracán Irma en 2017. Los círculos rojos indican algunos de los elementos de la barcaza que fueron dañados por la tormenta.";
             updateMainVideo(newVideo, newText);
         }
@@ -168,8 +169,8 @@
 		//Flyover of the Boat Landing
         function fourthVideo() {
 
-            var newVideo = 'http://localhost/vizcaya/video/DJI_0284_2.mp4';
-            var newText = "Este video de la Barcaza muestra algunos de los graves daños causados por el huracán Irma en el 2017. El personal de Vizcaya usa la documentación tridimensional realizada durante el proyecto para explorar diferentes maneras de incorporar la resistencia a sus bienes. Los fragmentos de la Barcaza recuperados en el 2018 serán restaurados y devueltos a su lugar.";
+            var newVideo = 'https://s3.amazonaws.com/vizcaya/video/DJI_0284_2.mp4';
+            var newText = "Este video del Muelle muestra los graves daños causados por el Huracán Irma en el 2017.";
             updateMainVideo(newVideo, newText);
         }
 

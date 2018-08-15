@@ -1376,6 +1376,17 @@ a {
     filter: invert(1);
 }
 
+#infoDiv2 {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    z-index: 4;
+    top: 4%;
+    right: 1.2%;
+    border-radius: 25px;
+    background-color: #3D9FD6;
+}
+
 /*3D Doc modal*/
 .modal-content {
     width: 115%;

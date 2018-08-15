@@ -39,16 +39,11 @@
                       <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                           <div class="sidebar-sticky">
 
-                              <h1>La Documentación 3D</h1><hr>
+                              <h1>¿Qué es la documentación 3D?</h1><hr>
                               <p>
-                                  Vizcaya y los otros miembros del proyecto combinaron la fotogrametría y el escaneo láser para maximizar las ventajas de cada método. Las imágenes y modelos de alta precisión resultantes se emplean para documentar el legado material de Vizcaya a través del tiempo.
-                                  <br><br>Vizcaya emplea dos métodos de documentación tridimensional:
-                                  <br /><br />Los <b>escáneres láser</b> usan rayos láser para medir la distancia entre el escáner y un objeto. El resultado es una fiel representación digital del objeto. Vizcaya usó el escaneo láser para crear imágenes virtuales y modelos tridimensionales de la Barcaza y la Gruta de la Piscina.
-                                  <br /><br />La <b>fotogrametría</b> se utiliza para tomar medidas basadas en fotografías. Vizcaya utilizó fotografías para detectar, medir y documentar la Barcaza y la Gruta de la Piscina. Después estas fotografías fueron procesadas por un programa de computadora que produjo modelos digitales en tres dimensiones.
-                                  <br />
-                                  <!--Pop-up-->
-                                  <a data-toggle="modal" href="#myModal"><br /><u>¿Qué papel juega la documentación 3D en la conservación de Vizcaya?</u></a>
-
+                                  La documentación 3D es el proceso de obtener medidas precisas y datos visuales de los objetos y espacios. Esta información se emplea para crear imágenes detalladas, modelos e impresiones tridimensionales, y experiencias virtuales. La documentación tridimensional periódica facilita la monitorización de la erosión a lo largo del tiempo y nos ayuda a tomar decisiones acerca de la conservación. 
+								  <br><br>Seleccione cualquier botón de información para aprender sobre los metodos de la documentación 3D.
+							  </p>
                           </div>
                           <!--sticky footer-->
 
@@ -67,6 +62,11 @@
                   <div class="main-container d-flex flex-column">
                       <!--Featured Content-->
                       <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
+						  <div id="infoDiv2">
+							<a id="ainfoDiv" data-toggle="modal" href="#pointcloudModal">
+								<img id="info_img" src="build/potree/resources/icons/i.png" />
+							</a>
+						  </div>
                           <iframe src="pages/barge-context.html" allowfullscreen></iframe>
                       </div>
 
@@ -104,7 +104,7 @@
 
                                   <div class="embed-responsive embed-responsive-16by9">
                                       <div id="infoDiv">
-                                          <a id="ainfoDiv" data-toggle="modal" href="#">
+                                          <a id="ainfoDiv" data-toggle="modal" href="#documentationModal">
                                               <img id="info_img" src="build/potree/resources/icons/i.png" />
                                           </a>
                                       </div>
@@ -152,6 +152,62 @@
 
               </div>
 
+			  <!-- Point Cloud Model Modal -->
+              <div class="modal fade" id="pointcloudModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content ">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">Modelo de Nube de Puntos</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>
+                                  Los escáneres y las cámaras digitales reúnen datos de la superficie de la Fachada Este de Vizcaya y el paisaje a su alrededor para construir una serie, o “nube”, de puntos. Esta información se utiliza para crear una imagen tridimensional de esos espacios como se ve en esta representación digital.
+                              </p>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+
+			  <!-- Photogrammetry Modal -->
+              <div class="modal fade" id="photogrammetryModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content ">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">Fotogrametría</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>
+                                  En la fotogrametría se emplean fotografías tomadas desde muchos diferentes puntos para obtener medidas. Esta imagen muestra los puntos de la Barcaza fotografiados por un dron. Las fotografías se introducen a un programa de computadora que recopila la información y produce modelos digitales tridimensionales.
+                              </p>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+
               <!-- Laser Modal -->
               <div class="modal fade" id="laserModal">
                   <div class="modal-dialog modal-dialog-centered">
@@ -159,14 +215,14 @@
 
                           <!-- Modal Header -->
                           <div class="modal-header">
-                              <h4 class="modal-title">Laser Scanning</h4>
+                              <h4 class="modal-title">Escaneo Láser</h4>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
                           <!-- Modal body -->
                           <div class="modal-body">
                               <p>
-                                  Laser scanning captures digital information about the shape of an object with scanners that use a laser or light to measure the distance between the scanner and the object. Vizcaya used laser scanning to capture the Barge and Swimming Pool Grotto to create virtual images and 3D print models.
+                                  Esta imagen muestra un tipo de escáner láser que capta información digital sobre la forma de un objeto con rayos láser que miden la distancia entre el escáner y un objeto desde muchas diferentes perspectivas.
                               </p>
                           </div>
 
@@ -180,21 +236,21 @@
 
               </div>
 
-              <!-- Photogrammetry Modal -->
-              <div class="modal fade" id="photogrammetryModal">
+			  <!-- Documentation Modal -->
+              <div class="modal fade" id="documentationModal">
                   <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content ">
 
                           <!-- Modal Header -->
                           <div class="modal-header">
-                              <h4 class="modal-title">Photogrammetry</h4>
+                              <h4 class="modal-title">Documentación en Progreso </h4>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
                           <!-- Modal body -->
                           <div class="modal-body">
                               <p>
-                                  Photogrammetry makes measurements from photographs. Vizcaya used photographs to detect, measure and record the Barge and Swimming Pool Grotto. The photographs are then input into software that creates 3D digital models.
+                                  Estas imágenes muestran cómo los técnicos de la Universidad de la Florida usan el escaneo láser y la fotogrametría para captar nubes de puntos de la Barcaza y la Gruta de la Piscina.
                               </p>
                           </div>
 
@@ -202,11 +258,10 @@
                           <div class="modal-footer">
                               <button type="button" class="btn" data-dismiss="modal">Close</button>
                           </div>
-
                       </div>
                   </div>
-
               </div>
+              
           </div>
       </div>
 

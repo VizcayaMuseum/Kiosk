@@ -64,6 +64,11 @@
                   <div class="main-container d-flex flex-column">
                       <!--Featured Content-->
                       <div id="main-canvas" class="embed-responsive embed-responsive-16by9">
+						  <div id="infoDiv2">
+							<a id="ainfoDiv" data-toggle="modal" href="#pointcloudModal">
+								<img id="info_img" src="build/potree/resources/icons/i.png" />
+							</a>
+						  </div>
                           <iframe src="pages/barge-context.html" allowfullscreen></iframe>
                       </div>
 
@@ -144,21 +149,21 @@
                   </div>
               </div>
 
-              <!-- Laser Modal -->
-              <div class="modal fade" id="laserModal">
+			  <!-- Point Cloud Model Modal -->
+              <div class="modal fade" id="pointcloudModal">
                   <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content ">
 
                           <!-- Modal Header -->
                           <div class="modal-header">
-                              <h4 class="modal-title">Laser Scanning</h4>
+                              <h4 class="modal-title">Point Cloud Model</h4>
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
                           <!-- Modal body -->
                           <div class="modal-body">
                               <p>
-                                  This image depicts a type of laser scanner that captures digital information about the shape of an object using laser or light to measure the distance between the scanner and an object from many different perspectives. 
+                                  Laser scanners and digital cameras gather measurements from the surface of Vizcaya’s East Facade and surrounding landscape to create a series, or “cloud,” of points. This is then used to construct a virtual 3D representation of those spaces as seen in this digital rendering.
                               </p>
                           </div>
 
@@ -169,6 +174,7 @@
 
                       </div>
                   </div>
+
               </div>
 
               <!-- Photogrammetry Modal -->
@@ -196,6 +202,33 @@
                       </div>
                   </div>
               </div>
+			  
+			  <!-- Laser Modal -->
+              <div class="modal fade" id="laserModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content ">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title">Laser Scanning</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body">
+                              <p>
+                                  This image depicts a type of laser scanner that captures digital information about the shape of an object using laser or light to measure the distance between the scanner and an object from many different perspectives. 
+                              </p>
+                          </div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                              <button type="button" class="btn" data-dismiss="modal">Close</button>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>    
 
 			  <!-- Documentation Modal -->
               <div class="modal fade" id="documentationModal">

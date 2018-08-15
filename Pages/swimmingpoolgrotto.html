@@ -105,7 +105,7 @@
                     <ul class="js-scrollable">
                         <li id="li1" class="link"><a data-hotspot-target="0" title="Amorino"><span class="index">&sccue;</span> Amorino</a></li>
                         <li id="li2" class="link"><a data-hotspot-target="1" title="Ceiling Mural"><span class="index">&sccue;</span>Ceiling Mural</a></li>
-                        <li id="li3" class="link"><a data-hotspot-target="2" title="Sturgeons"><span class="index">&sccue;</span>Sturgeons</a></li>
+                        <li id="li3" class="link"><a data-hotspot-target="2" title="Hudson River Sturgeon"><span class="index">&sccue;</span>Hudson River Sturgeon</a></li>
                         <li id="li4" class="link"><a data-hotspot-target="3" title="Fountains"><span class="index">&sccue;</span>Fountains</a></li>
                         <li id="li5" class="link"><a data-hotspot-target="4" title="Floor"><span class="index">&sccue;</span> Floor</a></li>
                         <li id="li6" class="link"><a data-hotspot-target="5" title="Alligators"><span class="index">&sccue;</span> Alligators</a></li>
@@ -271,16 +271,16 @@
                                                         style="filter: invert(1);" />
                                                 </span>`);
                         elTitle.find("img[name=action_set_scene]").click((event) => {
-							changeHotspotName("Sturgeons");
+							changeHotspotName("Hudson River Sturgeon");
 						});
-                        elTitle.toString = () => "Hudson River Sturgeons";
+                        elTitle.toString = () => "Hudson River Sturgeon";
 
                         let aAbout3 = new Potree.Annotation({
                             position: [-27.864, 2.535, 0.135],
                             title: elTitle,
                             cameraPosition: [-28.826, 1.887, -3.110],
                             cameraTarget: [-28.826, 1.887, 0.219],
-                            description: `HUDSON RIVER STURGEONS<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several preservation attempts. This was intended to mimic the iridescence of fish scales glimmering in the water. Sturgeon are not native to Miami, but rather to artist Robert Winthrop Chanler’s New York home.
+                            description: `HUDSON RIVER STURGEON<hr>Originally, nearly all the fish were covered with metallic paint, now buried beneath several preservation attempts. This was intended to mimic the iridescence of fish scales glimmering in the water. Sturgeon are not native to Miami, but rather to artist Robert Winthrop Chanler’s New York home.
                                 `});
 
                         sceneSG.annotations.add(aAbout3);
@@ -551,7 +551,7 @@
                 hideDescription(5);
             }
             function item3() {
-				changeHotspotName("Sturgeons");
+				changeHotspotName("Hudson River Sturgeon");
                 sceneSG.annotations.children[3].moveHere(sceneSG.camera);
                 showDescription(3);
                 hideDescription(1);
