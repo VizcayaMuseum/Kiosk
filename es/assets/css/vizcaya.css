@@ -1247,7 +1247,7 @@ a {
     width: auto;
     position: absolute;
     top: 58.5%;
-    left: 18%;
+    left: 18.5%;
     z-index: 100;
 }
 
@@ -1443,7 +1443,7 @@ a {
     position: absolute;
     z-index: 4;
     top: 51%;
-    left: 13%;
+    left: 13.5%;
 }
 
 #grotto_marker_img {
@@ -1452,7 +1452,7 @@ a {
     position: absolute;
     z-index: 4;
     top: 51%;
-    left: 13%;
+    left: 13.5%;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
     animation-name: mapAnimation;
