@@ -1221,10 +1221,10 @@ a {
     height: auto;
     width: auto;
     position: absolute;
-	top: 12.7%;
-	right: 23.7%;
+    top: 12.7%;
+    right: 23.7%;
     z-index: 100;
-	animation: mapAnimation 1s ease-in-out infinite alternate;
+    animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
     animation-name: mapAnimation;
 }
@@ -1235,8 +1235,8 @@ a {
     height: auto;
     width: auto;
     position: absolute;
-	top: 59%;
-	left: 18%;
+    top: 59%;
+    left: 18%;
     z-index: 100;
 }
 
@@ -1246,8 +1246,8 @@ a {
     height: auto;
     width: auto;
     position: absolute;
-	top: 58%;
-	left: 18%;
+    top: 58%;
+    left: 18%;
     z-index: 100;
 }
 
@@ -1410,7 +1410,7 @@ a {
     height: 100px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
-	z-index: 4;
+    z-index: 4;
 }
 
 @-webkit-keyframes spin {
