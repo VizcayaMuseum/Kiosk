@@ -1442,7 +1442,7 @@ a {
     width: 38px;
     position: absolute;
     z-index: 4;
-    top: 51%;
+    top: 51.5%;
     left: 13.5%;
 }
 
@@ -1451,7 +1451,7 @@ a {
     width: 35px;
     position: absolute;
     z-index: 4;
-    top: 51%;
+    top: 51.5%;
     left: 13.5%;
     animation: mapAnimation 1s ease-in-out infinite alternate;
     -webkit-animation-name: mapAnimation;
