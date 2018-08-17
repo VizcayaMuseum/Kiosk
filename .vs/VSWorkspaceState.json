@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\build",
+    "\\build\\potree",
     "\\Pages"
   ],
-  "SelectedNode": "\\Pages\\1916barge.html",
+  "SelectedNode": "\\build\\potree\\potree.js",
   "PreviewInSolutionExplorer": false
 }
