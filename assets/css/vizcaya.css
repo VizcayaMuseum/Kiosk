@@ -246,7 +246,7 @@ h1, h2, h3, h4 {
 
 #lang_selected {
     font-weight: 900;
-    border-bottom: #015289 solid 5px;
+    border-bottom: #3D9FD6 solid 5px; /*#015289*/
 }
 
 
