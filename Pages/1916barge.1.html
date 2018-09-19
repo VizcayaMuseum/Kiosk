@@ -184,51 +184,6 @@
             }
         }
 
-        function idleTimer() {
-            var t;
-            //Trouble shoot for time function for popup
-            /*
-            if (xTrue == false) {
-
-                alert("hello");
-            }
-            */
-            //window.onload = resetTimer;
-            window.onmousemove = resetTimer; // catches mouse movements
-            window.onmousedown = resetTimer; // catches mouse movements
-            window.ontouchstart = resetTimer;
-            window.ontouchmove = resetTimer;
-            window.onclick = resetTimer;     // catches mouse clicks
-            window.onscroll = resetTimer;    // catches scrolling
-            window.onkeypress = resetTimer;  //catches keyboard actions
-
-            //Trouble shoot for time function for popup
-            /*
-            popup.onmousemove = resetTimer; // catches mouse movements
-            popup.onmousedown = resetTimer; // catches mouse movements
-            popup.ontouchstart = resetTimer;
-            popup.ontouchmove = resetTimer;
-            popup.onclick = resetTimer;     // catches mouse clicks
-            popup.onscroll = resetTimer;    // catches scrolling
-            popup.onkeypress = resetTimer;  //catches keyboard actions
-            */
-
-
-            function logout() {
-
-                window.top.location.href = '../index.html';  //Adapt to actual logout script
-            }
-            function resetTimer() {
-
-                clearTimeout(t);
-                t = setTimeout(logout, 300000);  // time is in milliseconds (1000 is 1 second)/
-
-            }
-
-
-        }
-        idleTimer();
-
 
         window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
@@ -249,13 +204,13 @@
         viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
         viewer.loadSettingsFromURL();
 
-        /*
+        
         viewer.loadGUI(() => {
             viewer.setLanguage('en');
             $("#menu_tools").next().show();
-            //viewer.toggleSidebar();
+            viewer.toggleSidebar();
         });
-		*/
+		
 
         viewer.setDescription(``);
 
@@ -267,9 +222,21 @@
 
         {
             let scene = viewer.scene;
-            scene.view.position.set(589105.366, 231218.924, 968.219);
-            scene.view.lookAt(new THREE.Vector3(589609.432, 231679.064, 692.467));
+            scene.view.position.set(596487.866, 236020.478, -2260.736);
+            scene.view.lookAt(new THREE.Vector3(589733.278, 227120.208, -5844.276));
         }
+
+
+        var light;
+
+        light = new THREE.HemisphereLight(0x6c6660, 0x444444, 1);
+        light.position.set(0.5, 0, 0);
+        viewer.scene.scene.add(light);
+
+        //light = new THREE.DirectionalLight(0x6c6660, 1);
+        //light.position.set(0, 1, 0);
+        //viewer.scene.scene.add(light);
+
 
 		//Reading address
 		var src = document.referrer;
@@ -280,7 +247,7 @@
             let manager = new THREE.LoadingManager();
             manager.onProgress = function (item, loaded, total) {
                 console.log(item, loaded, total);
-				if (loaded == 10) {
+				if (loaded == 8) {
 					document.getElementById('potree_render_area').style.display = "block";
 					document.getElementById('loader').style.display = "none";
 
@@ -345,7 +312,7 @@
             let onError = function (xhr) { };
 
             let loader = new THREE.GLTFLoader(manager);
-            loader.load('http://localhost/vizcaya/3dmodels/gltf/1917barge/scene.gltf', function (gltf) {
+            loader.load('http://localhost/vizcaya/3dmodels/gltf/1916barge/scene.gltf', function (gltf) {
                 /*
                 gltf.scene.traverse(function (child) {
                     if (child instanceof THREE.Mesh) {
@@ -375,6 +342,8 @@
 
                     //tree.jstree("open_node", parentNode);
                 });
+                
+                
 
 
             }, onProgress, onError);
