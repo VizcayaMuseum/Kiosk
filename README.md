@@ -3,7 +3,7 @@
 ![Sample screenshot](https://raw.githubusercontent.com/VizcayaMuseum/kiosk/master/assets/img/readme-pic.PNG "Screenshot")
 
 <p align="center">This is a Kiosk web application using Potree WebGL point cloud viewer and three.js.</p>
-<p align="center">This project includes custom pointclouds converted with PotreeConverter. Visit the web-based version at https://virtualvizcaya.org</p>
+<p align="center">This project includes custom pointclouds converted with PotreeConverter. Visit the web-based version at https://virtualvizcaya.org and the website GitHub repository at https://github.com/VizcayaMuseum/VirtualVizcaya</p>
 
 ## Features
 * Fullscreen HTML5 API
